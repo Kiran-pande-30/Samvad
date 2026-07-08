@@ -29,15 +29,11 @@ export async function GET(request: NextRequest) {
       .eq('id', userData.user.id)
       .single()
 
-    if (profileError) {
-      return NextResponse.redirect(new URL('/onboarding', origin))
+    if (profileError || !profile.onboarding_completed) {
+      return NextResponse.redirect(new URL('/', origin))
     }
 
-    if (profile.onboarding_completed) {
-      return NextResponse.redirect(new URL('/home', origin))
-    } else {
-      return NextResponse.redirect(new URL('/onboarding', origin))
-    }
+    return NextResponse.redirect(new URL('/', origin))
   } catch {
     return NextResponse.redirect(new URL('/login?error=auth', origin))
   }
