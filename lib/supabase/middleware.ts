@@ -1,6 +1,9 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
+export const PROTECTED_PATHS = ['/profile', '/lesson', '/api/me']
+export const AUTH_PAGES = ['/login', '/signup']
+
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request })
 
@@ -31,9 +34,10 @@ export async function updateSession(request: NextRequest) {
 
   const { pathname } = request.nextUrl
 
-  const protectedPaths = ['/home', '/lesson', '/api/me']
-  const isProtected = protectedPaths.some((p) => pathname.startsWith(p))
-  const isAuthPage = pathname === '/login' || pathname === '/signup'
+  const isProtected = PROTECTED_PATHS.some((p) =>
+    p === '/' ? pathname === '/' : pathname.startsWith(p)
+  )
+  const isAuthPage = AUTH_PAGES.includes(pathname)
 
   if (isProtected && !user) {
     const url = request.nextUrl.clone()
@@ -43,7 +47,7 @@ export async function updateSession(request: NextRequest) {
 
   if (isAuthPage && user) {
     const url = request.nextUrl.clone()
-    url.pathname = '/home'
+    url.pathname = '/profile'
     return NextResponse.redirect(url)
   }
 

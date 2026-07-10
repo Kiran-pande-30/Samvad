@@ -1,65 +1,233 @@
-import Image from "next/image";
+'use client'
 
-export default function Home() {
+import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import { createClient } from '@/lib/supabase/client'
+import MobileNavBar from '@/components/MobileNavBar'
+
+function SamvadIllustration() {
+  const ink = '#111111'
+  const globeStroke = '#DDDDE4'
+  const bubble1 = '#FF5C3F'
+  const bubble2 = '#F5B400'
+  const bubble3 = '#3D6FFF'
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <svg viewBox="0 0 330 300" fill="none" xmlns="http://www.w3.org/2000/svg"
+      className="w-full h-full block overflow-visible">
+      <circle cx="175" cy="155" r="120" stroke={globeStroke} strokeWidth="1.5"/>
+      <ellipse cx="175" cy="155" rx="120" ry="34" stroke={globeStroke} strokeWidth="1.5"/>
+      <ellipse cx="175" cy="108" rx="100" ry="27" stroke={globeStroke} strokeWidth="1.5"/>
+      <ellipse cx="175" cy="202" rx="100" ry="27" stroke={globeStroke} strokeWidth="1.5"/>
+      <ellipse cx="175" cy="65"  rx="58"  ry="16" stroke={globeStroke} strokeWidth="1.5"/>
+      <ellipse cx="175" cy="244" rx="58"  ry="16" stroke={globeStroke} strokeWidth="1.5"/>
+      <ellipse cx="175" cy="155" rx="44"  ry="120" stroke={globeStroke} strokeWidth="1.5"/>
+      <ellipse cx="175" cy="155" rx="88"  ry="120" stroke={globeStroke} strokeWidth="1.5"/>
+      <rect x="104" y="166" width="44" height="60" rx="11" fill="#C5D9F8" stroke={ink} strokeWidth="2"/>
+      <path d="M114 166 Q128 157 142 166" stroke={ink} strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+      <rect x="113" y="183" width="26" height="19" rx="4.5" fill="white" stroke={ink} strokeWidth="1.5"/>
+      <line x1="113" y1="208" x2="131" y2="208" stroke={ink} strokeWidth="1" strokeDasharray="3.5 2.5"/>
+      <path d="M146 170 Q141 196 143 246 L209 246 Q211 196 208 170 Q199 160 177 159 Q155 160 146 170Z"
+        fill="white" stroke={ink} strokeWidth="2.2" strokeLinejoin="round"/>
+      <path d="M207 181 Q232 194 236 222 L236 246"
+        stroke={ink} strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+      <rect x="225" y="228" width="24" height="40" rx="5.5" fill={ink}/>
+      <rect x="227" y="231" width="20" height="34" rx="3.5" fill="white"/>
+      <circle cx="237" cy="265" r="2" fill={ink}/>
+      <path d="M169 139 L167 161 L185 161 L184 139Z" fill="white" stroke={ink} strokeWidth="2"/>
+      <circle cx="175" cy="103" r="35" fill="white" stroke={ink} strokeWidth="2.5"/>
+      <path d="M140 101 Q135 111 140 121" stroke={ink} strokeWidth="2" fill="none" strokeLinecap="round"/>
+      <path d="M210 101 Q215 111 210 121" stroke={ink} strokeWidth="2" fill="none" strokeLinecap="round"/>
+      <path d="M141 99 Q148 74 175 71 Q202 74 209 99 Q204 81 175 78 Q146 81 141 99Z" fill="#1A1A1A"/>
+      <path d="M140 100 Q148 64 175 62 Q202 64 210 100"
+        stroke={ink} strokeWidth="3" fill="none" strokeLinecap="round"/>
+      <rect x="130" y="98"  width="14" height="24" rx="7" fill={ink}/>
+      <rect x="210" y="98"  width="14" height="24" rx="7" fill={ink}/>
+      <circle cx="165" cy="107" r="9" fill="none" stroke={ink} strokeWidth="2"/>
+      <circle cx="185" cy="107" r="9" fill="none" stroke={ink} strokeWidth="2"/>
+      <line x1="174" y1="107" x2="176" y2="107" stroke={ink} strokeWidth="2" strokeLinecap="round"/>
+      <line x1="156" y1="107" x2="152" y2="105" stroke={ink} strokeWidth="1.5" strokeLinecap="round"/>
+      <line x1="194" y1="107" x2="198" y2="105" stroke={ink} strokeWidth="1.5" strokeLinecap="round"/>
+      <circle cx="52" cy="136" r="43" fill={bubble1}/>
+      <path d="M92 150 L114 162 L89 166Z" fill={bubble1}/>
+      <text x="52" y="144" textAnchor="middle" fontSize={18}
+        fontFamily="'Noto Sans', 'Noto Sans Devanagari', serif" fontWeight="600" fill="white">
+        नमस्ते
+      </text>
+      <rect x="224" y="52" width="98" height="62" rx="19" fill={bubble2}/>
+      <path d="M236 112 L222 130 L254 120Z" fill={bubble2}/>
+      <text x="273" y="94" textAnchor="middle" fontSize="36"
+        fontFamily="'DM Sans', sans-serif" fontWeight="700" fill="white">Hi</text>
+      <rect x="227" y="248" width="86" height="56" rx="17" fill={bubble3}/>
+      <path d="M240 248 L226 233 L258 243Z" fill={bubble3}/>
+      <circle cx="263" cy="270" r="14" fill="rgba(255,255,255,0.22)"/>
+      <path d="M259 264 L259 276 L271 270Z" fill="white"/>
+      <circle cx="292" cy="258" r="4.5" fill="white" fillOpacity="0.55"/>
+      <circle cx="303" cy="273" r="3"   fill="white" fillOpacity="0.4"/>
+      <circle cx="290" cy="285" r="2.5" fill="white" fillOpacity="0.5"/>
+    </svg>
+  )
+}
+
+interface Lesson {
+  id: string
+  title: string
+  intro_text: string
+  module_id: string
+  order_index: number
+}
+
+interface Module {
+  id: string
+  title: string
+  description: string
+  order_index: number
+  is_locked_initially: boolean
+  lessons: Lesson[]
+}
+
+export default function RootPage() {
+  const router = useRouter()
+  const [user, setUser] = useState<{ email?: string } | null>(null)
+  const [modules, setModules] = useState<Module[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const supabase = createClient()
+      const { data: { user } } = await supabase.auth.getUser()
+      setUser(user)
+
+      if (user) {
+        const profile = await fetch('/api/me')
+        const profileData = await profile.json()
+
+        if (profileData.active_language_pair?.slug) {
+          const modulesResponse = await fetch(`/api/modules?language_pair=${profileData.active_language_pair.slug}`)
+          let modulesData = await modulesResponse.json()
+
+          // Handle if response is wrapped in an object
+          if (!Array.isArray(modulesData)) {
+            modulesData = []
+          }
+
+          // Fetch lessons for each module
+          const modulesWithLessons = await Promise.all(
+            modulesData.map(async (module: any) => {
+              const lessonsResponse = await fetch(`/api/modules/${module.id}/lessons`)
+              const lessons = await lessonsResponse.json()
+              return {
+                ...module,
+                lessons: Array.isArray(lessons) ? lessons : [],
+              }
+            })
+          )
+
+          setModules(modulesWithLessons)
+        }
+      }
+
+      setLoading(false)
+    }
+    checkAuth()
+  }, [])
+
+  if (loading) return null
+
+  if (user) {
+    return (
+      <div className="flex flex-col min-h-dvh pb-16">
+        <div className="fixed inset-0 flex justify-center">
+          <div className="w-full max-w-107.5 min-h-dvh bg-white flex flex-col px-7 pt-6 pb-10">
+            <div className="flex items-center justify-between shrink-0 mb-8">
+              <h1 className="text-[32px] font-bold text-[#111111]">Learning Path</h1>
+              <button
+                onClick={() => router.push('/profile')}
+                className="w-10 h-10 rounded-full bg-[#F0F0F0] flex items-center justify-center text-[18px] font-semibold text-[#111111] hover:bg-[#E0E0E0] transition-colors"
+              >
+                ⚙️
+              </button>
+            </div>
+
+            {modules.length > 0 ? (
+              <div className="flex-1 overflow-y-auto space-y-8">
+                {modules.map((module) => (
+                  <div key={module.id}>
+                    <div className="mb-4">
+                      <h2 className="text-[22px] font-bold text-[#111111]">
+                        {module.title}
+                      </h2>
+                      {module.description && (
+                        <p className="text-sm text-[#8A8A96] mt-1">
+                          {module.description}
+                        </p>
+                      )}
+                    </div>
+
+                    {module.lessons.length > 0 ? (
+                      <div className="space-y-3">
+                        {module.lessons.map((lesson) => (
+                          <button
+                            key={lesson.id}
+                            onClick={() => router.push(`/lesson/${lesson.id}`)}
+                            className="w-full p-4 bg-white border border-[#E0E0E0] rounded-2xl text-left hover:border-[#111111] hover:shadow-md transition-all cursor-pointer"
+                          >
+                            <h3 className="font-semibold text-[#111111]">
+                              {lesson.title}
+                            </h3>
+                            <p className="text-sm text-[#8A8A96] mt-2">
+                              {lesson.intro_text}
+                            </p>
+                          </button>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="p-4 bg-[#F9F9F9] rounded-2xl border border-[#E0E0E0]">
+                        <p className="text-sm text-[#8A8A96]">No lessons available</p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="flex-1 flex items-center justify-center">
+                <p className="text-[#8A8A96]">No modules available</p>
+              </div>
+            )}
+          </div>
+        </div>
+        <MobileNavBar />
+      </div>
+    )
+  }
+
+  return (
+    <div className="fixed inset-0 flex justify-center">
+      <div className="w-full max-w-107.5 min-h-dvh bg-white flex flex-col px-7 pt-16 pb-10">
+
+        <h1 className="text-[38px] font-bold leading-[1.16] tracking-[-1px] text-[#111111] shrink-0">
+          Talk Across Languages
+        </h1>
+
+        <div className="flex-1 flex items-center justify-center min-h-0 -mx-1 my-2">
+          <SamvadIllustration />
+        </div>
+
+        <div className="shrink-0">
+          <p className="text-base font-normal leading-[1.58] text-[#8A8A96] mb-6">
+            Built for India&apos;s closely connected languages.
           </p>
+
+          <button
+            onClick={() => router.push('/login')}
+            className="w-full h-14.5 bg-[#FF5C3F] text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-between pl-7.5 pr-4.5 cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150">
+            <span>Start Learning</span>
+            <div className="w-9.5 h-9.5 bg-white/18 rounded-full flex items-center justify-center text-[19px] leading-none">
+              →
+            </div>
+          </button>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </div>
     </div>
-  );
+  )
 }
