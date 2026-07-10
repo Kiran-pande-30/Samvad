@@ -2,12 +2,12 @@
 
 MiniMax stages itself as a Chinese AI infrastructure brand with a sophisticated dual identity. Marketing surfaces and platform pages anchor in stark white canvas with deep-black typographic emphasis — the brand voice is confident, technical, almost editorial. But each model release gets its own vibrant gradient identity card: M2.7 in volcanic coral-red, Music 2.6 in magenta-pink, Hailuo in deep blue, Speech 2.8 in saturated orange-purple. Together these vibrant tiles read like album covers laid out on the homepage — each one declaring its own product personality.
 
-DM Sans anchors every surface from oversized 80px hero displays down to 12px micro labels. The geometric, slightly humanist character of the face suits both the dense documentation surfaces (where 14px body type carries 1.5 line-height for long-form prose) and the high-impact marketing displays (where -2px letter-spacing tightens 80px headlines). Buttons are universally pill-shaped (`rounded-full`) with a sharp two-tier system: black-pill primary (the dominant CTA) and outline-pill secondary. Cards split into two distinct families: vibrant gradient product showcases (32px corner softening) and quiet white documentation cards (16px corner softening).
+Noto Sans anchors every surface from oversized 80px hero displays down to 12px micro labels, including Devanagari-script text. The humanist, highly legible character of the face suits both the dense documentation surfaces (where 14px body type carries 1.5 line-height for long-form prose) and the high-impact marketing displays (where -2px letter-spacing tightens 80px headlines). Buttons are universally pill-shaped (`rounded-full`) with a sharp two-tier system: black-pill primary (the dominant CTA) and outline-pill secondary. Cards split into two distinct families: vibrant gradient product showcases (32px corner softening) and quiet white documentation cards (16px corner softening).
 
 **Key Characteristics:**
 - Stark monochrome palette — black ({colors.primary}) and white ({colors.canvas}) — broken open by saturated brand-color gradient cards
 - Distinct product-color encoding: each model line has its own vibrant brand color (coral M2.7, magenta Music 2.6, blue Hailuo, orange Speech 2.8)
-- DM Sans across the entire system; Inter as fallback
+- Noto Sans across the entire system; Inter as fallback
 - Pill-shaped buttons ({rounded.full}) and pill-shaped tabs everywhere; rectangular forms only inside data tables and dense docs
 - Hero typography uses tight 1.10 line-height with -2px letter-spacing for impact
 - Documentation surfaces use a 3-column layout: left sidebar nav, center prose body, right table-of-contents
@@ -51,9 +51,9 @@ DM Sans anchors every surface from oversized 80px hero displays down to 12px mic
 ## Typography
 
 ### Font Family
-**DM Sans** (primary): Geometric variable sans-serif. Used across every surface, every role. Fallbacks: Inter, Helvetica Neue, Helvetica, Arial.
+**Noto Sans** (primary): Humanist sans-serif with Latin and Devanagari coverage. Used across every surface, every role. Fallbacks: Inter, Helvetica Neue, Helvetica, Arial.
 
-DM Sans was chosen for its dual fluency: it scales cleanly from 80px hero displays (where -2px letter-spacing creates magazine-grade tightness) down to 12px micro labels (where the slightly humanist counters maintain legibility). The face has no italic variant in the brand's deployment — emphasis comes from weight (500/600/700) instead.
+Noto Sans was chosen for its dual fluency: it scales cleanly from 80px hero displays (where -2px letter-spacing creates magazine-grade tightness) down to 12px micro labels (where the counters maintain legibility), while also natively supporting Devanagari script for language-learning content. The face has no italic variant in the brand's deployment — emphasis comes from weight (500/600/700) instead.
 
 ### Hierarchy
 
@@ -79,7 +79,7 @@ DM Sans was chosen for its dual fluency: it scales cleanly from 80px hero displa
 - **Tight hero leading** (1.10) and aggressive negative letter-spacing on display sizes create a magazine-quality typographic display unique to MiniMax.
 - **Generous body leading** (1.50) keeps long-form documentation comfortable; captions push to 1.70 for scientific-paper-grade clarity.
 - **Weight discipline:** 400 (body), 500 (medium emphasis), 600 (headings/buttons), 700 (strong inline emphasis). Heavier weights are not used.
-- **Single typeface** strategy — never mix DM Sans with another sans-serif. Code samples (when shown) use a system monospace fallback, but no second typeface enters the brand canvas.
+- **Single typeface** strategy — never mix Noto Sans with another sans-serif. Code samples (when shown) use a system monospace fallback, but no second typeface enters the brand canvas.
 
 ## Layout
 
@@ -312,7 +312,7 @@ The system runs predominantly flat. Elevation is reserved for sticky panels, dro
 ### Don't
 - Don't use brand-coral or brand-magenta on body text or large surfaces — they lose meaning when overused.
 - Don't soften corners on buttons (anything less than `{rounded.full}`); the pill is a brand signature.
-- Don't introduce a second display typeface; DM Sans handles every role.
+- Don't introduce a second display typeface; Noto Sans handles every role.
 - Don't reduce hero leading below 1.10 — the brand needs that breathing room on the 80px display.
 - Don't apply heavy shadows on white cards; flat-with-borders is the documentation default.
 - Don't put gradient backgrounds on standard buttons; gradients are reserved for product-card identity moments.

@@ -47,7 +47,7 @@ export default function MobileNavBar() {
               {icon}
             </span>
             <span
-              className="text-[11px] font-[family-name:var(--font-dm-sans)] font-medium leading-none transition-colors duration-150"
+              className="text-[11px] font-medium leading-none transition-colors duration-150"
               style={{ color: isActive ? "#0a0a0a" : "#9CA3AF" }}
             >
               {label}
