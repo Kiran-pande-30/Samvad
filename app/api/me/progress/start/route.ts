@@ -1,12 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
-import type { SupabaseClient } from '@supabase/supabase-js'
-
-async function getAuthenticatedUser(supabase: SupabaseClient) {
-  const { data: { user }, error } = await supabase.auth.getUser()
-  if (error || !user) return null
-  return user
-}
+import { getAuthenticatedUser } from '@/lib/data/auth'
+import { startLesson } from '@/lib/data/progress'
 
 export async function POST(request: Request) {
   const supabase = await createClient()
@@ -25,24 +20,10 @@ export async function POST(request: Request) {
     )
   }
 
-  const { error } = await supabase
-    .from('user_progress')
-    .upsert(
-      {
-        user_id: user.id,
-        lesson_id: body.lesson_id,
-        module_id: body.module_id,
-        status: 'in_progress',
-      },
-      { onConflict: 'user_id,lesson_id' }
-    )
-
-  if (error) {
-    return NextResponse.json(
-      { error: 'Failed to save progress' },
-      { status: 500 }
-    )
+  try {
+    await startLesson(supabase, user.id, body.lesson_id, body.module_id)
+    return NextResponse.json({ status: 'in_progress' })
+  } catch {
+    return NextResponse.json({ error: 'Failed to save progress' }, { status: 500 })
   }
-
-  return NextResponse.json({ status: 'in_progress' })
 }

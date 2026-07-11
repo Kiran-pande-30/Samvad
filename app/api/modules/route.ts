@@ -1,5 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
+import { getModulesByLanguagePair } from '@/lib/data/modules'
+import { NotFoundError } from '@/lib/data/errors'
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
@@ -14,44 +16,13 @@ export async function GET(request: Request) {
 
   const supabase = await createClient()
 
-  // Look up the language pair by slug
-  const { data: pair, error: pairError } = await supabase
-    .from('language_pairs')
-    .select('id')
-    .eq('slug', languagePair)
-    .eq('is_active', true)
-    .single()
-
-  if (pairError || !pair) {
-    return NextResponse.json(
-      { error: 'Language pair not found' },
-      { status: 404 }
-    )
+  try {
+    const modules = await getModulesByLanguagePair(supabase, languagePair)
+    return NextResponse.json(modules)
+  } catch (e) {
+    if (e instanceof NotFoundError) {
+      return NextResponse.json({ error: e.message }, { status: 404 })
+    }
+    return NextResponse.json({ error: 'Failed to fetch modules' }, { status: 500 })
   }
-
-  // Fetch modules with lesson count
-  const { data: modules, error: modulesError } = await supabase
-    .from('modules')
-    .select('*, lessons(count)')
-    .eq('language_pair_id', pair.id)
-    .order('order_index', { ascending: true })
-
-  if (modulesError) {
-    return NextResponse.json(
-      { error: 'Failed to fetch modules' },
-      { status: 500 }
-    )
-  }
-
-  // Shape the response — extract lesson_count from nested count
-  const result = modules.map((m: any) => ({
-    id: m.id,
-    title: m.title,
-    description: m.description,
-    order_index: m.order_index,
-    is_locked_initially: m.is_locked_initially,
-    lesson_count: m.lessons[0].count,
-  }))
-
-  return NextResponse.json(result)
 }

@@ -2,7 +2,7 @@
 
 import { useRouter, useParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
-import MobileNavBar from '@/components/MobileNavBar'
+import MobileNavBar from '@/components/nav/MobileNavBar'
 import LessonEngine from '@/components/lesson/LessonEngine'
 import type { LessonStep, Phrase, StepAttempt } from '@/components/lesson/types'
 

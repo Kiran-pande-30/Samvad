@@ -3,7 +3,8 @@
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
-import MobileNavBar from '@/components/MobileNavBar'
+import MobileNavBar from '@/components/nav/MobileNavBar'
+import { Button } from '@/components/ui/button'
 
 function SamvadIllustration() {
   const ink = '#111111'

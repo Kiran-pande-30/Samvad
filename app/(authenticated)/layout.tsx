@@ -1,10 +1,10 @@
-import MobileNavBar from "@/components/MobileNavBar";
+import MobileNavBar from "@/components/nav/MobileNavBar";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-col min-h-dvh pb-16">
       {children}
-      <MobileNavBar />
+      {/* <MobileNavBar /> */}
     </div>
   );
 }
