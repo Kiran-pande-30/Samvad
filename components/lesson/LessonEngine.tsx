@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import StepCardShell from './StepCardShell'
 import { renderStep } from './stepRegistry'
 import type { LessonStep, Phrase, StepAnswer, StepAttempt } from './types'
@@ -18,6 +18,33 @@ export default function LessonEngine({ steps, phrasesById, onComplete }: LessonE
 
   const step = steps[currentIndex]
   const phrase = phrasesById.get(step.phrase_id)
+  const isContextStep = step.step_type === 'context'
+
+  const interactiveSteps = useMemo(
+    () => steps.filter((s) => s.step_type !== 'context'),
+    [steps]
+  )
+
+  useEffect(() => {
+    if (!isContextStep) return
+
+    const nextAttempts = [
+      ...attempts,
+      { step_id: step.id, phrase_id: step.phrase_id, is_correct: true },
+    ]
+
+    if (currentIndex === steps.length - 1) {
+      onComplete(nextAttempts)
+      return
+    }
+
+    /* eslint-disable react-hooks/set-state-in-effect -- auto-advances past non-interactive context steps */
+    setAttempts(nextAttempts)
+    setPendingAnswer(null)
+    setCurrentIndex((prev) => prev + 1)
+    /* eslint-enable react-hooks/set-state-in-effect */
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentIndex])
 
   const handleAnswer = (result: StepAnswer) => {
     setPendingAnswer(result)
@@ -41,16 +68,24 @@ export default function LessonEngine({ steps, phrasesById, onComplete }: LessonE
     setCurrentIndex((prev) => prev + 1)
   }
 
+  if (isContextStep) {
+    return null
+  }
+
+  const stepNumber = interactiveSteps.findIndex((s) => s.id === step.id) + 1
+  const isLastStep = currentIndex === steps.length - 1
+
   return (
     <StepCardShell
-      stepNumber={currentIndex + 1}
-      totalSteps={steps.length}
+      stepNumber={stepNumber}
+      totalSteps={interactiveSteps.length}
       prompt={step.prompt}
       canContinue={pendingAnswer !== null}
       onContinue={handleContinue}
-      continueLabel={currentIndex === steps.length - 1 ? 'Finish' : 'Continue'}
+      continueLabel={isLastStep ? 'Finish' : 'Continue'}
+      hideAction={step.step_type === 'fill_blank'}
     >
-      {renderStep({ step, phrase, onAnswer: handleAnswer })}
+      {renderStep({ step, phrase, onAnswer: handleAnswer, onContinue: handleContinue, isLastStep })}
     </StepCardShell>
   )
 }

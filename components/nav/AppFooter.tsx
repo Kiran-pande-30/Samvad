@@ -21,7 +21,7 @@ export const AppFooter = () => {
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-around bg-white border-t border-[#E5E7EB] h-16 px-4"
+      className="fixed bottom-0 left-1/2 -translate-x-1/2 z-50 flex w-full max-w-107.5 items-center justify-around bg-white border-t border-[#E5E7EB] h-16 px-4"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
       {NAV_ITEMS.map(({ label, href, icon }) => {

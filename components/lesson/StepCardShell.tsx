@@ -6,6 +6,7 @@ interface StepCardShellProps {
   canContinue: boolean
   onContinue: () => void
   continueLabel?: string
+  hideAction?: boolean
 }
 
 export default function StepCardShell({
@@ -16,6 +17,7 @@ export default function StepCardShell({
   canContinue,
   onContinue,
   continueLabel = 'Continue',
+  hideAction = false,
 }: StepCardShellProps) {
   return (
     <div className="flex flex-col flex-1">
@@ -40,13 +42,15 @@ export default function StepCardShell({
         <div className="flex-1">{children}</div>
       </div>
 
-      <button
-        onClick={onContinue}
-        disabled={!canContinue}
-        className="w-full h-14.5 mt-8 bg-[#111111] text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-center cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150 shrink-0 disabled:opacity-40 disabled:cursor-not-allowed disabled:active:scale-100"
-      >
-        {continueLabel}
-      </button>
+      {!hideAction && (
+        <button
+          onClick={onContinue}
+          disabled={!canContinue}
+          className="w-full h-14.5 mt-8 bg-[#111111] text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-center cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150 shrink-0 disabled:opacity-40 disabled:cursor-not-allowed disabled:active:scale-100"
+        >
+          {continueLabel}
+        </button>
+      )}
     </div>
   )
 }

@@ -46,7 +46,9 @@ Noto Sans anchors every surface from oversized 80px hero displays down to 12px m
 ### Semantic
 - **Success Background** ({colors.success-bg}): Pale-green wash for success badges and confirmations.
 - **Success Text** ({colors.success-text}): Deep-green ink for success badge labels.
-- Error tones derive from a `#d45656` red used in input border error states (not extracted as a top-level system token).
+- **Error Background** ({colors.error-bg} · `#ffe8e8`): Pale-red wash for error badges.
+- **Error Text** ({colors.error-text} · `#a61b1b`): Deep-red ink for error badge labels.
+- Input border error states derive from a separate `#d45656` red (not extracted as a top-level system token).
 
 ## Typography
 

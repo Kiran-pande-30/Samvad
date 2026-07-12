@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react'
 import type { StepProps } from './types'
 
-export default function FillBlankStepCard({ step, onAnswer }: StepProps) {
+export default function FillBlankStepCard({ step, onAnswer, onContinue, isLastStep }: StepProps) {
   const sentence = typeof step.data.sentence === 'string' ? step.data.sentence : ''
   const wordBank = useMemo(
     () => (Array.isArray(step.data.word_bank) ? (step.data.word_bank as string[]) : []),
@@ -12,7 +12,8 @@ export default function FillBlankStepCard({ step, onAnswer }: StepProps) {
   const blankIndex = typeof step.data.blank_index === 'number' ? step.data.blank_index : -1
 
   const [selected, setSelected] = useState<string | null>(null)
-  const [revealed, setRevealed] = useState(false)
+  const [checked, setChecked] = useState(false)
+  const [isCorrect, setIsCorrect] = useState(false)
 
   const sentenceParts = sentence.split(' ')
   const displayed = sentenceParts
@@ -20,11 +21,38 @@ export default function FillBlankStepCard({ step, onAnswer }: StepProps) {
     .join(' ')
 
   const handleSelect = (word: string) => {
-    if (revealed) return
+    if (checked && isCorrect) return
     setSelected(word)
-    setRevealed(true)
-    onAnswer({ submitted: word, isCorrect: word === step.correct_answer })
+    setChecked(false)
   }
+
+  const handleCheck = () => {
+    if (!selected) return
+    const correct = selected === step.correct_answer
+    setChecked(true)
+    setIsCorrect(correct)
+    onAnswer({ submitted: selected, isCorrect: correct })
+  }
+
+  const handleTryAgain = () => {
+    setSelected(null)
+    setChecked(false)
+    setIsCorrect(false)
+  }
+
+  const handleAction = () => {
+    if (!checked) {
+      handleCheck()
+      return
+    }
+    if (isCorrect) {
+      onContinue()
+      return
+    }
+    handleTryAgain()
+  }
+
+  const actionLabel = !checked ? 'Check' : isCorrect ? (isLastStep ? 'Finish' : 'Continue') : 'Try Again'
 
   return (
     <div className="flex flex-col gap-6">
@@ -35,20 +63,22 @@ export default function FillBlankStepCard({ step, onAnswer }: StepProps) {
       <div className="flex flex-wrap gap-2">
         {wordBank.map((word) => {
           const isSelected = selected === word
-          const isCorrectOption = revealed && word === step.correct_answer
-          const isWrongSelection = revealed && isSelected && word !== step.correct_answer
+          const isCorrectOption = checked && isCorrect && isSelected
+          const isWrongSelection = checked && !isCorrect && isSelected
 
           return (
             <button
               key={word}
               onClick={() => handleSelect(word)}
-              disabled={revealed}
+              disabled={checked && isCorrect}
               className={`px-4 py-2 rounded-lg border text-[15px] font-medium ${
                 isCorrectOption
                   ? 'border-[#2E7D32] bg-[#EAF6EB] text-[#2E7D32]'
                   : isWrongSelection
                     ? 'border-[#d45656] bg-[#FDECEC] text-[#d45656]'
-                    : 'border-[#E0E0E0] bg-white text-[#111111]'
+                    : isSelected
+                      ? 'border-[#111111] bg-[#F9F9F9] text-[#111111]'
+                      : 'border-[#E0E0E0] bg-white text-[#111111]'
               }`}
             >
               {word}
@@ -56,6 +86,18 @@ export default function FillBlankStepCard({ step, onAnswer }: StepProps) {
           )
         })}
       </div>
+
+      {checked && !isCorrect && <p className="text-sm text-[#d45656]">Not quite — try again.</p>}
+
+      <button
+        onClick={handleAction}
+        disabled={!selected}
+        className={`w-full h-12 rounded-full text-[15px] font-semibold disabled:opacity-40 disabled:cursor-not-allowed ${
+          checked && isCorrect ? 'bg-[#111111] text-white' : 'border border-[#111111] text-[#111111]'
+        }`}
+      >
+        {actionLabel}
+      </button>
     </div>
   )
 }

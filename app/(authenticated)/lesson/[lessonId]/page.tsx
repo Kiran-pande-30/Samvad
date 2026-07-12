@@ -14,7 +14,7 @@ interface LessonDetail {
   steps: LessonStep[]
 }
 
-type Screen = 'intro' | 'active' | 'finished'
+type Screen = 'active' | 'finished'
 
 const LessonPage = () => {
   const router = useRouter()
@@ -23,18 +23,23 @@ const LessonPage = () => {
   const [lesson, setLesson] = useState<LessonDetail | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [screen, setScreen] = useState<Screen>('intro')
+  const [screen, setScreen] = useState<Screen>('active')
   const [streak, setStreak] = useState<number | null>(null)
 
   useEffect(() => {
-    const fetchLesson = async () => {
+    const fetchAndStartLesson = async () => {
       try {
         const response = await fetch(`/api/lessons/${lessonId}`)
         if (!response.ok) {
           throw new Error('Failed to fetch lesson')
         }
-        const data = await response.json()
+        const data: LessonDetail = await response.json()
         setLesson(data)
+        await fetch('/api/me/progress/start', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ lesson_id: data.id, module_id: data.module_id }),
+        })
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred')
       } finally {
@@ -43,7 +48,7 @@ const LessonPage = () => {
     }
 
     if (lessonId) {
-      fetchLesson()
+      fetchAndStartLesson()
     }
   }, [lessonId])
 
@@ -52,16 +57,6 @@ const LessonPage = () => {
     lesson?.phrases.forEach((phrase) => map.set(phrase.id, phrase))
     return map
   }, [lesson])
-
-  const handleStart = async () => {
-    if (!lesson) return
-    await fetch('/api/me/progress/start', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ lesson_id: lesson.id, module_id: lesson.module_id }),
-    })
-    setScreen('active')
-  }
 
   const handleComplete = async (attempts: StepAttempt[]) => {
     if (!lesson) return
@@ -117,68 +112,21 @@ const LessonPage = () => {
     )
   }
 
-  if (screen === 'active') {
-    return (
-      <div className="flex-1 flex flex-col px-7 pt-6 pb-10 min-h-0">
-        {lesson.steps.length > 0 ? (
-          <LessonEngine steps={lesson.steps} phrasesById={phrasesById} onComplete={handleComplete} />
-        ) : (
-          <div className="flex-1 flex flex-col items-center justify-center text-center">
-            <p className="text-[#8A8A96]">This lesson has no steps yet.</p>
-            <button
-              onClick={() => router.back()}
-              className="mt-6 px-6 h-11 bg-[#111111] text-white rounded-full font-semibold text-[15px]"
-            >
-              Go Back
-            </button>
-          </div>
-        )}
-      </div>
-    )
-  }
-
   return (
     <div className="flex-1 flex flex-col px-7 pt-6 pb-10 min-h-0">
-      <div className="flex-1 overflow-y-auto">
-        <h1 className="text-[32px] font-bold text-[#111111] leading-[1.2]">
-          {lesson.title}
-        </h1>
-
-        <div className="mt-6 p-6 bg-[#F9F9F9] rounded-2xl border border-[#E0E0E0]">
-          <p className="text-base font-normal leading-[1.58] text-[#333333]">
-            {lesson.intro_text}
-          </p>
+      {lesson.steps.length > 0 ? (
+        <LessonEngine steps={lesson.steps} phrasesById={phrasesById} onComplete={handleComplete} />
+      ) : (
+        <div className="flex-1 flex flex-col items-center justify-center text-center">
+          <p className="text-[#8A8A96]">This lesson has no steps yet.</p>
+          <button
+            onClick={() => router.back()}
+            className="mt-6 px-6 h-11 bg-[#111111] text-white rounded-full font-semibold text-[15px]"
+          >
+            Go Back
+          </button>
         </div>
-
-        {lesson.phrases && lesson.phrases.length > 0 && (
-          <div className="mt-8">
-            <h2 className="text-[20px] font-bold text-[#111111] mb-4">Phrases</h2>
-            <div className="space-y-3">
-              {lesson.phrases.map((phrase) => (
-                <div
-                  key={phrase.id}
-                  className="p-4 bg-white border border-[#E0E0E0] rounded-xl"
-                >
-                  <p className="font-semibold text-[#111111]">{phrase.source}</p>
-                  <p className="text-sm text-[#8A8A96] mt-1">{phrase.target}</p>
-                  {phrase.transliteration && (
-                    <p className="text-sm text-[#8A8A96] mt-1 italic">
-                      {phrase.transliteration}
-                    </p>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-
-      <button
-        onClick={handleStart}
-        className="w-full h-14.5 mt-8 bg-[#111111] text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-center cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150 shrink-0"
-      >
-        Start Lesson
-      </button>
+      )}
     </div>
   )
 }
