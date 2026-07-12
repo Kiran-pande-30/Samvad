@@ -2,7 +2,7 @@
 
 import { useRouter, useParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
-import MobileNavBar from '@/components/nav/MobileNavBar'
+import MobileNavBar from '@/components/nav/AppFooter'
 import LessonEngine from '@/components/lesson/LessonEngine'
 import type { LessonStep, Phrase, StepAttempt } from '@/components/lesson/types'
 
@@ -162,13 +162,6 @@ export default function LessonPage() {
     <div className="flex flex-col min-h-dvh pb-16">
       <div className="fixed inset-0 flex justify-center">
         <div className="w-full max-w-107.5 min-h-dvh bg-white flex flex-col px-7 pt-6 pb-10">
-          <button
-            onClick={() => router.back()}
-            className="mb-6 text-[18px] font-semibold text-[#111111] hover:opacity-70 transition-opacity"
-          >
-            ← Back
-          </button>
-
           <div className="flex-1 overflow-y-auto">
             <h1 className="text-[32px] font-bold text-[#111111] leading-[1.2]">
               {lesson.title}

@@ -2,7 +2,8 @@ import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import { getAuthenticatedUser } from '@/lib/data/auth'
 import { getProfile } from '@/lib/data/profile'
-import MobileNavBar from '@/components/nav/MobileNavBar'
+import MobileNavBar from '@/components/nav/AppFooter'
+import { AppHeader } from '@/components/nav/AppHeader'
 import ModuleList from '@/components/modules/ModuleList'
 import { getModulesWithLessons } from '@/lib/data/modules'
 import { getProgress } from '@/lib/data/progress'
@@ -86,13 +87,7 @@ const RootPage = async () => {
       <>
         <div className="fixed inset-0 flex justify-center">
           <div className="w-full max-w-sm min-h-dvh bg-white flex flex-col overflow-scroll">
-            <div className="flex items-center justify-between shrink-0 my-3 px-4">
-              <h1 className="text-xl font-bold">Samvad</h1>
-              <Link href="/profile"
-                className="w-10 h-10 rounded-full bg-[#F0F0F0] flex items-center justify-center text-lg font-semibold hover:bg-gray-300 transition-colors">
-                ⚙️
-              </Link>
-            </div>
+            <AppHeader />
             <ModuleList modules={modules} progress={progress} />
           </div>
         </div>

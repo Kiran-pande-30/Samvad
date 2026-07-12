@@ -1,4 +1,4 @@
-import MobileNavBar from "@/components/nav/MobileNavBar";
+import MobileNavBar from "@/components/nav/AppFooter";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
