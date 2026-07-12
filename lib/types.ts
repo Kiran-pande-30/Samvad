@@ -46,6 +46,12 @@ export interface ModuleWithLessons extends ModuleSummary {
     lessons: LessonSummary[];
 }
 
+export type LessonState = 'completed' | 'current' | 'upcoming' | 'locked';
+
+export interface LessonWithState extends LessonSummary {
+    state: LessonState;
+}
+
 export interface Phrase {
     id: string;
     lesson_id: string;
@@ -78,14 +84,28 @@ export interface StepAteempty {
     ateempted_at: string;
 }
 
+export type UserProgressStatus = 'not_started' | 'in_progress' | 'completed';
+
 export interface UserProgress {
     id: string;
     user_id: string;
     lesson_id: string;
     module_id: string;
-    status: string;
+    status: UserProgressStatus;
     score: number;
     completed_at: string;
     created_at: string;
-    updated_at: string; 
+    updated_at: string;
+}
+
+export interface ProgressData {
+  lessons: {
+    lesson_id: string;
+    module_id: string;
+    status: UserProgressStatus;
+    completed_at: string | null;
+  }[];
+  modules_completed: string[];
+  streak: number;
+  last_active_date: string | null;
 }

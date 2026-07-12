@@ -5,11 +5,12 @@ import { getProfile } from '@/lib/data/profile'
 import MobileNavBar from '@/components/nav/MobileNavBar'
 import ModuleList from '@/components/modules/ModuleList'
 import { getModulesWithLessons } from '@/lib/data/modules'
+import { getProgress } from '@/lib/data/progress'
 
 const SamvadIllustration = () => {
   const ink = '#111111'
   const globeStroke = '#DDDDE4'
-  const bubble1 = '#FF5C3F'
+  const bubble1 = 'var(--color-coral)'
   const bubble2 = '#F5B400'
   const bubble3 = '#3D6FFF'
 
@@ -79,31 +80,30 @@ const RootPage = async () => {
     const modules = profile.active_language_pair?.slug
       ? await getModulesWithLessons(supabase, profile.active_language_pair.slug)
       : []
+    const progress = await getProgress(supabase, user.id)
 
     return (
-      <div className="flex flex-col min-h-dvh pb-16">
+      <>
         <div className="fixed inset-0 flex justify-center">
-          <div className="w-full max-w-107.5 min-h-dvh bg-white flex flex-col px-7 pt-6 pb-10">
-            <div className="flex items-center justify-between shrink-0 mb-8">
-              <h1 className="text-[32px] font-bold text-[#111111]">Samvad</h1>
-              <Link
-                href="/profile"
-                className="w-10 h-10 rounded-full bg-[#F0F0F0] flex items-center justify-center text-[18px] font-semibold text-[#111111] hover:bg-[#E0E0E0] transition-colors"
-              >
+          <div className="w-full max-w-sm min-h-dvh bg-white flex flex-col overflow-scroll">
+            <div className="flex items-center justify-between shrink-0 my-3 px-4">
+              <h1 className="text-xl font-bold">Samvad</h1>
+              <Link href="/profile"
+                className="w-10 h-10 rounded-full bg-[#F0F0F0] flex items-center justify-center text-lg font-semibold hover:bg-gray-300 transition-colors">
                 ⚙️
               </Link>
             </div>
-            <ModuleList modules={modules} />
+            <ModuleList modules={modules} progress={progress} />
           </div>
         </div>
         <MobileNavBar />
-      </div>
+      </>
     )
   }
 
   return (
     <div className="fixed inset-0 flex justify-center">
-      <div className="w-full max-w-107.5 min-h-dvh bg-white flex flex-col px-7 pt-16 pb-10">
+      <div className="w-full max-w-sm min-h-dvh bg-white flex flex-col px-7 pt-16 pb-10">
 
         <h1 className="text-[38px] font-bold leading-[1.16] tracking-[-1px] text-[#111111] shrink-0">
           Talk Across Languages
@@ -120,7 +120,7 @@ const RootPage = async () => {
 
           <Link
             href="/login"
-            className="w-full h-14.5 bg-[#FF5C3F] text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-between pl-7.5 pr-4.5 cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150">
+            className="w-full h-14.5 bg-coral text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-between pl-7.5 pr-4.5 cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150">
             <span>Start Learning</span>
             <div className="w-9.5 h-9.5 bg-white/18 rounded-full flex items-center justify-center text-[19px] leading-none">
               →

@@ -94,7 +94,7 @@ export default function LessonPage() {
       <div className="flex flex-col min-h-dvh pb-16">
         <div className="fixed inset-0 flex justify-center">
           <div className="w-full max-w-107.5 min-h-dvh bg-white flex flex-col items-center justify-center px-7">
-            <p className="text-[#FF5C3F] font-semibold">{error || 'Lesson not found'}</p>
+            <p className="text-coral font-semibold">{error || 'Lesson not found'}</p>
             <button
               onClick={() => router.back()}
               className="mt-6 px-6 h-11 bg-[#111111] text-white rounded-full font-semibold text-[15px] hover:opacity-90 transition-opacity"

@@ -1,4 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
+import type { ProgressData, UserProgressStatus } from '@/lib/types'
 
 function getYesterday(): string {
   const d = new Date()
@@ -6,7 +7,7 @@ function getYesterday(): string {
   return d.toISOString().split('T')[0]
 }
 
-export async function getProgress(supabase: SupabaseClient, userId: string) {
+export async function getProgress(supabase: SupabaseClient, userId: string): Promise<ProgressData> {
   const [progressResult, profileResult, modulesResult] = await Promise.all([
     supabase
       .from('user_progress')
@@ -57,8 +58,9 @@ export async function startLesson(
   lessonId: string,
   moduleId: string
 ) {
+  const status: UserProgressStatus = 'in_progress'
   const { error } = await supabase.from('user_progress').upsert(
-    { user_id: userId, lesson_id: lessonId, module_id: moduleId, status: 'in_progress' },
+    { user_id: userId, lesson_id: lessonId, module_id: moduleId, status },
     { onConflict: 'user_id,lesson_id' }
   )
 
