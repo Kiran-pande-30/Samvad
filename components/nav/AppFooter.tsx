@@ -16,7 +16,7 @@ const NAV_ITEMS = [
   },
 ] as const;
 
-export default function MobileNavBar() {
+export const AppFooter = () => {
   const pathname = usePathname();
 
   return (
@@ -57,4 +57,4 @@ export default function MobileNavBar() {
       })}
     </nav>
   );
-}
+};

@@ -1,10 +1,16 @@
-import MobileNavBar from "@/components/nav/AppFooter";
+import { AppHeader } from "@/components/nav/AppHeader";
+import { AppFooter } from "@/components/nav/AppFooter";
 
-export default function AppLayout({ children }: { children: React.ReactNode }) {
+const AppLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex flex-col min-h-dvh pb-16">
-      {children}
-      {/* <MobileNavBar /> */}
+    <div className="fixed inset-0 flex justify-center">
+      <div className="w-full max-w-107.5 min-h-dvh bg-white flex flex-col pb-16">
+        <AppHeader />
+        <div className="flex-1 flex flex-col min-h-0">{children}</div>
+      </div>
+      <AppFooter />
     </div>
   );
-}
+};
+
+export default AppLayout;
