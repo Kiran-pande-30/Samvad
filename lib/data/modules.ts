@@ -1,7 +1,8 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { NotFoundError } from './errors'
+import { Module, ModuleWithLessons } from '../types'
 
-export async function getModulesByLanguagePair(supabase: SupabaseClient, languagePairSlug: string) {
+export const getModulesByLanguagePair = async (supabase: SupabaseClient, languagePairSlug: string) => {
   const { data: pair, error: pairError } = await supabase
     .from('language_pairs')
     .select('id')
@@ -19,26 +20,16 @@ export async function getModulesByLanguagePair(supabase: SupabaseClient, languag
 
   if (modulesError) throw new Error('Failed to fetch modules')
 
-  type ModuleRow = {
-    id: string
-    title: string
-    description: string | null
-    order_index: number
-    is_locked_initially: boolean
-    lessons: { count: number }[]
-  }
-
-  return (modules as ModuleRow[]).map((m) => ({
+  return (modules as Module[]).map((m) => ({
     id: m.id,
     title: m.title,
     description: m.description,
     order_index: m.order_index,
-    is_locked_initially: m.is_locked_initially,
-    lesson_count: m.lessons[0].count,
+    is_locked_initially: m.is_locked_initially
   }))
 }
 
-export async function getModuleLessons(supabase: SupabaseClient, moduleId: string) {
+export const getModuleLessons = async (supabase: SupabaseClient, moduleId: string) => {
   const { data: module, error: moduleError } = await supabase
     .from('modules')
     .select('id')
@@ -49,11 +40,22 @@ export async function getModuleLessons(supabase: SupabaseClient, moduleId: strin
 
   const { data: lessons, error: lessonsError } = await supabase
     .from('lessons')
-    .select('id, title, intro_text, order_index')
+    .select('id, title, intro_text, module_id, order_index')
     .eq('module_id', moduleId)
     .order('order_index', { ascending: true })
 
   if (lessonsError) throw new Error('Failed to fetch lessons')
 
   return lessons
+}
+
+export const getModulesWithLessons = async ( supabase: SupabaseClient, languagePairSlug: string): Promise<ModuleWithLessons[]> => {
+  const modules = await getModulesByLanguagePair(supabase, languagePairSlug)
+
+  return Promise.all(
+    modules.map(async (module) => ({
+      ...module,
+      lessons: await getModuleLessons(supabase, module.id),
+    }))
+  )
 }

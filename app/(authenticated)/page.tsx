@@ -1,12 +1,12 @@
-'use client'
-
-import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
-import { createClient } from '@/lib/supabase/client'
+import Link from 'next/link'
+import { createClient } from '@/lib/supabase/server'
+import { getAuthenticatedUser } from '@/lib/data/auth'
+import { getProfile } from '@/lib/data/profile'
 import MobileNavBar from '@/components/nav/MobileNavBar'
-import { Button } from '@/components/ui/button'
+import ModuleList from '@/components/modules/ModuleList'
+import { getModulesWithLessons } from '@/lib/data/modules'
 
-function SamvadIllustration() {
+const SamvadIllustration = () => {
   const ink = '#111111'
   const globeStroke = '#DDDDE4'
   const bubble1 = '#FF5C3F'
@@ -70,131 +70,30 @@ function SamvadIllustration() {
   )
 }
 
-interface Lesson {
-  id: string
-  title: string
-  intro_text: string
-  module_id: string
-  order_index: number
-}
-
-interface Module {
-  id: string
-  title: string
-  description: string
-  order_index: number
-  is_locked_initially: boolean
-  lessons: Lesson[]
-}
-
-export default function RootPage() {
-  const router = useRouter()
-  const [user, setUser] = useState<{ email?: string } | null>(null)
-  const [modules, setModules] = useState<Module[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const checkAuth = async () => {
-      const supabase = createClient()
-      const { data: { user } } = await supabase.auth.getUser()
-      setUser(user)
-
-      if (user) {
-        const profile = await fetch('/api/me')
-        const profileData = await profile.json()
-
-        if (profileData.active_language_pair?.slug) {
-          const modulesResponse = await fetch(`/api/modules?language_pair=${profileData.active_language_pair.slug}`)
-          let modulesData = await modulesResponse.json()
-
-          // Handle if response is wrapped in an object
-          if (!Array.isArray(modulesData)) {
-            modulesData = []
-          }
-
-          // Fetch lessons for each module
-          const modulesWithLessons = await Promise.all(
-            modulesData.map(async (module: any) => {
-              const lessonsResponse = await fetch(`/api/modules/${module.id}/lessons`)
-              const lessons = await lessonsResponse.json()
-              return {
-                ...module,
-                lessons: Array.isArray(lessons) ? lessons : [],
-              }
-            })
-          )
-
-          setModules(modulesWithLessons)
-        }
-      }
-
-      setLoading(false)
-    }
-    checkAuth()
-  }, [])
-
-  if (loading) return null
+const RootPage = async () => {
+  const supabase = await createClient()
+  const user = await getAuthenticatedUser(supabase)
 
   if (user) {
+    const profile = await getProfile(supabase, user.id)
+    const modules = profile.active_language_pair?.slug
+      ? await getModulesWithLessons(supabase, profile.active_language_pair.slug)
+      : []
+
     return (
       <div className="flex flex-col min-h-dvh pb-16">
         <div className="fixed inset-0 flex justify-center">
           <div className="w-full max-w-107.5 min-h-dvh bg-white flex flex-col px-7 pt-6 pb-10">
             <div className="flex items-center justify-between shrink-0 mb-8">
-              <h1 className="text-[32px] font-bold text-[#111111]">Learning Path</h1>
-              <button
-                onClick={() => router.push('/profile')}
+              <h1 className="text-[32px] font-bold text-[#111111]">Samvad</h1>
+              <Link
+                href="/profile"
                 className="w-10 h-10 rounded-full bg-[#F0F0F0] flex items-center justify-center text-[18px] font-semibold text-[#111111] hover:bg-[#E0E0E0] transition-colors"
               >
                 ⚙️
-              </button>
+              </Link>
             </div>
-
-            {modules.length > 0 ? (
-              <div className="flex-1 overflow-y-auto space-y-8">
-                {modules.map((module) => (
-                  <div key={module.id}>
-                    <div className="mb-4">
-                      <h2 className="text-[22px] font-bold text-[#111111]">
-                        {module.title}
-                      </h2>
-                      {module.description && (
-                        <p className="text-sm text-[#8A8A96] mt-1">
-                          {module.description}
-                        </p>
-                      )}
-                    </div>
-
-                    {module.lessons.length > 0 ? (
-                      <div className="space-y-3">
-                        {module.lessons.map((lesson) => (
-                          <button
-                            key={lesson.id}
-                            onClick={() => router.push(`/lesson/${lesson.id}`)}
-                            className="w-full p-4 bg-white border border-[#E0E0E0] rounded-2xl text-left hover:border-[#111111] hover:shadow-md transition-all cursor-pointer"
-                          >
-                            <h3 className="font-semibold text-[#111111]">
-                              {lesson.title}
-                            </h3>
-                            <p className="text-sm text-[#8A8A96] mt-2">
-                              {lesson.intro_text}
-                            </p>
-                          </button>
-                        ))}
-                      </div>
-                    ) : (
-                      <div className="p-4 bg-[#F9F9F9] rounded-2xl border border-[#E0E0E0]">
-                        <p className="text-sm text-[#8A8A96]">No lessons available</p>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="flex-1 flex items-center justify-center">
-                <p className="text-[#8A8A96]">No modules available</p>
-              </div>
-            )}
+            <ModuleList modules={modules} />
           </div>
         </div>
         <MobileNavBar />
@@ -219,16 +118,18 @@ export default function RootPage() {
             Built for India&apos;s closely connected languages.
           </p>
 
-          <button
-            onClick={() => router.push('/login')}
+          <Link
+            href="/login"
             className="w-full h-14.5 bg-[#FF5C3F] text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-between pl-7.5 pr-4.5 cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150">
             <span>Start Learning</span>
             <div className="w-9.5 h-9.5 bg-white/18 rounded-full flex items-center justify-center text-[19px] leading-none">
               →
             </div>
-          </button>
+          </Link>
         </div>
       </div>
     </div>
   )
 }
+
+export default RootPage;
