@@ -25,8 +25,6 @@ export interface StepProps {
   step: LessonStep
   phrase: Phrase | undefined
   onAnswer: (result: StepAnswer) => void
-  onContinue: () => void
-  isLastStep: boolean
 }
 
 export interface StepAttempt {

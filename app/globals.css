@@ -7,6 +7,11 @@
 @theme inline {
   --color-coral: #FF5C3F;
   --color-coral-light: #FF7A60;
+  --color-brand-blue: #1456f0;
+  --color-brand-blue-light: #4d7cf5;
+  --color-surface: #f7f8fa;
+  --color-muted: #a8aab2;
+  --color-stone: #8e8e93;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-noto-sans);

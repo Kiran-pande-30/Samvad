@@ -6,7 +6,6 @@ interface StepCardShellProps {
   canContinue: boolean
   onContinue: () => void
   continueLabel?: string
-  hideAction?: boolean
 }
 
 export default function StepCardShell({
@@ -17,21 +16,12 @@ export default function StepCardShell({
   canContinue,
   onContinue,
   continueLabel = 'Continue',
-  hideAction = false,
 }: StepCardShellProps) {
   return (
     <div className="flex flex-col flex-1">
-      <div className="flex items-center justify-between mb-2">
-        <span className="text-sm font-medium text-[#8A8A96]">
-          Step {stepNumber} of {totalSteps}
-        </span>
-      </div>
-
       <div className="w-full h-2 bg-[#F0F0F0] rounded-full overflow-hidden mb-8">
-        <div
-          className="h-full bg-[#111111] rounded-full transition-[width] duration-300"
-          style={{ width: `${(stepNumber / totalSteps) * 100}%` }}
-        />
+        <div className="h-full bg-[#111111] rounded-full transition-[width] duration-300"
+          style={{ width: `${(stepNumber / totalSteps) * 100}%` }} />
       </div>
 
       <div className="flex-1 flex flex-col">
@@ -42,15 +32,13 @@ export default function StepCardShell({
         <div className="flex-1">{children}</div>
       </div>
 
-      {!hideAction && (
-        <button
-          onClick={onContinue}
-          disabled={!canContinue}
-          className="w-full h-14.5 mt-8 bg-[#111111] text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-center cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150 shrink-0 disabled:opacity-40 disabled:cursor-not-allowed disabled:active:scale-100"
-        >
-          {continueLabel}
-        </button>
-      )}
+      <button
+        onClick={onContinue}
+        disabled={!canContinue}
+        className="w-full h-14.5 mt-8 bg-[#111111] text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-center cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150 shrink-0 disabled:opacity-40 disabled:cursor-not-allowed disabled:active:scale-100"
+      >
+        {continueLabel}
+      </button>
     </div>
   )
 }

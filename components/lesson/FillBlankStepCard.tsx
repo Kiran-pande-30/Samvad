@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react'
 import type { StepProps } from './types'
 
-export default function FillBlankStepCard({ step, onAnswer, onContinue, isLastStep }: StepProps) {
+export default function FillBlankStepCard({ step, onAnswer }: StepProps) {
   const sentence = typeof step.data.sentence === 'string' ? step.data.sentence : ''
   const wordBank = useMemo(
     () => (Array.isArray(step.data.word_bank) ? (step.data.word_bank as string[]) : []),
@@ -13,7 +13,8 @@ export default function FillBlankStepCard({ step, onAnswer, onContinue, isLastSt
 
   const [selected, setSelected] = useState<string | null>(null)
   const [checked, setChecked] = useState(false)
-  const [isCorrect, setIsCorrect] = useState(false)
+
+  const isCorrect = checked && selected === step.correct_answer
 
   const sentenceParts = sentence.split(' ')
   const displayed = sentenceParts
@@ -21,38 +22,16 @@ export default function FillBlankStepCard({ step, onAnswer, onContinue, isLastSt
     .join(' ')
 
   const handleSelect = (word: string) => {
-    if (checked && isCorrect) return
+    if (checked) return
     setSelected(word)
-    setChecked(false)
   }
 
   const handleCheck = () => {
     if (!selected) return
     const correct = selected === step.correct_answer
     setChecked(true)
-    setIsCorrect(correct)
     onAnswer({ submitted: selected, isCorrect: correct })
   }
-
-  const handleTryAgain = () => {
-    setSelected(null)
-    setChecked(false)
-    setIsCorrect(false)
-  }
-
-  const handleAction = () => {
-    if (!checked) {
-      handleCheck()
-      return
-    }
-    if (isCorrect) {
-      onContinue()
-      return
-    }
-    handleTryAgain()
-  }
-
-  const actionLabel = !checked ? 'Check' : isCorrect ? (isLastStep ? 'Finish' : 'Continue') : 'Try Again'
 
   return (
     <div className="flex flex-col gap-6">
@@ -70,7 +49,7 @@ export default function FillBlankStepCard({ step, onAnswer, onContinue, isLastSt
             <button
               key={word}
               onClick={() => handleSelect(word)}
-              disabled={checked && isCorrect}
+              disabled={checked}
               className={`px-4 py-2 rounded-lg border text-[15px] font-medium ${
                 isCorrectOption
                   ? 'border-[#2E7D32] bg-[#EAF6EB] text-[#2E7D32]'
@@ -87,17 +66,19 @@ export default function FillBlankStepCard({ step, onAnswer, onContinue, isLastSt
         })}
       </div>
 
-      {checked && !isCorrect && <p className="text-sm text-[#d45656]">Not quite — try again.</p>}
+      {checked && !isCorrect && (
+        <p className="text-sm text-[#d45656]">Correct answer: {step.correct_answer}</p>
+      )}
 
-      <button
-        onClick={handleAction}
-        disabled={!selected}
-        className={`w-full h-12 rounded-full text-[15px] font-semibold disabled:opacity-40 disabled:cursor-not-allowed ${
-          checked && isCorrect ? 'bg-[#111111] text-white' : 'border border-[#111111] text-[#111111]'
-        }`}
-      >
-        {actionLabel}
-      </button>
+      {!checked && (
+        <button
+          onClick={handleCheck}
+          disabled={!selected}
+          className="w-full h-12 rounded-full border border-[#111111] text-[#111111] text-[15px] font-semibold disabled:opacity-40 disabled:cursor-not-allowed"
+        >
+          Check
+        </button>
+      )}
     </div>
   )
 }

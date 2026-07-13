@@ -113,7 +113,7 @@ const LessonPage = () => {
   }
 
   return (
-    <div className="flex-1 flex flex-col px-7 pt-6 pb-10 min-h-0">
+    <div className="flex-1 flex flex-col px-4 py-6 min-h-0">
       {lesson.steps.length > 0 ? (
         <LessonEngine steps={lesson.steps} phrasesById={phrasesById} onComplete={handleComplete} />
       ) : (
