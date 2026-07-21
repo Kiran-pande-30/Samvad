@@ -12,6 +12,18 @@
   --color-surface: #f7f8fa;
   --color-muted: #a8aab2;
   --color-stone: #8e8e93;
+  --color-magenta: #ea5ec1;
+  --color-magenta-light: #ee7bcc;
+  --color-purple: #a855f7;
+  --color-purple-light: #b874f8;
+  --color-brand-blue-700: #17437d;
+  --color-brand-blue-700-light: #416594;
+  --color-brand-cyan: #3daeff;
+  --color-brand-cyan-light: #60bdff;
+  --color-rausch: #ff385c;
+  --color-rausch-light: #ff5c79;
+  --color-luxe: #460479;
+  --color-luxe-light: #673191;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-noto-sans);
@@ -133,5 +145,15 @@
   }
   html {
     @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }

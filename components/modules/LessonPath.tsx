@@ -4,12 +4,13 @@ import { LessonWithState } from '@/lib/types'
 
 interface LessonPathProps {
   lessons: LessonWithState[];
+  moduleNumber: number;
 }
 
 const WAVE_AMPLITUDE = 70; // px — how far a dot swings left/right of center
 const WAVE_PERIOD = 5; // lessons per full left-right-left cycle
 
-const LessonPath = ({ lessons }: LessonPathProps) => {
+const LessonPath = ({ lessons, moduleNumber }: LessonPathProps) => {
   if (lessons.length === 0) return null;
 
   return (
@@ -19,7 +20,7 @@ const LessonPath = ({ lessons }: LessonPathProps) => {
 
         return (
           <div key={lesson.id} style={{ transform: `translateX(${offsetX}px)` }}>
-            <LessonDot lesson={lesson} sequenceNumber={idx + 1} />
+            <LessonDot lesson={lesson} sequenceNumber={idx + 1} moduleNumber={moduleNumber} />
           </div>
         );
       })}

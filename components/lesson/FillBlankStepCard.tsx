@@ -1,9 +1,9 @@
 'use client'
 
-import { useMemo, useState } from 'react'
-import type { StepProps } from './types'
+import { forwardRef, useEffect, useImperativeHandle, useMemo, useState } from 'react'
+import type { StepHandle, StepProps } from './types'
 
-export default function FillBlankStepCard({ step, onAnswer }: StepProps) {
+const FillBlankStepCard = forwardRef<StepHandle, StepProps>(({ step, onAnswer, onReadyChange }, ref) => {
   const sentence = typeof step.data.sentence === 'string' ? step.data.sentence : ''
   const wordBank = useMemo(
     () => (Array.isArray(step.data.word_bank) ? (step.data.word_bank as string[]) : []),
@@ -16,6 +16,19 @@ export default function FillBlankStepCard({ step, onAnswer }: StepProps) {
 
   const isCorrect = checked && selected === step.correct_answer
 
+  useEffect(() => {
+    onReadyChange(selected !== null && !checked)
+  }, [selected, checked, onReadyChange])
+
+  useImperativeHandle(ref, () => ({
+    check: () => {
+      if (!selected) return
+      const correct = selected === step.correct_answer
+      setChecked(true)
+      onAnswer({ submitted: selected, isCorrect: correct })
+    },
+  }))
+
   const sentenceParts = sentence.split(' ')
   const displayed = sentenceParts
     .map((part, index) => (index === blankIndex ? selected ?? '___' : part))
@@ -24,13 +37,6 @@ export default function FillBlankStepCard({ step, onAnswer }: StepProps) {
   const handleSelect = (word: string) => {
     if (checked) return
     setSelected(word)
-  }
-
-  const handleCheck = () => {
-    if (!selected) return
-    const correct = selected === step.correct_answer
-    setChecked(true)
-    onAnswer({ submitted: selected, isCorrect: correct })
   }
 
   return (
@@ -65,20 +71,10 @@ export default function FillBlankStepCard({ step, onAnswer }: StepProps) {
           )
         })}
       </div>
-
-      {checked && !isCorrect && (
-        <p className="text-sm text-[#d45656]">Correct answer: {step.correct_answer}</p>
-      )}
-
-      {!checked && (
-        <button
-          onClick={handleCheck}
-          disabled={!selected}
-          className="w-full h-12 rounded-full border border-[#111111] text-[#111111] text-[15px] font-semibold disabled:opacity-40 disabled:cursor-not-allowed"
-        >
-          Check
-        </button>
-      )}
     </div>
   )
-}
+})
+
+FillBlankStepCard.displayName = 'FillBlankStepCard'
+
+export default FillBlankStepCard

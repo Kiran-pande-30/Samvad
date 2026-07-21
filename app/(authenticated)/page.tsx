@@ -82,7 +82,7 @@ const RootPage = async () => {
     const progress = await getProgress(supabase, user.id)
 
     return (
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto no-scrollbar">
         <ModuleList modules={modules} progress={progress} />
       </div>
     )

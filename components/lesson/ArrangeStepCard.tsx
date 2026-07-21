@@ -1,9 +1,9 @@
 'use client'
 
-import { useMemo, useState } from 'react'
-import type { StepProps } from './types'
+import { forwardRef, useEffect, useImperativeHandle, useMemo, useState } from 'react'
+import type { StepHandle, StepProps } from './types'
 
-export default function ArrangeStepCard({ step, onAnswer }: StepProps) {
+const ArrangeStepCard = forwardRef<StepHandle, StepProps>(({ step, onAnswer, onReadyChange }, ref) => {
   const words = useMemo(
     () => (Array.isArray(step.data.words) ? (step.data.words as string[]) : []),
     [step.data.words]
@@ -13,7 +13,17 @@ export default function ArrangeStepCard({ step, onAnswer }: StepProps) {
   const [chosen, setChosen] = useState<string[]>([])
   const [revealed, setRevealed] = useState(false)
 
-  const isCorrect = revealed && chosen.join(' ') === step.correct_answer
+  useEffect(() => {
+    onReadyChange(available.length === 0 && chosen.length > 0 && !revealed)
+  }, [available, chosen, revealed, onReadyChange])
+
+  useImperativeHandle(ref, () => ({
+    check: () => {
+      if (available.length > 0) return
+      setRevealed(true)
+      onAnswer({ submitted: chosen.join(' '), isCorrect: chosen.join(' ') === step.correct_answer })
+    },
+  }))
 
   const pickWord = (index: number) => {
     if (revealed) return
@@ -27,11 +37,6 @@ export default function ArrangeStepCard({ step, onAnswer }: StepProps) {
     const word = chosen[index]
     setChosen((prev) => prev.filter((_, i) => i !== index))
     setAvailable((prev) => [...prev, word])
-  }
-
-  const handleSubmit = () => {
-    setRevealed(true)
-    onAnswer({ submitted: chosen.join(' '), isCorrect: chosen.join(' ') === step.correct_answer })
   }
 
   return (
@@ -52,10 +57,6 @@ export default function ArrangeStepCard({ step, onAnswer }: StepProps) {
         ))}
       </div>
 
-      {revealed && !isCorrect && (
-        <p className="text-sm text-[#d45656]">Correct answer: {step.correct_answer}</p>
-      )}
-
       <div className="flex flex-wrap gap-2">
         {available.map((word, index) => (
           <button
@@ -68,16 +69,10 @@ export default function ArrangeStepCard({ step, onAnswer }: StepProps) {
           </button>
         ))}
       </div>
-
-      {!revealed && (
-        <button
-          onClick={handleSubmit}
-          disabled={available.length > 0}
-          className="w-full h-12 rounded-full border border-[#111111] text-[#111111] text-[15px] font-semibold disabled:opacity-40 disabled:cursor-not-allowed"
-        >
-          Check
-        </button>
-      )}
     </div>
   )
-}
+})
+
+ArrangeStepCard.displayName = 'ArrangeStepCard'
+
+export default ArrangeStepCard

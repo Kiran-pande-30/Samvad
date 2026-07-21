@@ -52,6 +52,12 @@ export interface LessonWithState extends LessonSummary {
     state: LessonState;
 }
 
+export interface ModuleColor {
+    bg: string;
+    border: string;
+    outline: string;
+}
+
 export interface Phrase {
     id: string;
     lesson_id: string;

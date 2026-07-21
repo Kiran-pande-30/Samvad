@@ -3,4 +3,5 @@
 3. Refer to `STYLES.md` before writing any styles or UI code.
 4. Always define interfaces and types in `lib/types.ts` instead of inline in component/route files.
 5. Refer to `DESIGN.md` before making any design decisions (colors, typography, spacing, components) — it documents the brand's design language and token system.
+6. Do not create new components/files unless the user asks for one. If JSX is only used in one place, inline it there instead of splitting it into its own file.
 

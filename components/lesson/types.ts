@@ -21,10 +21,15 @@ export interface StepAnswer {
   isCorrect: boolean
 }
 
+export interface StepHandle {
+  check: () => void
+}
+
 export interface StepProps {
   step: LessonStep
   phrase: Phrase | undefined
   onAnswer: (result: StepAnswer) => void
+  onReadyChange: (ready: boolean) => void
 }
 
 export interface StepAttempt {

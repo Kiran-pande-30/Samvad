@@ -18,6 +18,7 @@ const NAV_ITEMS = [
 
 export const AppFooter = () => {
   const pathname = usePathname();
+  if (pathname.startsWith("/lesson")) return null;
 
   return (
     <nav

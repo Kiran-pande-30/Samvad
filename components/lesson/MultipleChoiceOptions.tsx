@@ -1,35 +1,38 @@
 'use client'
 
-import { useState } from 'react'
-import type { StepAnswer } from './types'
+import { forwardRef, useEffect, useImperativeHandle, useState } from 'react'
+import type { StepAnswer, StepHandle } from './types'
 
 interface MultipleChoiceOptionsProps {
   options: string[]
   correctAnswer: string | null
   onAnswer: (result: StepAnswer) => void
+  onReadyChange: (ready: boolean) => void
 }
 
-export default function MultipleChoiceOptions({
-  options,
-  correctAnswer,
-  onAnswer,
-}: MultipleChoiceOptionsProps) {
-  const [selected, setSelected] = useState<string | null>(null)
-  const [checked, setChecked] = useState(false)
+const MultipleChoiceOptions = forwardRef<StepHandle, MultipleChoiceOptionsProps>(
+  ({ options, correctAnswer, onAnswer, onReadyChange }, ref) => {
+    const [selected, setSelected] = useState<string | null>(null)
+    const [checked, setChecked] = useState(false)
 
-  const handleSelect = (option: string) => {
-    if (checked) return
-    setSelected(option)
-  }
+    useEffect(() => {
+      onReadyChange(selected !== null && !checked)
+    }, [selected, checked, onReadyChange])
 
-  const handleCheck = () => {
-    if (!selected) return
-    setChecked(true)
-    onAnswer({ submitted: selected, isCorrect: selected === correctAnswer })
-  }
+    useImperativeHandle(ref, () => ({
+      check: () => {
+        if (!selected) return
+        setChecked(true)
+        onAnswer({ submitted: selected, isCorrect: selected === correctAnswer })
+      },
+    }))
 
-  return (
-    <div className="flex flex-col gap-6">
+    const handleSelect = (option: string) => {
+      if (checked) return
+      setSelected(option)
+    }
+
+    return (
       <div className="flex flex-col gap-3">
         {options.map((option) => {
           const isSelected = selected === option
@@ -56,16 +59,10 @@ export default function MultipleChoiceOptions({
           )
         })}
       </div>
+    )
+  }
+)
 
-      {!checked && (
-        <button
-          onClick={handleCheck}
-          disabled={!selected}
-          className="w-full h-12 rounded-full border border-[#111111] text-[#111111] text-[15px] font-semibold disabled:opacity-40 disabled:cursor-not-allowed"
-        >
-          Check
-        </button>
-      )}
-    </div>
-  )
-}
+MultipleChoiceOptions.displayName = 'MultipleChoiceOptions'
+
+export default MultipleChoiceOptions

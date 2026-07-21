@@ -8,30 +8,17 @@ interface ModuleCardProps {
 }
 
 const ModuleCard = ({ module, lessons, moduleNumber }: ModuleCardProps) => {
-  const completedCount = lessons.filter((l) => l.state === 'completed').length;
-  const totalCount = lessons.length;
-  const isModuleCompleted = completedCount === totalCount && totalCount > 0;
+  if (lessons.length === 0) return null;
 
   return (
     <div className="w-full flex flex-col items-center px-4">
-      <div className="w-full bg-linear-to-br from-coral to-coral-light text-white rounded-xl p-3 relative overflow-hidden shadow-md">
-        <div className="flex flex-col gap-1.5">
-          <div className="flex items-center justify-between">
-            <span className="bg-white/20 text-white px-3 py-1 rounded-full text-xs uppercase tracking-widest font-semibold">Module {moduleNumber}</span>
-            {totalCount > 0 && (
-              <span className="text-white/80 text-xs font-medium tabular-nums">
-                {isModuleCompleted ? 'Done' : `${completedCount} / ${totalCount}`}
-              </span>
-            )}
-          </div>
-
-          <h2 className="text-[19px] font-bold tracking-tight">{module.title}</h2>
-        </div>
+      <div className="flex items-center gap-4 w-full py-6">
+        <div className="flex-1 h-px bg-gray-200" />
+        <span className="text-base font-bold text-stone text-center">{module.title}</span>
+        <div className="flex-1 h-px bg-gray-200" />
       </div>
 
-      {lessons.length > 0 && (
-        <LessonPath lessons={lessons} />
-      )}
+      <LessonPath lessons={lessons} moduleNumber={moduleNumber} />
     </div>
   )
 }
