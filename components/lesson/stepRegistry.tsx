@@ -3,6 +3,7 @@ import RecallStepCard from './RecallStepCard'
 import ArrangeStepCard from './ArrangeStepCard'
 import MatchStepCard from './MatchStepCard'
 import FillBlankStepCard from './FillBlankStepCard'
+import ConversationStepCard from './ConversationStepCard'
 import UnsupportedStepCard from './UnsupportedStepCard'
 import type { StepHandle, StepProps } from './types'
 
@@ -84,6 +85,17 @@ export const renderStep = ({ step, phrase, onAnswer, onReadyChange, stepRef, ste
     case 'context':
       return (
         <ContextStepCard
+          key={stepKey}
+          ref={stepRef}
+          step={step}
+          phrase={phrase}
+          onAnswer={onAnswer}
+          onReadyChange={onReadyChange}
+        />
+      )
+    case 'conversation':
+      return (
+        <ConversationStepCard
           key={stepKey}
           ref={stepRef}
           step={step}

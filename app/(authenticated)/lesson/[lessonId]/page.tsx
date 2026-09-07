@@ -4,6 +4,7 @@ import { useRouter, useParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 import LessonEngine from '@/components/lesson/LessonEngine'
 import type { LessonStep, Phrase, StepAttempt } from '@/components/lesson/types'
+import type { UserProgressStatus } from '@/lib/types'
 
 interface LessonDetail {
   id: string
@@ -12,9 +13,10 @@ interface LessonDetail {
   module_id: string
   phrases: Phrase[]
   steps: LessonStep[]
+  status: UserProgressStatus
 }
 
-type Screen = 'active' | 'finished'
+type Screen = 'preview' | 'active' | 'finished'
 
 const LessonPage = () => {
   const router = useRouter()
@@ -23,7 +25,7 @@ const LessonPage = () => {
   const [lesson, setLesson] = useState<LessonDetail | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [screen, setScreen] = useState<Screen>('active')
+  const [screen, setScreen] = useState<Screen>('preview')
   const [streak, setStreak] = useState<number | null>(null)
 
   useEffect(() => {
@@ -35,11 +37,13 @@ const LessonPage = () => {
         }
         const data: LessonDetail = await response.json()
         setLesson(data)
-        await fetch('/api/me/progress/start', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ lesson_id: data.id, module_id: data.module_id }),
-        })
+        if (data.status !== 'completed') {
+          await fetch('/api/me/progress/start', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ lesson_id: data.id, module_id: data.module_id }),
+          })
+        }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred')
       } finally {
@@ -60,14 +64,21 @@ const LessonPage = () => {
 
   const handleComplete = async (attempts: StepAttempt[]) => {
     if (!lesson) return
-    const response = await fetch('/api/me/progress/complete', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ lesson_id: lesson.id, module_id: lesson.module_id, attempts }),
-    })
-    const data = await response.json()
-    setStreak(data.streak ?? null)
-    setScreen('finished')
+    try {
+      const response = await fetch('/api/me/progress/complete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ lesson_id: lesson.id, module_id: lesson.module_id, attempts }),
+      })
+      if (!response.ok) {
+        throw new Error('Failed to save progress')
+      }
+      const data = await response.json()
+      setStreak(data.streak ?? null)
+      setScreen('finished')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to save progress')
+    }
   }
 
   if (loading) {
@@ -87,6 +98,39 @@ const LessonPage = () => {
           className="mt-6 px-6 h-11 bg-[#111111] text-white rounded-full font-semibold text-[15px] hover:opacity-90 transition-opacity"
         >
           Go Back
+        </button>
+      </div>
+    )
+  }
+
+  if (screen === 'preview') {
+    return (
+      <div className="flex-1 flex flex-col px-7 py-8 overflow-y-auto min-h-0">
+        <h1 className="text-[28px] font-bold leading-[1.2]">{lesson.title}</h1>
+        <p className="mt-2 text-[15px] text-[#8A8A96]">
+          Here are the phrases you&apos;ll learn in this lesson. Keep them in mind before you start.
+        </p>
+
+        <div className="mt-8 grid grid-cols-2 gap-3">
+          {lesson.phrases.map((phrase) => (
+            <div
+              key={phrase.id}
+              className="flex flex-col gap-1 px-5 py-4 rounded-2xl border border-gray-200"
+            >
+              <p className="font-semibold text-[17px]">{phrase.target}</p>
+              {phrase.transliteration && (
+                <p className="text-[13px] text-[#8A8A96]">{phrase.transliteration}</p>
+              )}
+              <p className="text-[15px] text-[#8A8A96]">{phrase.source}</p>
+            </div>
+          ))}
+        </div>
+
+        <button
+          onClick={() => setScreen('active')}
+          className="w-full h-14.5 mt-8 bg-[#111111] text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-center cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150"
+        >
+          Start Lesson
         </button>
       </div>
     )
