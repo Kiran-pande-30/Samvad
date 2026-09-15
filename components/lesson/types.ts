@@ -14,6 +14,7 @@ export interface LessonStep {
   prompt: string
   data: Record<string, unknown>
   correct_answer: string | null
+  hint: string | null
 }
 
 export interface StepAnswer {

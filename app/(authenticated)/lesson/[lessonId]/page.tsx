@@ -9,7 +9,6 @@ import type { UserProgressStatus } from '@/lib/types'
 interface LessonDetail {
   id: string
   title: string
-  intro_text: string
   module_id: string
   phrases: Phrase[]
   steps: LessonStep[]

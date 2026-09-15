@@ -25,7 +25,7 @@
 `Module`/`Lesson` in `lib/types.ts` model the full database row (every column the table has). But `getModulesByLanguagePair`/`getModuleLessons` in `lib/data/modules.ts` don't return every column:
 
 - `getModulesByLanguagePair` queries `select('*, lessons(count)')` (fetches everything from Postgres) but then manually rebuilds a plain object with only 5 fields — the rest is fetched then **discarded in JS**.
-- `getModuleLessons` queries `select('id, title, intro_text, module_id, order_index')` — `created_at` is **never fetched from Postgres at all**.
+- `getModuleLessons` queries `select('id, title, module_id, order_index')` — `created_at` is **never fetched from Postgres at all**.
 
 Either way, the caller never sees `created_at`/`language_pair_id`. The original `ModuleWithLessons` type claimed those fields existed (`extends Module`), which was a lie TypeScript should have caught. Fix: added `ModuleSummary`/`LessonSummary` (`Omit<...>` of the full type) so the type matches the real runtime shape. Trimming columns like this is good practice (less data over the wire, less risk of leaking internal fields) — the types just need to be honest about it.
 

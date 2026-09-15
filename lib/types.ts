@@ -23,7 +23,6 @@ export interface Lesson {
     id: string;
     module_id: string;
     title: string;
-    intro_text: string;
     order_index: number;
     created_at: string;
 }

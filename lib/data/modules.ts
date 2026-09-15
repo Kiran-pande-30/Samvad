@@ -40,7 +40,7 @@ export const getModuleLessons = async (supabase: SupabaseClient, moduleId: strin
 
   const { data: lessons, error: lessonsError } = await supabase
     .from('lessons')
-    .select('id, title, intro_text, module_id, order_index')
+    .select('id, title, module_id, order_index')
     .eq('module_id', moduleId)
     .order('order_index', { ascending: true })
 

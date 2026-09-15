@@ -12,7 +12,6 @@ export async function getLessonSummaries(supabase: SupabaseClient) {
   return (lessons || []).map((lesson) => ({
     id: lesson.id,
     title: lesson.title,
-    intro_text: lesson.intro_text,
     module_id: lesson.module_id,
   }))
 }
@@ -43,20 +42,22 @@ export async function getLessonDetail(supabase: SupabaseClient, lessonId: string
     transliteration: phrase.transliteration,
     order_index: phrase.order_index,
   }))
-  const steps = (stepsResult.data || []).map((step) => ({
-    id: step.id,
-    phrase_id: step.phrase_id,
-    step_type: step.step_type,
-    order_index: step.order_index,
-    prompt: step.prompt,
-    data: step.data,
-    correct_answer: step.correct_answer,
-  }))
+  const steps = (stepsResult.data || [])
+    .filter((step) => step.step_type !== 'context')
+    .map((step) => ({
+      id: step.id,
+      phrase_id: step.phrase_id,
+      step_type: step.step_type,
+      order_index: step.order_index,
+      prompt: step.prompt,
+      data: step.data,
+      correct_answer: step.correct_answer,
+      hint: step.hint,
+    }))
 
   return {
     id: lesson.id,
     title: lesson.title,
-    intro_text: lesson.intro_text,
     module_id: lesson.module_id,
     phrases,
     steps,

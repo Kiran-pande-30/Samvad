@@ -7,7 +7,10 @@ export const MODULE_GRADIENTS = [
   'from-luxe to-luxe-light',
   'from-rausch to-rausch-light',
   'from-brand-blue-700 to-brand-blue-700-light',
-  'from-brand-cyan to-brand-cyan-light'
+  'from-brand-cyan to-brand-cyan-light',
+  'from-forest to-forest-light',
+  'from-saffron to-saffron-light',
+  'from-teal to-teal-light'
 ]
 
 // Parallel to MODULE_GRADIENTS — index by (moduleNumber - 1) % length so a
@@ -20,4 +23,7 @@ export const MODULE_COLORS: ModuleColor[] = [
   { bg: 'bg-rausch', border: 'border-[#C72C48]', outline: 'outline-rausch' },
   { bg: 'bg-brand-blue-700', border: 'border-[#123462]', outline: 'outline-brand-blue-700' },
   { bg: 'bg-brand-cyan', border: 'border-[#3088C7]', outline: 'outline-brand-cyan' },
+  { bg: 'bg-forest', border: 'border-[#166A3B]', outline: 'outline-forest' },
+  { bg: 'bg-saffron', border: 'border-[#B36B00]', outline: 'outline-saffron' },
+  { bg: 'bg-teal', border: 'border-[#0A7169]', outline: 'outline-teal' },
 ]

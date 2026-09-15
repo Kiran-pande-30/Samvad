@@ -24,6 +24,12 @@
   --color-rausch-light: #ff5c79;
   --color-luxe: #460479;
   --color-luxe-light: #673191;
+  --color-forest: #1e874b;
+  --color-forest-light: #3fa46b;
+  --color-saffron: #e08700;
+  --color-saffron-light: #f0a62e;
+  --color-teal: #0d8f86;
+  --color-teal-light: #2fada4;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-noto-sans);

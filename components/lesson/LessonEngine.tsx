@@ -60,6 +60,7 @@ export default function LessonEngine({ steps, phrasesById, onComplete }: LessonE
         stepNumber={currentIndex + 1}
         totalSteps={queue.length}
         prompt={step.prompt}
+        hint={step.hint}
         showCheckButton={pendingAnswer === null}
         canCheck={ready}
         onCheck={handleCheck}
