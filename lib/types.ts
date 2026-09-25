@@ -39,7 +39,10 @@ export interface Module {
 
 export type ModuleSummary = Omit<Module, 'language_pair_id' | 'created_at'>;
 
-export type LessonSummary = Omit<Lesson, 'created_at'>;
+export interface LessonSummary extends Omit<Lesson, 'created_at'> {
+    preview_phrase: string | null;
+    phrase_count: number;
+}
 
 export interface ModuleWithLessons extends ModuleSummary {
     lessons: LessonSummary[];
@@ -49,12 +52,6 @@ export type LessonState = 'completed' | 'current' | 'upcoming' | 'locked';
 
 export interface LessonWithState extends LessonSummary {
     state: LessonState;
-}
-
-export interface ModuleColor {
-    bg: string;
-    border: string;
-    outline: string;
 }
 
 export interface Phrase {

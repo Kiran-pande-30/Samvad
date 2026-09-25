@@ -1,6 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { NotFoundError } from './errors'
-import { Module, ModuleWithLessons } from '../types'
+import { LessonSummary, Module, ModuleWithLessons } from '../types'
 
 export const getModulesByLanguagePair = async (supabase: SupabaseClient, languagePairSlug: string) => {
   const { data: pair, error: pairError } = await supabase
@@ -29,7 +29,7 @@ export const getModulesByLanguagePair = async (supabase: SupabaseClient, languag
   }))
 }
 
-export const getModuleLessons = async (supabase: SupabaseClient, moduleId: string) => {
+export const getModuleLessons = async (supabase: SupabaseClient, moduleId: string): Promise<LessonSummary[]> => {
   const { data: module, error: moduleError } = await supabase
     .from('modules')
     .select('id')
@@ -40,13 +40,17 @@ export const getModuleLessons = async (supabase: SupabaseClient, moduleId: strin
 
   const { data: lessons, error: lessonsError } = await supabase
     .from('lessons')
-    .select('id, title, module_id, order_index')
+    .select('id, title, module_id, order_index, phrases(target, order_index)')
     .eq('module_id', moduleId)
     .order('order_index', { ascending: true })
 
   if (lessonsError) throw new Error('Failed to fetch lessons')
 
-  return lessons
+  // The first phrase doubles as the lesson's Devanagari subtitle on the path
+  return lessons.map(({ phrases, ...lesson }) => {
+    const [firstPhrase] = [...phrases].sort((a, b) => a.order_index - b.order_index)
+    return { ...lesson, preview_phrase: firstPhrase?.target ?? null, phrase_count: phrases.length }
+  })
 }
 
 export const getModulesWithLessons = async ( supabase: SupabaseClient, languagePairSlug: string): Promise<ModuleWithLessons[]> => {

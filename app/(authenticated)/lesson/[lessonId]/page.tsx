@@ -83,7 +83,7 @@ const LessonPage = () => {
   if (loading) {
     return (
       <div className="flex-1 flex items-center justify-center px-7">
-        <p className="text-[#8A8A96]">Loading lesson...</p>
+        <p className="text-gray-500">Loading lesson...</p>
       </div>
     )
   }
@@ -91,10 +91,10 @@ const LessonPage = () => {
   if (error || !lesson) {
     return (
       <div className="flex-1 flex flex-col items-center justify-center px-7">
-        <p className="text-coral font-semibold">{error || 'Lesson not found'}</p>
+        <p className="text-coral-strong font-semibold">{error || 'Lesson not found'}</p>
         <button
           onClick={() => router.back()}
-          className="mt-6 px-6 h-11 bg-[#111111] text-white rounded-full font-semibold text-[15px] hover:opacity-90 transition-opacity"
+          className="mt-6 px-6 h-11 bg-coral-strong text-white rounded-full font-semibold text-[15px] hover:opacity-90 transition-opacity"
         >
           Go Back
         </button>
@@ -106,7 +106,7 @@ const LessonPage = () => {
     return (
       <div className="flex-1 flex flex-col px-7 py-8 overflow-y-auto min-h-0">
         <h1 className="text-[28px] font-bold leading-[1.2]">{lesson.title}</h1>
-        <p className="mt-2 text-[15px] text-[#8A8A96]">
+        <p className="mt-2 text-[15px] text-gray-500">
           Here are the phrases you&apos;ll learn in this lesson. Keep them in mind before you start.
         </p>
 
@@ -118,16 +118,16 @@ const LessonPage = () => {
             >
               <p className="font-semibold text-[17px]">{phrase.target}</p>
               {phrase.transliteration && (
-                <p className="text-[13px] text-[#8A8A96]">{phrase.transliteration}</p>
+                <p className="text-[13px] text-gray-500">{phrase.transliteration}</p>
               )}
-              <p className="text-[15px] text-[#8A8A96]">{phrase.source}</p>
+              <p className="text-[15px] text-gray-500">{phrase.source}</p>
             </div>
           ))}
         </div>
 
         <button
           onClick={() => setScreen('active')}
-          className="w-full h-14.5 mt-8 bg-[#111111] text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-center cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150"
+          className="w-full h-14.5 mt-8 bg-coral-strong text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-center cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150"
         >
           Start Lesson
         </button>
@@ -138,16 +138,16 @@ const LessonPage = () => {
   if (screen === 'finished') {
     return (
       <div className="flex-1 flex flex-col items-center justify-center px-7 text-center">
-        <h1 className="text-[32px] font-bold text-[#111111] leading-[1.2]">Lesson complete!</h1>
+        <h1 className="text-[32px] font-bold leading-[1.2]">Lesson complete!</h1>
         {streak !== null && (
-          <p className="mt-4 text-[18px] text-[#8A8A96]">
-            Current streak: <span className="font-bold text-[#111111]">{streak}</span> day
+          <p className="mt-4 text-[18px] text-gray-500">
+            Current streak: <span className="font-bold">{streak}</span> day
             {streak === 1 ? '' : 's'}
           </p>
         )}
         <button
           onClick={() => router.push('/')}
-          className="w-full max-w-72 h-14.5 mt-10 bg-[#111111] text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-center cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150"
+          className="w-full max-w-72 h-14.5 mt-10 bg-coral-strong text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-center cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150"
         >
           Back to lessons
         </button>
@@ -161,10 +161,10 @@ const LessonPage = () => {
         <LessonEngine steps={lesson.steps} phrasesById={phrasesById} onComplete={handleComplete} />
       ) : (
         <div className="flex-1 flex flex-col items-center justify-center text-center">
-          <p className="text-[#8A8A96]">This lesson has no steps yet.</p>
+          <p className="text-gray-500">This lesson has no steps yet.</p>
           <button
             onClick={() => router.back()}
-            className="mt-6 px-6 h-11 bg-[#111111] text-white rounded-full font-semibold text-[15px]"
+            className="mt-6 px-6 h-11 bg-coral-strong text-white rounded-full font-semibold text-[15px]"
           >
             Go Back
           </button>
