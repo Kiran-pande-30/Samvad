@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { getAuthenticatedUser } from '@/lib/data/auth'
 import { getProfile } from '@/lib/data/profile'
+import { effectiveStreak } from '@/lib/data/progress'
 
 const ProfilePage = async () => {
   const supabase = await createClient()
@@ -39,7 +40,9 @@ const ProfilePage = async () => {
 
           <div className="flex justify-between items-center text-sm text-muted">
             <span>Current Streak</span>
-            <span className="font-medium">{profile.current_streak}</span>
+            <span className="font-medium">
+              {effectiveStreak(profile.current_streak, profile.last_active_date, profile.timezone)}
+            </span>
           </div>
 
           <div className="flex justify-between items-center text-sm text-muted">

@@ -1,13 +1,42 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
-import type { ProgressData, UserProgressStatus } from '@/lib/types'
+import type { ProgressData } from '@/lib/types'
 
-function getYesterday(): string {
-  const d = new Date()
-  d.setDate(d.getDate() - 1)
+const DEFAULT_TIMEZONE = 'Asia/Kolkata'
+
+/** Today's date (YYYY-MM-DD) in the given IANA timezone, not in UTC. */
+const localToday = (timezone: string): string =>
+  new Intl.DateTimeFormat('en-CA', {
+    timeZone: timezone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(new Date())
+
+const shiftDays = (isoDate: string, days: number): string => {
+  const d = new Date(`${isoDate}T00:00:00Z`)
+  d.setUTCDate(d.getUTCDate() + days)
   return d.toISOString().split('T')[0]
 }
 
-export async function getProgress(supabase: SupabaseClient, userId: string): Promise<ProgressData> {
+/**
+ * The streak as it stands *right now*. `profiles.current_streak` is only written
+ * when a lesson is completed, so a stored value goes stale the moment the user
+ * misses a day — it has to be re-derived against last_active_date on every read.
+ */
+export const effectiveStreak = (
+  currentStreak: number | null | undefined,
+  lastActiveDate: string | null | undefined,
+  timezone: string | null | undefined = DEFAULT_TIMEZONE
+): number => {
+  if (!lastActiveDate || !currentStreak) return 0
+  const today = localToday(timezone || DEFAULT_TIMEZONE)
+  return lastActiveDate === today || lastActiveDate === shiftDays(today, -1) ? currentStreak : 0
+}
+
+export const getProgress = async (
+  supabase: SupabaseClient,
+  userId: string
+): Promise<ProgressData> => {
   const [progressResult, profileResult, modulesResult] = await Promise.all([
     supabase
       .from('user_progress')
@@ -15,7 +44,7 @@ export async function getProgress(supabase: SupabaseClient, userId: string): Pro
       .eq('user_id', userId),
     supabase
       .from('profiles')
-      .select('current_streak, last_active_date')
+      .select('current_streak, last_active_date, timezone')
       .eq('id', userId)
       .single(),
     supabase.from('modules').select('id, lessons(count)'),
@@ -47,87 +76,45 @@ export async function getProgress(supabase: SupabaseClient, userId: string): Pro
       completed_at: p.completed_at,
     })),
     modules_completed: modulesCompleted,
-    streak: profile?.current_streak ?? 0,
+    streak: effectiveStreak(profile?.current_streak, profile?.last_active_date, profile?.timezone),
     last_active_date: profile?.last_active_date ?? null,
   }
 }
 
-export async function startLesson(
+export const startLesson = async (
   supabase: SupabaseClient,
-  userId: string,
+  _userId: string,
   lessonId: string,
   moduleId: string
-) {
-  const status: UserProgressStatus = 'in_progress'
-  const { error } = await supabase.from('user_progress').upsert(
-    { user_id: userId, lesson_id: lessonId, module_id: moduleId, status },
-    { onConflict: 'user_id,lesson_id' }
-  )
+) => {
+  const { data, error } = await supabase.rpc('start_lesson', {
+    p_lesson_id: lessonId,
+    p_module_id: moduleId,
+  })
 
   if (error) throw new Error('Failed to save progress')
+  return data as { status: string }
 }
 
-export async function completeLesson(
+export const completeLesson = async (
   supabase: SupabaseClient,
-  userId: string,
+  _userId: string,
   lessonId: string,
   moduleId: string,
   attempts: { step_id: string; phrase_id?: string | null; is_correct: boolean }[]
-) {
-  const now = new Date().toISOString()
-  const today = now.split('T')[0]
+) => {
+  const { data, error } = await supabase.rpc('complete_lesson', {
+    p_lesson_id: lessonId,
+    p_module_id: moduleId,
+    p_attempts: attempts,
+  })
 
-  const [progressResult, attemptsResult] = await Promise.all([
-    supabase.from('user_progress').upsert(
-      {
-        user_id: userId,
-        lesson_id: lessonId,
-        module_id: moduleId,
-        status: 'completed',
-        completed_at: now,
-      },
-      { onConflict: 'user_id,lesson_id' }
-    ),
-    supabase.from('step_attempts').insert(
-      attempts.map((a) => ({
-        user_id: userId,
-        step_id: a.step_id,
-        phrase_id: a.phrase_id ?? null,
-        is_correct: a.is_correct,
-        attempted_at: now,
-      }))
-    ),
-  ])
+  if (error) throw new Error('Failed to save progress')
 
-  if (progressResult.error || attemptsResult.error) {
-    throw new Error('Failed to save progress')
+  return data as {
+    status: 'completed'
+    completed_at: string
+    streak: number
+    score: number | null
   }
-
-  const { data: profile, error: profileError } = await supabase
-    .from('profiles')
-    .select('current_streak, last_active_date')
-    .eq('id', userId)
-    .single()
-
-  if (profileError) throw new Error('Failed to fetch profile')
-
-  const lastActive = profile?.last_active_date
-  let newStreak = profile?.current_streak ?? 0
-
-  if (lastActive === today) {
-    // Already completed a lesson today — streak unchanged
-  } else if (lastActive === getYesterday()) {
-    newStreak = newStreak + 1
-  } else {
-    newStreak = 1
-  }
-
-  const { error: streakError } = await supabase
-    .from('profiles')
-    .update({ current_streak: newStreak, last_active_date: today })
-    .eq('id', userId)
-
-  if (streakError) throw new Error('Failed to update streak')
-
-  return { status: 'completed' as const, completed_at: now, streak: newStreak }
 }

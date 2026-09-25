@@ -76,6 +76,8 @@ export interface Profile {
     onboarding_completed: boolean;
     daily_goal: number;
     current_streak: number;
+    last_active_date: string | null;
+    timezone: string;
     created_at: string;
     updated_at: string;
 }
