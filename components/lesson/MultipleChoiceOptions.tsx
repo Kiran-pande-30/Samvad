@@ -46,12 +46,12 @@ const MultipleChoiceOptions = forwardRef<StepHandle, MultipleChoiceOptionsProps>
               disabled={checked}
               className={`w-full text-left px-5 py-4 rounded-xl border text-[16px] font-medium transition-colors duration-150 ${
                 isCorrectOption
-                  ? 'border-[#2E7D32] bg-[#EAF6EB] text-[#2E7D32]'
+                  ? 'border-success bg-success-bg text-success'
                   : isWrongSelection
-                    ? 'border-[#d45656] bg-[#FDECEC] text-[#d45656]'
+                    ? 'border-error bg-error-bg text-error'
                     : isSelected
-                      ? 'border-[#111111] bg-[#F9F9F9] text-[#111111]'
-                      : 'border-[#E0E0E0] bg-white text-[#111111]'
+                      ? 'border-coral bg-coral/5 text-coral-strong'
+                      : 'border-gray-200 bg-white'
               }`}
             >
               {option}

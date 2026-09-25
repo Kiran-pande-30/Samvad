@@ -22,7 +22,7 @@ export const AppFooter = () => {
 
   return (
     <nav
-      className="fixed bottom-0 left-1/2 -translate-x-1/2 z-50 flex w-full max-w-107.5 items-center justify-around bg-white border-t border-[#E5E7EB] h-16 px-4"
+      className="fixed bottom-0 left-1/2 -translate-x-1/2 z-50 flex w-full max-w-107.5 items-center justify-around bg-white border-t border-gray-200 h-16 px-4"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
       {NAV_ITEMS.map(({ label, href, icon }) => {
@@ -36,20 +36,18 @@ export const AppFooter = () => {
             aria-current={isActive ? "page" : undefined}
           >
             <span
-              className="material-symbols-rounded text-[26px] leading-none transition-colors duration-150"
+              className={`material-symbols-rounded text-[26px] leading-none transition-colors duration-150 ${isActive ? "" : "text-gray-400"}`}
               style={{
                 fontVariationSettings: isActive
                   ? "'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24"
                   : "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24",
-                color: isActive ? "#0a0a0a" : "#9CA3AF",
               }}
               aria-hidden="true"
             >
               {icon}
             </span>
             <span
-              className="text-[11px] font-medium leading-none transition-colors duration-150"
-              style={{ color: isActive ? "#0a0a0a" : "#9CA3AF" }}
+              className={`text-[11px] font-medium leading-none transition-colors duration-150 ${isActive ? "" : "text-gray-400"}`}
             >
               {label}
             </span>

@@ -90,7 +90,7 @@ const RootPage = async () => {
 
   return (
     <div className="flex-1 flex flex-col px-7 pt-16 pb-10 min-h-0">
-      <h1 className="text-[38px] font-bold leading-[1.16] tracking-[-1px] text-[#111111] shrink-0">
+      <h1 className="text-[38px] font-bold leading-[1.16] tracking-[-1px] shrink-0">
         Talk Across Languages
       </h1>
 
@@ -99,13 +99,13 @@ const RootPage = async () => {
       </div>
 
       <div className="shrink-0">
-        <p className="text-base font-normal leading-[1.58] text-[#8A8A96] mb-6">
+        <p className="text-base font-normal leading-[1.58] text-gray-500 mb-6">
           Built for India&apos;s closely connected languages.
         </p>
 
         <Link
           href="/login"
-          className="w-full h-14.5 bg-coral text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-between pl-7.5 pr-4.5 cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150">
+          className="w-full h-14.5 bg-coral-strong text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-between pl-7.5 pr-4.5 cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150">
           <span>Start Learning</span>
           <div className="w-9.5 h-9.5 bg-white/18 rounded-full flex items-center justify-center text-[19px] leading-none">
             →
