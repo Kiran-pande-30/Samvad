@@ -113,3 +113,11 @@ export interface ProgressData {
   streak: number;
   last_active_date: string | null;
 }
+export interface AudioClip {
+    id: string;
+    text: string;
+    model: string;
+    speaker: string;
+    storage_path: string;
+    created_at: string;
+}

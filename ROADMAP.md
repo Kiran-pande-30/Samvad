@@ -20,7 +20,8 @@ Plan agreed on 2026-09-26. Tick tasks off (`- [x]`) as they are completed.
 
 ## Decisions
 
-- **Audio:** generate once with a script, upload to Supabase Storage bucket `phrase-audio` (public read, no public write), store the path in `phrases.audio_path`. File name = hash of voice + text, so re-runs skip finished phrases and edited text gets new audio. Upload with a long cache time. **No Redis** — the stored file plus CDN/browser caching is the cache.
+- **Text-to-speech provider:** Sarvam AI (`bulbul:v3`, speaker `ishita`, `language_code: mr-IN`) — no card needed, free signup credit covers all 264 phrases (~3,280 characters, ~₹10). Free alternatives considered: AI4Bharat Indic Parler-TTS (runs locally, Apache 2.0), Azure for Students.
+- **Audio:** generate once with a script, upload to Supabase Storage bucket `audio` (public read, no public write), and record each file in the `audio_clips` table keyed by `(text, model, speaker)` — one table for words and sentences, so the same sentence is generated once. File name = hash of model + speaker + text, so re-runs skip finished texts and edited text gets new audio. Upload with a long cache time. **No Redis** — the stored file plus CDN/browser caching is the cache.
 - **Word progress:** new table `user_phrase_mastery` (user_id, phrase_id, box 0–5, times_seen, times_correct, last_seen_at, next_due_at), shared by the dictionary and daily practice.
 - **Review schedule:** Leitner boxes, intervals 1 / 3 / 7 / 14 / 30 days. Clean retire → box + 1; retire with mistakes → back to box 1.
 - **Daily practice:** 10 active cards. A card retires after **3 correct in a row** (a wrong answer resets the count and moves the card 3–4 places back); the next word from the pool replaces it. The 3 correct answers get harder: Marathi→Hindi choice, Hindi→Marathi choice, then typed/arranged recall. Pool order: due words → weak words → new words. Wrong options come from the same module with similar length. Session ends at `daily_goal` retired words (default 15).
@@ -28,25 +29,33 @@ Plan agreed on 2026-09-26. Tick tasks off (`- [x]`) as they are completed.
 
 ## Now
 
-### Week 1 — Phrase audio
+### Week 1 — Audio, one lesson at a time (start with lesson 1 "Pronouns And Being")
 
-- [ ] 1. Create accounts with 2–3 TTS providers (Google, Azure, Sarvam); keys in `.env.local`; check `.gitignore`
-- [ ] 2. Pick 10 test phrases (words and sentences) with SQL
-- [ ] 3. Call provider A with `curl` for 1 phrase; play the mp3
-- [ ] 4. Same for providers B and C
-- [ ] 5. Generate the 10 phrases per provider, listen, pick one voice, save its name in `.env.local`
-- [ ] 6. Migration: add nullable `phrases.audio_path`
-- [ ] 7. Create `phrase-audio` bucket (public read); confirm an anon-key upload fails
-- [ ] 8. Learn anon key vs service-role key; add the service-role key to `.env.local`
-- [ ] 9. Script step 1: fetch 1 phrase and print it (`npx tsx scripts/…`)
-- [ ] 10. Script step 2: turn it into audio, save locally
-- [ ] 11. Script step 3: upload with long cache time; open the public URL
-- [ ] 12. Script step 4: save `audio_path`; one phrase works end to end
-- [ ] 13. Hash-based file names + skip finished phrases; second run does nothing
-- [ ] 14. 3 phrases at a time + one retry on failure; test on 20
-- [ ] 15. Run all 264; SQL check that no `audio_path` is empty
-- [ ] 16. Add `audio_path` to the lesson query (`lib/data/lessons.ts`) and type; fix `transliration` typo in `lib/types.ts`
-- [ ] 17. 🤖 Play buttons in lessons; test on phone
+Voice whole correct sentences, never wrong options, and never play audio that gives away the answer before Check.
+
+- [x] 1. Sign up at Sarvam; `SARVAM_API_KEY` in `.env.local`; `.gitignore` already covers it (checked)
+- [x] 2. Pick a speaker → `ishita` (`bulbul:v3`)
+
+**A. Migration**
+- [x] A1. Design `audio_clips` (text, model, speaker, storage_path, created_at)
+- [x] A2. Migration `create_audio_clips`: unique `(text, model, speaker)`, unique `storage_path`
+- [x] A3. RLS: public read only; no write policies (the script uses the service-role key, which bypasses RLS)
+
+**B. Storage**
+- [x] B1. Create bucket `audio` (public read); confirm an anon-key upload fails
+- [x] B2. Add `SUPABASE_SERVICE_ROLE_KEY` to `.env.local`; learn why it must stay server-only
+
+**C. Script — `scripts/generate-audio.ts <lessonId>`**
+- [x] C1. SQL: collect the lesson's texts (phrase words, completed `fill_blank` sentences, conversation `speaker_says`, conversation/arrange correct answers); print them
+- [x] C2. Dedupe, strip a trailing `.` (keep `?`), skip texts already in `audio_clips`
+- [x] C3. Generate one text with Sarvam; decode base64; save locally
+- [x] C4. Upload as `mr/<hash>.wav` with a long cache time; insert the `audio_clips` row
+- [x] C5. Run for all of lesson 1; run again → generates nothing
+
+**D. UI**
+- [ ] D1. Lesson data function returns a `{ text → audio URL }` map (one `.in('text', texts)` query); fix `transliration` typo in `lib/types.ts`
+- [ ] D2. 🤖 Play buttons: intro word list, conversation speaker line, answer feedback sheet (after Check)
+- [ ] D3. Test lesson 1 on phone; then run the script for the remaining lessons (384 texts, ~5,700 characters, ~₹17 total)
 
 ### Week 2 — Word progress and dictionary
 
