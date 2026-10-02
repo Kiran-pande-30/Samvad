@@ -2,6 +2,7 @@
 //
 //   npm run audio -- <lessonId>            generate missing clips
 //   npm run audio -- <lessonId> --dry-run  list texts, call nothing, spend nothing
+//   npm run audio -- <lessonId> --words-only  only single words (for measuring billing)
 //
 // Reads SARVAM_API_KEY, NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY
 // from .env.local (loaded by `tsx --env-file`). Never prints any key.
@@ -11,11 +12,16 @@ import { createClient } from '@supabase/supabase-js'
 import type { WebSocketLikeConstructor } from '@supabase/realtime-js'
 import ws from 'ws'
 import type { AudioClip } from '@/lib/types'
+import {
+  AUDIO_BUCKET as BUCKET,
+  AUDIO_MODEL as SARVAM_MODEL,
+  AUDIO_SPEAKER as SARVAM_SPEAKER,
+  audioLookupKeys,
+  normalizeAudioText as normalize,
+  stepAudioTexts,
+} from '@/lib/data/lessons'
 
-const SARVAM_MODEL = 'bulbul:v3'
-const SARVAM_SPEAKER = 'ishita'
 const LANGUAGE_CODE = 'mr-IN'
-const BUCKET = 'audio'
 const RUPEES_PER_CHAR = 30 / 10_000 // bulbul:v3 list price
 
 const requireEnv = (name: string) => {
@@ -31,17 +37,10 @@ const supabase = createClient(
   { auth: { persistSession: false }, realtime: { transport: ws as unknown as WebSocketLikeConstructor } },
 )
 
-// "मी राज आहे." and "मी राज आहे" should share one clip. Keep "?" and "!" —
-// they change the intonation.
-const normalize = (text: string) =>
-  text.trim().replace(/\s+/g, ' ').replace(/[.।]+$/, '').trim()
-
-const fillBlank = (sentence: string, answer: string) => sentence.replace('___', answer)
-
 const collectLessonTexts = async (lessonId: string) => {
   const [phrases, steps] = await Promise.all([
     supabase.from('phrases').select('target').eq('lesson_id', lessonId),
-    supabase.from('lesson_steps').select('step_type, data, correct_answer').eq('lesson_id', lessonId),
+    supabase.from('lesson_steps').select('step_type, prompt, data, correct_answer').eq('lesson_id', lessonId),
   ])
   if (phrases.error) throw phrases.error
   if (steps.error) throw steps.error
@@ -49,24 +48,15 @@ const collectLessonTexts = async (lessonId: string) => {
     throw new Error(`No phrases or steps found for lesson ${lessonId}`)
   }
 
+  // Same rules the lesson page uses to look clips up (lib/data/lessons.ts).
   const raw: string[] = phrases.data.map((p) => p.target)
-
   for (const step of steps.data) {
-    const data = (step.data ?? {}) as Record<string, unknown>
-    const answer = step.correct_answer
-
-    if (step.step_type === 'fill_blank' && typeof data.sentence === 'string' && answer) {
-      raw.push(fillBlank(data.sentence, answer))
-    }
-    if (step.step_type === 'conversation' && typeof data.speaker_says === 'string') {
-      raw.push(data.speaker_says)
-    }
-    if ((step.step_type === 'conversation' || step.step_type === 'arrange') && answer) {
-      raw.push(answer)
-    }
+    for (const text of Object.values(stepAudioTexts(step))) if (text) raw.push(text)
   }
 
-  return [...new Set(raw.map(normalize).filter(Boolean))]
+  const texts = new Set(raw.map(normalize).filter(Boolean))
+  // "तू कोण आहेस" is covered by "तू कोण आहेस?" when both are in this lesson.
+  return [...texts].filter((text) => !audioLookupKeys(text).slice(1).some((key) => texts.has(key)))
 }
 
 const storagePathFor = (text: string) => {
@@ -101,13 +91,24 @@ const synthesize = async (text: string) => {
   return audio
 }
 
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
+
+// Sarvam answers 429 when we send too many requests too quickly. Back off
+// progressively instead of failing; other errors get one quick retry.
+const RETRY_DELAYS_MS = [5_000, 15_000, 30_000]
+
 const withRetry = async <T>(label: string, fn: () => Promise<T>) => {
-  try {
-    return await fn()
-  } catch (error) {
-    console.warn(`  retrying ${label}: ${(error as Error).message}`)
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    return fn()
+  for (let attempt = 0; ; attempt++) {
+    try {
+      return await fn()
+    } catch (error) {
+      const message = (error as Error).message
+      const rateLimited = message.includes('Sarvam 429')
+      const delay = RETRY_DELAYS_MS[attempt]
+      if (delay === undefined || (!rateLimited && attempt > 0)) throw error
+      console.warn(`  ${rateLimited ? 'rate limited' : 'error'} on ${label}, retrying in ${delay / 1000}s`)
+      await sleep(rateLimited ? delay : 2_000)
+    }
   }
 }
 
@@ -148,11 +149,13 @@ const main = async () => {
     .select('text')
     .eq('model', SARVAM_MODEL)
     .eq('speaker', SARVAM_SPEAKER)
-    .in('text', texts)
+    .in('text', texts.flatMap(audioLookupKeys))
   if (existing.error) throw existing.error
 
-  const done = new Set(existing.data.map((clip: Pick<AudioClip, 'text'>) => clip.text))
-  const missing = texts.filter((text) => !done.has(text))
+  const stored = new Set(existing.data.map((clip: Pick<AudioClip, 'text'>) => clip.text))
+  const done = new Set(texts.filter((text) => audioLookupKeys(text).some((key) => stored.has(key))))
+  const wordsOnly = args.includes('--words-only')
+  const missing = texts.filter((text) => !done.has(text) && (!wordsOnly || !text.includes(' ')))
   const chars = missing.reduce((sum, text) => sum + text.length, 0)
 
   console.log(`Lesson ${lessonId}: ${texts.length} texts, ${done.size} already have audio, ${missing.length} to generate`)
@@ -166,7 +169,8 @@ const main = async () => {
 
   console.log('')
   let failed = 0
-  for (const text of missing) {
+  for (const [index, text] of missing.entries()) {
+    if (index > 0) await sleep(500) // stay under Sarvam's rate limit
     try {
       const { storagePath, bytes } = await generateClip(text)
       console.log(`  ✓ ${text} → ${storagePath} (${Math.round(bytes / 1024)} KB)`)

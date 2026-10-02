@@ -60,6 +60,7 @@ export default function LessonEngine({ steps, phrasesById, onComplete }: LessonE
         stepNumber={currentIndex + 1}
         totalSteps={queue.length}
         prompt={step.prompt}
+        promptAudioUrl={step.audio.prompt}
         hint={step.hint}
         showCheckButton={pendingAnswer === null}
         canCheck={ready}
@@ -79,6 +80,7 @@ export default function LessonEngine({ steps, phrasesById, onComplete }: LessonE
         <AnswerFeedbackDialog
           isCorrect={pendingAnswer.isCorrect}
           correctAnswer={step.correct_answer}
+          audioUrl={step.audio.answer}
           continueLabel={isLastQueued && pendingAnswer.isCorrect ? 'Finish' : 'Continue'}
           onContinue={handleContinue}
         />

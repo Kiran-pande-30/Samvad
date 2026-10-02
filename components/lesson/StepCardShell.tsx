@@ -1,9 +1,11 @@
 import { Lightbulb } from 'lucide-react'
+import PlayAudioButton from './PlayAudioButton'
 
 interface StepCardShellProps {
   stepNumber: number
   totalSteps: number
   prompt: string
+  promptAudioUrl: string | null
   hint: string | null
   children: React.ReactNode
   showCheckButton: boolean
@@ -15,6 +17,7 @@ const StepCardShell = ({
   stepNumber,
   totalSteps,
   prompt,
+  promptAudioUrl,
   hint,
   children,
   showCheckButton,
@@ -29,8 +32,15 @@ const StepCardShell = ({
       </div>
 
       <div className="flex-1 flex flex-col">
-        <div className="p-6 bg-gray-50 rounded-2xl border border-gray-200 mb-6">
+        <div className="flex items-start justify-between gap-3 p-6 bg-gray-50 rounded-2xl border border-gray-200 mb-6">
           <p className="text-[20px] font-bold leading-[1.3]">{prompt}</p>
+          {promptAudioUrl && (
+            <PlayAudioButton
+              src={promptAudioUrl}
+              label="Play the sentence"
+              className="-my-2 -mr-2 bg-coral/5 text-coral-strong"
+            />
+          )}
         </div>
 
         <div className="flex-1">{children}</div>

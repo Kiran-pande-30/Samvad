@@ -1,10 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import PlayAudioButton from './PlayAudioButton'
 
 interface AnswerFeedbackDialogProps {
   isCorrect: boolean
   correctAnswer: string | null
+  audioUrl: string | null
   continueLabel: string
   onContinue: () => void
 }
@@ -12,6 +14,7 @@ interface AnswerFeedbackDialogProps {
 export const AnswerFeedbackDialog = ({
   isCorrect,
   correctAnswer,
+  audioUrl,
   continueLabel,
   onContinue,
 }: AnswerFeedbackDialogProps) => {
@@ -40,6 +43,14 @@ export const AnswerFeedbackDialog = ({
         <p className={`text-[18px] font-bold ${isCorrect ? 'text-success' : 'text-error'}`}>
           {isCorrect ? 'Excellent!' : 'Not quite'}
         </p>
+        {audioUrl && (
+          <PlayAudioButton
+            src={audioUrl}
+            autoPlay
+            label="Play the correct answer"
+            className={`ml-auto -my-2 bg-white/70 ${isCorrect ? 'text-success' : 'text-error'}`}
+          />
+        )}
       </div>
 
       {!isCorrect && correctAnswer && (

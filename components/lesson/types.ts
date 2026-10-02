@@ -1,9 +1,12 @@
+import type { StepAudio } from '@/lib/types'
+
 export interface Phrase {
   id: string
   source: string
   target: string
   transliteration: string | null
   order_index: number
+  audio_url: string | null
 }
 
 export interface LessonStep {
@@ -15,6 +18,7 @@ export interface LessonStep {
   data: Record<string, unknown>
   correct_answer: string | null
   hint: string | null
+  audio: StepAudio
 }
 
 export interface StepAnswer {

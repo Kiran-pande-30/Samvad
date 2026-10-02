@@ -3,6 +3,7 @@
 import { useRouter, useParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 import LessonEngine from '@/components/lesson/LessonEngine'
+import PlayAudioButton from '@/components/lesson/PlayAudioButton'
 import type { LessonStep, Phrase, StepAttempt } from '@/components/lesson/types'
 import type { UserProgressStatus } from '@/lib/types'
 
@@ -116,7 +117,16 @@ const LessonPage = () => {
               key={phrase.id}
               className="flex flex-col gap-1 px-5 py-4 rounded-2xl border border-gray-200"
             >
-              <p className="font-semibold text-[17px]">{phrase.target}</p>
+              <div className="flex items-start justify-between gap-2">
+                <p className="font-semibold text-[17px]">{phrase.target}</p>
+                {phrase.audio_url && (
+                  <PlayAudioButton
+                    src={phrase.audio_url}
+                    label={`Play ${phrase.target}`}
+                    className="-mr-3 -mt-2.5 text-coral-strong"
+                  />
+                )}
+              </div>
               {phrase.transliteration && (
                 <p className="text-[13px] text-gray-500">{phrase.transliteration}</p>
               )}

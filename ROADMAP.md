@@ -53,9 +53,10 @@ Voice whole correct sentences, never wrong options, and never play audio that gi
 - [x] C5. Run for all of lesson 1; run again → generates nothing
 
 **D. UI**
-- [ ] D1. Lesson data function returns a `{ text → audio URL }` map (one `.in('text', texts)` query); fix `transliration` typo in `lib/types.ts`
+- [x] D1. Lesson data function returns a `{ text → audio URL }` map (one `.in('text', texts)` query); fix `transliration` typo in `lib/types.ts`
 - [ ] D2. 🤖 Play buttons: intro word list, conversation speaker line, answer feedback sheet (after Check)
-- [ ] D3. Test lesson 1 on phone; then run the script for the remaining lessons (384 texts, ~5,700 characters, ~₹17 total)
+- [ ] D3. Test modules 1–2 on phone (play buttons, auto-play after Check)
+  - Audio generated for modules 1–2 only (16 lessons, 111 clips, ₹3.60); later modules stay silent until learners reach them — generate a module at a time then (~₹1–2 each). Billing verified on the dashboard: exactly ₹30 per 10K characters, no per-request minimum; 429 rate-limit errors aren't charged.
 
 ### Week 2 — Word progress and dictionary
 

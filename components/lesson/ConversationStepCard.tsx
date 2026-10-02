@@ -2,6 +2,7 @@
 
 import { forwardRef } from 'react'
 import MultipleChoiceOptions from './MultipleChoiceOptions'
+import PlayAudioButton from './PlayAudioButton'
 import type { StepHandle, StepProps } from './types'
 
 const ConversationStepCard = forwardRef<StepHandle, StepProps>(({ step, onAnswer, onReadyChange }, ref) => {
@@ -13,8 +14,17 @@ const ConversationStepCard = forwardRef<StepHandle, StepProps>(({ step, onAnswer
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-1 items-start">
         {speaker && <p className="text-[13px] font-medium text-gray-500 px-1">{speaker}</p>}
-        <div className="max-w-[85%] px-4 py-3 bg-gray-100 rounded-2xl rounded-tl-sm">
-          <p className="text-[16px]">{speakerSays}</p>
+        <div className="flex items-center gap-2 max-w-[85%]">
+          <div className="px-4 py-3 bg-gray-100 rounded-2xl rounded-tl-sm">
+            <p className="text-[16px]">{speakerSays}</p>
+          </div>
+          {step.audio.speaker && (
+            <PlayAudioButton
+              src={step.audio.speaker}
+              label={`Play what ${speaker || 'they'} said`}
+              className="bg-coral/5 text-coral-strong"
+            />
+          )}
         </div>
       </div>
 

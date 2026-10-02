@@ -59,7 +59,7 @@ export interface Phrase {
     lesson_id: string;
     source: string;
     target: string;
-    transliration: string;
+    transliteration: string;
     order_index: number;
     created_at: string;
 }
@@ -120,4 +120,17 @@ export interface AudioClip {
     speaker: string;
     storage_path: string;
     created_at: string;
+}
+
+export interface StepAudio {
+    prompt: string | null;
+    speaker: string | null;
+    answer: string | null;
+}
+
+export interface PlayAudioButtonProps {
+    src: string;
+    autoPlay?: boolean;
+    label?: string;
+    className?: string;
 }
