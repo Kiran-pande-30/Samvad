@@ -6,7 +6,7 @@ import { X } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import LessonEngine from '@/components/lesson/LessonEngine'
 import PlayAudioButton from '@/components/lesson/PlayAudioButton'
-import type { LessonStep, Phrase, StepAttempt } from '@/components/lesson/types'
+import type { LessonStep, Phrase } from '@/components/lesson/types'
 import type { UserProgressStatus } from '@/lib/types'
 
 interface LessonDetail {
@@ -39,13 +39,13 @@ const LessonPage = () => {
         }
         const data: LessonDetail = await response.json()
         setLesson(data)
-        if (data.status !== 'completed') {
-          await fetch('/api/me/progress/start', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ lesson_id: data.id, module_id: data.module_id }),
-          })
-        }
+        // Always call start: for a completed lesson it begins a fresh run
+        // (resets started_at) without un-completing it.
+        await fetch('/api/me/progress/start', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ lesson_id: data.id, module_id: data.module_id }),
+        })
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred')
       } finally {
@@ -64,13 +64,13 @@ const LessonPage = () => {
     return map
   }, [lesson])
 
-  const handleComplete = async (attempts: StepAttempt[]) => {
+  const handleComplete = async () => {
     if (!lesson) return
     try {
       const response = await fetch('/api/me/progress/complete', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ lesson_id: lesson.id, module_id: lesson.module_id, attempts }),
+        body: JSON.stringify({ lesson_id: lesson.id, module_id: lesson.module_id }),
       })
       if (!response.ok) {
         throw new Error('Failed to save progress')

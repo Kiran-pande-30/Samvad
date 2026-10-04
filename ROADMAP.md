@@ -58,6 +58,20 @@ Voice whole correct sentences, never wrong options, and never play audio that gi
 - [ ] D3. Test modules 1–2 on phone (play buttons, auto-play after Check)
   - Audio generated for modules 1–2 only (16 lessons, 111 clips, ₹3.60); later modules stay silent until learners reach them — generate a module at a time then (~₹1–2 each). Billing verified on the dashboard: exactly ₹30 per 10K characters, no per-request minimum; 429 rate-limit errors aren't charged.
 
+### Resume lessons (before Week 2)
+
+Leave a lesson mid-way → home shows "Continue learning · Step 4 of 11" → reopening starts at the step you left. Every answer is saved the moment it's given (`step_attempts`), and the resume point is *worked out* from this run's answers (`attempted_at >= user_progress.started_at`) — no position column. Steps answered wrong go to the end, exactly as `LessonEngine` does.
+
+- [x] R1. `user_progress.started_at` + `start_lesson` sets it when a new run begins (first open, or replaying a completed lesson); resuming keeps it
+- [x] R2. DB function `record_attempt(step_id, is_correct)`: saves one answer for `auth.uid()`, only for a lesson the user has started
+- [x] R3. `complete_lesson` stops trusting answers sent by the browser; scores from this run's saved answers instead
+- [ ] R4. TypeScript function: remaining queue from this run's answers (+ a few tests)
+- [ ] R5. `getLessonDetail` returns the remaining queue; `getProgress` says which lessons are resumable and how far along
+- [ ] R6. 🤖 `LessonEngine` starts from the remaining queue (saving each answer on Check is done)
+- [ ] R7. 🤖 Home: "Continue learning · Step 4 of 11"
+
+R2, R3 and R6 must ship together — otherwise answers are saved twice or not at all.
+
 ### Week 2 — Word progress and dictionary
 
 - [ ] 18. On paper: `user_phrase_mastery` columns and why each exists

@@ -1,7 +1,13 @@
 import { ModuleWithLessons, LessonState, ProgressData } from '@/lib/types'
 import ModuleCard from '@/components/modules/ModuleCard'
 
-const ModuleList = ({ modules, progress}: { modules: ModuleWithLessons[];  progress: ProgressData; }) => {
+// Modules kept in the database but not shown in the app.
+// "First Words & Greetings" overlaps modules 1–2 and is hidden for now.
+const HIDDEN_MODULE_IDS = new Set(['ef2e7ae2-2540-4b50-9562-921899e0750e'])
+
+const ModuleList = ({ modules: allModules, progress}: { modules: ModuleWithLessons[];  progress: ProgressData; }) => {
+  const modules = allModules.filter((m) => !HIDDEN_MODULE_IDS.has(m.id))
+
   // Flatten all lessons across all modules to compute global sequence
   const globalLessons = modules.flatMap((m) =>
     m.lessons.map((l) => ({ ...l, module_id: m.id }))

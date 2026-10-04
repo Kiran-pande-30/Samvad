@@ -54,7 +54,7 @@ const ArrangeStepCard = forwardRef<StepHandle, StepProps>(({ step, onAnswer, onR
             key={`${word}-${index}`}
             onClick={() => removeWord(index)}
             disabled={revealed}
-            className="px-4 py-2 rounded-lg border border-coral bg-coral/5 text-coral-strong text-[15px] font-medium"
+            className="min-h-11 px-4 py-2 rounded-lg border border-coral bg-coral/5 text-coral-strong text-[15px] font-medium"
           >
             {word}
           </button>
@@ -67,7 +67,7 @@ const ArrangeStepCard = forwardRef<StepHandle, StepProps>(({ step, onAnswer, onR
             key={`${word}-${index}`}
             onClick={() => pickWord(index)}
             disabled={revealed}
-            className="px-4 py-2 rounded-lg border border-gray-200 bg-white text-[15px] font-medium"
+            className="min-h-11 px-4 py-2 rounded-lg border border-gray-200 bg-white text-[15px] font-medium"
           >
             {word}
           </button>

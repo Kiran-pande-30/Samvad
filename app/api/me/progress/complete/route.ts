@@ -13,9 +13,9 @@ export async function POST(request: Request) {
 
   const body = await request.json()
 
-  if (!body.lesson_id || !body.module_id || !Array.isArray(body.attempts)) {
+  if (!body.lesson_id || !body.module_id) {
     return NextResponse.json(
-      { error: 'lesson_id, module_id and attempts are required' },
+      { error: 'lesson_id and module_id are required' },
       { status: 400 }
     )
   }
@@ -25,8 +25,7 @@ export async function POST(request: Request) {
       supabase,
       user.id,
       body.lesson_id,
-      body.module_id,
-      body.attempts
+      body.module_id
     )
     return NextResponse.json(result)
   } catch {

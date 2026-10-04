@@ -57,7 +57,7 @@ const FillBlankStepCard = forwardRef<StepHandle, StepProps>(({ step, onAnswer, o
               key={word}
               onClick={() => handleSelect(word)}
               disabled={checked}
-              className={`px-4 py-2 rounded-lg border text-[15px] font-medium ${
+              className={`min-h-11 px-4 py-2 rounded-lg border text-[15px] font-medium ${
                 isCorrectOption
                   ? 'border-success bg-success-bg text-success'
                   : isWrongSelection

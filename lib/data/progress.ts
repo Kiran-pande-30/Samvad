@@ -96,17 +96,27 @@ export const startLesson = async (
   return data as { status: string }
 }
 
+// Saves one answer the moment it's given (DB function record_attempt).
+export const recordAttempt = async (supabase: SupabaseClient, stepId: string, isCorrect: boolean) => {
+  const { error } = await supabase.rpc('record_attempt', {
+    p_step_id: stepId,
+    p_is_correct: isCorrect,
+  })
+
+  if (error) throw new Error('Failed to save answer')
+}
+
+// Scores the lesson from the answers already saved in this run — the browser
+// no longer sends them, so it can't claim a score it didn't earn.
 export const completeLesson = async (
   supabase: SupabaseClient,
   _userId: string,
   lessonId: string,
-  moduleId: string,
-  attempts: { step_id: string; phrase_id?: string | null; is_correct: boolean }[]
+  moduleId: string
 ) => {
   const { data, error } = await supabase.rpc('complete_lesson', {
     p_lesson_id: lessonId,
     p_module_id: moduleId,
-    p_attempts: attempts,
   })
 
   if (error) throw new Error('Failed to save progress')

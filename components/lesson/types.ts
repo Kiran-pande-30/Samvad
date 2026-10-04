@@ -36,9 +36,3 @@ export interface StepProps {
   onAnswer: (result: StepAnswer) => void
   onReadyChange: (ready: boolean) => void
 }
-
-export interface StepAttempt {
-  step_id: string
-  phrase_id: string
-  is_correct: boolean
-}

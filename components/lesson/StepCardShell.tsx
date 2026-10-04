@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 import { Lightbulb, X } from 'lucide-react'
 import PlayAudioButton from './PlayAudioButton'
@@ -25,6 +28,10 @@ const StepCardShell = ({
   canCheck,
   onCheck,
 }: StepCardShellProps) => {
+  // Remember which step the hint was opened on, so it closes again on the next step.
+  const [hintOpenForStep, setHintOpenForStep] = useState<number | null>(null)
+  const hintOpen = hintOpenForStep === stepNumber
+
   return (
     <div className="flex flex-col flex-1">
       <div className="flex items-center gap-2 mb-6">
@@ -59,11 +66,21 @@ const StepCardShell = ({
       {/* Hint and Check form the pre-answer bar; the feedback sheet takes its place once answered */}
       {showCheckButton && (
         <div className="mt-8 flex flex-col gap-3 shrink-0">
-          {hint && (
+          {hint && hintOpen && (
             <div className="flex items-start gap-2 px-4 py-3 bg-brand-blue/5 border border-brand-blue/15 rounded-xl">
               <Lightbulb className="w-4.5 h-4.5 text-brand-blue shrink-0 mt-0.5" />
               <p className="text-[14px] text-brand-blue leading-[1.4]">{hint}</p>
             </div>
+          )}
+          {hint && !hintOpen && (
+            <button
+              type="button"
+              onClick={() => setHintOpenForStep(stepNumber)}
+              className="self-center min-h-11 px-4 flex items-center gap-1.5 rounded-full text-[14px] font-medium text-brand-blue cursor-pointer active:scale-[0.97] transition-transform duration-150"
+            >
+              <Lightbulb className="w-4 h-4" />
+              Need a hint?
+            </button>
           )}
 
           <button

@@ -21,7 +21,10 @@ export const AppFooter = () => {
   if (pathname.startsWith("/lesson")) return null;
 
   return (
-    <nav
+    <>
+      {/* Reserves room at the bottom of the column so content isn't hidden behind the fixed bar. */}
+      <div className="h-16 shrink-0" aria-hidden="true" />
+      <nav
       className="fixed bottom-0 left-1/2 -translate-x-1/2 z-50 flex w-full max-w-107.5 items-center justify-around bg-white border-t border-gray-200 h-16 px-4"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
@@ -54,6 +57,7 @@ export const AppFooter = () => {
           </Link>
         );
       })}
-    </nav>
+      </nav>
+    </>
   );
 };
