@@ -1,4 +1,5 @@
-import { Lightbulb } from 'lucide-react'
+import Link from 'next/link'
+import { Lightbulb, X } from 'lucide-react'
 import PlayAudioButton from './PlayAudioButton'
 
 interface StepCardShellProps {
@@ -26,9 +27,18 @@ const StepCardShell = ({
 }: StepCardShellProps) => {
   return (
     <div className="flex flex-col flex-1">
-      <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden mb-8">
-        <div className="h-full bg-coral rounded-full transition-[width] duration-300"
-          style={{ width: `${(stepNumber / totalSteps) * 100}%` }} />
+      <div className="flex items-center gap-2 mb-6">
+        <Link
+          href="/"
+          aria-label="Exit lesson"
+          className="w-11 h-11 -ml-2.5 shrink-0 rounded-full flex items-center justify-center text-gray-400 active:scale-95 transition-transform duration-150"
+        >
+          <X className="w-6 h-6" />
+        </Link>
+        <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+          <div className="h-full bg-coral rounded-full transition-[width] duration-300"
+            style={{ width: `${(stepNumber / totalSteps) * 100}%` }} />
+        </div>
       </div>
 
       <div className="flex-1 flex flex-col">

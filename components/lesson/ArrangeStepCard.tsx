@@ -1,15 +1,19 @@
 'use client'
 
-import { forwardRef, useEffect, useImperativeHandle, useMemo, useState } from 'react'
+import { forwardRef, useEffect, useImperativeHandle, useState } from 'react'
+import { shuffle } from '@/lib/utils'
 import type { StepHandle, StepProps } from './types'
 
 const ArrangeStepCard = forwardRef<StepHandle, StepProps>(({ step, onAnswer, onReadyChange }, ref) => {
-  const words = useMemo(
-    () => (Array.isArray(step.data.words) ? (step.data.words as string[]) : []),
-    [step.data.words]
-  )
-
-  const [available, setAvailable] = useState<string[]>(words)
+  // Shuffle the tiles, re-shuffling if they happen to land in the answer's order.
+  const [available, setAvailable] = useState<string[]>(() => {
+    const words = Array.isArray(step.data.words) ? (step.data.words as string[]) : []
+    let tiles = shuffle(words)
+    for (let tries = 0; tries < 10 && words.length > 1 && tiles.join(' ') === step.correct_answer; tries++) {
+      tiles = shuffle(words)
+    }
+    return tiles
+  })
   const [chosen, setChosen] = useState<string[]>([])
   const [revealed, setRevealed] = useState(false)
 

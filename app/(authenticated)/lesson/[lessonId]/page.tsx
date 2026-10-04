@@ -1,6 +1,8 @@
 'use client'
 
+import Link from 'next/link'
 import { useRouter, useParams } from 'next/navigation'
+import { X } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import LessonEngine from '@/components/lesson/LessonEngine'
 import PlayAudioButton from '@/components/lesson/PlayAudioButton'
@@ -105,7 +107,14 @@ const LessonPage = () => {
 
   if (screen === 'preview') {
     return (
-      <div className="flex-1 flex flex-col px-7 py-8 overflow-y-auto min-h-0">
+      <div className="flex-1 flex flex-col px-7 py-6 overflow-y-auto min-h-0">
+        <Link
+          href="/"
+          aria-label="Back to lessons"
+          className="w-11 h-11 -ml-3 mb-2 shrink-0 rounded-full flex items-center justify-center text-gray-400 active:scale-95 transition-transform duration-150"
+        >
+          <X className="w-6 h-6" />
+        </Link>
         <h1 className="text-[28px] font-bold leading-[1.2]">{lesson.title}</h1>
         <p className="mt-2 text-[15px] text-gray-500">
           Here are the phrases you&apos;ll learn in this lesson. Keep them in mind before you start.

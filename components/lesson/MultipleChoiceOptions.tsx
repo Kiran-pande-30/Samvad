@@ -1,6 +1,7 @@
 'use client'
 
 import { forwardRef, useEffect, useImperativeHandle, useState } from 'react'
+import { shuffle } from '@/lib/utils'
 import type { StepAnswer, StepHandle } from './types'
 
 interface MultipleChoiceOptionsProps {
@@ -12,6 +13,8 @@ interface MultipleChoiceOptionsProps {
 
 const MultipleChoiceOptions = forwardRef<StepHandle, MultipleChoiceOptionsProps>(
   ({ options, correctAnswer, onAnswer, onReadyChange }, ref) => {
+    // Content often stores the correct answer first; shuffle so position gives nothing away.
+    const [shuffledOptions] = useState(() => shuffle(options))
     const [selected, setSelected] = useState<string | null>(null)
     const [checked, setChecked] = useState(false)
 
@@ -34,7 +37,7 @@ const MultipleChoiceOptions = forwardRef<StepHandle, MultipleChoiceOptionsProps>
 
     return (
       <div className="flex flex-col gap-3">
-        {options.map((option) => {
+        {shuffledOptions.map((option) => {
           const isSelected = selected === option
           const isCorrectOption = checked && option === correctAnswer
           const isWrongSelection = checked && isSelected && option !== correctAnswer

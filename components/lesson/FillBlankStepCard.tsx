@@ -1,13 +1,14 @@
 'use client'
 
-import { forwardRef, useEffect, useImperativeHandle, useMemo, useState } from 'react'
+import { forwardRef, useEffect, useImperativeHandle, useState } from 'react'
+import { shuffle } from '@/lib/utils'
 import type { StepHandle, StepProps } from './types'
 
 const FillBlankStepCard = forwardRef<StepHandle, StepProps>(({ step, onAnswer, onReadyChange }, ref) => {
   const sentence = typeof step.data.sentence === 'string' ? step.data.sentence : ''
-  const wordBank = useMemo(
-    () => (Array.isArray(step.data.word_bank) ? (step.data.word_bank as string[]) : []),
-    [step.data.word_bank]
+  // Content often stores the correct answer first; shuffle so position gives nothing away.
+  const [wordBank] = useState(() =>
+    shuffle(Array.isArray(step.data.word_bank) ? (step.data.word_bank as string[]) : [])
   )
   const blankIndex = typeof step.data.blank_index === 'number' ? step.data.blank_index : -1
 

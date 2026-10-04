@@ -1,8 +1,17 @@
 import { redirect } from 'next/navigation'
+import { LogOut } from 'lucide-react'
 import { createClient } from '@/lib/supabase/server'
 import { getAuthenticatedUser } from '@/lib/data/auth'
 import { getProfile } from '@/lib/data/profile'
 import { effectiveStreak } from '@/lib/data/progress'
+
+// Server Action: clears the Supabase session cookies, then sends the user to login.
+const signOut = async () => {
+  'use server'
+  const supabase = await createClient()
+  await supabase.auth.signOut()
+  redirect('/')
+}
 
 const ProfilePage = async () => {
   const supabase = await createClient()
@@ -67,14 +76,15 @@ const ProfilePage = async () => {
           <span className="text-xs font-medium text-stone bg-white rounded-full px-3 py-1">Coming soon</span>
         </button>
 
-        <button
-          type="button"
-          disabled
-          className="w-full rounded-2xl shadow-md bg-surface px-4 py-4 flex items-center justify-between disabled:cursor-not-allowed"
-        >
-          <span className="text-sm font-semibold">Logout</span>
-          <span className="text-xs font-medium text-stone bg-white rounded-full px-3 py-1">Coming soon</span>
-        </button>
+        <form action={signOut}>
+          <button
+            type="submit"
+            className="w-full rounded-2xl shadow-md bg-surface px-4 py-4 flex items-center justify-between cursor-pointer active:scale-[0.99] transition-transform duration-150"
+          >
+            <span className="text-sm font-semibold text-error">Log out</span>
+            <LogOut className="w-4.5 h-4.5 text-error" />
+          </button>
+        </form>
       </div>
     </main>
   )
