@@ -65,7 +65,7 @@ Leave a lesson mid-way → home shows "Continue learning · Step 4 of 11" → re
 - [x] R1. `user_progress.started_at` + `start_lesson` sets it when a new run begins (first open, or replaying a completed lesson); resuming keeps it
 - [x] R2. DB function `record_attempt(step_id, is_correct)`: saves one answer for `auth.uid()`, only for a lesson the user has started
 - [x] R3. `complete_lesson` stops trusting answers sent by the browser; scores from this run's saved answers instead
-- [ ] R4. TypeScript function: remaining queue from this run's answers (+ a few tests)
+- [x] R4. TypeScript function: remaining queue from this run's answers (+ a few tests)
 - [ ] R5. `getLessonDetail` returns the remaining queue; `getProgress` says which lessons are resumable and how far along
 - [ ] R6. 🤖 `LessonEngine` starts from the remaining queue (saving each answer on Check is done)
 - [ ] R7. 🤖 Home: "Continue learning · Step 4 of 11"

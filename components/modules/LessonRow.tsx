@@ -61,14 +61,27 @@ const LessonRow = ({ lesson, sequenceNumber, isFirst, isLast }: LessonRowProps) 
           className="block my-2 rounded-2xl border-[1.5px] border-coral bg-white p-4 shadow-[rgba(0,0,0,0.08)_0px_4px_6px_0px] active:scale-[0.99] transition-transform duration-150"
         >
           <p className="text-xs font-semibold uppercase tracking-widest text-coral-strong">
-            Up next · Lesson {sequenceNumber}
+            {lesson.progress ? 'In progress' : 'Up next'} · Lesson {sequenceNumber}
           </p>
           <p className="mt-1 text-lg font-semibold">{lesson.title}</p>
           {lesson.preview_phrase && (
             <p lang="mr" className="mt-0.5 text-[15px] text-gray-600">{lesson.preview_phrase}</p>
           )}
+          {lesson.progress && (
+            <div className="mt-3 flex items-center gap-3">
+              <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-coral rounded-full"
+                  style={{ width: `${(lesson.progress.done / lesson.progress.total) * 100}%` }}
+                />
+              </div>
+              <span className="shrink-0 text-xs text-gray-500 tabular-nums">
+                {lesson.progress.done} of {lesson.progress.total} done
+              </span>
+            </div>
+          )}
           <span className="mt-4 h-11 rounded-full bg-coral-strong text-white text-sm font-semibold flex items-center justify-center">
-            Start lesson
+            {lesson.progress ? 'Continue learning' : 'Start lesson'}
           </span>
         </Link>
       ) : (
@@ -83,7 +96,9 @@ const LessonRow = ({ lesson, sequenceNumber, isFirst, isLast }: LessonRowProps) 
               )}
             </div>
             {!isLocked && (
-              <span className="shrink-0 text-xs text-gray-500 tabular-nums">{lesson.phrase_count} phrases</span>
+              <span className={`shrink-0 text-xs tabular-nums ${lesson.progress ? 'font-semibold text-coral-strong' : 'text-gray-500'}`}>
+                {lesson.progress ? `${lesson.progress.done}/${lesson.progress.total} done` : `${lesson.phrase_count} phrases`}
+              </span>
             )}
           </div>
         </LessonRowLink>

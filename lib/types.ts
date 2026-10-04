@@ -52,6 +52,7 @@ export type LessonState = 'completed' | 'current' | 'upcoming' | 'locked';
 
 export interface LessonWithState extends LessonSummary {
     state: LessonState;
+    progress: LessonRunProgress | null;
 }
 
 export interface Phrase {
@@ -108,6 +109,7 @@ export interface ProgressData {
     module_id: string;
     status: UserProgressStatus;
     completed_at: string | null;
+    run_progress: LessonRunProgress | null;
   }[];
   modules_completed: string[];
   streak: number;
@@ -133,4 +135,22 @@ export interface PlayAudioButtonProps {
     autoPlay?: boolean;
     label?: string;
     className?: string;
+}
+
+export interface RunAttempt {
+    step_id: string;
+    is_correct: boolean;
+    attempted_at: string;   // ISO timestamp from the database
+}
+
+// How far the current run of an in-progress lesson has got (steps answered correctly).
+export interface LessonRunProgress {
+    done: number;
+    total: number;
+}
+
+// Where to pick a lesson back up: the steps still to do, in order.
+export interface LessonResume {
+    remaining_step_ids: string[];
+    done: number;
 }

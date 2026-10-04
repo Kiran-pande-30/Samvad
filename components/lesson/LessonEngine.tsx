@@ -4,16 +4,27 @@ import { useRef, useState } from 'react'
 import StepCardShell from './StepCardShell'
 import { AnswerFeedbackDialog } from './AnswerFeedbackDialog'
 import { renderStep } from './stepRegistry'
+import type { LessonResume } from '@/lib/types'
 import type { LessonStep, Phrase, StepAnswer, StepHandle } from './types'
 
 interface LessonEngineProps {
   steps: LessonStep[]
   phrasesById: Map<string, Phrase>
+  resume: LessonResume | null
   onComplete: () => void
 }
 
-export default function LessonEngine({ steps, phrasesById, onComplete }: LessonEngineProps) {
-  const [queue, setQueue] = useState<LessonStep[]>(steps)
+export default function LessonEngine({ steps, phrasesById, resume, onComplete }: LessonEngineProps) {
+  // Resuming: start from the steps still to do (worked out on the server from
+  // this run's saved answers). Steps already done count towards the progress bar.
+  const [initial] = useState(() => {
+    const byId = new Map(steps.map((step) => [step.id, step]))
+    const remaining = (resume?.remaining_step_ids ?? [])
+      .map((id) => byId.get(id))
+      .filter((step): step is LessonStep => !!step)
+    return remaining.length > 0 ? { queue: remaining, done: resume?.done ?? 0 } : { queue: steps, done: 0 }
+  })
+  const [queue, setQueue] = useState<LessonStep[]>(initial.queue)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [pendingAnswer, setPendingAnswer] = useState<StepAnswer | null>(null)
   const [ready, setReady] = useState(false)
@@ -65,8 +76,8 @@ export default function LessonEngine({ steps, phrasesById, onComplete }: LessonE
   return (
     <>
       <StepCardShell
-        stepNumber={currentIndex + 1}
-        totalSteps={queue.length}
+        stepNumber={initial.done + currentIndex + 1}
+        totalSteps={initial.done + queue.length}
         prompt={step.prompt}
         promptAudioUrl={step.audio.prompt}
         hint={step.hint}

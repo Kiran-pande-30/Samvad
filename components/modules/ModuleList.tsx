@@ -46,9 +46,12 @@ const ModuleList = ({ modules: allModules, progress}: { modules: ModuleWithLesso
         state = 'locked';
       }
 
+      const runProgress = progress.lessons.find((p) => p.lesson_id === lesson.id)?.run_progress ?? null;
+
       return {
         ...lesson,
         state,
+        progress: state === 'completed' ? null : runProgress,
       };
     });
 

@@ -7,7 +7,7 @@ import { useEffect, useMemo, useState } from 'react'
 import LessonEngine from '@/components/lesson/LessonEngine'
 import PlayAudioButton from '@/components/lesson/PlayAudioButton'
 import type { LessonStep, Phrase } from '@/components/lesson/types'
-import type { UserProgressStatus } from '@/lib/types'
+import type { LessonResume, UserProgressStatus } from '@/lib/types'
 
 interface LessonDetail {
   id: string
@@ -16,6 +16,7 @@ interface LessonDetail {
   phrases: Phrase[]
   steps: LessonStep[]
   status: UserProgressStatus
+  resume: LessonResume | null
 }
 
 type Screen = 'preview' | 'active' | 'finished'
@@ -148,7 +149,7 @@ const LessonPage = () => {
           onClick={() => setScreen('active')}
           className="w-full h-14.5 mt-8 bg-coral-strong text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-center cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150"
         >
-          Start Lesson
+          {lesson.resume ? `Continue · ${lesson.resume.done} of ${lesson.steps.length} done` : 'Start Lesson'}
         </button>
       </div>
     )
@@ -177,7 +178,7 @@ const LessonPage = () => {
   return (
     <div className="flex-1 flex flex-col px-4 py-6 min-h-0">
       {lesson.steps.length > 0 ? (
-        <LessonEngine steps={lesson.steps} phrasesById={phrasesById} onComplete={handleComplete} />
+        <LessonEngine steps={lesson.steps} phrasesById={phrasesById} resume={lesson.resume} onComplete={handleComplete} />
       ) : (
         <div className="flex-1 flex flex-col items-center justify-center text-center">
           <p className="text-gray-500">This lesson has no steps yet.</p>

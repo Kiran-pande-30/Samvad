@@ -1,5 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
-import type { StepAudio } from '@/lib/types'
+import type { LessonResume, RunAttempt, StepAudio } from '@/lib/types'
 import { NotFoundError } from './errors'
 
 // Voice used for every clip in the `audio` bucket (see scripts/generate-audio.ts).
@@ -93,6 +93,46 @@ const getAudioUrls = async (supabase: SupabaseClient, texts: string[]) => {
   return urls
 }
 
+// Which steps are left in this run, in the order LessonEngine would show them:
+// never-answered steps first (original order), then steps whose LATEST answer
+// was wrong (in the order those wrong answers happened). Using each step's latest
+// answer keeps this correct even if an earlier save was lost.
+export const remainingStepIds = (stepIds: string[], attempts: RunAttempt[]) => {
+  const stepSet = new Set(stepIds)
+  const sorted = [...attempts].sort((a, b) => a.attempted_at.localeCompare(b.attempted_at))
+
+  const latest = new Map<string, RunAttempt>()
+  for (const attempt of sorted) latest.set(attempt.step_id, attempt)
+
+  const unanswered = stepIds.filter((id) => !latest.has(id))
+  const retries = [...latest.values()]
+    .filter((attempt) => !attempt.is_correct && stepSet.has(attempt.step_id))
+    .sort((a, b) => a.attempted_at.localeCompare(b.attempted_at))
+    .map((attempt) => attempt.step_id)
+
+  return [...unanswered, ...retries]
+}
+
+// This run's answers for the given steps: those saved since user_progress.started_at.
+export const getRunAttempts = async (
+  supabase: SupabaseClient,
+  userId: string,
+  stepIds: string[],
+  startedAt: string | null
+): Promise<RunAttempt[]> => {
+  if (stepIds.length === 0) return []
+  let query = supabase
+    .from('step_attempts')
+    .select('step_id, is_correct, attempted_at')
+    .eq('user_id', userId)
+    .in('step_id', stepIds)
+  if (startedAt) query = query.gte('attempted_at', startedAt)
+
+  const { data, error } = await query
+  if (error) throw new Error('Failed to fetch answers')
+  return data
+}
+
 export async function getLessonSummaries(supabase: SupabaseClient) {
   const { data: lessons, error } = await supabase
     .from('lessons')
@@ -115,7 +155,7 @@ export async function getLessonDetail(supabase: SupabaseClient, lessonId: string
     supabase.from('lesson_steps').select('*').eq('lesson_id', lessonId).order('order_index', { ascending: true }),
     supabase
       .from('user_progress')
-      .select('status')
+      .select('status, started_at')
       .eq('user_id', userId)
       .eq('lesson_id', lessonId)
       .maybeSingle(),
@@ -163,6 +203,18 @@ export async function getLessonDetail(supabase: SupabaseClient, lessonId: string
     }
   })
 
+  // Resume only an unfinished lesson that already has answers in this run.
+  // (Opening a completed lesson starts a fresh run instead.)
+  let resume: LessonResume | null = null
+  if (progressResult.data?.status === 'in_progress') {
+    const stepIds = steps.map((step) => step.id)
+    const attempts = await getRunAttempts(supabase, userId, stepIds, progressResult.data.started_at)
+    const remaining = remainingStepIds(stepIds, attempts)
+    if (attempts.length > 0 && remaining.length > 0) {
+      resume = { remaining_step_ids: remaining, done: stepIds.length - remaining.length }
+    }
+  }
+
   return {
     id: lesson.id,
     title: lesson.title,
@@ -170,5 +222,6 @@ export async function getLessonDetail(supabase: SupabaseClient, lessonId: string
     phrases,
     steps,
     status: progressResult.data?.status ?? 'not_started',
+    resume,
   }
 }

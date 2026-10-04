@@ -1,5 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
-import type { ProgressData } from '@/lib/types'
+import type { LessonRunProgress, ProgressData } from '@/lib/types'
+import { getRunAttempts, remainingStepIds } from './lessons'
 
 const DEFAULT_TIMEZONE = 'Asia/Kolkata'
 
@@ -33,6 +34,40 @@ export const effectiveStreak = (
   return lastActiveDate === today || lastActiveDate === shiftDays(today, -1) ? currentStreak : 0
 }
 
+// "3 of 11 steps done" for each in-progress lesson that has answers in its current run.
+// Two queries in total, however many lessons are in progress.
+const getRunProgress = async (
+  supabase: SupabaseClient,
+  userId: string,
+  inProgress: { lesson_id: string; started_at: string | null }[]
+) => {
+  const result = new Map<string, LessonRunProgress>()
+  if (inProgress.length === 0) return result
+
+  const { data: steps, error } = await supabase
+    .from('lesson_steps')
+    .select('id, lesson_id')
+    .in('lesson_id', inProgress.map((p) => p.lesson_id))
+    .neq('step_type', 'context')
+    .order('order_index', { ascending: true })
+  if (error) throw new Error('Failed to fetch progress')
+
+  const startTimes = inProgress.map((p) => p.started_at).filter((t): t is string => !!t).sort()
+  const attempts = await getRunAttempts(supabase, userId, steps.map((s) => s.id), startTimes[0] ?? null)
+
+  for (const { lesson_id, started_at } of inProgress) {
+    const stepIds = steps.filter((s) => s.lesson_id === lesson_id).map((s) => s.id)
+    const stepSet = new Set(stepIds)
+    const runAttempts = attempts.filter(
+      (a) => stepSet.has(a.step_id) && (!started_at || a.attempted_at >= started_at)
+    )
+    if (runAttempts.length === 0 || stepIds.length === 0) continue
+    const done = stepIds.length - remainingStepIds(stepIds, runAttempts).length
+    result.set(lesson_id, { done, total: stepIds.length })
+  }
+  return result
+}
+
 export const getProgress = async (
   supabase: SupabaseClient,
   userId: string
@@ -40,7 +75,7 @@ export const getProgress = async (
   const [progressResult, profileResult, modulesResult] = await Promise.all([
     supabase
       .from('user_progress')
-      .select('lesson_id, module_id, status, completed_at')
+      .select('lesson_id, module_id, status, completed_at, started_at')
       .eq('user_id', userId),
     supabase
       .from('profiles')
@@ -68,12 +103,19 @@ export const getProgress = async (
     })
     .map((m) => m.id)
 
+  const runProgress = await getRunProgress(
+    supabase,
+    userId,
+    progress.filter((p) => p.status === 'in_progress')
+  )
+
   return {
     lessons: progress.map((p) => ({
       lesson_id: p.lesson_id,
       module_id: p.module_id,
       status: p.status,
       completed_at: p.completed_at,
+      run_progress: runProgress.get(p.lesson_id) ?? null,
     })),
     modules_completed: modulesCompleted,
     streak: effectiveStreak(profile?.current_streak, profile?.last_active_date, profile?.timezone),

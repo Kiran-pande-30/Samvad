@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "audio": "tsx --env-file=.env.local scripts/generate-audio.ts"
+    "audio": "tsx --env-file=.env.local scripts/generate-audio.ts",
+    "test": "tsx --test lib/**/*.test.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
