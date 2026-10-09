@@ -16,7 +16,7 @@ const ModuleCard = ({ module, lessons, moduleNumber, completedCount }: ModuleCar
   return (
     <section className="w-full px-4">
       {/* Each header sticks until the next module's header pushes it off */}
-      <header className="sticky top-0 z-10 bg-white pt-4 pb-3">
+      <header className="sticky top-0 z-10 bg-white">
         <div className="flex items-baseline justify-between">
           <span className="text-xs font-semibold uppercase tracking-widest text-gray-500">
             Module {String(moduleNumber).padStart(2, '0')}

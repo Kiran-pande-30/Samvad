@@ -108,7 +108,7 @@ const LessonPage = () => {
 
   if (screen === 'preview') {
     return (
-      <div className="flex-1 flex flex-col px-7 py-6 overflow-y-auto min-h-0">
+      <div className="flex-1 flex flex-col px-7 pt-6 pb-6 min-h-0">
         <Link
           href="/"
           aria-label="Back to lessons"
@@ -116,38 +116,40 @@ const LessonPage = () => {
         >
           <X className="w-6 h-6" />
         </Link>
-        <h1 className="text-[28px] font-bold leading-[1.2]">{lesson.title}</h1>
-        <p className="mt-2 text-[15px] text-gray-500">
+        <h1 className="shrink-0 text-[28px] font-bold leading-[1.2]">{lesson.title}</h1>
+        <p className="shrink-0 mt-2 text-[15px] text-gray-500">
           Here are the phrases you&apos;ll learn in this lesson. Keep them in mind before you start.
         </p>
 
-        <div className="mt-8 grid grid-cols-2 gap-3">
+        {/* Only the phrase list scrolls, so Start Lesson stays on screen */}
+        <ul className="mt-6 flex-1 min-h-0 overflow-y-auto no-scrollbar flex flex-col gap-2">
           {lesson.phrases.map((phrase) => (
-            <div
+            <li
               key={phrase.id}
-              className="flex flex-col gap-1 px-5 py-4 rounded-2xl border border-gray-200"
+              className="flex items-center gap-2 pl-4 pr-1 py-2.5 rounded-2xl border border-gray-200"
             >
-              <div className="flex items-start justify-between gap-2">
-                <p className="font-semibold text-[17px]">{phrase.target}</p>
-                {phrase.audio_url && (
-                  <PlayAudioButton
-                    src={phrase.audio_url}
-                    label={`Play ${phrase.target}`}
-                    className="-mr-3 -mt-2.5 text-coral-strong"
-                  />
+              {/* One line: Marathi (transliteration) · Hindi — wraps only if it must */}
+              <p className="flex-1 min-w-0 flex flex-wrap items-baseline gap-x-1.5 leading-snug">
+                <span className="font-semibold text-[17px]">{phrase.target}</span>
+                {phrase.transliteration && (
+                  <span className="text-[13px] text-gray-500">({phrase.transliteration})</span>
                 )}
-              </div>
-              {phrase.transliteration && (
-                <p className="text-[13px] text-gray-500">{phrase.transliteration}</p>
+                <span className="text-[15px] text-gray-500">· {phrase.source}</span>
+              </p>
+              {phrase.audio_url && (
+                <PlayAudioButton
+                  src={phrase.audio_url}
+                  label={`Play ${phrase.target}`}
+                  className="shrink-0 text-coral-strong"
+                />
               )}
-              <p className="text-[15px] text-gray-500">{phrase.source}</p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <button
           onClick={() => setScreen('active')}
-          className="w-full h-14.5 mt-8 bg-coral-strong text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-center cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150"
+          className="shrink-0 w-full h-14.5 mt-4 bg-coral-strong text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-center cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150"
         >
           {lesson.resume ? `Continue · ${lesson.resume.done} of ${lesson.steps.length} done` : 'Start Lesson'}
         </button>

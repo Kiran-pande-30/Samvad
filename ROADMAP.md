@@ -11,12 +11,14 @@ Plan agreed on 2026-09-26. Tick tasks off (`- [x]`) as they are completed.
 - Stuck more than an hour → ask Claude to explain the concept, not write the code.
 - New ideas go into **Later**, not into the current week.
 
-## Current state (2026-09-26)
+## Current state (2026-10-04)
 
-- 10 modules, 61 lessons, 264 phrases, 586 lesson steps (`fill_blank`, `match`, `recall`, `arrange`, `conversation`, `context`).
-- Tables: `language_pairs`, `modules`, `lessons`, `phrases`, `lesson_steps`, `step_attempts`, `user_progress`, `profiles`.
-- Streaks work (`effectiveStreak`). `profiles.daily_goal` exists but is unused.
-- No audio anywhere yet. Only one user (Kiran) — getting users is not the goal right now.
+- 10 modules (9 shown — "First Words & Greetings" is hidden in `ModuleList.tsx`), 61 lessons, 264 phrases, 586 lesson steps (`fill_blank`, `match`, `recall`, `arrange`, `conversation`, `context`).
+- Tables: `language_pairs`, `modules`, `lessons`, `phrases`, `lesson_steps`, `step_attempts`, `user_progress` (+ `started_at`), `profiles`, `audio_clips`. Storage bucket `audio`.
+- DB functions: `start_lesson`, `record_attempt`, `complete_lesson` (scores from saved answers).
+- Audio for modules 1–2 (111 clips). Every answer is saved as it's given. Lessons can be resumed.
+- Tests: `npm test` (node:test via tsx, `lib/**/*.test.ts`).
+- Only one user (Kiran) — getting users is not the goal right now.
 
 ## Decisions
 
@@ -26,6 +28,8 @@ Plan agreed on 2026-09-26. Tick tasks off (`- [x]`) as they are completed.
 - **Review schedule:** Leitner boxes, intervals 1 / 3 / 7 / 14 / 30 days. Clean retire → box + 1; retire with mistakes → back to box 1.
 - **Daily practice:** 10 active cards. A card retires after **3 correct in a row** (a wrong answer resets the count and moves the card 3–4 places back); the next word from the pool replaces it. The 3 correct answers get harder: Marathi→Hindi choice, Hindi→Marathi choice, then typed/arranged recall. Pool order: due words → weak words → new words. Wrong options come from the same module with similar length. Session ends at `daily_goal` retired words (default 15).
 - **`step_attempts`:** `step_id` becomes nullable and a `source` column (`'lesson'` / `'practice'`) is added so practice answers can be stored.
+- **Answers are saved the moment they're given** (`record_attempt`), never trusted from the browser at the end. `complete_lesson` scores from saved answers and refuses unfinished lessons. A run = answers since `user_progress.started_at`; the resume point is derived from them (`remainingStepIds`), not stored.
+- **Shown modules:** "First Words & Greetings" is hidden (overlaps modules 1–2) until a content review.
 
 ## Now
 
@@ -54,8 +58,8 @@ Voice whole correct sentences, never wrong options, and never play audio that gi
 
 **D. UI**
 - [x] D1. Lesson data function returns a `{ text → audio URL }` map (one `.in('text', texts)` query); fix `transliration` typo in `lib/types.ts`
-- [ ] D2. 🤖 Play buttons: intro word list, conversation speaker line, answer feedback sheet (after Check)
-- [ ] D3. Test modules 1–2 on phone (play buttons, auto-play after Check)
+- [x] D2. 🤖 Play buttons: intro word list, conversation speaker line, answer feedback sheet (after Check)
+- [x] D3. Test modules 1–2 on phone (play buttons, auto-play after Check)
   - Audio generated for modules 1–2 only (16 lessons, 111 clips, ₹3.60); later modules stay silent until learners reach them — generate a module at a time then (~₹1–2 each). Billing verified on the dashboard: exactly ₹30 per 10K characters, no per-request minimum; 429 rate-limit errors aren't charged.
 
 ### Resume lessons (before Week 2)
@@ -66,13 +70,22 @@ Leave a lesson mid-way → home shows "Continue learning · Step 4 of 11" → re
 - [x] R2. DB function `record_attempt(step_id, is_correct)`: saves one answer for `auth.uid()`, only for a lesson the user has started
 - [x] R3. `complete_lesson` stops trusting answers sent by the browser; scores from this run's saved answers instead
 - [x] R4. TypeScript function: remaining queue from this run's answers (+ a few tests)
-- [ ] R5. `getLessonDetail` returns the remaining queue; `getProgress` says which lessons are resumable and how far along
-- [ ] R6. 🤖 `LessonEngine` starts from the remaining queue (saving each answer on Check is done)
-- [ ] R7. 🤖 Home: "Continue learning · Step 4 of 11"
+- [x] R5. `getLessonDetail` returns the remaining queue; `getProgress` says which lessons are resumable and how far along
+- [x] R6. 🤖 `LessonEngine` starts from the remaining queue (saving each answer on Check is done)
+- [x] R7. 🤖 Home: "Continue learning · Step 4 of 11"
 
 R2, R3 and R6 must ship together — otherwise answers are saved twice or not at all.
 
+### Also shipped (outside the plan)
+
+- [x] Answer options shuffled every time (correct answer was first in up to 84% of steps)
+- [x] Log out (Server Action), ✕ to leave a lesson, hint behind "Need a hint?", 44px answer chips
+- [x] Login/signup in coral with friendly empty-form errors; profile redesign; no tab bar for logged-out visitors; page title "Samvad"
+- [x] Supabase security warnings fixed (function search_path, `handle_new_user` execute rights)
+
 ### Week 2 — Word progress and dictionary
+
+Every answer is now saved as it happens, so the backfill (task 25) also counts lessons left half-way.
 
 - [ ] 18. On paper: `user_phrase_mastery` columns and why each exists
 - [ ] 19. Migration: table with two-column key, foreign keys `on delete cascade`
@@ -126,3 +139,13 @@ R2, R3 and R6 must ship together — otherwise answers are saved twice or not at
 - **Stories** — scripted two-voice dialogues (rickshaw, market) where the learner picks replies at key moments. No running cost; tests interest before AI conversation.
 - **AI voice conversation (the feature the name promises)** — turn-by-turn: learner holds mic → speech-to-text → Claude (scenario prompt with the learner's known phrases, returns reply + correction + goals as JSON) → text-to-speech; both sides shown as transcript bubbles. Hold-to-talk, not silence detection. Biggest risk: speech-to-text on Hindi-accented, broken Marathi — test providers on ~20 real clips before building. Rough cost with Sonnet 5: ₹8.5–16 per 12-turn session including GST and forex fees (Haiku 4.5 ₹5.5–10, Opus 5 ₹19–32). About 4–6 weeks of work. Scenarios map to modules: Out And About → rickshaw, Talk About Food → vegetable seller, Feeling Unwell → pharmacy, Shops And Errands → kirana.
 - **Analytics and a "report a problem" button** — skipped while users aren't the goal.
+- **"Forgot password?" flow** — request-reset page + set-new-password page (Supabase `resetPasswordForEmail`). Nobody can recover an account today. Backend learning task.
+- **Signed-in users opening `/login` land on `/profile`** — should probably go home (`/`); one line in `lib/supabase/middleware.ts`.
+- **Upgrade Node 20 → 22** — Node 20 is past end-of-life; also lets `scripts/generate-audio.ts` drop the `ws` workaround.
+- **Decide what "daily goal" means** — profile shows "1 lesson / day", the practice plan counts retired words. Settle before Week 3.
+- **"First Words & Greetings"** — hidden for now; decide after a native-speaker content review (also: a match step says Suresh greets with नमस्कार but the answer is नमस्ते).
+- **Native-speaker review of modules 1–2** — 586 hand-made steps are unverified.
+- **Landing page** — use the stronger tagline "Learn the language of your new home"; the illustration says नमस्ते, Marathi is नमस्कार.
+- **Lesson page as a Server Component** — load the lesson directly instead of fetching `/api/lessons` in `useEffect` (removes "Loading lesson…").
+- **Lesson-complete celebration + home "today" section** — words learned, accuracy, streak; streak/goal/continue at the top of home. Build alongside daily practice.
+- **Dark mode** — ~122 hardcoded light colours across 17 files today; new screens should use theme tokens (`bg-background`, `text-foreground`, `border-border`) so a later pass is cheap.

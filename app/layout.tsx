@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const notoSans = Noto_Sans({
@@ -33,7 +34,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href={MATERIAL_SYMBOLS_HREF} rel="stylesheet" />
       </head>
-      <body className="min-h-full flex flex-col" suppressHydrationWarning>{children}</body>
+      <body className="min-h-full flex flex-col" suppressHydrationWarning>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
