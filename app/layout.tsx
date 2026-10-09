@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
+import AnalyticsGate from "@/components/analytics/AnalyticsGate";
 import "./globals.css";
 
 const notoSans = Noto_Sans({
@@ -36,7 +36,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         {children}
-        <Analytics />
+        <AnalyticsGate />
       </body>
     </html>
   );
