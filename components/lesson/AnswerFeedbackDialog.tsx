@@ -2,10 +2,13 @@
 
 import { useEffect, useState } from 'react'
 import PlayAudioButton from './PlayAudioButton'
+import type { StepMeaning } from '@/lib/types'
 
 interface AnswerFeedbackDialogProps {
   isCorrect: boolean
   correctAnswer: string | null
+  answerMeaning: StepMeaning | null
+  pickedMeaning: StepMeaning | null
   audioUrl: string | null
   continueLabel: string
   onContinue: () => void
@@ -14,6 +17,8 @@ interface AnswerFeedbackDialogProps {
 export const AnswerFeedbackDialog = ({
   isCorrect,
   correctAnswer,
+  answerMeaning,
+  pickedMeaning,
   audioUrl,
   continueLabel,
   onContinue,
@@ -53,11 +58,31 @@ export const AnswerFeedbackDialog = ({
         )}
       </div>
 
-      {!isCorrect && correctAnswer && (
-        <p className="text-[15px] mb-4 ml-11">
-          Correct answer: <span className="font-semibold">{correctAnswer}</span>
-        </p>
-      )}
+      <div className="ml-11 mb-4 space-y-2 text-[15px]">
+        {!isCorrect && correctAnswer && (
+          <p>
+            Correct answer: <span className="font-semibold">{correctAnswer}</span>
+          </p>
+        )}
+
+        {/* Meaning of the full correct answer, on right and wrong attempts alike. */}
+        {answerMeaning && (
+          <p>
+            {/* Wrong attempts already show the answer above; repeat it only when it differs (e.g. fill_blank's full sentence). */}
+            {(isCorrect || answerMeaning.marathi !== correctAnswer?.trim().replace(/[.।]+$/, '')) && (
+              <span className="font-semibold">{answerMeaning.marathi} </span>
+            )}
+            <span className="text-gray-600">= {answerMeaning.hindi}</span>
+          </p>
+        )}
+
+        {pickedMeaning && (
+          <p className="text-gray-600">
+            You picked <span className="font-semibold text-gray-800">{pickedMeaning.marathi}</span>, which means{' '}
+            {pickedMeaning.hindi}
+          </p>
+        )}
+      </div>
 
       <button
         onClick={onContinue}

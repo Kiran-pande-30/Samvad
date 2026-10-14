@@ -108,15 +108,17 @@ const LessonPage = () => {
 
   if (screen === 'preview') {
     return (
-      <div className="flex-1 flex flex-col px-7 pt-6 pb-6 min-h-0">
-        <Link
-          href="/"
-          aria-label="Back to lessons"
-          className="w-11 h-11 -ml-3 mb-2 shrink-0 rounded-full flex items-center justify-center text-gray-400 active:scale-95 transition-transform duration-150"
-        >
-          <X className="w-6 h-6" />
-        </Link>
-        <h1 className="shrink-0 text-[28px] font-bold leading-[1.2]">{lesson.title}</h1>
+      <div className="flex-1 flex flex-col px-7 py-4 min-h-0">
+        <div className="shrink-0 flex items-center gap-1 -ml-3">
+          <Link
+            href="/"
+            aria-label="Back to lessons"
+            className="w-11 h-11 shrink-0 rounded-full flex items-center justify-center text-gray-400 active:scale-95 transition-transform duration-150"
+          >
+            <X className="w-6 h-6" />
+          </Link>
+          <h1 className="flex-1 min-w-0 text-[28px] font-bold leading-[1.2]">{lesson.title}</h1>
+        </div>
         <p className="shrink-0 mt-2 text-[15px] text-gray-500">
           Here are the phrases you&apos;ll learn in this lesson. Keep them in mind before you start.
         </p>

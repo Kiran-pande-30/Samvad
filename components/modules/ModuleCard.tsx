@@ -26,9 +26,6 @@ const ModuleCard = ({ module, lessons, moduleNumber, completedCount }: ModuleCar
           </span>
         </div>
         <h2 className="mt-1 text-2xl font-semibold tracking-tight">{module.title}</h2>
-        {module.description && (
-          <p className="mt-1 text-sm text-gray-500 line-clamp-2">{module.description}</p>
-        )}
         <div className="mt-3 h-1 rounded-full bg-gray-100 overflow-hidden">
           <div
             className="h-full rounded-full bg-coral transition-[width] duration-300"

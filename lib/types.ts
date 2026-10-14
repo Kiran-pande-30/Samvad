@@ -130,6 +130,12 @@ export interface StepAudio {
     answer: string | null;
 }
 
+// A Marathi text and its Hindi meaning, shown on the answer sheet after Check.
+export interface StepMeaning {
+    marathi: string;
+    hindi: string;
+}
+
 export interface PlayAudioButtonProps {
     src: string;
     autoPlay?: boolean;

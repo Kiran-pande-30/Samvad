@@ -18,7 +18,7 @@ Plan agreed on 2026-09-26. Tick tasks off (`- [x]`) as they are completed.
 - DB functions: `start_lesson`, `record_attempt`, `complete_lesson` (scores from saved answers).
 - Audio for modules 1–2 (111 clips). Every answer is saved as it's given. Lessons can be resumed.
 - Tests: `npm test` (node:test via tsx, `lib/**/*.test.ts`).
-- Only one user (Kiran) — getting users is not the goal right now.
+- A few friends use it (since Oct 2026). Not chasing more users yet — their feedback decides what gets fixed. Real users now have data at stake, so test migrations carefully and don't wipe tables.
 
 ## Decisions
 
@@ -82,6 +82,23 @@ R2, R3 and R6 must ship together — otherwise answers are saved twice or not at
 - [x] Log out (Server Action), ✕ to leave a lesson, hint behind "Need a hint?", 44px answer chips
 - [x] Login/signup in coral with friendly empty-form errors; profile redesign; no tab bar for logged-out visitors; page title "Samvad"
 - [x] Supabase security warnings fixed (function search_path, `handle_new_user` execute rights)
+- [x] Vercel Analytics via `AnalyticsGate` (own test accounts excluded with `NEXT_PUBLIC_ANALYTICS_EXCLUDED_USERS`)
+- [ ] "Forgot password?" flow (Vedant's feedback) — `/forgot-password`, `/reset-password`, `next` param in `/auth/callback`, new `/auth/confirm` (token_hash). Built; tick once tested end to end on a phone. Optional: switch the Supabase "Reset password" email template to `/auth/confirm` so links work in any browser.
+- [ ] Answer sheet shows meanings (Alok's feedback) — Hindi meaning of the full correct answer on right and wrong attempts, plus "You picked X, which means …" when the wrong option is a known phrase (`stepMeanings` in `lib/data/lessons.ts`). Tick once checked on a phone. Explaining *why* an option is wrong is still open (content work).
+
+### Hindi-first questions — trial on "Words to Get Started" (before Week 2)
+
+Samvad teaches Marathi *through Hindi*, but a check on 2026-10-14 found 433 of 586 step prompts (74%) are English-only and 109 more mix English and Marathi. Match options, hints, context cards, lesson intros and UI labels are English too. Only `phrases.source` and the answer-sheet meanings are Hindi. Try Hindi on one module first, then decide the rollout.
+
+- `phrases.source` holds the Hindi for the *word* only, not the full sentence, so sentence prompts need translating (by hand or Claude, then reviewed), not a template.
+- Code treats "Devanagari with no Latin letters" as Marathi (`isMarathi` in `lib/data/lessons.ts`, and the audio script). A Hindi prompt with Marathi inside it would get voiced as Marathi. That's safe for this module, where match prompts are already pure Marathi, but fix it before the rollout.
+
+- [ ] H1. 🤖 Draft Hindi for all 77 steps: prompts, match options, hints, context cards (`drafts/hindi-prompts-words-to-get-started.md`)
+- [ ] H2. Review the draft: natural everyday Hindi, `तुम`/`आप` matching Marathi `तू`/`तुम्ही`, nothing that gives away the answer by accident
+- [ ] H3. Migration: back up the current English (`prompt`, `hint`, `data`, `correct_answer`) before touching anything, e.g. a `lesson_steps_en` copy table, so the change can be undone
+- [ ] H4. Apply the reviewed draft to the module's steps; for match steps, `data.options` and `correct_answer` change together. Check a lesson still completes and scores.
+- [ ] H5. 🤖 Make Hindi and Marathi easy to tell apart on a question (e.g. small "हिंदी" label or gray Hindi), and decide about Hindi button labels ("आगे बढ़ें", "शाबाश!")
+- [ ] H6. Try it on a phone and with one friend → decide: Hindi only or Hindi + English on tap; then plan the other 9 modules (fix `isMarathi` first)
 
 ### Week 2 — Word progress and dictionary
 
@@ -138,8 +155,7 @@ Every answer is now saved as it happens, so the backfill (task 25) also counts l
 - **Home-screen install (PWA) + daily reminders** — web push at the user's timezone; iPhones only allow it once installed.
 - **Stories** — scripted two-voice dialogues (rickshaw, market) where the learner picks replies at key moments. No running cost; tests interest before AI conversation.
 - **AI voice conversation (the feature the name promises)** — turn-by-turn: learner holds mic → speech-to-text → Claude (scenario prompt with the learner's known phrases, returns reply + correction + goals as JSON) → text-to-speech; both sides shown as transcript bubbles. Hold-to-talk, not silence detection. Biggest risk: speech-to-text on Hindi-accented, broken Marathi — test providers on ~20 real clips before building. Rough cost with Sonnet 5: ₹8.5–16 per 12-turn session including GST and forex fees (Haiku 4.5 ₹5.5–10, Opus 5 ₹19–32). About 4–6 weeks of work. Scenarios map to modules: Out And About → rickshaw, Talk About Food → vegetable seller, Feeling Unwell → pharmacy, Shops And Errands → kirana.
-- **Analytics and a "report a problem" button** — skipped while users aren't the goal.
-- **"Forgot password?" flow** — request-reset page + set-new-password page (Supabase `resetPasswordForEmail`). Nobody can recover an account today. Backend learning task.
+- **"Report a problem" button** — friends can message directly for now; add one if feedback gets lost.
 - **Signed-in users opening `/login` land on `/profile`** — should probably go home (`/`); one line in `lib/supabase/middleware.ts`.
 - **Upgrade Node 20 → 22** — Node 20 is past end-of-life; also lets `scripts/generate-audio.ts` drop the `ws` workaround.
 - **Decide what "daily goal" means** — profile shows "1 lesson / day", the practice plan counts retired words. Settle before Week 3.

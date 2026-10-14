@@ -1,5 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
-import type { LessonResume, RunAttempt, StepAudio } from '@/lib/types'
+import type { LessonResume, RunAttempt, StepAudio, StepMeaning } from '@/lib/types'
 import { NotFoundError } from './errors'
 
 // Voice used for every clip in the `audio` bucket (see scripts/generate-audio.ts).
@@ -63,6 +63,32 @@ export const stepAudioTexts = ({ step_type, prompt, data, correct_answer }: Audi
 
   const clean = (text: string | null) => (isMarathi(text) ? normalizeAudioText(text) : null)
   return { prompt: clean(promptText), speaker: clean(speaker), answer: clean(answer) }
+}
+
+// Key for matching a text to a phrase: "सरळ जा.", "सरळ जा" and "सरळ  जा?" all match.
+export const meaningKey = (text: string) => text.trim().replace(/\s+/g, ' ').replace(/[.।?!\s]+$/, '')
+
+// What the answer sheet can explain, looked up by Marathi text in `phrases`
+// (from any lesson — the step's own phrase_id often isn't the full answer):
+//   answer  — the full correct Marathi (same text the answer audio plays) + Hindi
+//   options — Hindi for each wrong Marathi option that is itself a known phrase
+export const stepMeanings = (step: AudioSourceStep, hindiByKey: Map<string, string>) => {
+  const answerText = stepAudioTexts(step).answer
+  const answerHindi = answerText ? hindiByKey.get(meaningKey(answerText)) : undefined
+  const answer_meaning: StepMeaning | null =
+    answerText && answerHindi ? { marathi: answerText, hindi: answerHindi } : null
+
+  const choices = [step.data?.options, step.data?.word_bank]
+    .flatMap((list) => (Array.isArray(list) ? list : []))
+    .filter((option): option is string => typeof option === 'string')
+  const option_meanings: Record<string, string> = {}
+  for (const option of choices) {
+    if (option === step.correct_answer || !isMarathi(option)) continue
+    const hindi = hindiByKey.get(meaningKey(option))
+    if (hindi) option_meanings[option] = hindi
+  }
+
+  return { answer_meaning, option_meanings }
 }
 
 // One query for all of a lesson's texts → { normalized text → public URL }.
@@ -149,7 +175,7 @@ export async function getLessonSummaries(supabase: SupabaseClient) {
 }
 
 export async function getLessonDetail(supabase: SupabaseClient, lessonId: string, userId: string) {
-  const [lessonResult, phrasesResult, stepsResult, progressResult] = await Promise.all([
+  const [lessonResult, phrasesResult, stepsResult, progressResult, allPhrasesResult] = await Promise.all([
     supabase.from('lessons').select('*').eq('id', lessonId).single(),
     supabase.from('phrases').select('*').eq('lesson_id', lessonId).order('order_index', { ascending: true }),
     supabase.from('lesson_steps').select('*').eq('lesson_id', lessonId).order('order_index', { ascending: true }),
@@ -159,11 +185,21 @@ export async function getLessonDetail(supabase: SupabaseClient, lessonId: string
       .eq('user_id', userId)
       .eq('lesson_id', lessonId)
       .maybeSingle(),
+    // Every phrase (a few hundred rows), so answers and wrong options from other lessons get a meaning too.
+    supabase.from('phrases').select('target, source'),
   ])
 
   if (lessonResult.error?.code === 'PGRST116') throw new NotFoundError('Lesson not found')
   if (lessonResult.error || phrasesResult.error || stepsResult.error || progressResult.error) {
     throw new Error('Failed to fetch lesson')
+  }
+
+  // Meanings are optional: if this lookup fails the lesson still loads, just without them.
+  if (allPhrasesResult.error) console.error('Failed to fetch phrase meanings', allPhrasesResult.error)
+  const hindiByKey = new Map<string, string>()
+  for (const { target, source } of allPhrasesResult.data ?? []) {
+    const key = meaningKey(target)
+    if (!hindiByKey.has(key)) hindiByKey.set(key, source)
   }
 
   const lesson = lessonResult.data
@@ -200,6 +236,7 @@ export async function getLessonDetail(supabase: SupabaseClient, lessonId: string
       correct_answer: step.correct_answer,
       hint: step.hint,
       audio,
+      ...stepMeanings(step, hindiByKey),
     }
   })
 

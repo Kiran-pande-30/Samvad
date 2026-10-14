@@ -99,6 +99,12 @@ export default function LessonEngine({ steps, phrasesById, resume, onComplete }:
         <AnswerFeedbackDialog
           isCorrect={pendingAnswer.isCorrect}
           correctAnswer={step.correct_answer}
+          answerMeaning={step.answer_meaning}
+          pickedMeaning={
+            !pendingAnswer.isCorrect && pendingAnswer.submitted && step.option_meanings[pendingAnswer.submitted]
+              ? { marathi: pendingAnswer.submitted, hindi: step.option_meanings[pendingAnswer.submitted] }
+              : null
+          }
           audioUrl={step.audio.answer}
           continueLabel={isLastQueued && pendingAnswer.isCorrect ? 'Finish' : 'Continue'}
           onContinue={handleContinue}

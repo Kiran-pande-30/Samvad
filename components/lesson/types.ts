@@ -1,4 +1,4 @@
-import type { StepAudio } from '@/lib/types'
+import type { StepAudio, StepMeaning } from '@/lib/types'
 
 export interface Phrase {
   id: string
@@ -19,6 +19,10 @@ export interface LessonStep {
   correct_answer: string | null
   hint: string | null
   audio: StepAudio
+  // The full correct Marathi answer and its Hindi meaning (null if no phrase matches).
+  answer_meaning: StepMeaning | null
+  // Hindi meanings of wrong Marathi options that are phrases elsewhere, keyed by option text.
+  option_meanings: Record<string, string>
 }
 
 export interface StepAnswer {
