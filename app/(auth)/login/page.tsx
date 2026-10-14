@@ -63,7 +63,7 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-dvh flex justify-center bg-white">
-      <div className="w-full max-w-107.5 px-7 pt-16 pb-10 flex flex-col">
+      <div className="w-full max-w-107.5 px-7 py-10 flex flex-col">
         <div className="mb-10">
           <h1 className="text-[38px] font-bold leading-[1.16] tracking-[-1px]">Samvad</h1>
           <p className="mt-2 text-base text-gray-500">Learn the language of your new home</p>
@@ -87,9 +87,14 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium mb-1.5">
-              Password
-            </label>
+            <div className="flex items-center justify-between mb-1.5">
+              <label htmlFor="password" className="block text-sm font-medium">
+                Password
+              </label>
+              <Link href="/forgot-password" className="text-sm text-coral-strong font-medium py-3 -my-3">
+                Forgot password?
+              </Link>
+            </div>
             <input
               id="password"
               type="password"

@@ -154,3 +154,11 @@ export interface LessonResume {
     remaining_step_ids: string[];
     done: number;
 }
+
+// Auth pages that read `?error=` from the URL (e.g. an expired reset link).
+export interface AuthPageProps {
+    searchParams: Promise<{ error?: string }>;
+}
+
+// Set-new-password page: checking the reset session → form → done (or the link expired).
+export type ResetPasswordStatus = 'checking' | 'ready' | 'expired' | 'done';
