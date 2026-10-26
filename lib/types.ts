@@ -168,3 +168,82 @@ export interface AuthPageProps {
 
 // Set-new-password page: checking the reset session → form → done (or the link expired).
 export type ResetPasswordStatus = 'checking' | 'ready' | 'expired' | 'done';
+
+// AI conversation: one row of `conversation_scenarios`.
+export interface ScenarioGoal {
+    id: string;       // what Gemini returns in goals_done, e.g. "say_destination"
+    label: string;    // what the learner sees, e.g. "Say where you're going"
+}
+
+// A Marathi line with its transliteration and Hindi meaning.
+export interface ScenarioPhrase {
+    mr: string;
+    translit: string;
+    hi: string;
+}
+
+export interface ConversationScenario {
+    id: string;
+    module_id: string | null;
+    slug: string;
+    title: string;
+    title_mr: string;
+    ai_role: string;
+    setting: string;
+    opening_line: ScenarioPhrase;
+    goals: ScenarioGoal[];
+    key_phrases: ScenarioPhrase[];
+    order_index: number;
+}
+
+export type ScenarioSummary = Pick<ConversationScenario, 'slug' | 'title' | 'title_mr' | 'setting' | 'goals'>;
+
+// One line of the conversation as sent to the API. The opening line is not included.
+export interface ConversationMessage {
+    role: 'learner' | 'partner';
+    text: string;
+}
+
+export interface ConversationRequest {
+    slug: string;
+    history: ConversationMessage[];
+    goals_done: string[];
+    learner_text: string;
+}
+
+export interface ConversationCorrection {
+    said: string;
+    better: string;
+    note_hi: string;
+}
+
+// The AI partner's reply, as returned by POST /api/conversation.
+export interface ConversationReply {
+    reply_mr: string;
+    reply_translit: string;
+    reply_hi: string;
+    correction: ConversationCorrection | null;
+    goals_done: string[];   // every goal done so far, not just this turn's
+    finished: boolean;
+}
+
+// A bubble on the chat screen.
+export type ChatEntry =
+    | { role: 'learner'; text: string; correction: ConversationCorrection | null }
+    | ({ role: 'partner' } & ScenarioPhrase);
+
+// Chat screen: scene + goals → talking → summary.
+export type ConversationScreen = 'intro' | 'chat' | 'summary';
+
+// The browser's speech recognition (Chrome ships it as webkitSpeechRecognition).
+export interface SpeechRecognitionLike {
+    lang: string;
+    interimResults: boolean;
+    continuous: boolean;
+    start: () => void;
+    stop: () => void;
+    abort: () => void;
+    onresult: ((event: { results: ArrayLike<ArrayLike<{ transcript: string }>> }) => void) | null;
+    onerror: ((event: { error: string }) => void) | null;
+    onend: (() => void) | null;
+}

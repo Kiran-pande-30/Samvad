@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { ChevronRight, Mic } from 'lucide-react'
 import { createClient } from '@/lib/supabase/server'
 import { getAuthenticatedUser } from '@/lib/data/auth'
 import { getProfile } from '@/lib/data/profile'
@@ -83,6 +84,19 @@ const RootPage = async () => {
 
     return (
       <div className="flex-1 overflow-y-auto no-scrollbar">
+        <Link
+          href="/conversations"
+          className="mx-4 mb-2 flex items-center gap-3 rounded-2xl bg-coral/5 border border-coral/15 p-4 active:scale-[0.985] transition-transform duration-150"
+        >
+          <span className="w-11 h-11 shrink-0 rounded-full bg-coral-strong text-white flex items-center justify-center">
+            <Mic className="w-5 h-5" />
+          </span>
+          <span className="flex-1 min-w-0">
+            <span className="block font-semibold text-[16px]">Practise speaking</span>
+            <span className="block text-[14px] text-gray-500">Bargain with an auto driver in Marathi</span>
+          </span>
+          <ChevronRight className="w-5 h-5 shrink-0 text-gray-400" />
+        </Link>
         <ModuleList modules={modules} progress={progress} />
       </div>
     )

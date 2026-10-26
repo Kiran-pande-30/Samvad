@@ -18,7 +18,7 @@ const NAV_ITEMS = [
 
 export const AppFooter = () => {
   const pathname = usePathname();
-  if (pathname.startsWith("/lesson")) return null;
+  if (pathname.startsWith("/lesson") || pathname.startsWith("/conversations/")) return null;
 
   return (
     <>

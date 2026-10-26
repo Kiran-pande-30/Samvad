@@ -14,7 +14,7 @@ Plan agreed on 2026-09-26. Tick tasks off (`- [x]`) as they are completed.
 ## Current state (2026-10-04)
 
 - 10 modules (9 shown — "First Words & Greetings" is hidden in `ModuleList.tsx`), 61 lessons, 264 phrases, 586 lesson steps (`fill_blank`, `match`, `recall`, `arrange`, `conversation`, `context`).
-- Tables: `language_pairs`, `modules`, `lessons`, `phrases`, `lesson_steps`, `step_attempts`, `user_progress` (+ `started_at`), `profiles`, `audio_clips`. Storage bucket `audio`.
+- Tables: `language_pairs`, `modules`, `lessons`, `phrases`, `lesson_steps`, `step_attempts`, `user_progress` (+ `started_at`), `profiles`, `audio_clips`, `conversation_scenarios`. Storage bucket `audio`.
 - DB functions: `start_lesson`, `record_attempt`, `complete_lesson` (scores from saved answers).
 - Audio for modules 1–2 (111 clips). Every answer is saved as it's given. Lessons can be resumed.
 - Tests: `npm test` (node:test via tsx, `lib/**/*.test.ts`).
@@ -30,6 +30,8 @@ Plan agreed on 2026-09-26. Tick tasks off (`- [x]`) as they are completed.
 - **`step_attempts`:** `step_id` becomes nullable and a `source` column (`'lesson'` / `'practice'`) is added so practice answers can be stored.
 - **Answers are saved the moment they're given** (`record_attempt`), never trusted from the browser at the end. `complete_lesson` scores from saved answers and refuses unfinished lessons. A run = answers since `user_progress.started_at`; the resume point is derived from them (`remainingStepIds`), not stored.
 - **Shown modules:** "First Words & Greetings" is hidden (overlaps modules 1–2) until a content review.
+- **AI conversation (test version, free stack, 2026-10-26):** listening = the browser's speech recognition (`mr-IN`, Chrome), the AI partner = Gemini Flash on Google's free tier (called only from the server, key in `GEMINI_API_KEY`), speaking = the phone's own Marathi voice with the reply always shown as text. No paid APIs, no signup credits. Every logged-in user can use it — no tester list; when Gemini's free limit runs out (429) the screen says "Try again after some time". About 12 turns per conversation. Conversations aren't saved yet. Google may use free-tier prompts for training, so tell users not to share anything personal.
+- **Scenarios:** one row per scenario in `conversation_scenarios` (who the AI plays, setting, opening line, goals, key phrases). The rules shared by every scenario — JSON reply shape, transliteration in the app's style, correct only real mistakes, respectful आप Hindi, gender-neutral "अहो" — live in the API route's code, not the table.
 
 ## Now
 
@@ -100,6 +102,37 @@ Samvad teaches Marathi *through Hindi*, but a check on 2026-10-14 found 433 of 5
 - [ ] H5. 🤖 Make Hindi and Marathi easy to tell apart on a question (e.g. small "हिंदी" label or gray Hindi), and decide about Hindi button labels ("आगे बढ़ें", "शाबाश!")
 - [ ] H6. Try it on a phone and with one friend → decide: Hindi only or Hindi + English on tap; then plan the other 9 modules (fix `isMarathi` first)
 
+### AI conversation — test version (first scenario: bargaining with an auto driver)
+
+Learner opens a scenario → sees the scene, goals and helpful phrases → the driver speaks first → learner holds the mic (or types) → driver replies, goals tick off, mistakes get a gentle correction → summary at the end. Decisions are under **Decisions** above.
+
+**A. Check it can work**
+- [x] AC1. Speech test: 20 Marathi sentences on the Web Speech demo (मराठी) in Chrome — caught almost every word (tested on Mac; try 5 on an Android phone before the screens)
+- [x] AC2. Gemini key from AI Studio in `.env.local` (`GEMINI_API_KEY`); check the real daily limit at aistudio.google.com/rate-limit
+- [x] AC3. Tune the auto-driver prompt by hand in AI Studio (3 rounds: transliteration style, no over-correcting, neutral "अहो", confirm the price, आप Hindi) — final prompt saved
+
+**B. Scenario data**
+- [x] AC4. Migration `create_conversation_scenarios`: jsonb `goals` / `key_phrases` / `opening_line` with type checks, unique `slug`, `module_id` → `on delete set null`, public read only
+- [x] AC5. Insert `auto-bargain`; checked: anyone can read, a logged-in user can't insert, a duplicate slug fails
+- [x] AC6. Types in `lib/types.ts` (`ConversationScenario`, `ScenarioGoal`, `ScenarioPhrase`, `ConversationReply`, …); `getScenarios()` and `getScenario(slug)` in `lib/data/scenarios.ts`
+
+**C. API route — `POST /api/conversation`** (built by Claude on request, 2026-10-26 — worth reading through to learn from)
+- [x] AC7. Login check; validate the body (slug, history, goals so far, the learner's text); load the scenario; enforce 12 turns (`MAX_CONVERSATION_TURNS`)
+- [x] AC8. Prompt = shared rules + scenario fields (`lib/data/conversation.ts`); Gemini with a JSON response schema. Models tried in order: `gemini-flash-latest` → `gemini-flash-lite-latest` → `gemini-3.5-flash-lite`. Goals only ever add up; `finished` = all goals done (worked out on the server). Tested with 3 real turns.
+- [ ] AC9. Errors: Gemini 429/503/timeout on every model → our 429 ("Try again after some time"); anything else → 502. Built and tested; **still to do: add `GEMINI_API_KEY` to Vercel.** Note: on 2026-10-26 Flash was overloaded all day and Lite replies took 24–48s.
+
+**D. Screens** — built and type-checked, not yet checked in a logged-in browser; tick each once tried on a phone
+- [ ] AC10. 🤖 `/conversations` list of scenario cards (+ empty state)
+- [ ] AC11. 🤖 `/conversations/[slug]` intro: scene, goals, helpful phrases, privacy note, Start
+- [ ] AC12. 🤖 Chat: bubbles (Marathi, transliteration, Hindi on tap), hold-to-talk (`mr-IN`), typing fallback, goal chips, correction note, reply spoken with the phone's Marathi (or Hindi) voice
+- [ ] AC13. 🤖 End summary (goals, phrases to remember) + Practise again
+- [ ] AC14. 🤖 Waiting dots + "Still thinking…" after 8s, "busy — try again after some time", general error; the learner's line is put back to resend
+- [ ] AC15. 🤖 "Practise speaking" card at the top of home; tab bar hidden inside a conversation
+
+**E. Try it**
+- [ ] AC16. Test on 2–3 friends' phones (Android and iPhone); note what breaks
+- [ ] AC17. Add the next scenario as one more row (vegetable seller or kirana)
+
 ### Week 2 — Word progress and dictionary
 
 Every answer is now saved as it happens, so the backfill (task 25) also counts lessons left half-way.
@@ -154,7 +187,7 @@ Every answer is now saved as it happens, so the backfill (task 25) also counts l
 - **Hindi↔Marathi similarity tags** — tag each phrase same / similar / different / false friend (one-time Claude batch, ~₹10, then native review); show as dictionary badges; practice weights different and false-friend words.
 - **Home-screen install (PWA) + daily reminders** — web push at the user's timezone; iPhones only allow it once installed.
 - **Stories** — scripted two-voice dialogues (rickshaw, market) where the learner picks replies at key moments. No running cost; tests interest before AI conversation.
-- **AI voice conversation (the feature the name promises)** — turn-by-turn: learner holds mic → speech-to-text → Claude (scenario prompt with the learner's known phrases, returns reply + correction + goals as JSON) → text-to-speech; both sides shown as transcript bubbles. Hold-to-talk, not silence detection. Biggest risk: speech-to-text on Hindi-accented, broken Marathi — test providers on ~20 real clips before building. Rough cost with Sonnet 5: ₹8.5–16 per 12-turn session including GST and forex fees (Haiku 4.5 ₹5.5–10, Opus 5 ₹19–32). About 4–6 weeks of work. Scenarios map to modules: Out And About → rickshaw, Talk About Food → vegetable seller, Feeling Unwell → pharmacy, Shops And Errands → kirana.
+- **AI voice conversation, paid version** — a free test version is now under **Now** (AI conversation — test version). The original paid plan, kept for if the free one outgrows Gemini's limits: turn-by-turn: learner holds mic → speech-to-text → Claude (scenario prompt with the learner's known phrases, returns reply + correction + goals as JSON) → text-to-speech; both sides shown as transcript bubbles. Hold-to-talk, not silence detection. Biggest risk: speech-to-text on Hindi-accented, broken Marathi — test providers on ~20 real clips before building. Rough cost with Sonnet 5: ₹8.5–16 per 12-turn session including GST and forex fees (Haiku 4.5 ₹5.5–10, Opus 5 ₹19–32). About 4–6 weeks of work. Scenarios map to modules: Out And About → rickshaw, Talk About Food → vegetable seller, Feeling Unwell → pharmacy, Shops And Errands → kirana.
 - **"Report a problem" button** — friends can message directly for now; add one if feedback gets lost.
 - **Signed-in users opening `/login` land on `/profile`** — should probably go home (`/`); one line in `lib/supabase/middleware.ts`.
 - **Upgrade Node 20 → 22** — Node 20 is past end-of-life; also lets `scripts/generate-audio.ts` drop the `ws` workaround.
