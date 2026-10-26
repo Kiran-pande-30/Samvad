@@ -91,6 +91,9 @@ export const askConversationPartner = async (
   goalsDone: string[],
   learnerText: string,
 ): Promise<ConversationReply> => {
+  // Without this, Gemini answers 400 "API key not valid" and the cause is easy to miss.
+  if (!process.env.GEMINI_API_KEY) throw new Error('GEMINI_API_KEY is not set on this server')
+
   const goalIds = scenario.goals.map((g) => g.id)
   const learnerTurn = history.filter((m) => m.role === 'learner').length + 1
 
@@ -120,7 +123,7 @@ export const askConversationPartner = async (
   for (const model of GEMINI_MODELS) {
     const res = await callGemini(model, body)
     if (res.status === 429 || res.status === 503) continue
-    if (!res.ok) throw new Error(`Gemini ${model} failed with ${res.status}`)
+    if (!res.ok) throw new Error(`Gemini ${model} failed with ${res.status}: ${(await res.text()).slice(0, 300)}`)
 
     const data = await res.json()
     const text: string | undefined = data.candidates?.[0]?.content?.parts?.find((p: { text?: string }) => p.text)?.text
