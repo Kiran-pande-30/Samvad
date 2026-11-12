@@ -11,12 +11,13 @@ Plan agreed on 2026-09-26. Tick tasks off (`- [x]`) as they are completed.
 - Stuck more than an hour → ask Claude to explain the concept, not write the code.
 - New ideas go into **Later**, not into the current week.
 
-## Current state (2026-10-04)
+## Current state (2026-11-12)
 
-- 8 modules, 40 lessons, 199 phrases, 637 lesson steps (as of 2026-11-12, all in the v2 format) (`fill_blank`, `match`, `recall`, `arrange`, `conversation`, `context`).
-- Tables: `language_pairs`, `modules`, `lessons`, `phrases`, `lesson_steps`, `step_attempts`, `user_progress` (+ `started_at`), `profiles`, `audio_clips`, `conversation_scenarios`. Storage bucket `audio`.
+- 8 modules, 40 lessons, 199 phrases, 637 lesson steps (`context`, `match`, `fill_blank`, `arrange`, `conversation`, `recall`). Every module uses the v2 format: 5 lessons × 5 sentences, Hindi prompts and options, match / fill / arrange mixed, then conversation and recall.
+- Tables: `language_pairs`, `modules`, `lessons`, `phrases`, `lesson_steps`, `step_attempts`, `user_progress` (+ `started_at`), `profiles`, `audio_clips`, `conversation_scenarios`. Storage bucket `audio`. Old content is kept in the `backup_20261102` and `backup_20261112` schemas (not visible to the app).
 - DB functions: `start_lesson`, `record_attempt`, `complete_lesson` (scores from saved answers).
-- Audio for modules 1–2 (111 clips). Every answer is saved as it's given. Lessons can be resumed.
+- Audio for every sentence the app plays (413 clips). Every answer is saved as it's given. Lessons can be resumed.
+- AI conversation (test version, one scenario) is built but hidden from learners for now (no home card); it also needs `GEMINI_API_KEY` on Vercel before it's shown again.
 - Tests: `npm test` (node:test via tsx, `lib/**/*.test.ts`).
 - A few friends use it (since Oct 2026). Not chasing more users yet — their feedback decides what gets fixed. Real users now have data at stake, so test migrations carefully and don't wipe tables.
 
@@ -32,11 +33,18 @@ Plan agreed on 2026-09-26. Tick tasks off (`- [x]`) as they are completed.
 - **"First Words & Greetings" deleted (2026-11-12):** it overlapped Essentials. Its rows, including one learner's 86 answers, are in the `backup_20261112` schema; the hidden-module filter in `ModuleList.tsx` is gone.
 - **Name: Samwad (2026-10-31).** Renamed from Samvad in the UI, page title and docs; the repo folder and Supabase project keep the old name. Known clash: another app called "Samwad" (samwad.vercel.app, teaches English through AI voice conversations) already exists — chosen anyway. Free address: `learnsamwad.vercel.app` (available on 2026-10-31); `samwad.app` was available to buy for $9.99 first year / $15 after.
 - **AI conversation (test version, free stack, 2026-10-26):** listening = the browser's speech recognition (`mr-IN`, Chrome), the AI partner = Gemini Flash on Google's free tier (called only from the server, key in `GEMINI_API_KEY`), speaking = the phone's own Marathi voice with the reply always shown as text. No paid APIs, no signup credits. Every logged-in user can use it — no tester list; when Gemini's free limit runs out (429) the screen says "Try again after some time". About 12 turns per conversation. Conversations aren't saved yet. Google may use free-tier prompts for training, so tell users not to share anything personal.
-- **Modules 1–2 merged, Food rebuilt (2026-11-02):** "Words to Get Started" was deleted along with its progress (fresh start, Kiran's call). "Essentials to Get Started" (5 lessons, 80 steps) and "Talk About Food" (5 lessons, 77 steps) were rewritten from `drafts/*-v2.json` with Hindi-first prompts, and are now modules 0 and 1. The old rows are backed up in the `backup_20261102` schema. Only 2 Essentials lessons were reviewed when this went live; later review fixes go in as updates. Audio exists for about 10 of the 49 new sentences.
+- **Modules 1–2 merged, Food rebuilt (2026-11-02):** "Words to Get Started" was deleted along with its progress (fresh start, Kiran's call). "Essentials to Get Started" (5 lessons, 80 steps) and "Talk About Food" (5 lessons, 77 steps) were rewritten from `drafts/*-v2.json` with Hindi-first prompts, and are now modules 0 and 1. The old rows are backed up in the `backup_20261102` schema. Only 2 Essentials lessons were reviewed when this went live; later review fixes go in as updates.
 - **All shown modules rebuilt (2026-11-12):** Out And About, Feeling Unwell, At Home, Work And Study (reviewed and approved), Shops And Errands and Weather And Free Time (written without review, as Kiran asked) now use the same v2 format: 5 lessons × 5 sentences, 80 steps, Hindi-first. Old rows are in the `backup_20261112` schema; drafts and the build script are in `drafts/` and `drafts/build/`. Audio for all 40 lessons generated the same day (302 new clips, ≈₹16; 413 clips in `audio_clips`).
 - **Scenarios:** one row per scenario in `conversation_scenarios` (who the AI plays, setting, opening line, goals, key phrases). The rules shared by every scenario — JSON reply shape, transliteration in the app's style, correct only real mistakes, respectful आप Hindi, gender-neutral "अहो" — live in the API route's code, not the table.
 
 ## Now
+
+### Before inviting more learners
+
+- [ ] L1. Add `GEMINI_API_KEY` to Vercel (Project → Settings → Environment Variables), then redeploy — only needed once "Practise speaking" is shown again (AC9)
+- [ ] L2. Custom SMTP in Supabase (Authentication → SMTP; e.g. Resend or Brevo free tier). The built-in sender allows only a few emails an hour, so sign-up and reset emails will start failing
+- [ ] L3. Phone test: one lesson from each module with audio, "Forgot password?" end to end, answer-sheet meanings; tick each item once it works
+- [ ] L4. Decide the address: free `learnsamwad.vercel.app` or buy `samwad.app` (~$10 first year)
 
 ### Week 1 — Audio, one lesson at a time (start with lesson 1 "Pronouns And Being")
 
@@ -65,7 +73,8 @@ Voice whole correct sentences, never wrong options, and never play audio that gi
 - [x] D1. Lesson data function returns a `{ text → audio URL }` map (one `.in('text', texts)` query); fix `transliration` typo in `lib/types.ts`
 - [x] D2. 🤖 Play buttons: intro word list, conversation speaker line, answer feedback sheet (after Check)
 - [x] D3. Test modules 1–2 on phone (play buttons, auto-play after Check)
-  - Audio generated for modules 1–2 only (16 lessons, 111 clips, ₹3.60); later modules stay silent until learners reach them — generate a module at a time then (~₹1–2 each). Billing verified on the dashboard: exactly ₹30 per 10K characters, no per-request minimum; 429 rate-limit errors aren't charged.
+  - First run: modules 1–2 (111 clips, ₹3.60). Billing verified on the dashboard: exactly ₹30 per 10K characters, no per-request minimum; 429 rate-limit errors aren't charged.
+  - 2026-11-12: all 40 v2 lessons (302 more clips, ≈₹16). For new or edited lessons run `npm run audio -- <lessonId> --dry-run` first, then without `--dry-run`.
 
 ### Resume lessons (before Week 2)
 
@@ -91,21 +100,20 @@ R2, R3 and R6 must ship together — otherwise answers are saved twice or not at
 - [ ] "Forgot password?" flow (Vedant's feedback) — `/forgot-password`, `/reset-password`, `next` param in `/auth/callback`, new `/auth/confirm` (token_hash). Built; tick once tested end to end on a phone. Optional: switch the Supabase "Reset password" email template to `/auth/confirm` so links work in any browser.
 - [ ] Answer sheet shows meanings (Alok's feedback) — Hindi meaning of the full correct answer on right and wrong attempts, plus "You picked X, which means …" when the wrong option is a known phrase (`stepMeanings` in `lib/data/lessons.ts`). Tick once checked on a phone. Explaining *why* an option is wrong is still open (content work).
 
-### Hindi-first questions — trial on "Words to Get Started" (before Week 2)
+### Hindi-first content — done (2026-11-02 → 11-12)
 
-Samvad teaches Marathi *through Hindi*, but a check on 2026-10-14 found 433 of 586 step prompts (74%) are English-only and 109 more mix English and Marathi. Match options, hints, context cards, lesson intros and UI labels are English too. Only `phrases.source` and the answer-sheet meanings are Hindi. Try Hindi on one module first, then decide the rollout.
+The 2026-10-14 check found 74% of step prompts English-only. Instead of translating module by module (old plan H1–H4, H6), every module was rewritten in the v2 format with Hindi prompts, options and scenes. Kiran reviewed sentence by sentence on review pages; Shops And Errands and Weather And Free Time went live without review, as asked. Drafts: `drafts/*-v2.json`; content files and the build script: `drafts/build/`.
 
-- `phrases.source` holds the Hindi for the *word* only, not the full sentence, so sentence prompts need translating (by hand or Claude, then reviewed), not a template.
-- Code treats "Devanagari with no Latin letters" as Marathi (`isMarathi` in `lib/data/lessons.ts`, and the audio script). A Hindi prompt with Marathi inside it would get voiced as Marathi. That's safe for this module, where match prompts are already pure Marathi, but fix it before the rollout.
-
-- [ ] H1. 🤖 Draft Hindi for all 77 steps: prompts, match options, hints, context cards (`drafts/hindi-prompts-words-to-get-started.md`)
-- [ ] H2. Review the draft: natural everyday Hindi, `तुम`/`आप` matching Marathi `तू`/`तुम्ही`, nothing that gives away the answer by accident
-- [ ] H3. Migration: back up the current English (`prompt`, `hint`, `data`, `correct_answer`) before touching anything, e.g. a `lesson_steps_en` copy table, so the change can be undone
-- [ ] H4. Apply the reviewed draft to the module's steps; for match steps, `data.options` and `correct_answer` change together. Check a lesson still completes and scores.
+- [x] All 8 modules rewritten Hindi-first and written to the database (old rows backed up first)
+- [x] Audio for every new sentence
 - [ ] H5. 🤖 Make Hindi and Marathi easy to tell apart on a question (e.g. small "हिंदी" label or gray Hindi), and decide about Hindi button labels ("आगे बढ़ें", "शाबाश!")
-- [ ] H6. Try it on a phone and with one friend → decide: Hindi only or Hindi + English on tap; then plan the other 9 modules (fix `isMarathi` first)
+- [ ] Speaker names in conversation steps are still English ("Vendor", "Friend") — decide whether to show them in Hindi
+
+`isMarathi` ("Devanagari with no Latin letters") now also matches Hindi text. Checked 2026-11-12: it's harmless today, because audio only voices Marathi fields (match prompts, `speaker_says`, correct answers) and Hindi options never match a Marathi phrase in the answer sheet. Revisit if a step type ever puts Hindi in one of those fields.
 
 ### AI conversation — test version (first scenario: bargaining with an auto driver)
+
+**Hidden for now (2026-11-12, Kiran):** the "Practise speaking" card is removed from home, so learners can't find it. The pages (`/conversations`), the API route and the scenario row are kept; to bring it back, restore the card in `app/(authenticated)/page.tsx` (see git history) and add `GEMINI_API_KEY` to Vercel.
 
 Learner opens a scenario → sees the scene, goals and helpful phrases → the driver speaks first → learner holds the mic (or types) → driver replies, goals tick off, mistakes get a gentle correction → summary at the end. Decisions are under **Decisions** above.
 
@@ -195,8 +203,9 @@ Every answer is now saved as it happens, so the backfill (task 25) also counts l
 - **Signed-in users opening `/login` land on `/profile`** — should probably go home (`/`); one line in `lib/supabase/middleware.ts`.
 - **Upgrade Node 20 → 22** — Node 20 is past end-of-life; also lets `scripts/generate-audio.ts` drop the `ws` workaround.
 - **Decide what "daily goal" means** — profile shows "1 lesson / day", the practice plan counts retired words. Settle before Week 3.
-- **Native-speaker review of modules 1–2** — 586 hand-made steps are unverified.
+- **Native-speaker review of the v2 content** — all 637 steps were drafted by Claude and checked by Kiran; Shops And Errands and Weather And Free Time were not reviewed before going live (review pages still work for flags).
 - **Landing page** — use the stronger tagline "Learn the language of your new home"; the illustration says नमस्ते, Marathi is नमस्कार.
 - **Lesson page as a Server Component** — load the lesson directly instead of fetching `/api/lessons` in `useEffect` (removes "Loading lesson…").
 - **Lesson-complete celebration + home "today" section** — words learned, accuracy, streak; streak/goal/continue at the top of home. Build alongside daily practice.
+- **Clean up old data** — drop the `backup_20261102` / `backup_20261112` schemas once the new content has run for a few weeks; delete `audio_clips` rows (and files) whose text no longer appears in any lesson.
 - **Dark mode** — ~122 hardcoded light colours across 17 files today; new screens should use theme tokens (`bg-background`, `text-foreground`, `border-border`) so a later pass is cheap.
