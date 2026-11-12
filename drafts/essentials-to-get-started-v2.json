@@ -1,0 +1,1507 @@
+{
+  "module": "Essentials to Get Started",
+  "version": 2,
+  "made": "2026-10-31",
+  "lessons": [
+    {
+      "order_index": 1,
+      "title": "Who Are You",
+      "phrases": [
+        {
+          "key": "p1",
+          "order_index": 1,
+          "target": "मी राज आहे.",
+          "transliteration": "Mi Raj aahe.",
+          "source": "मैं राज हूँ।",
+          "origin": "existing",
+          "tatoeba_id": null
+        },
+        {
+          "key": "p2",
+          "order_index": 2,
+          "target": "तुमचं नाव काय आहे?",
+          "transliteration": "Tumcha naav kay aahe?",
+          "source": "आपका नाम क्या है?",
+          "origin": "existing",
+          "tatoeba_id": null
+        },
+        {
+          "key": "p3",
+          "order_index": 3,
+          "target": "माझं नाव राज आहे.",
+          "transliteration": "Majha naav Raj aahe.",
+          "source": "मेरा नाम राज है।",
+          "origin": "existing",
+          "tatoeba_id": null
+        },
+        {
+          "key": "p4",
+          "order_index": 4,
+          "target": "तुम्ही कोण आहात?",
+          "transliteration": "Tumhi kon aahat?",
+          "source": "आप कौन हैं?",
+          "origin": "tatoeba",
+          "tatoeba_id": 2614093
+        },
+        {
+          "key": "p5",
+          "order_index": 5,
+          "target": "मी दिल्लीहून आलो आहे.",
+          "transliteration": "Mi Dillihun aalo aahe.",
+          "source": "मैं दिल्ली से आया हूँ।",
+          "origin": "draft",
+          "tatoeba_id": null
+        }
+      ],
+      "steps": [
+        {
+          "order_index": 1,
+          "step_type": "context",
+          "phrase": "p1",
+          "prompt": "नई सोसाइटी में आपका पहला दिन है (इस पाठ में आपका नाम राज है)। लिफ़्ट में एक पड़ोसी मिलते हैं और आप कहते हैं: \"मी राज आहे.\"",
+          "data": {},
+          "correct_answer": null
+        },
+        {
+          "order_index": 2,
+          "step_type": "match",
+          "phrase": "p1",
+          "prompt": "मी राज आहे.",
+          "data": {
+            "options": [
+              "मैं राज हूँ।",
+              "वह राज है।",
+              "आप राज हैं।",
+              "मैं राज नहीं हूँ।"
+            ]
+          },
+          "correct_answer": "मैं राज हूँ।"
+        },
+        {
+          "order_index": 3,
+          "step_type": "fill_blank",
+          "phrase": "p1",
+          "prompt": "\"मैं राज हूँ।\"",
+          "data": {
+            "sentence": "___ राज आहे.",
+            "word_bank": [
+              "मी",
+              "तो",
+              "तुम्ही"
+            ],
+            "blank_index": 0
+          },
+          "correct_answer": "मी"
+        },
+        {
+          "order_index": 4,
+          "step_type": "match",
+          "phrase": "p2",
+          "prompt": "तुमचं नाव काय आहे?",
+          "data": {
+            "options": [
+              "आपका नाम क्या है?",
+              "आप कौन हैं?",
+              "मेरा नाम क्या है?",
+              "आप कहाँ हैं?"
+            ]
+          },
+          "correct_answer": "आपका नाम क्या है?"
+        },
+        {
+          "order_index": 5,
+          "step_type": "arrange",
+          "phrase": "p2",
+          "prompt": "शब्द सही क्रम में लगाइए: \"आपका नाम क्या है?\"",
+          "data": {
+            "words": [
+              "तुमचं",
+              "नाव",
+              "आहे",
+              "काय"
+            ]
+          },
+          "correct_answer": "तुमचं नाव काय आहे"
+        },
+        {
+          "order_index": 6,
+          "step_type": "fill_blank",
+          "phrase": "p3",
+          "prompt": "\"मेरा नाम राज है।\"",
+          "data": {
+            "sentence": "___ नाव राज आहे.",
+            "word_bank": [
+              "माझं",
+              "माझा",
+              "तुमचं"
+            ],
+            "blank_index": 0
+          },
+          "correct_answer": "माझं"
+        },
+        {
+          "order_index": 7,
+          "step_type": "match",
+          "phrase": "p4",
+          "prompt": "तुम्ही कोण आहात?",
+          "data": {
+            "options": [
+              "आप कौन हैं?",
+              "आप कैसे हैं?",
+              "वह कौन है?",
+              "आपका नाम क्या है?"
+            ]
+          },
+          "correct_answer": "आप कौन हैं?"
+        },
+        {
+          "order_index": 8,
+          "step_type": "arrange",
+          "phrase": "p4",
+          "prompt": "शब्द सही क्रम में लगाइए: \"आप कौन हैं?\"",
+          "data": {
+            "words": [
+              "आहात",
+              "तुम्ही",
+              "कोण"
+            ]
+          },
+          "correct_answer": "तुम्ही कोण आहात"
+        },
+        {
+          "order_index": 9,
+          "step_type": "fill_blank",
+          "phrase": "p5",
+          "prompt": "\"मैं दिल्ली से आया हूँ।\"",
+          "data": {
+            "sentence": "मी ___ आलो आहे.",
+            "word_bank": [
+              "दिल्लीहून",
+              "दिल्लीत",
+              "दिल्लीला"
+            ],
+            "blank_index": 1
+          },
+          "correct_answer": "दिल्लीहून"
+        },
+        {
+          "order_index": 10,
+          "step_type": "arrange",
+          "phrase": "p5",
+          "prompt": "शब्द सही क्रम में लगाइए: \"मैं दिल्ली से आया हूँ।\"",
+          "data": {
+            "words": [
+              "आलो",
+              "मी",
+              "आहे",
+              "दिल्लीहून"
+            ]
+          },
+          "correct_answer": "मी दिल्लीहून आलो आहे"
+        },
+        {
+          "order_index": 11,
+          "step_type": "conversation",
+          "phrase": "p1",
+          "prompt": "लिफ़्ट में नए पड़ोसी पूछते हैं कि आप कौन हैं। आप अपना नाम बताते हैं।",
+          "data": {
+            "options": [
+              "मी राज आहे.",
+              "तो राज आहे.",
+              "तुम्ही राज आहात.",
+              "मी कोण आहे?"
+            ],
+            "speaker": "Neighbour",
+            "speaker_says": "नमस्कार! तुम्ही कोण?"
+          },
+          "correct_answer": "मी राज आहे."
+        },
+        {
+          "order_index": 12,
+          "step_type": "conversation",
+          "phrase": "p3",
+          "prompt": "मराठी क्लास का पहला दिन है। टीचर आपका नाम पूछती हैं।",
+          "data": {
+            "options": [
+              "माझं नाव राज आहे.",
+              "तुमचं नाव राज आहे.",
+              "माझं नाव काय आहे?",
+              "माझा नाव राज आहे."
+            ],
+            "speaker": "Teacher",
+            "speaker_says": "तुमचं नाव काय आहे?"
+          },
+          "correct_answer": "माझं नाव राज आहे."
+        },
+        {
+          "order_index": 13,
+          "step_type": "conversation",
+          "phrase": "p5",
+          "prompt": "पड़ोसी पूछते हैं कि आप कहाँ से आए हैं। आप दिल्ली से आए हैं।",
+          "data": {
+            "options": [
+              "मी दिल्लीहून आलो आहे.",
+              "मी दिल्लीला जात आहे.",
+              "तुम्ही दिल्लीहून आला आहात.",
+              "मी दिल्लीत आहे."
+            ],
+            "speaker": "Neighbour",
+            "speaker_says": "तुम्ही कुठून आलात?"
+          },
+          "correct_answer": "मी दिल्लीहून आलो आहे."
+        },
+        {
+          "order_index": 14,
+          "step_type": "recall",
+          "phrase": "p2",
+          "prompt": "मराठी में कैसे पूछेंगे — \"आपका नाम क्या है\"",
+          "data": {
+            "options": [
+              "तुमचं नाव काय आहे?",
+              "तुमचं नाव राज आहे.",
+              "माझं नाव काय आहे?",
+              "तुम्ही कोण आहात?"
+            ]
+          },
+          "correct_answer": "तुमचं नाव काय आहे?"
+        },
+        {
+          "order_index": 15,
+          "step_type": "recall",
+          "phrase": "p3",
+          "prompt": "मराठी में कैसे कहेंगे — \"मेरा नाम राज है\"",
+          "data": {
+            "options": [
+              "माझं नाव राज आहे.",
+              "माझा नाव राज आहे.",
+              "तुमचं नाव राज आहे.",
+              "मी नाव राज आहे."
+            ]
+          },
+          "correct_answer": "माझं नाव राज आहे."
+        },
+        {
+          "order_index": 16,
+          "step_type": "recall",
+          "phrase": "p4",
+          "prompt": "मराठी में कैसे पूछेंगे — \"आप कौन हैं\"",
+          "data": {
+            "options": [
+              "तुम्ही कोण आहात?",
+              "तुम्ही कसे आहात?",
+              "तो कोण आहे?",
+              "तुम्ही कुठे आहात?"
+            ]
+          },
+          "correct_answer": "तुम्ही कोण आहात?"
+        }
+      ]
+    },
+    {
+      "order_index": 2,
+      "title": "How Are You",
+      "phrases": [
+        {
+          "key": "p1",
+          "order_index": 1,
+          "target": "तुम्ही कसे आहात?",
+          "transliteration": "Tumhi kase aahat?",
+          "source": "आप कैसे हैं?",
+          "origin": "existing",
+          "tatoeba_id": null
+        },
+        {
+          "key": "p2",
+          "order_index": 2,
+          "target": "मी ठीक आहे.",
+          "transliteration": "Mi theek aahe.",
+          "source": "मैं ठीक हूँ।",
+          "origin": "tatoeba",
+          "tatoeba_id": 2095274
+        },
+        {
+          "key": "p3",
+          "order_index": 3,
+          "target": "तू कसा आहेस?",
+          "transliteration": "Tu kasa aahes?",
+          "source": "तुम कैसे हो?",
+          "origin": "existing",
+          "tatoeba_id": null
+        },
+        {
+          "key": "p4",
+          "order_index": 4,
+          "target": "मराठी अवघड आहे, पण छान आहे.",
+          "transliteration": "Marathi avghad aahe, pan chhaan aahe.",
+          "source": "मराठी मुश्किल है, लेकिन अच्छी है।",
+          "origin": "draft",
+          "tatoeba_id": null
+        },
+        {
+          "key": "p5",
+          "order_index": 5,
+          "target": "आज मी खूप खुश आहे.",
+          "transliteration": "Aaj mi khup khush aahe.",
+          "source": "आज मैं बहुत खुश हूँ।",
+          "origin": "draft",
+          "tatoeba_id": null
+        }
+      ],
+      "steps": [
+        {
+          "order_index": 1,
+          "step_type": "context",
+          "phrase": "p1",
+          "prompt": "सुबह ऑफिस के गेट पर आपके सीनियर मिलते हैं। आप आदर से पूछते हैं: \"तुम्ही कसे आहात?\"",
+          "data": {},
+          "correct_answer": null
+        },
+        {
+          "order_index": 2,
+          "step_type": "match",
+          "phrase": "p1",
+          "prompt": "तुम्ही कसे आहात?",
+          "data": {
+            "options": [
+              "आप कैसे हैं?",
+              "आप कौन हैं?",
+              "आप कहाँ हैं?",
+              "वह कैसा है?"
+            ]
+          },
+          "correct_answer": "आप कैसे हैं?"
+        },
+        {
+          "order_index": 3,
+          "step_type": "fill_blank",
+          "phrase": "p1",
+          "prompt": "\"आप कैसे हैं?\"",
+          "data": {
+            "sentence": "तुम्ही ___ आहात?",
+            "word_bank": [
+              "कसे",
+              "कोण",
+              "कुठे"
+            ],
+            "blank_index": 1
+          },
+          "correct_answer": "कसे"
+        },
+        {
+          "order_index": 4,
+          "step_type": "match",
+          "phrase": "p2",
+          "prompt": "मी ठीक आहे.",
+          "data": {
+            "options": [
+              "मैं ठीक हूँ।",
+              "मैं यहाँ हूँ।",
+              "मैं खुश हूँ।",
+              "सब ठीक है।"
+            ]
+          },
+          "correct_answer": "मैं ठीक हूँ।"
+        },
+        {
+          "order_index": 5,
+          "step_type": "arrange",
+          "phrase": "p2",
+          "prompt": "शब्द सही क्रम में लगाइए: \"मैं ठीक हूँ।\"",
+          "data": {
+            "words": [
+              "आहे",
+              "मी",
+              "ठीक"
+            ]
+          },
+          "correct_answer": "मी ठीक आहे"
+        },
+        {
+          "order_index": 6,
+          "step_type": "fill_blank",
+          "phrase": "p3",
+          "prompt": "\"तुम कैसे हो?\"",
+          "data": {
+            "sentence": "___ कसा आहेस?",
+            "word_bank": [
+              "तू",
+              "तुम्ही",
+              "मी"
+            ],
+            "blank_index": 0
+          },
+          "correct_answer": "तू"
+        },
+        {
+          "order_index": 7,
+          "step_type": "match",
+          "phrase": "p4",
+          "prompt": "मराठी अवघड आहे, पण छान आहे.",
+          "data": {
+            "options": [
+              "मराठी मुश्किल है, लेकिन अच्छी है।",
+              "मराठी आसान है और अच्छी है।",
+              "मराठी मुश्किल है क्योंकि नई है।",
+              "मराठी अच्छी नहीं है।"
+            ]
+          },
+          "correct_answer": "मराठी मुश्किल है, लेकिन अच्छी है।"
+        },
+        {
+          "order_index": 8,
+          "step_type": "arrange",
+          "phrase": "p4",
+          "prompt": "शब्द सही क्रम में लगाइए: \"मराठी मुश्किल है, लेकिन अच्छी है।\"",
+          "data": {
+            "words": [
+              "मराठी",
+              "पण",
+              "आहे",
+              "अवघड",
+              "आहे",
+              "छान"
+            ]
+          },
+          "correct_answer": "मराठी अवघड आहे पण छान आहे"
+        },
+        {
+          "order_index": 9,
+          "step_type": "fill_blank",
+          "phrase": "p5",
+          "prompt": "\"आज मैं बहुत खुश हूँ।\"",
+          "data": {
+            "sentence": "आज मी ___ खुश आहे.",
+            "word_bank": [
+              "खूप",
+              "थोडं",
+              "कमी"
+            ],
+            "blank_index": 2
+          },
+          "correct_answer": "खूप"
+        },
+        {
+          "order_index": 10,
+          "step_type": "arrange",
+          "phrase": "p5",
+          "prompt": "शब्द सही क्रम में लगाइए: \"आज मैं बहुत खुश हूँ।\"",
+          "data": {
+            "words": [
+              "आज",
+              "आहे",
+              "खुश",
+              "मी",
+              "खूप"
+            ]
+          },
+          "correct_answer": "आज मी खूप खुश आहे"
+        },
+        {
+          "order_index": 11,
+          "step_type": "conversation",
+          "phrase": "p1",
+          "prompt": "ऑफिस में आपके सीनियर नमस्कार करते हैं। आप आदर से उनका हालचाल पूछते हैं।",
+          "data": {
+            "options": [
+              "तुम्ही कसे आहात?",
+              "तू कसा आहेस?",
+              "तुम्ही कोण आहात?",
+              "तुम्ही कुठे आहात?"
+            ],
+            "speaker": "Senior",
+            "speaker_says": "नमस्कार!"
+          },
+          "correct_answer": "तुम्ही कसे आहात?"
+        },
+        {
+          "order_index": 12,
+          "step_type": "conversation",
+          "phrase": "p3",
+          "prompt": "बहुत दिनों बाद पुराना दोस्त मिला है। आप दोस्ताना अंदाज़ में हालचाल पूछते हैं।",
+          "data": {
+            "options": [
+              "तू कसा आहेस?",
+              "तू कोण आहेस?",
+              "तू कुठे आहेस?",
+              "मी कसा आहे?"
+            ],
+            "speaker": "Friend",
+            "speaker_says": "अरे, खूप दिवसांनी!"
+          },
+          "correct_answer": "तू कसा आहेस?"
+        },
+        {
+          "order_index": 13,
+          "step_type": "conversation",
+          "phrase": "p5",
+          "prompt": "आज आपका जन्मदिन है। दोस्त पूछता है कि आज क्या खास है। आप बताते हैं कि आज आप बहुत खुश हैं।",
+          "data": {
+            "options": [
+              "आज मी खूप खुश आहे.",
+              "आज मी खूप थकलो आहे.",
+              "आज तू खूप खुश आहेस.",
+              "काल मी खूप खुश होतो."
+            ],
+            "speaker": "Friend",
+            "speaker_says": "आज काय विशेष?"
+          },
+          "correct_answer": "आज मी खूप खुश आहे."
+        },
+        {
+          "order_index": 14,
+          "step_type": "recall",
+          "phrase": "p2",
+          "prompt": "मराठी में कैसे कहेंगे — \"मैं ठीक हूँ\"",
+          "data": {
+            "options": [
+              "मी ठीक आहे.",
+              "मी इथे आहे.",
+              "तू ठीक आहेस.",
+              "मी ठीक नाही."
+            ]
+          },
+          "correct_answer": "मी ठीक आहे."
+        },
+        {
+          "order_index": 15,
+          "step_type": "recall",
+          "phrase": "p3",
+          "prompt": "मराठी में कैसे पूछेंगे — \"तुम कैसे हो\"",
+          "data": {
+            "options": [
+              "तू कसा आहेस?",
+              "तू कोण आहेस?",
+              "तू कुठे आहेस?",
+              "तो कसा आहे?"
+            ]
+          },
+          "correct_answer": "तू कसा आहेस?"
+        },
+        {
+          "order_index": 16,
+          "step_type": "recall",
+          "phrase": "p4",
+          "prompt": "मराठी में कैसे कहेंगे — \"मराठी मुश्किल है, लेकिन अच्छी है\"",
+          "data": {
+            "options": [
+              "मराठी अवघड आहे, पण छान आहे.",
+              "मराठी सोपी आहे, आणि छान आहे.",
+              "मराठी अवघड आहे, कारण नवीन आहे.",
+              "मराठी छान नाही."
+            ]
+          },
+          "correct_answer": "मराठी अवघड आहे, पण छान आहे."
+        }
+      ]
+    },
+    {
+      "order_index": 3,
+      "title": "What You Need",
+      "phrases": [
+        {
+          "key": "p1",
+          "order_index": 1,
+          "target": "मला पाणी हवं आहे.",
+          "transliteration": "Mala paani hava aahe.",
+          "source": "मुझे पानी चाहिए।",
+          "origin": "existing",
+          "tatoeba_id": null
+        },
+        {
+          "key": "p2",
+          "order_index": 2,
+          "target": "मला चहा नको.",
+          "transliteration": "Mala chaha nako.",
+          "source": "मुझे चाय नहीं चाहिए।",
+          "origin": "draft",
+          "tatoeba_id": null
+        },
+        {
+          "key": "p3",
+          "order_index": 3,
+          "target": "मला समजलं नाही.",
+          "transliteration": "Mala samajla nahi.",
+          "source": "मुझे समझ नहीं आया।",
+          "origin": "tatoeba",
+          "tatoeba_id": 3896013
+        },
+        {
+          "key": "p4",
+          "order_index": 4,
+          "target": "हळू बोला, कारण मी नवीन आहे.",
+          "transliteration": "Halu bola, karan mi naveen aahe.",
+          "source": "धीरे बोलिए, क्योंकि मैं नया हूँ।",
+          "origin": "draft",
+          "tatoeba_id": null
+        },
+        {
+          "key": "p5",
+          "order_index": 5,
+          "target": "मला मदत हवी आहे.",
+          "transliteration": "Mala madat havi aahe.",
+          "source": "मुझे मदद चाहिए।",
+          "origin": "draft",
+          "tatoeba_id": null
+        }
+      ],
+      "steps": [
+        {
+          "order_index": 1,
+          "step_type": "context",
+          "phrase": "p1",
+          "prompt": "दोपहर की धूप में घूमकर आप दोस्त के घर पहुँचे हैं। बहुत प्यास लगी है, तो आप कहते हैं: \"मला पाणी हवं आहे.\"",
+          "data": {},
+          "correct_answer": null
+        },
+        {
+          "order_index": 2,
+          "step_type": "match",
+          "phrase": "p1",
+          "prompt": "मला पाणी हवं आहे.",
+          "data": {
+            "options": [
+              "मुझे पानी चाहिए।",
+              "मुझे पानी नहीं चाहिए।",
+              "उसे पानी चाहिए।",
+              "पानी कहाँ है?"
+            ]
+          },
+          "correct_answer": "मुझे पानी चाहिए।"
+        },
+        {
+          "order_index": 3,
+          "step_type": "fill_blank",
+          "phrase": "p1",
+          "prompt": "\"मुझे पानी चाहिए।\"",
+          "data": {
+            "sentence": "___ पाणी हवं आहे.",
+            "word_bank": [
+              "मला",
+              "मी",
+              "माझं"
+            ],
+            "blank_index": 0
+          },
+          "correct_answer": "मला"
+        },
+        {
+          "order_index": 4,
+          "step_type": "match",
+          "phrase": "p2",
+          "prompt": "मला चहा नको.",
+          "data": {
+            "options": [
+              "मुझे चाय नहीं चाहिए।",
+              "मुझे चाय चाहिए।",
+              "उसे चाय नहीं चाहिए।",
+              "मुझे पानी नहीं चाहिए।"
+            ]
+          },
+          "correct_answer": "मुझे चाय नहीं चाहिए।"
+        },
+        {
+          "order_index": 5,
+          "step_type": "arrange",
+          "phrase": "p2",
+          "prompt": "शब्द सही क्रम में लगाइए: \"मुझे चाय नहीं चाहिए।\"",
+          "data": {
+            "words": [
+              "चहा",
+              "मला",
+              "नको"
+            ]
+          },
+          "correct_answer": "मला चहा नको"
+        },
+        {
+          "order_index": 6,
+          "step_type": "fill_blank",
+          "phrase": "p3",
+          "prompt": "\"मुझे समझ नहीं आया।\"",
+          "data": {
+            "sentence": "मला ___ नाही.",
+            "word_bank": [
+              "समजलं",
+              "आवडतं",
+              "हवं"
+            ],
+            "blank_index": 1
+          },
+          "correct_answer": "समजलं"
+        },
+        {
+          "order_index": 7,
+          "step_type": "match",
+          "phrase": "p4",
+          "prompt": "हळू बोला, कारण मी नवीन आहे.",
+          "data": {
+            "options": [
+              "धीरे बोलिए, क्योंकि मैं नया हूँ।",
+              "ज़ोर से बोलिए, क्योंकि मैं नया हूँ।",
+              "धीरे बोलिए, लेकिन मैं नया हूँ।",
+              "धीरे चलिए, क्योंकि मैं नया हूँ।"
+            ]
+          },
+          "correct_answer": "धीरे बोलिए, क्योंकि मैं नया हूँ।"
+        },
+        {
+          "order_index": 8,
+          "step_type": "arrange",
+          "phrase": "p4",
+          "prompt": "शब्द सही क्रम में लगाइए: \"धीरे बोलिए, क्योंकि मैं नया हूँ।\"",
+          "data": {
+            "words": [
+              "कारण",
+              "आहे",
+              "नवीन",
+              "हळू",
+              "बोला",
+              "मी"
+            ]
+          },
+          "correct_answer": "हळू बोला कारण मी नवीन आहे"
+        },
+        {
+          "order_index": 9,
+          "step_type": "fill_blank",
+          "phrase": "p5",
+          "prompt": "\"मुझे मदद चाहिए।\"",
+          "data": {
+            "sentence": "मला ___ हवी आहे.",
+            "word_bank": [
+              "मदत",
+              "पाणी",
+              "काम"
+            ],
+            "blank_index": 1
+          },
+          "correct_answer": "मदत"
+        },
+        {
+          "order_index": 10,
+          "step_type": "arrange",
+          "phrase": "p5",
+          "prompt": "शब्द सही क्रम में लगाइए: \"मुझे मदद चाहिए।\"",
+          "data": {
+            "words": [
+              "आहे",
+              "हवी",
+              "मदत",
+              "मला"
+            ]
+          },
+          "correct_answer": "मला मदत हवी आहे"
+        },
+        {
+          "order_index": 11,
+          "step_type": "conversation",
+          "phrase": "p1",
+          "prompt": "दोस्त के घर पहुँचे हैं और बहुत प्यास लगी है। दोस्त पूछता है क्या चाहिए।",
+          "data": {
+            "options": [
+              "मला पाणी हवं आहे.",
+              "मला चहा हवा आहे.",
+              "मला पाणी नको.",
+              "पाणी कुठे आहे?"
+            ],
+            "speaker": "Friend",
+            "speaker_says": "ये, बस! काय हवं?"
+          },
+          "correct_answer": "मला पाणी हवं आहे."
+        },
+        {
+          "order_index": 12,
+          "step_type": "conversation",
+          "phrase": "p3",
+          "prompt": "दुकानदार बहुत तेज़ी से दाम बता रहा है। आपको कुछ समझ नहीं आया।",
+          "data": {
+            "options": [
+              "मला समजलं नाही.",
+              "मला सगळं समजलं.",
+              "मला हे आवडतं.",
+              "तुम्हाला समजलं नाही."
+            ],
+            "speaker": "Shopkeeper",
+            "speaker_says": "हे पन्नास, ते सत्तर, आणि ते शंभर रुपये!"
+          },
+          "correct_answer": "मला समजलं नाही."
+        },
+        {
+          "order_index": 13,
+          "step_type": "conversation",
+          "phrase": "p5",
+          "prompt": "आपकी गाड़ी स्टार्ट नहीं हो रही। पड़ोसी पूछते हैं क्या हुआ। आपको मदद चाहिए।",
+          "data": {
+            "options": [
+              "मला मदत हवी आहे.",
+              "मला मदत नको.",
+              "तुम्हाला मदत हवी आहे.",
+              "मला पाणी हवं आहे."
+            ],
+            "speaker": "Neighbour",
+            "speaker_says": "काय झालं?"
+          },
+          "correct_answer": "मला मदत हवी आहे."
+        },
+        {
+          "order_index": 14,
+          "step_type": "recall",
+          "phrase": "p2",
+          "prompt": "मराठी में कैसे कहेंगे — \"मुझे चाय नहीं चाहिए\"",
+          "data": {
+            "options": [
+              "मला चहा नको.",
+              "मला चहा हवा आहे.",
+              "त्याला चहा नको.",
+              "मला पाणी नको."
+            ]
+          },
+          "correct_answer": "मला चहा नको."
+        },
+        {
+          "order_index": 15,
+          "step_type": "recall",
+          "phrase": "p3",
+          "prompt": "मराठी में कैसे कहेंगे — \"मुझे समझ नहीं आया\"",
+          "data": {
+            "options": [
+              "मला समजलं नाही.",
+              "मला समजलं.",
+              "मला आवडलं नाही.",
+              "तुला समजलं का?"
+            ]
+          },
+          "correct_answer": "मला समजलं नाही."
+        },
+        {
+          "order_index": 16,
+          "step_type": "recall",
+          "phrase": "p4",
+          "prompt": "मराठी में कैसे कहेंगे — \"धीरे बोलिए, क्योंकि मैं नया हूँ\"",
+          "data": {
+            "options": [
+              "हळू बोला, कारण मी नवीन आहे.",
+              "जोरात बोला, कारण मी नवीन आहे.",
+              "हळू बोला, पण मी नवीन आहे.",
+              "हळू चला, कारण मी नवीन आहे."
+            ]
+          },
+          "correct_answer": "हळू बोला, कारण मी नवीन आहे."
+        }
+      ]
+    },
+    {
+      "order_index": 4,
+      "title": "Where And When",
+      "phrases": [
+        {
+          "key": "p1",
+          "order_index": 1,
+          "target": "दुकान कुठे आहे?",
+          "transliteration": "Dukaan kuthe aahe?",
+          "source": "दुकान कहाँ है?",
+          "origin": "existing",
+          "tatoeba_id": null
+        },
+        {
+          "key": "p2",
+          "order_index": 2,
+          "target": "किती वेळ लागेल?",
+          "transliteration": "Kiti vel lagel?",
+          "source": "कितना समय लगेगा?",
+          "origin": "tatoeba",
+          "tatoeba_id": 2223901
+        },
+        {
+          "key": "p3",
+          "order_index": 3,
+          "target": "ट्रेन कधी येईल?",
+          "transliteration": "Train kadhi yeil?",
+          "source": "ट्रेन कब आएगी?",
+          "origin": "existing",
+          "tatoeba_id": null
+        },
+        {
+          "key": "p4",
+          "order_index": 4,
+          "target": "स्टेशन इथून जवळ आहे का?",
+          "transliteration": "Station ithun jawal aahe ka?",
+          "source": "स्टेशन यहाँ से पास है क्या?",
+          "origin": "draft",
+          "tatoeba_id": null
+        },
+        {
+          "key": "p5",
+          "order_index": 5,
+          "target": "माझं घर तिथे आहे.",
+          "transliteration": "Majha ghar tithe aahe.",
+          "source": "मेरा घर वहाँ है।",
+          "origin": "draft",
+          "tatoeba_id": null
+        }
+      ],
+      "steps": [
+        {
+          "order_index": 1,
+          "step_type": "context",
+          "phrase": "p1",
+          "prompt": "नए इलाके में आपको दूध और ब्रेड लेनी है। आप राह चलते एक व्यक्ति से पूछते हैं: \"दुकान कुठे आहे?\"",
+          "data": {},
+          "correct_answer": null
+        },
+        {
+          "order_index": 2,
+          "step_type": "match",
+          "phrase": "p1",
+          "prompt": "दुकान कुठे आहे?",
+          "data": {
+            "options": [
+              "दुकान कहाँ है?",
+              "दुकान कब खुलेगी?",
+              "दुकान यहाँ है।",
+              "दुकान किसकी है?"
+            ]
+          },
+          "correct_answer": "दुकान कहाँ है?"
+        },
+        {
+          "order_index": 3,
+          "step_type": "fill_blank",
+          "phrase": "p1",
+          "prompt": "\"दुकान कहाँ है?\"",
+          "data": {
+            "sentence": "दुकान ___ आहे?",
+            "word_bank": [
+              "कुठे",
+              "कधी",
+              "कोण"
+            ],
+            "blank_index": 1
+          },
+          "correct_answer": "कुठे"
+        },
+        {
+          "order_index": 4,
+          "step_type": "match",
+          "phrase": "p2",
+          "prompt": "किती वेळ लागेल?",
+          "data": {
+            "options": [
+              "कितना समय लगेगा?",
+              "कितने पैसे लगेंगे?",
+              "कितने बजे हैं?",
+              "कब आएगा?"
+            ]
+          },
+          "correct_answer": "कितना समय लगेगा?"
+        },
+        {
+          "order_index": 5,
+          "step_type": "arrange",
+          "phrase": "p2",
+          "prompt": "शब्द सही क्रम में लगाइए: \"कितना समय लगेगा?\"",
+          "data": {
+            "words": [
+              "लागेल",
+              "किती",
+              "वेळ"
+            ]
+          },
+          "correct_answer": "किती वेळ लागेल"
+        },
+        {
+          "order_index": 6,
+          "step_type": "fill_blank",
+          "phrase": "p3",
+          "prompt": "\"ट्रेन कब आएगी?\"",
+          "data": {
+            "sentence": "ट्रेन ___ येईल?",
+            "word_bank": [
+              "कधी",
+              "कुठे",
+              "कोण"
+            ],
+            "blank_index": 1
+          },
+          "correct_answer": "कधी"
+        },
+        {
+          "order_index": 7,
+          "step_type": "match",
+          "phrase": "p4",
+          "prompt": "स्टेशन इथून जवळ आहे का?",
+          "data": {
+            "options": [
+              "स्टेशन यहाँ से पास है क्या?",
+              "स्टेशन यहाँ से दूर है।",
+              "स्टेशन कहाँ है?",
+              "स्टेशन पास है।"
+            ]
+          },
+          "correct_answer": "स्टेशन यहाँ से पास है क्या?"
+        },
+        {
+          "order_index": 8,
+          "step_type": "arrange",
+          "phrase": "p4",
+          "prompt": "शब्द सही क्रम में लगाइए: \"स्टेशन यहाँ से पास है क्या?\"",
+          "data": {
+            "words": [
+              "का",
+              "स्टेशन",
+              "इथून",
+              "आहे",
+              "जवळ"
+            ]
+          },
+          "correct_answer": "स्टेशन इथून जवळ आहे का"
+        },
+        {
+          "order_index": 9,
+          "step_type": "fill_blank",
+          "phrase": "p5",
+          "prompt": "\"मेरा घर वहाँ है।\"",
+          "data": {
+            "sentence": "माझं घर ___ आहे.",
+            "word_bank": [
+              "तिथे",
+              "इथे",
+              "कधी"
+            ],
+            "blank_index": 2
+          },
+          "correct_answer": "तिथे"
+        },
+        {
+          "order_index": 10,
+          "step_type": "arrange",
+          "phrase": "p5",
+          "prompt": "शब्द सही क्रम में लगाइए: \"मेरा घर वहाँ है।\"",
+          "data": {
+            "words": [
+              "तिथे",
+              "आहे",
+              "घर",
+              "माझं"
+            ]
+          },
+          "correct_answer": "माझं घर तिथे आहे"
+        },
+        {
+          "order_index": 11,
+          "step_type": "conversation",
+          "phrase": "p1",
+          "prompt": "आपको दूध लेना है। आप राह चलते व्यक्ति से दुकान का रास्ता पूछते हैं।",
+          "data": {
+            "options": [
+              "दुकान कुठे आहे?",
+              "दुकान कधी आहे?",
+              "दुकान कोणाचं आहे?",
+              "मी दुकानात आहे."
+            ],
+            "speaker": "Passer-by",
+            "speaker_says": "हो, बोला?"
+          },
+          "correct_answer": "दुकान कुठे आहे?"
+        },
+        {
+          "order_index": 12,
+          "step_type": "conversation",
+          "phrase": "p3",
+          "prompt": "प्लेटफ़ॉर्म पर भीड़ है और ट्रेन लेट है। आप पास खड़े यात्री से पूछते हैं कि ट्रेन कब आएगी।",
+          "data": {
+            "options": [
+              "ट्रेन कधी येईल?",
+              "ट्रेन कुठे आहे?",
+              "ट्रेन कोणाची आहे?",
+              "ट्रेन काल आली."
+            ],
+            "speaker": "Passenger",
+            "speaker_says": "किती गर्दी आहे!"
+          },
+          "correct_answer": "ट्रेन कधी येईल?"
+        },
+        {
+          "order_index": 13,
+          "step_type": "conversation",
+          "phrase": "p5",
+          "prompt": "ऑटो आपकी गली में पहुँच गया। ड्राइवर पूछता है कहाँ छोड़ें। आप सामने इशारा करके बताते हैं कि आपका घर वहाँ है।",
+          "data": {
+            "options": [
+              "माझं घर तिथे आहे.",
+              "तुमचं घर तिथे आहे.",
+              "माझं घर कुठे आहे?",
+              "माझं दुकान तिथे आहे."
+            ],
+            "speaker": "Auto driver",
+            "speaker_says": "कुठे सोडू?"
+          },
+          "correct_answer": "माझं घर तिथे आहे."
+        },
+        {
+          "order_index": 14,
+          "step_type": "recall",
+          "phrase": "p2",
+          "prompt": "मराठी में कैसे पूछेंगे — \"कितना समय लगेगा\"",
+          "data": {
+            "options": [
+              "किती वेळ लागेल?",
+              "किती पैसे लागतील?",
+              "किती वाजले?",
+              "कधी येईल?"
+            ]
+          },
+          "correct_answer": "किती वेळ लागेल?"
+        },
+        {
+          "order_index": 15,
+          "step_type": "recall",
+          "phrase": "p3",
+          "prompt": "मराठी में कैसे पूछेंगे — \"ट्रेन कब आएगी\"",
+          "data": {
+            "options": [
+              "ट्रेन कधी येईल?",
+              "ट्रेन कुठे आहे?",
+              "ट्रेन काल आली.",
+              "ट्रेन कोणाची आहे?"
+            ]
+          },
+          "correct_answer": "ट्रेन कधी येईल?"
+        },
+        {
+          "order_index": 16,
+          "step_type": "recall",
+          "phrase": "p4",
+          "prompt": "मराठी में कैसे पूछेंगे — \"स्टेशन यहाँ से पास है क्या\"",
+          "data": {
+            "options": [
+              "स्टेशन इथून जवळ आहे का?",
+              "स्टेशन कुठे आहे?",
+              "स्टेशन इथून लांब आहे.",
+              "स्टेशन जवळ आहे."
+            ]
+          },
+          "correct_answer": "स्टेशन इथून जवळ आहे का?"
+        }
+      ]
+    },
+    {
+      "order_index": 5,
+      "title": "What Is This",
+      "phrases": [
+        {
+          "key": "p1",
+          "order_index": 1,
+          "target": "हे काय आहे?",
+          "transliteration": "He kay aahe?",
+          "source": "यह क्या है?",
+          "origin": "existing",
+          "tatoeba_id": null
+        },
+        {
+          "key": "p2",
+          "order_index": 2,
+          "target": "हे कितीला आहे?",
+          "transliteration": "He kitila aahe?",
+          "source": "यह कितने का है?",
+          "origin": "draft",
+          "tatoeba_id": null
+        },
+        {
+          "key": "p3",
+          "order_index": 3,
+          "target": "हा कोणाचा मोबाईल आहे?",
+          "transliteration": "Ha konacha mobile aahe?",
+          "source": "यह किसका मोबाइल है?",
+          "origin": "existing",
+          "tatoeba_id": null
+        },
+        {
+          "key": "p4",
+          "order_index": 4,
+          "target": "ही तुमची बॅग आहे का?",
+          "transliteration": "Hi tumchi bag aahe ka?",
+          "source": "यह आपका बैग है क्या?",
+          "origin": "draft",
+          "tatoeba_id": null
+        },
+        {
+          "key": "p5",
+          "order_index": 5,
+          "target": "हे माझं नाही.",
+          "transliteration": "He majha nahi.",
+          "source": "यह मेरा नहीं है।",
+          "origin": "draft",
+          "tatoeba_id": null
+        }
+      ],
+      "steps": [
+        {
+          "order_index": 1,
+          "step_type": "context",
+          "phrase": "p1",
+          "prompt": "बाज़ार में एक ठेले पर अनजाना-सा फल दिखता है। आप उसकी ओर इशारा करके पूछते हैं: \"हे काय आहे?\"",
+          "data": {},
+          "correct_answer": null
+        },
+        {
+          "order_index": 2,
+          "step_type": "match",
+          "phrase": "p1",
+          "prompt": "हे काय आहे?",
+          "data": {
+            "options": [
+              "यह क्या है?",
+              "यह कौन है?",
+              "वह क्या है?",
+              "यह किसका है?"
+            ]
+          },
+          "correct_answer": "यह क्या है?"
+        },
+        {
+          "order_index": 3,
+          "step_type": "fill_blank",
+          "phrase": "p1",
+          "prompt": "\"यह क्या है?\"",
+          "data": {
+            "sentence": "हे ___ आहे?",
+            "word_bank": [
+              "काय",
+              "कोण",
+              "कुठे"
+            ],
+            "blank_index": 1
+          },
+          "correct_answer": "काय"
+        },
+        {
+          "order_index": 4,
+          "step_type": "match",
+          "phrase": "p2",
+          "prompt": "हे कितीला आहे?",
+          "data": {
+            "options": [
+              "यह कितने का है?",
+              "यह क्या है?",
+              "यह किसका है?",
+              "यह कितना बड़ा है?"
+            ]
+          },
+          "correct_answer": "यह कितने का है?"
+        },
+        {
+          "order_index": 5,
+          "step_type": "arrange",
+          "phrase": "p2",
+          "prompt": "शब्द सही क्रम में लगाइए: \"यह कितने का है?\"",
+          "data": {
+            "words": [
+              "हे",
+              "आहे",
+              "कितीला"
+            ]
+          },
+          "correct_answer": "हे कितीला आहे"
+        },
+        {
+          "order_index": 6,
+          "step_type": "fill_blank",
+          "phrase": "p3",
+          "prompt": "\"यह किसका मोबाइल है?\"",
+          "data": {
+            "sentence": "हा ___ मोबाईल आहे?",
+            "word_bank": [
+              "कोणाचा",
+              "काय",
+              "कुठे"
+            ],
+            "blank_index": 1
+          },
+          "correct_answer": "कोणाचा"
+        },
+        {
+          "order_index": 7,
+          "step_type": "match",
+          "phrase": "p4",
+          "prompt": "ही तुमची बॅग आहे का?",
+          "data": {
+            "options": [
+              "यह आपका बैग है क्या?",
+              "यह मेरा बैग है।",
+              "आपका बैग कहाँ है?",
+              "यह किसका बैग है?"
+            ]
+          },
+          "correct_answer": "यह आपका बैग है क्या?"
+        },
+        {
+          "order_index": 8,
+          "step_type": "arrange",
+          "phrase": "p4",
+          "prompt": "शब्द सही क्रम में लगाइए: \"यह आपका बैग है क्या?\"",
+          "data": {
+            "words": [
+              "का",
+              "तुमची",
+              "ही",
+              "आहे",
+              "बॅग"
+            ]
+          },
+          "correct_answer": "ही तुमची बॅग आहे का"
+        },
+        {
+          "order_index": 9,
+          "step_type": "fill_blank",
+          "phrase": "p5",
+          "prompt": "\"यह मेरा नहीं है।\"",
+          "data": {
+            "sentence": "हे ___ नाही.",
+            "word_bank": [
+              "माझं",
+              "मी",
+              "मला"
+            ],
+            "blank_index": 1
+          },
+          "correct_answer": "माझं"
+        },
+        {
+          "order_index": 10,
+          "step_type": "arrange",
+          "phrase": "p5",
+          "prompt": "शब्द सही क्रम में लगाइए: \"यह मेरा नहीं है।\"",
+          "data": {
+            "words": [
+              "नाही",
+              "माझं",
+              "हे"
+            ]
+          },
+          "correct_answer": "हे माझं नाही"
+        },
+        {
+          "order_index": 11,
+          "step_type": "conversation",
+          "phrase": "p1",
+          "prompt": "ठेलेवाला एक अनजाना फल दिखाता है। आप पूछते हैं कि यह क्या है।",
+          "data": {
+            "options": [
+              "हे काय आहे?",
+              "हे कोण आहे?",
+              "हे कुठे आहे?",
+              "हे माझं आहे."
+            ],
+            "speaker": "Vendor",
+            "speaker_says": "घ्या, ताजं आहे!"
+          },
+          "correct_answer": "हे काय आहे?"
+        },
+        {
+          "order_index": 12,
+          "step_type": "conversation",
+          "phrase": "p3",
+          "prompt": "मीटिंग रूम की मेज़ पर एक मोबाइल बज रहा है। आप भी पूछते हैं कि यह किसका है।",
+          "data": {
+            "options": [
+              "हा कोणाचा मोबाईल आहे?",
+              "हा माझा मोबाईल आहे.",
+              "मोबाईल कुठे आहे?",
+              "हा कोण आहे?"
+            ],
+            "speaker": "Colleague",
+            "speaker_says": "कोणाचा फोन वाजतोय?"
+          },
+          "correct_answer": "हा कोणाचा मोबाईल आहे?"
+        },
+        {
+          "order_index": 13,
+          "step_type": "conversation",
+          "phrase": "p5",
+          "prompt": "गार्ड को एक छाता मिला है और वह पूछता है कि क्या यह आपका है। यह आपका नहीं है।",
+          "data": {
+            "options": [
+              "हे माझं नाही.",
+              "हो, हे माझं आहे.",
+              "हे तुमचं नाही.",
+              "हे काय आहे?"
+            ],
+            "speaker": "Guard",
+            "speaker_says": "हे तुमचं आहे का?"
+          },
+          "correct_answer": "हे माझं नाही."
+        },
+        {
+          "order_index": 14,
+          "step_type": "recall",
+          "phrase": "p2",
+          "prompt": "मराठी में कैसे पूछेंगे — \"यह कितने का है\"",
+          "data": {
+            "options": [
+              "हे कितीला आहे?",
+              "हे काय आहे?",
+              "हे कोणाचं आहे?",
+              "हे किती मोठं आहे?"
+            ]
+          },
+          "correct_answer": "हे कितीला आहे?"
+        },
+        {
+          "order_index": 15,
+          "step_type": "recall",
+          "phrase": "p3",
+          "prompt": "मराठी में कैसे पूछेंगे — \"यह किसका मोबाइल है\"",
+          "data": {
+            "options": [
+              "हा कोणाचा मोबाईल आहे?",
+              "हा माझा मोबाईल आहे.",
+              "मोबाईल कुठे आहे?",
+              "हा कोण आहे?"
+            ]
+          },
+          "correct_answer": "हा कोणाचा मोबाईल आहे?"
+        },
+        {
+          "order_index": 16,
+          "step_type": "recall",
+          "phrase": "p4",
+          "prompt": "मराठी में कैसे पूछेंगे — \"यह आपका बैग है क्या\"",
+          "data": {
+            "options": [
+              "ही तुमची बॅग आहे का?",
+              "ही माझी बॅग आहे.",
+              "तुमची बॅग कुठे आहे?",
+              "ही कोणाची बॅग आहे?"
+            ]
+          },
+          "correct_answer": "ही तुमची बॅग आहे का?"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Merges 'Words to Get Started' (order 0, 6 lessons of single words) and 'Essentials to Get Started' (order 1, 10 lessons, the same 59 words in sentences) into one sentence-first module at order 0.",
+    "Max 5 lessons (Kiran, 2026-11-02): the best sentences of the drafted lessons 6-7 ('When And How Much', 'And But Because') are folded into lessons 1-5; 10 weaker sentences were dropped (listed in 'dropped').",
+    "Step order (Kiran, 2026-11-02): match, fill_blank and arrange are interleaved phrase by phrase (each sentence matched before it is filled or arranged); conversation and recall stay at the end.",
+    "Apply plan (only after Kiran confirms each lesson): 7 learners have attempts in 'Words to Get Started' lessons 1-3, so reuse those lesson rows and step ids in place; back up phrases and lesson_steps first.",
+    "Nothing written to the database yet."
+  ],
+  "replaces": [
+    "Words to Get Started",
+    "Essentials to Get Started"
+  ],
+  "dropped": [
+    "मी आणि माझा मित्र इथे आहोत.",
+    "तो माझा मित्र आहे.",
+    "सगळं ठीक आहे का?",
+    "तुम्हाला काय हवं आहे?",
+    "त्याला चहा हवा आहे.",
+    "मी इथे आहे.",
+    "तो कुठे आहे?",
+    "हे माझं घर आहे.",
+    "तुम्ही कधी येणार?",
+    "मी उद्या येतो.",
+    "मी इथे आलो कारण इथे काम आहे."
+  ]
+}

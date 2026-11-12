@@ -55,7 +55,7 @@ const ForgotPasswordPage = ({ searchParams }: AuthPageProps) => {
           </div>
           <h2 className="text-[28px] font-bold leading-[1.2] mb-3">Check your email</h2>
           <p className="text-gray-500 text-[15px]">
-            If <span className="font-semibold">{email.trim()}</span> has a Samvad account, we&apos;ve sent it a link to set a new password.
+            If <span className="font-semibold">{email.trim()}</span> has a Samwad account, we&apos;ve sent it a link to set a new password.
           </p>
           <p className="mt-3 text-gray-500 text-sm">Open the link in this browser. It works once.</p>
           <p className="mt-8 text-sm text-gray-500">

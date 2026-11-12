@@ -1,0 +1,1490 @@
+{
+ "module": "Shops And Errands",
+ "version": 2,
+ "made": "2026-11-12",
+ "lessons": [
+  {
+   "order_index": 1,
+   "title": "Grocery Shopping",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "तुमच्याकडे अंडी आहेत का?",
+     "transliteration": "Tumchyakade andi aahet ka?",
+     "source": "आपके पास अंडे हैं क्या?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "मला दूध आणि ब्रेड हवं आहे.",
+     "transliteration": "Mala doodh aani bread hava aahe.",
+     "source": "मुझे दूध और ब्रेड चाहिए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "हे ताजं आहे का?",
+     "transliteration": "He taaja aahe ka?",
+     "source": "यह ताज़ा है क्या?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "एक किलो साखर द्या.",
+     "transliteration": "Ek kilo saakhar dya.",
+     "source": "एक किलो चीनी दीजिए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "सगळं मिळून किती झालं?",
+     "transliteration": "Sagla milun kiti zala?",
+     "source": "सब मिलाकर कितना हुआ?",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "घर के पास की किराना दुकान पर आप पूछते हैं: \"तुमच्याकडे अंडी आहेत का?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "तुमच्याकडे अंडी आहेत का?",
+     "data": {
+      "options": [
+       "आपके पास अंडे हैं क्या?",
+       "आपके पास दूध है क्या?",
+       "अंडे कहाँ हैं?",
+       "मेरे पास अंडे हैं।"
+      ]
+     },
+     "correct_answer": "आपके पास अंडे हैं क्या?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"आपके पास अंडे हैं क्या?\"",
+     "data": {
+      "sentence": "तुमच्याकडे ___ आहेत का?",
+      "word_bank": [
+       "अंडी",
+       "दूध",
+       "साखर"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "अंडी"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "मला दूध आणि ब्रेड हवं आहे.",
+     "data": {
+      "options": [
+       "मुझे दूध और ब्रेड चाहिए।",
+       "मुझे दूध और चाय चाहिए।",
+       "मुझे सिर्फ़ ब्रेड चाहिए।",
+       "उसे दूध और ब्रेड चाहिए।"
+      ]
+     },
+     "correct_answer": "मुझे दूध और ब्रेड चाहिए।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे दूध और ब्रेड चाहिए।\"",
+     "data": {
+      "words": [
+       "मला",
+       "आहे",
+       "दूध",
+       "ब्रेड",
+       "हवं",
+       "आणि"
+      ]
+     },
+     "correct_answer": "मला दूध आणि ब्रेड हवं आहे"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"यह ताज़ा है क्या?\"",
+     "data": {
+      "sentence": "हे ___ आहे का?",
+      "word_bank": [
+       "ताजं",
+       "गोड",
+       "मोठं"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "ताजं"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "एक किलो साखर द्या.",
+     "data": {
+      "options": [
+       "एक किलो चीनी दीजिए।",
+       "दो किलो चीनी दीजिए।",
+       "एक किलो चावल दीजिए।",
+       "चीनी कितने की है?"
+      ]
+     },
+     "correct_answer": "एक किलो चीनी दीजिए।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"एक किलो चीनी दीजिए।\"",
+     "data": {
+      "words": [
+       "किलो",
+       "द्या",
+       "एक",
+       "साखर"
+      ]
+     },
+     "correct_answer": "एक किलो साखर द्या"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"सब मिलाकर कितना हुआ?\"",
+     "data": {
+      "sentence": "सगळं ___ किती झालं?",
+      "word_bank": [
+       "मिळून",
+       "मिळालं",
+       "दिलं"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "मिळून"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"सब मिलाकर कितना हुआ?\"",
+     "data": {
+      "words": [
+       "किती",
+       "सगळं",
+       "झालं",
+       "मिळून"
+      ]
+     },
+     "correct_answer": "सगळं मिळून किती झालं"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "आपको अंडे चाहिए। आप दुकानदार से पूछते हैं कि अंडे हैं क्या।",
+     "data": {
+      "options": [
+       "तुमच्याकडे अंडी आहेत का?",
+       "अंडी कुठे आहेत?",
+       "माझ्याकडे अंडी आहेत.",
+       "अंडी कितीला आहेत?"
+      ],
+      "speaker": "Shopkeeper",
+      "speaker_says": "बोला, काय पाहिजे?"
+     },
+     "correct_answer": "तुमच्याकडे अंडी आहेत का?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "दुकानदार पालक दे रहा है, पर पत्ते थोड़े मुरझाए लग रहे हैं। आप पूछते हैं कि ताज़ा है क्या।",
+     "data": {
+      "options": [
+       "हे ताजं आहे का?",
+       "हे गोड आहे का?",
+       "हे कितीला आहे?",
+       "मला हे नको."
+      ],
+      "speaker": "Shopkeeper",
+      "speaker_says": "हे घ्या, पालक."
+     },
+     "correct_answer": "हे ताजं आहे का?"
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "सामान पूरा हो गया। आप पूछते हैं कि सब मिलाकर कितना हुआ।",
+     "data": {
+      "options": [
+       "सगळं मिळून किती झालं?",
+       "सगळं मिळून किती दिलं?",
+       "अजून एक द्या.",
+       "हे कितीला आहे?"
+      ],
+      "speaker": "Shopkeeper",
+      "speaker_says": "अजून काही?"
+     },
+     "correct_answer": "सगळं मिळून किती झालं?"
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे दूध और ब्रेड चाहिए\"",
+     "data": {
+      "options": [
+       "मला दूध आणि ब्रेड हवं आहे.",
+       "मला दूध आणि चहा हवा आहे.",
+       "मला फक्त ब्रेड हवं आहे.",
+       "त्याला दूध आणि ब्रेड हवं आहे."
+      ]
+     },
+     "correct_answer": "मला दूध आणि ब्रेड हवं आहे."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे पूछेंगे — \"यह ताज़ा है क्या\"",
+     "data": {
+      "options": [
+       "हे ताजं आहे का?",
+       "हे गोड आहे का?",
+       "हे ताजं आहे.",
+       "ते ताजं आहे का?"
+      ]
+     },
+     "correct_answer": "हे ताजं आहे का?"
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"एक किलो चीनी दीजिए\"",
+     "data": {
+      "options": [
+       "एक किलो साखर द्या.",
+       "दोन किलो साखर द्या.",
+       "एक किलो तांदूळ द्या.",
+       "साखर कितीला आहे?"
+      ]
+     },
+     "correct_answer": "एक किलो साखर द्या."
+    }
+   ]
+  },
+  {
+   "order_index": 2,
+   "title": "Vegetable Market",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "टोमॅटो कितीला आहेत?",
+     "transliteration": "Tomato kitila aahet?",
+     "source": "टमाटर कितने के हैं?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "मला एक किलो कांदे द्या.",
+     "transliteration": "Mala ek kilo kaande dya.",
+     "source": "मुझे एक किलो प्याज़ दीजिए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "थोडं कमी करा.",
+     "transliteration": "Thoda kami kara.",
+     "source": "थोड़ा कम कीजिए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "अर्धा किलो पुरेसा आहे.",
+     "transliteration": "Ardha kilo puresa aahe.",
+     "source": "आधा किलो काफ़ी है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "थोडी कोथिंबीर द्या ना.",
+     "transliteration": "Thodi kothimbir dya na.",
+     "source": "थोड़ा धनिया दीजिए ना।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "सुबह सब्ज़ी मंडी में ताज़े टमाटर दिख रहे हैं। आप सब्ज़ीवाले से पूछते हैं: \"टोमॅटो कितीला आहेत?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "टोमॅटो कितीला आहेत?",
+     "data": {
+      "options": [
+       "टमाटर कितने के हैं?",
+       "टमाटर कहाँ हैं?",
+       "टमाटर ताज़े हैं क्या?",
+       "प्याज़ कितने के हैं?"
+      ]
+     },
+     "correct_answer": "टमाटर कितने के हैं?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"टमाटर कितने के हैं?\"",
+     "data": {
+      "sentence": "टोमॅटो ___ आहेत?",
+      "word_bank": [
+       "कितीला",
+       "कुठे",
+       "कधी"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "कितीला"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "मला एक किलो कांदे द्या.",
+     "data": {
+      "options": [
+       "मुझे एक किलो प्याज़ दीजिए।",
+       "मुझे दो किलो प्याज़ दीजिए।",
+       "मुझे एक किलो टमाटर दीजिए।",
+       "प्याज़ कितने का है?"
+      ]
+     },
+     "correct_answer": "मुझे एक किलो प्याज़ दीजिए।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे एक किलो प्याज़ दीजिए।\"",
+     "data": {
+      "words": [
+       "द्या",
+       "मला",
+       "कांदे",
+       "एक",
+       "किलो"
+      ]
+     },
+     "correct_answer": "मला एक किलो कांदे द्या"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"थोड़ा कम कीजिए।\"",
+     "data": {
+      "sentence": "थोडं ___ करा.",
+      "word_bank": [
+       "कमी",
+       "जास्त",
+       "मोठं"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "कमी"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "अर्धा किलो पुरेसा आहे.",
+     "data": {
+      "options": [
+       "आधा किलो काफ़ी है।",
+       "आधा किलो कम है।",
+       "एक किलो काफ़ी है।",
+       "आधा किलो दीजिए।"
+      ]
+     },
+     "correct_answer": "आधा किलो काफ़ी है।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"आधा किलो काफ़ी है।\"",
+     "data": {
+      "words": [
+       "किलो",
+       "अर्धा",
+       "आहे",
+       "पुरेसा"
+      ]
+     },
+     "correct_answer": "अर्धा किलो पुरेसा आहे"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"थोड़ा धनिया दीजिए ना।\"",
+     "data": {
+      "sentence": "थोडी ___ द्या ना.",
+      "word_bank": [
+       "कोथिंबीर",
+       "साखर",
+       "चहा"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "कोथिंबीर"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"थोड़ा धनिया दीजिए ना।\"",
+     "data": {
+      "words": [
+       "ना",
+       "कोथिंबीर",
+       "थोडी",
+       "द्या"
+      ]
+     },
+     "correct_answer": "थोडी कोथिंबीर द्या ना"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "सब्ज़ीवाला ताज़े टमाटर दिखा रहा है। आप दाम पूछते हैं।",
+     "data": {
+      "options": [
+       "टोमॅटो कितीला आहेत?",
+       "टोमॅटो कुठे आहेत?",
+       "टोमॅटो ताजे आहेत.",
+       "कांदे कितीला आहेत?"
+      ],
+      "speaker": "Vendor",
+      "speaker_says": "घ्या, ताजे टोमॅटो!"
+     },
+     "correct_answer": "टोमॅटो कितीला आहेत?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "सब्ज़ीवाला 60 रुपये किलो बता रहा है। आपको यह महँगा लगा और आप थोड़ा कम करने को कहते हैं।",
+     "data": {
+      "options": [
+       "थोडं कमी करा.",
+       "थोडं जास्त करा.",
+       "साठ रुपये द्या.",
+       "मला एक किलो हवं."
+      ],
+      "speaker": "Vendor",
+      "speaker_says": "साठ रुपये किलो."
+     },
+     "correct_answer": "थोडं कमी करा."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "सब्ज़ी ले ली। आप सब्ज़ीवाले से थोड़ा धनिया माँगते हैं।",
+     "data": {
+      "options": [
+       "थोडी कोथिंबीर द्या ना.",
+       "थोडी साखर द्या ना.",
+       "कोथिंबीर कितीला आहे?",
+       "मला काही नको."
+      ],
+      "speaker": "Vendor",
+      "speaker_says": "अजून काही?"
+     },
+     "correct_answer": "थोडी कोथिंबीर द्या ना."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे एक किलो प्याज़ दीजिए\"",
+     "data": {
+      "options": [
+       "मला एक किलो कांदे द्या.",
+       "मला दोन किलो कांदे द्या.",
+       "मला एक किलो टोमॅटो द्या.",
+       "कांदे कितीला आहेत?"
+      ]
+     },
+     "correct_answer": "मला एक किलो कांदे द्या."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"थोड़ा कम कीजिए\"",
+     "data": {
+      "options": [
+       "थोडं कमी करा.",
+       "थोडं जास्त करा.",
+       "थोडं कमी आहे.",
+       "खूप कमी करा."
+      ]
+     },
+     "correct_answer": "थोडं कमी करा."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"आधा किलो काफ़ी है\"",
+     "data": {
+      "options": [
+       "अर्धा किलो पुरेसा आहे.",
+       "अर्धा किलो कमी आहे.",
+       "एक किलो पुरेसा आहे.",
+       "अर्धा किलो द्या."
+      ]
+     },
+     "correct_answer": "अर्धा किलो पुरेसा आहे."
+    }
+   ]
+  },
+  {
+   "order_index": 3,
+   "title": "Buying Clothes",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "हा शर्ट दाखवा.",
+     "transliteration": "Ha shirt daakhva.",
+     "source": "यह शर्ट दिखाइए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "दुसरा रंग आहे का?",
+     "transliteration": "Dusra rang aahe ka?",
+     "source": "दूसरा रंग है क्या?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "मी हे घालून बघू का?",
+     "transliteration": "Mi he ghaalun baghu ka?",
+     "source": "मैं इसे पहनकर देखूँ क्या?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "हा थोडा मोठा आहे.",
+     "transliteration": "Ha thoda motha aahe.",
+     "source": "यह थोड़ा बड़ा है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "याचा लहान साईज द्या.",
+     "transliteration": "Yacha lahaan size dya.",
+     "source": "इसका छोटा साइज़ दीजिए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "कपड़ों की दुकान में एक शर्ट पसंद आई। आप दुकानदार से कहते हैं: \"हा शर्ट दाखवा.\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "हा शर्ट दाखवा.",
+     "data": {
+      "options": [
+       "यह शर्ट दिखाइए।",
+       "वह शर्ट दिखाइए।",
+       "यह शर्ट दीजिए।",
+       "यह शर्ट कितने की है?"
+      ]
+     },
+     "correct_answer": "यह शर्ट दिखाइए।"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"यह शर्ट दिखाइए।\"",
+     "data": {
+      "sentence": "___ शर्ट दाखवा.",
+      "word_bank": [
+       "हा",
+       "ही",
+       "हे"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "हा"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "दुसरा रंग आहे का?",
+     "data": {
+      "options": [
+       "दूसरा रंग है क्या?",
+       "दूसरा साइज़ है क्या?",
+       "यही रंग है क्या?",
+       "दूसरा रंग नहीं है।"
+      ]
+     },
+     "correct_answer": "दूसरा रंग है क्या?"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"दूसरा रंग है क्या?\"",
+     "data": {
+      "words": [
+       "दुसरा",
+       "आहे",
+       "का",
+       "रंग"
+      ]
+     },
+     "correct_answer": "दुसरा रंग आहे का"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"मैं इसे पहनकर देखूँ क्या?\"",
+     "data": {
+      "sentence": "मी हे ___ बघू का?",
+      "word_bank": [
+       "घालून",
+       "खाऊन",
+       "धुवून"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "घालून"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "हा थोडा मोठा आहे.",
+     "data": {
+      "options": [
+       "यह थोड़ा बड़ा है।",
+       "यह थोड़ा छोटा है।",
+       "यह बहुत बड़ा है।",
+       "वह थोड़ा बड़ा है।"
+      ]
+     },
+     "correct_answer": "यह थोड़ा बड़ा है।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"यह थोड़ा बड़ा है।\"",
+     "data": {
+      "words": [
+       "थोडा",
+       "हा",
+       "मोठा",
+       "आहे"
+      ]
+     },
+     "correct_answer": "हा थोडा मोठा आहे"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"इसका छोटा साइज़ दीजिए।\"",
+     "data": {
+      "sentence": "याचा ___ साईज द्या.",
+      "word_bank": [
+       "लहान",
+       "मोठा",
+       "जुना"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "लहान"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"इसका छोटा साइज़ दीजिए।\"",
+     "data": {
+      "words": [
+       "द्या",
+       "साईज",
+       "लहान",
+       "याचा"
+      ]
+     },
+     "correct_answer": "याचा लहान साईज द्या"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "दुकानदार पूछता है क्या दिखाएँ। आपको सामने टँगी शर्ट पसंद है।",
+     "data": {
+      "options": [
+       "हा शर्ट दाखवा.",
+       "हा शर्ट घ्या.",
+       "हा शर्ट कुठे आहे?",
+       "मला शर्ट नको."
+      ],
+      "speaker": "Shopkeeper",
+      "speaker_says": "या, काय दाखवू?"
+     },
+     "correct_answer": "हा शर्ट दाखवा."
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "दुकानदार कहता है कि यह आप पर अच्छी लगेगी। आप पूछते हैं कि पहनकर देख लें क्या।",
+     "data": {
+      "options": [
+       "मी हे घालून बघू का?",
+       "मी हे धुवून बघू का?",
+       "तुम्ही हे घालून बघा.",
+       "मी हे घेतलं."
+      ],
+      "speaker": "Shopkeeper",
+      "speaker_says": "हा तुम्हाला छान दिसेल."
+     },
+     "correct_answer": "मी हे घालून बघू का?"
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "शर्ट थोड़ी बड़ी है। आप छोटा साइज़ माँगते हैं।",
+     "data": {
+      "options": [
+       "याचा लहान साईज द्या.",
+       "याचा मोठा साईज द्या.",
+       "हा साईज बरोबर आहे.",
+       "याचा रंग छान आहे."
+      ],
+      "speaker": "Shopkeeper",
+      "speaker_says": "बरोबर आहे ना?"
+     },
+     "correct_answer": "याचा लहान साईज द्या."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे पूछेंगे — \"दूसरा रंग है क्या\"",
+     "data": {
+      "options": [
+       "दुसरा रंग आहे का?",
+       "दुसरा साईज आहे का?",
+       "हाच रंग आहे का?",
+       "दुसरा रंग नाही."
+      ]
+     },
+     "correct_answer": "दुसरा रंग आहे का?"
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे पूछेंगे — \"मैं इसे पहनकर देखूँ क्या\"",
+     "data": {
+      "options": [
+       "मी हे घालून बघू का?",
+       "तुम्ही हे घालून बघा.",
+       "मी हे घेतलं.",
+       "मी हे धुवून बघू का?"
+      ]
+     },
+     "correct_answer": "मी हे घालून बघू का?"
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"यह थोड़ा बड़ा है\"",
+     "data": {
+      "options": [
+       "हा थोडा मोठा आहे.",
+       "हा थोडा लहान आहे.",
+       "हा खूप मोठा आहे.",
+       "तो थोडा मोठा आहे."
+      ]
+     },
+     "correct_answer": "हा थोडा मोठा आहे."
+    }
+   ]
+  },
+  {
+   "order_index": 4,
+   "title": "Paying",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "ऑनलाईन चालेल का?",
+     "transliteration": "Online chaalel ka?",
+     "source": "ऑनलाइन चलेगा क्या?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "मी कार्डने पैसे देईन.",
+     "transliteration": "Mi cardne paise dein.",
+     "source": "मैं कार्ड से पैसे दूँगा।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "पावती द्या.",
+     "transliteration": "Paavti dya.",
+     "source": "रसीद दीजिए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "पेमेंट झालं का?",
+     "transliteration": "Payment zala ka?",
+     "source": "पेमेंट हो गया क्या?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "मला कॅरी बॅग हवी आहे.",
+     "transliteration": "Mala carry bag havi aahe.",
+     "source": "मुझे कैरी बैग चाहिए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "बिल बन गया है। जेब में कैश नहीं है, तो आप दुकानदार से पूछते हैं: \"ऑनलाईन चालेल का?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "ऑनलाईन चालेल का?",
+     "data": {
+      "options": [
+       "ऑनलाइन चलेगा क्या?",
+       "कैश चलेगा क्या?",
+       "ऑनलाइन नहीं चलेगा।",
+       "ऑनलाइन कब चलेगा?"
+      ]
+     },
+     "correct_answer": "ऑनलाइन चलेगा क्या?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"ऑनलाइन चलेगा क्या?\"",
+     "data": {
+      "sentence": "___ चालेल का?",
+      "word_bank": [
+       "ऑनलाईन",
+       "उद्या",
+       "कधी"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "ऑनलाईन"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "मी कार्डने पैसे देईन.",
+     "data": {
+      "options": [
+       "मैं कार्ड से पैसे दूँगा।",
+       "मैं कैश से पैसे दूँगा।",
+       "आप कार्ड से पैसे दीजिए।",
+       "मैंने कार्ड से पैसे दिए।"
+      ]
+     },
+     "correct_answer": "मैं कार्ड से पैसे दूँगा।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मैं कार्ड से पैसे दूँगा।\"",
+     "data": {
+      "words": [
+       "देईन",
+       "मी",
+       "कार्डने",
+       "पैसे"
+      ]
+     },
+     "correct_answer": "मी कार्डने पैसे देईन"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"रसीद दीजिए।\"",
+     "data": {
+      "sentence": "___ द्या.",
+      "word_bank": [
+       "पावती",
+       "पाणी",
+       "चावी"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "पावती"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "पेमेंट झालं का?",
+     "data": {
+      "options": [
+       "पेमेंट हो गया क्या?",
+       "पेमेंट नहीं हुआ।",
+       "पेमेंट कब होगा?",
+       "बिल हो गया क्या?"
+      ]
+     },
+     "correct_answer": "पेमेंट हो गया क्या?"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"पेमेंट हो गया क्या?\"",
+     "data": {
+      "words": [
+       "पेमेंट",
+       "का",
+       "झालं"
+      ]
+     },
+     "correct_answer": "पेमेंट झालं का"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"मुझे कैरी बैग चाहिए।\"",
+     "data": {
+      "sentence": "मला कॅरी बॅग ___ आहे.",
+      "word_bank": [
+       "हवी",
+       "हवा",
+       "हवं"
+      ],
+      "blank_index": 3
+     },
+     "correct_answer": "हवी"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे कैरी बैग चाहिए।\"",
+     "data": {
+      "words": [
+       "कॅरी",
+       "आहे",
+       "हवी",
+       "बॅग",
+       "मला"
+      ]
+     },
+     "correct_answer": "मला कॅरी बॅग हवी आहे"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "बिल 240 रुपये हुआ। आपके पास कैश नहीं है, तो आप पूछते हैं कि ऑनलाइन चलेगा क्या।",
+     "data": {
+      "options": [
+       "ऑनलाईन चालेल का?",
+       "कॅश चालेल का?",
+       "ऑनलाईन नाही चालणार.",
+       "दोनशे चाळीस द्या."
+      ],
+      "speaker": "Shopkeeper",
+      "speaker_says": "दोनशे चाळीस झाले."
+     },
+     "correct_answer": "ऑनलाईन चालेल का?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "सामान मिल गया। आपको ऑफिस के लिए रसीद चाहिए।",
+     "data": {
+      "options": [
+       "पावती द्या.",
+       "पाणी द्या.",
+       "सामान द्या.",
+       "पावती नको."
+      ],
+      "speaker": "Shopkeeper",
+      "speaker_says": "हे घ्या तुमचं सामान."
+     },
+     "correct_answer": "पावती द्या."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "सामान बहुत है और हाथ में थैला नहीं है। आप कैरी बैग माँगते हैं।",
+     "data": {
+      "options": [
+       "मला कॅरी बॅग हवी आहे.",
+       "मला कॅरी बॅग नको.",
+       "तुम्हाला कॅरी बॅग हवी आहे.",
+       "कॅरी बॅग कुठे आहे?"
+      ],
+      "speaker": "Shopkeeper",
+      "speaker_says": "अजून काही?"
+     },
+     "correct_answer": "मला कॅरी बॅग हवी आहे."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"मैं कार्ड से पैसे दूँगा\"",
+     "data": {
+      "options": [
+       "मी कार्डने पैसे देईन.",
+       "मी कॅशने पैसे देईन.",
+       "तुम्ही कार्डने पैसे द्या.",
+       "मी कार्डने पैसे दिले."
+      ]
+     },
+     "correct_answer": "मी कार्डने पैसे देईन."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"रसीद दीजिए\"",
+     "data": {
+      "options": [
+       "पावती द्या.",
+       "पाणी द्या.",
+       "पावती घ्या.",
+       "पावती नको."
+      ]
+     },
+     "correct_answer": "पावती द्या."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे पूछेंगे — \"पेमेंट हो गया क्या\"",
+     "data": {
+      "options": [
+       "पेमेंट झालं का?",
+       "पेमेंट झालं नाही.",
+       "पेमेंट कधी होईल?",
+       "बिल झालं का?"
+      ]
+     },
+     "correct_answer": "पेमेंट झालं का?"
+    }
+   ]
+  },
+  {
+   "order_index": 5,
+   "title": "Getting Things Fixed",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "माझा फोन बिघडला आहे.",
+     "transliteration": "Majha phone bighadla aahe.",
+     "source": "मेरा फ़ोन खराब हो गया है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "दुरुस्त होईल का?",
+     "transliteration": "Durust hoil ka?",
+     "source": "ठीक होगा क्या?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "कधी मिळेल?",
+     "transliteration": "Kadhi milel?",
+     "source": "कब मिलेगा?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "खर्च किती येईल?",
+     "transliteration": "Kharcha kiti yeil?",
+     "source": "खर्चा कितना आएगा?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "मी संध्याकाळी परत येईन.",
+     "transliteration": "Mi sandhyakali parat yein.",
+     "source": "मैं शाम को वापस आऊँगा।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "फ़ोन अचानक बंद हो गया है। आप रिपेयर की दुकान पर जाकर कहते हैं: \"माझा फोन बिघडला आहे.\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "माझा फोन बिघडला आहे.",
+     "data": {
+      "options": [
+       "मेरा फ़ोन खराब हो गया है।",
+       "मेरा फ़ोन ठीक है।",
+       "उसका फ़ोन खराब हो गया है।",
+       "मेरा फ़ोन खो गया है।"
+      ]
+     },
+     "correct_answer": "मेरा फ़ोन खराब हो गया है।"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"मेरा फ़ोन खराब हो गया है।\"",
+     "data": {
+      "sentence": "माझा फोन ___ आहे.",
+      "word_bank": [
+       "बिघडला",
+       "हरवला",
+       "मिळाला"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "बिघडला"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "दुरुस्त होईल का?",
+     "data": {
+      "options": [
+       "ठीक होगा क्या?",
+       "ठीक हो गया क्या?",
+       "कब ठीक होगा?",
+       "ठीक नहीं होगा।"
+      ]
+     },
+     "correct_answer": "ठीक होगा क्या?"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"ठीक होगा क्या?\"",
+     "data": {
+      "words": [
+       "दुरुस्त",
+       "का",
+       "होईल"
+      ]
+     },
+     "correct_answer": "दुरुस्त होईल का"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"कब मिलेगा?\"",
+     "data": {
+      "sentence": "___ मिळेल?",
+      "word_bank": [
+       "कधी",
+       "कुठे",
+       "कोण"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "कधी"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "खर्च किती येईल?",
+     "data": {
+      "options": [
+       "खर्चा कितना आएगा?",
+       "कितना समय लगेगा?",
+       "खर्चा कौन देगा?",
+       "खर्चा बहुत आएगा।"
+      ]
+     },
+     "correct_answer": "खर्चा कितना आएगा?"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"खर्चा कितना आएगा?\"",
+     "data": {
+      "words": [
+       "खर्च",
+       "येईल",
+       "किती"
+      ]
+     },
+     "correct_answer": "खर्च किती येईल"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"मैं शाम को वापस आऊँगा।\"",
+     "data": {
+      "sentence": "मी ___ परत येईन.",
+      "word_bank": [
+       "संध्याकाळी",
+       "काल",
+       "आत्ता"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "संध्याकाळी"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मैं शाम को वापस आऊँगा।\"",
+     "data": {
+      "words": [
+       "येईन",
+       "संध्याकाळी",
+       "परत",
+       "मी"
+      ]
+     },
+     "correct_answer": "मी संध्याकाळी परत येईन"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "रिपेयर वाला पूछता है क्या हुआ। आपका फ़ोन खराब हो गया है।",
+     "data": {
+      "options": [
+       "माझा फोन बिघडला आहे.",
+       "माझा फोन हरवला आहे.",
+       "तुमचा फोन बिघडला आहे.",
+       "माझा फोन चांगला आहे."
+      ],
+      "speaker": "Mechanic",
+      "speaker_says": "काय झालं?"
+     },
+     "correct_answer": "माझा फोन बिघडला आहे."
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "रिपेयर वाला कहता है कि ठीक हो जाएगा। आप पूछते हैं कि कब मिलेगा।",
+     "data": {
+      "options": [
+       "कधी मिळेल?",
+       "कुठे मिळेल?",
+       "कधी दिला?",
+       "किती मिळेल?"
+      ],
+      "speaker": "Mechanic",
+      "speaker_says": "होईल दुरुस्त."
+     },
+     "correct_answer": "कधी मिळेल?"
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "रिपेयर में चार-पाँच घंटे लगेंगे। आप कहते हैं कि शाम को वापस आएँगे।",
+     "data": {
+      "options": [
+       "मी संध्याकाळी परत येईन.",
+       "मी काल परत आलो.",
+       "तुम्ही संध्याकाळी या.",
+       "मी इथेच थांबतो."
+      ],
+      "speaker": "Mechanic",
+      "speaker_says": "चार-पाच तास लागतील."
+     },
+     "correct_answer": "मी संध्याकाळी परत येईन."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे पूछेंगे — \"ठीक होगा क्या\"",
+     "data": {
+      "options": [
+       "दुरुस्त होईल का?",
+       "दुरुस्त झालं का?",
+       "कधी दुरुस्त होईल?",
+       "दुरुस्त होणार नाही."
+      ]
+     },
+     "correct_answer": "दुरुस्त होईल का?"
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे पूछेंगे — \"कब मिलेगा\"",
+     "data": {
+      "options": [
+       "कधी मिळेल?",
+       "कुठे मिळेल?",
+       "कधी दिलं?",
+       "किती मिळेल?"
+      ]
+     },
+     "correct_answer": "कधी मिळेल?"
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे पूछेंगे — \"खर्चा कितना आएगा\"",
+     "data": {
+      "options": [
+       "खर्च किती येईल?",
+       "किती वेळ लागेल?",
+       "खर्च कोण देईल?",
+       "खर्च खूप येईल."
+      ]
+     },
+     "correct_answer": "खर्च किती येईल?"
+    }
+   ]
+  }
+ ],
+ "notes": [
+  "Replaces the old Shops And Errands (5 lessons, 20 short phrases, 40 steps; no learner progress on 2026-11-12).",
+  "Grocery Shopping and Vegetable Market (parked here from Talk About Food on 2026-10-31) are rewritten with the style rules: कितीला for prices, polite द्या, customer-side only. The 31 Oct draft is kept as shops-and-errands-v2-oct31-unused.json.",
+  "The old At The Bank and Everyday Errands lessons are dropped to keep 5 lessons.",
+  "Kiran asked for it to go live without a review round (2026-11-12).",
+  "Origin 'draft' = written for Samwad; 'existing' = already in the old module."
+ ]
+}

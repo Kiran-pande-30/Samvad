@@ -1,6 +1,6 @@
-# Samvad
+# Samwad
 
-Samvad (संवाद, "dialogue") is a mobile-first web app that teaches Marathi to Hindi speakers. Stack: Next.js 16 (App Router) + Supabase (Postgres, Auth, Storage) + Tailwind v4 + shadcn/Base UI.
+Samwad (संवाद, "dialogue"; renamed from Samvad on 2026-10-31) is a mobile-first web app that teaches Marathi to Hindi speakers. Stack: Next.js 16 (App Router) + Supabase (Postgres, Auth, Storage) + Tailwind v4 + shadcn/Base UI.
 
 - **Plan:** `ROADMAP.md` holds the current plan, agreed decisions and how we split the work (Kiran writes backend to learn it; Claude builds frontend). Read it before any planning or feature work, tick off tasks when they are completed, and put new feature ideas under "Later".
 - **Learning notes:** `LEARNING.md` is Kiran's backend/Next.js notebook. When a task teaches a concept worth keeping, offer to add a short entry there.

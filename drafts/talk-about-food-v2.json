@@ -1,0 +1,1428 @@
+{
+ "module": "Talk About Food",
+ "version": 2,
+ "made": "2026-10-31",
+ "lessons": [
+  {
+   "order_index": 1,
+   "title": "Tea Stall",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "चहा आहे का?",
+     "transliteration": "Chaha aahe ka?",
+     "source": "चाय है क्या?",
+     "origin": "tatoeba",
+     "tatoeba_id": 13428841
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "एक चहा द्या.",
+     "transliteration": "Ek chaha dya.",
+     "source": "एक चाय दीजिए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "चहा कितीला आहे?",
+     "transliteration": "Chaha kitila aahe?",
+     "source": "चाय कितने की है?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 4,
+     "target": "बिल किती झालं?",
+     "transliteration": "Bill kiti zala?",
+     "source": "बिल कितना हुआ?",
+     "origin": "existing",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "शाम को आप चाय स्टॉल पर पहुँचते हैं। चूल्हे पर चाय नहीं दिख रही, तो आप पूछते हैं: \"चहा आहे का?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "चहा आहे का?",
+     "data": {
+      "options": [
+       "चाय है क्या?",
+       "चाय कहाँ है?",
+       "चाय किसकी है?",
+       "चाय गरम है क्या?"
+      ]
+     },
+     "correct_answer": "चाय है क्या?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"चाय है क्या?\"",
+     "data": {
+      "sentence": "चहा ___ का?",
+      "word_bank": [
+       "आहे",
+       "नाही",
+       "कमी"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "आहे"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "एक चहा द्या.",
+     "data": {
+      "options": [
+       "एक चाय दीजिए।",
+       "चाय गरम कीजिए।",
+       "एक चाय कहाँ है?",
+       "दो चाय दीजिए।"
+      ]
+     },
+     "correct_answer": "एक चाय दीजिए।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"चाय कितने की है?\"",
+     "data": {
+      "sentence": "चहा ___ आहे?",
+      "word_bank": [
+       "कितीला",
+       "कुठे",
+       "कधी"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "कितीला"
+    },
+    {
+     "order_index": 6,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"एक चाय दीजिए।\"",
+     "data": {
+      "words": [
+       "एक",
+       "द्या",
+       "चहा"
+      ]
+     },
+     "correct_answer": "एक चहा द्या"
+    },
+    {
+     "order_index": 7,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"बिल कितना हुआ?\"",
+     "data": {
+      "sentence": "बिल ___ झालं?",
+      "word_bank": [
+       "किती",
+       "कोण",
+       "कधी"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "किती"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"बिल कितना हुआ?\"",
+     "data": {
+      "words": [
+       "झालं",
+       "किती",
+       "बिल"
+      ]
+     },
+     "correct_answer": "बिल किती झालं"
+    },
+    {
+     "order_index": 9,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "चायवाला पूछता है कि क्या दें। आप पहले जानना चाहते हैं कि चाय है या नहीं।",
+     "data": {
+      "options": [
+       "चहा आहे का?",
+       "चहा कुठे आहे?",
+       "चहा कोण आहे?",
+       "चहा कधी आहे?"
+      ],
+      "speaker": "Vendor",
+      "speaker_says": "बोला, काय देऊ?"
+     },
+     "correct_answer": "चहा आहे का?"
+    },
+    {
+     "order_index": 10,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "चायवाला चाय की ओर इशारा करता है। आप दाम पूछते हैं।",
+     "data": {
+      "options": [
+       "चहा कितीला आहे?",
+       "चहा कुठे आहे?",
+       "चहा कोणाचा आहे?",
+       "मला चहा नको."
+      ],
+      "speaker": "Vendor",
+      "speaker_says": "चहा घ्या!"
+     },
+     "correct_answer": "चहा कितीला आहे?"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "चाय पी ली। चायवाला पूछता है कि और कुछ चाहिए। आप बिल पूछते हैं।",
+     "data": {
+      "options": [
+       "बिल किती झालं?",
+       "बिल कोण आहे?",
+       "बिल कुठे आहे?",
+       "बिल काय आहे?"
+      ],
+      "speaker": "Vendor",
+      "speaker_says": "अजून काही?"
+     },
+     "correct_answer": "बिल किती झालं?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"एक चाय दीजिए\"",
+     "data": {
+      "options": [
+       "एक चहा द्या.",
+       "एक चहा घ्या.",
+       "एक चहा आहे.",
+       "एक चहा हवा."
+      ]
+     },
+     "correct_answer": "एक चहा द्या."
+    },
+    {
+     "order_index": 13,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे पूछेंगे — \"चाय कितने की है\"",
+     "data": {
+      "options": [
+       "चहा कितीला आहे?",
+       "चहा कुठे आहे?",
+       "चहा किती गरम आहे?",
+       "चहा कधी आहे?"
+      ]
+     },
+     "correct_answer": "चहा कितीला आहे?"
+    }
+   ]
+  },
+  {
+   "order_index": 2,
+   "title": "Street Food",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "हे गरम आहे का?",
+     "transliteration": "He garam aahe ka?",
+     "source": "यह गरम है क्या?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "एक प्लेट भेळ द्या.",
+     "transliteration": "Ek plate bhel dya.",
+     "source": "एक प्लेट भेल दीजिए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "हे तिखट आहे का?",
+     "transliteration": "He tikhat aahe ka?",
+     "source": "यह तीखा है क्या?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "मला तो समोसा द्या.",
+     "transliteration": "Mala to samosa dya.",
+     "source": "मुझे वो समोसा दीजिए।",
+     "origin": "tatoeba",
+     "tatoeba_id": 7335298
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "यात मिरची जास्त टाकू नका.",
+     "transliteration": "Yaat mirchi jaast taaku naka.",
+     "source": "इसमें मिर्ची ज़्यादा मत डालिए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "शाम को चौपाटी पर भेल और समोसे की खुशबू आ रही है। ठेले पर पहुँचकर आप पूछते हैं: \"हे गरम आहे का?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "हे गरम आहे का?",
+     "data": {
+      "options": [
+       "यह गरम है क्या?",
+       "यह कहाँ है?",
+       "यह किसका है?",
+       "यह कितने का है?"
+      ]
+     },
+     "correct_answer": "यह गरम है क्या?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"यह गरम है क्या?\"",
+     "data": {
+      "sentence": "हे ___ आहे का?",
+      "word_bank": [
+       "गरम",
+       "थंड",
+       "गोड"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "गरम"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "एक प्लेट भेळ द्या.",
+     "data": {
+      "options": [
+       "एक प्लेट भेल दीजिए।",
+       "दो प्लेट भेल दीजिए।",
+       "भेल कहाँ मिलती है?",
+       "भेल कितने की है?"
+      ]
+     },
+     "correct_answer": "एक प्लेट भेल दीजिए।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"एक प्लेट भेल दीजिए।\"",
+     "data": {
+      "words": [
+       "द्या",
+       "प्लेट",
+       "एक",
+       "भेळ"
+      ]
+     },
+     "correct_answer": "एक प्लेट भेळ द्या"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"यह तीखा है क्या?\"",
+     "data": {
+      "sentence": "हे ___ आहे का?",
+      "word_bank": [
+       "तिखट",
+       "गोड",
+       "थंड"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "तिखट"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "मला तो समोसा द्या.",
+     "data": {
+      "options": [
+       "मुझे वो समोसा दीजिए।",
+       "मुझे वो समोसा पसंद है।",
+       "वो समोसा किसका है?",
+       "मुझे समोसा नहीं चाहिए।"
+      ]
+     },
+     "correct_answer": "मुझे वो समोसा दीजिए।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे वो समोसा दीजिए।\"",
+     "data": {
+      "words": [
+       "तो",
+       "मला",
+       "द्या",
+       "समोसा"
+      ]
+     },
+     "correct_answer": "मला तो समोसा द्या"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"इसमें मिर्ची ज़्यादा मत डालिए।\"",
+     "data": {
+      "sentence": "यात मिरची ___ टाकू नका.",
+      "word_bank": [
+       "जास्त",
+       "कमी",
+       "गोड"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "जास्त"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"इसमें मिर्ची ज़्यादा मत डालिए।\"",
+     "data": {
+      "words": [
+       "यात",
+       "नका",
+       "टाकू",
+       "मिरची",
+       "जास्त"
+      ]
+     },
+     "correct_answer": "यात मिरची जास्त टाकू नका"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "ठेलेवाला समोसे दिखा रहा है। आप जानना चाहते हैं कि वे गरम हैं या नहीं।",
+     "data": {
+      "options": [
+       "हे गरम आहे का?",
+       "हे कुठे आहे?",
+       "हे कोणाचं आहे?",
+       "मला हे नको."
+      ],
+      "speaker": "Vendor",
+      "speaker_says": "हे घ्या, ताजे समोसे!"
+     },
+     "correct_answer": "हे गरम आहे का?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "ठेलेवाला मिसल पाव देता है। आप जानना चाहते हैं कि यह तीखी है या नहीं।",
+     "data": {
+      "options": [
+       "हे तिखट आहे का?",
+       "हे गरम आहे का?",
+       "हे कितीला आहे?",
+       "मला हे नको."
+      ],
+      "speaker": "Vendor",
+      "speaker_says": "हे घ्या, मिसळ पाव."
+     },
+     "correct_answer": "हे तिखट आहे का?"
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "भेलवाला पूछता है कि मिर्ची डालें क्या। आपको ज़्यादा मिर्ची नहीं चाहिए।",
+     "data": {
+      "options": [
+       "यात मिरची जास्त टाकू नका.",
+       "यात मिरची जास्त टाका.",
+       "यात साखर जास्त टाका.",
+       "मिरची कुठे आहे?"
+      ],
+      "speaker": "Vendor",
+      "speaker_says": "मिरची टाकू का?"
+     },
+     "correct_answer": "यात मिरची जास्त टाकू नका."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"एक प्लेट भेल दीजिए\"",
+     "data": {
+      "options": [
+       "एक प्लेट भेळ द्या.",
+       "एक प्लेट भेळ घ्या.",
+       "दोन प्लेट भेळ द्या.",
+       "एक प्लेट भेळ आहे."
+      ]
+     },
+     "correct_answer": "एक प्लेट भेळ द्या."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे पूछेंगे — \"यह तीखा है क्या\"",
+     "data": {
+      "options": [
+       "हे तिखट आहे का?",
+       "हे गरम आहे का?",
+       "हे गोड आहे का?",
+       "हे कितीला आहे?"
+      ]
+     },
+     "correct_answer": "हे तिखट आहे का?"
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे वो समोसा दीजिए\"",
+     "data": {
+      "options": [
+       "मला तो समोसा द्या.",
+       "मला तो समोसा आवडतो.",
+       "मला तो समोसा नको.",
+       "मी तो समोसा खाल्ला."
+      ]
+     },
+     "correct_answer": "मला तो समोसा द्या."
+    }
+   ]
+  },
+  {
+   "order_index": 3,
+   "title": "What You Like",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "तुम्हाला काय आवडतं?",
+     "transliteration": "Tumhala kay aavadta?",
+     "source": "आपको क्या पसंद है?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "मला वडा पाव खूप आवडतो.",
+     "transliteration": "Mala vada pav khup aavadto.",
+     "source": "मुझे वड़ा पाव बहुत पसंद है।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "चविष्ट आहे.",
+     "transliteration": "Chavishta aahe.",
+     "source": "स्वादिष्ट है।",
+     "origin": "tatoeba",
+     "tatoeba_id": 4366847
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "मला तिखट खाणं आवडत नाही.",
+     "transliteration": "Mala tikhat khana aavadat nahi.",
+     "source": "मुझे तीखा खाना पसंद नहीं है।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "मला काहीतरी गोड हवं आहे.",
+     "transliteration": "Mala kahitari god hava aahe.",
+     "source": "मुझे कुछ मीठा चाहिए।",
+     "origin": "tatoeba",
+     "tatoeba_id": 2087498
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "ऑफिस के नए साथी के साथ खाने की बात हो रही है। आप भी जानना चाहते हैं कि उन्हें क्या पसंद है: \"तुम्हाला काय आवडतं?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "तुम्हाला काय आवडतं?",
+     "data": {
+      "options": [
+       "आपको क्या पसंद है?",
+       "आपको क्या चाहिए?",
+       "आप कहाँ जा रहे हैं?",
+       "मुझे क्या पसंद है?"
+      ]
+     },
+     "correct_answer": "आपको क्या पसंद है?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"आपको क्या पसंद है?\"",
+     "data": {
+      "sentence": "तुम्हाला ___ आवडतं?",
+      "word_bank": [
+       "काय",
+       "कोण",
+       "कुठे"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "काय"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "मला वडा पाव खूप आवडतो.",
+     "data": {
+      "options": [
+       "मुझे वड़ा पाव बहुत पसंद है।",
+       "मुझे वड़ा पाव पसंद नहीं है।",
+       "वड़ा पाव कहाँ मिलता है?",
+       "मुझे वड़ा पाव चाहिए।"
+      ]
+     },
+     "correct_answer": "मुझे वड़ा पाव बहुत पसंद है।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे वड़ा पाव बहुत पसंद है।\"",
+     "data": {
+      "words": [
+       "मला",
+       "पाव",
+       "आवडतो",
+       "खूप",
+       "वडा"
+      ]
+     },
+     "correct_answer": "मला वडा पाव खूप आवडतो"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"स्वादिष्ट है।\"",
+     "data": {
+      "sentence": "___ आहे.",
+      "word_bank": [
+       "चविष्ट",
+       "महाग",
+       "थंड"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "चविष्ट"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "मला तिखट खाणं आवडत नाही.",
+     "data": {
+      "options": [
+       "मुझे तीखा खाना पसंद नहीं है।",
+       "मुझे तीखा खाना बहुत पसंद है।",
+       "तीखा खाना कहाँ मिलता है?",
+       "मुझे मीठा पसंद नहीं है।"
+      ]
+     },
+     "correct_answer": "मुझे तीखा खाना पसंद नहीं है।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे तीखा खाना पसंद नहीं है।\"",
+     "data": {
+      "words": [
+       "खाणं",
+       "नाही",
+       "मला",
+       "तिखट",
+       "आवडत"
+      ]
+     },
+     "correct_answer": "मला तिखट खाणं आवडत नाही"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"मुझे कुछ मीठा चाहिए।\"",
+     "data": {
+      "sentence": "मला काहीतरी ___ हवं आहे.",
+      "word_bank": [
+       "गोड",
+       "तिखट",
+       "गरम"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "गोड"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे कुछ मीठा चाहिए।\"",
+     "data": {
+      "words": [
+       "हवं",
+       "आहे",
+       "काहीतरी",
+       "गोड",
+       "मला"
+      ]
+     },
+     "correct_answer": "मला काहीतरी गोड हवं आहे"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "साथी खाने चलने को कहते हैं। आप पूछते हैं कि उन्हें क्या पसंद है।",
+     "data": {
+      "options": [
+       "तुम्हाला काय आवडतं?",
+       "तुम्हाला कुठे जायचं आहे?",
+       "तुम्ही कोण आहात?",
+       "मला काय आवडतं?"
+      ],
+      "speaker": "Colleague",
+      "speaker_says": "चला, जेवायला जाऊया!"
+     },
+     "correct_answer": "तुम्हाला काय आवडतं?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "दोस्त की माँ पूछती हैं कि खाना कैसा है। खाना बहुत अच्छा है।",
+     "data": {
+      "options": [
+       "चविष्ट आहे.",
+       "महाग आहे.",
+       "थंड आहे.",
+       "कुठे आहे?"
+      ],
+      "speaker": "Aunty",
+      "speaker_says": "जेवण कसं आहे?"
+     },
+     "correct_answer": "चविष्ट आहे."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "खाना हो गया। दोस्त पूछता है कि अब क्या। आपका मीठा खाने का मन है।",
+     "data": {
+      "options": [
+       "मला काहीतरी गोड हवं आहे.",
+       "मला काहीतरी तिखट हवं आहे.",
+       "मला काही नको.",
+       "जेवण कुठे आहे?"
+      ],
+      "speaker": "Friend",
+      "speaker_says": "जेवण झालं. आता काय?"
+     },
+     "correct_answer": "मला काहीतरी गोड हवं आहे."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे वड़ा पाव बहुत पसंद है\"",
+     "data": {
+      "options": [
+       "मला वडा पाव खूप आवडतो.",
+       "मला वडा पाव हवा आहे.",
+       "मला वडा पाव आवडत नाही.",
+       "मी वडा पाव खाल्ला."
+      ]
+     },
+     "correct_answer": "मला वडा पाव खूप आवडतो."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"स्वादिष्ट है\"",
+     "data": {
+      "options": [
+       "चविष्ट आहे.",
+       "तिखट आहे.",
+       "गोड आहे.",
+       "गरम आहे."
+      ]
+     },
+     "correct_answer": "चविष्ट आहे."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे तीखा खाना पसंद नहीं है\"",
+     "data": {
+      "options": [
+       "मला तिखट खाणं आवडत नाही.",
+       "मला तिखट खाणं खूप आवडतं.",
+       "मला गोड खाणं आवडत नाही.",
+       "मला तिखट खाणं हवं आहे."
+      ]
+     },
+     "correct_answer": "मला तिखट खाणं आवडत नाही."
+    }
+   ]
+  },
+  {
+   "order_index": 4,
+   "title": "Ordering More",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "आणखी एक चहा द्या.",
+     "transliteration": "Aankhi ek chaha dya.",
+     "source": "एक और चाय दीजिए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "मला पाणी द्या.",
+     "transliteration": "Mala paani dya.",
+     "source": "मुझे पानी दीजिए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "मला भूक लागली आहे.",
+     "transliteration": "Mala bhuk laagli aahe.",
+     "source": "मुझे भूख लगी है।",
+     "origin": "tatoeba",
+     "tatoeba_id": 2315544
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "मला मीठ हवं आहे.",
+     "transliteration": "Mala meeth hava aahe.",
+     "source": "मुझे नमक चाहिए।",
+     "origin": "tatoeba",
+     "tatoeba_id": 13347637
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "मला दोन समोसे आणि एक चहा हवा आहे.",
+     "transliteration": "Mala don samose aani ek chaha hava aahe.",
+     "source": "मुझे दो समोसे और एक चाय चाहिए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "चाय और समोसे खत्म हो गए, पर भूख अभी बाकी है। आप चाय स्टॉल पर कहते हैं: \"आणखी एक चहा द्या.\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "आणखी एक चहा द्या.",
+     "data": {
+      "options": [
+       "एक और चाय दीजिए।",
+       "एक चाय कम कीजिए।",
+       "चाय कहाँ है?",
+       "एक और समोसा दीजिए।"
+      ]
+     },
+     "correct_answer": "एक और चाय दीजिए।"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"एक और चाय दीजिए।\"",
+     "data": {
+      "sentence": "___ एक चहा द्या.",
+      "word_bank": [
+       "आणखी",
+       "कमी",
+       "कधी"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "आणखी"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "मला पाणी द्या.",
+     "data": {
+      "options": [
+       "मुझे पानी दीजिए।",
+       "मुझे पानी नहीं चाहिए।",
+       "पानी कहाँ है?",
+       "मुझे चाय दीजिए।"
+      ]
+     },
+     "correct_answer": "मुझे पानी दीजिए।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे पानी दीजिए।\"",
+     "data": {
+      "words": [
+       "द्या",
+       "मला",
+       "पाणी"
+      ]
+     },
+     "correct_answer": "मला पाणी द्या"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"मुझे भूख लगी है।\"",
+     "data": {
+      "sentence": "मला ___ लागली आहे.",
+      "word_bank": [
+       "भूक",
+       "तहान",
+       "झोप"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "भूक"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "मला मीठ हवं आहे.",
+     "data": {
+      "options": [
+       "मुझे नमक चाहिए।",
+       "मुझे नमक नहीं चाहिए।",
+       "नमक कहाँ है?",
+       "मुझे चीनी चाहिए।"
+      ]
+     },
+     "correct_answer": "मुझे नमक चाहिए।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे नमक चाहिए।\"",
+     "data": {
+      "words": [
+       "मला",
+       "मीठ",
+       "आहे",
+       "हवं"
+      ]
+     },
+     "correct_answer": "मला मीठ हवं आहे"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"मुझे दो समोसे और एक चाय चाहिए।\"",
+     "data": {
+      "sentence": "मला ___ समोसे आणि एक चहा हवा आहे.",
+      "word_bank": [
+       "दोन",
+       "तीन",
+       "चार"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "दोन"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे दो समोसे और एक चाय चाहिए।\"",
+     "data": {
+      "words": [
+       "दोन समोसे",
+       "हवा आहे",
+       "एक चहा",
+       "आणि",
+       "मला"
+      ]
+     },
+     "correct_answer": "मला दोन समोसे आणि एक चहा हवा आहे"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "पहली चाय खत्म हुई। चायवाला पूछता है कि और कुछ चाहिए। आपको एक और चाय चाहिए।",
+     "data": {
+      "options": [
+       "आणखी एक चहा द्या.",
+       "एक चहा कमी करा.",
+       "चहा कुठे आहे?",
+       "मला चहा नको."
+      ],
+      "speaker": "Vendor",
+      "speaker_says": "अजून काही हवं का?"
+     },
+     "correct_answer": "आणखी एक चहा द्या."
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "दोस्त पूछता है कि क्या हुआ। आपको भूख लगी है।",
+     "data": {
+      "options": [
+       "मला भूक लागली आहे.",
+       "मला भूक नाहीये.",
+       "मला तहान लागली आहे.",
+       "जेवण कुठे आहे?"
+      ],
+      "speaker": "Friend",
+      "speaker_says": "काय झालं? काहीतरी खाऊया का?"
+     },
+     "correct_answer": "मला भूक लागली आहे."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "आपको दो समोसे और एक चाय चाहिए।",
+     "data": {
+      "options": [
+       "मला दोन समोसे आणि एक चहा हवा आहे.",
+       "मला दोन चहा आणि एक समोसा हवा आहे.",
+       "मला काही नको.",
+       "समोसे कुठे आहेत?"
+      ],
+      "speaker": "Vendor",
+      "speaker_says": "बोला, काय देऊ?"
+     },
+     "correct_answer": "मला दोन समोसे आणि एक चहा हवा आहे."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे पानी दीजिए\"",
+     "data": {
+      "options": [
+       "मला पाणी द्या.",
+       "मला पाणी आहे.",
+       "मला चहा द्या.",
+       "पाणी कुठे आहे?"
+      ]
+     },
+     "correct_answer": "मला पाणी द्या."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे भूख लगी है\"",
+     "data": {
+      "options": [
+       "मला भूक लागली आहे.",
+       "मला तहान लागली आहे.",
+       "मला भूक नाहीये.",
+       "मला झोप लागली आहे."
+      ]
+     },
+     "correct_answer": "मला भूक लागली आहे."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे नमक चाहिए\"",
+     "data": {
+      "options": [
+       "मला मीठ हवं आहे.",
+       "मला साखर हवी आहे.",
+       "मीठ कुठे आहे?",
+       "मला मीठ नको."
+      ]
+     },
+     "correct_answer": "मला मीठ हवं आहे."
+    }
+   ]
+  },
+  {
+   "order_index": 5,
+   "title": "Paying The Bill",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "बिल आणा.",
+     "transliteration": "Bill aana.",
+     "source": "बिल लाइए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "मी बिल भरतो.",
+     "transliteration": "Mi bill bharto.",
+     "source": "बिल मेरी तरफ़ से।",
+     "origin": "tatoeba",
+     "tatoeba_id": 2165686
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "चला, बिल आपण दोघं वाटून घेऊ.",
+     "transliteration": "Chala, bill aapan dogha vaatun gheu.",
+     "source": "चलो, बिल हम दोनों बाँट लेते हैं।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "बिल कोणी दिलं?",
+     "transliteration": "Bill koni dila?",
+     "source": "बिल किसने दिया?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "बिल कोण भरेल?",
+     "transliteration": "Bill kon bharel?",
+     "source": "बिल कौन भरेगा?",
+     "origin": "tatoeba",
+     "tatoeba_id": 4509500
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "खाना खत्म हुआ और वेटर पास से गुज़रता है। आप हाथ से इशारा करके कहते हैं: \"बिल आणा.\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "बिल आणा.",
+     "data": {
+      "options": [
+       "बिल लाइए।",
+       "पानी लाइए।",
+       "मेन्यू दिखाइए।",
+       "बिल किसने दिया?"
+      ]
+     },
+     "correct_answer": "बिल लाइए।"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"बिल लाइए।\"",
+     "data": {
+      "sentence": "___ आणा.",
+      "word_bank": [
+       "बिल",
+       "पाणी",
+       "मेनू"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "बिल"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "मी बिल भरतो.",
+     "data": {
+      "options": [
+       "बिल मेरी तरफ़ से।",
+       "मैंने बिल भर दिया।",
+       "बिल कितना है?",
+       "बिल कहाँ है?"
+      ]
+     },
+     "correct_answer": "बिल मेरी तरफ़ से।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"बिल मेरी तरफ़ से।\"",
+     "data": {
+      "words": [
+       "मी",
+       "भरतो",
+       "बिल"
+      ]
+     },
+     "correct_answer": "मी बिल भरतो"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"चलो, बिल हम दोनों बाँट लेते हैं।\"",
+     "data": {
+      "sentence": "चला, बिल आपण दोघं ___ घेऊ.",
+      "word_bank": [
+       "वाटून",
+       "भरून",
+       "देऊन"
+      ],
+      "blank_index": 4
+     },
+     "correct_answer": "वाटून"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "बिल कोणी दिलं?",
+     "data": {
+      "options": [
+       "बिल किसने दिया?",
+       "बिल कितना हुआ?",
+       "बिल कौन देगा?",
+       "बिल कहाँ है?"
+      ]
+     },
+     "correct_answer": "बिल किसने दिया?"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"बिल किसने दिया?\"",
+     "data": {
+      "words": [
+       "बिल",
+       "दिलं",
+       "कोणी"
+      ]
+     },
+     "correct_answer": "बिल कोणी दिलं"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"बिल कौन भरेगा?\"",
+     "data": {
+      "sentence": "बिल ___ भरेल?",
+      "word_bank": [
+       "कोण",
+       "किती",
+       "कधी"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "कोण"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"बिल कौन भरेगा?\"",
+     "data": {
+      "words": [
+       "भरेल",
+       "कोण",
+       "बिल"
+      ]
+     },
+     "correct_answer": "बिल कोण भरेल"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "खाना हो गया। वेटर पूछता है कि और कुछ चाहिए। आपको बिल चाहिए।",
+     "data": {
+      "options": [
+       "बिल आणा.",
+       "पाणी आणा.",
+       "मेनू दाखवा.",
+       "बिल कोणी दिलं?"
+      ],
+      "speaker": "Waiter",
+      "speaker_says": "आणखी काही?"
+     },
+     "correct_answer": "बिल आणा."
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "दोस्त पूरा बिल देना चाहता है। आप आधा-आधा करना चाहते हैं।",
+     "data": {
+      "options": [
+       "चला, बिल आपण दोघं वाटून घेऊ.",
+       "बिल तूच दे.",
+       "बिल कोणी दिलं?",
+       "बिल खूप महाग आहे."
+      ],
+      "speaker": "Friend",
+      "speaker_says": "बिल किती झालं? मी देऊ का?"
+     },
+     "correct_answer": "चला, बिल आपण दोघं वाटून घेऊ."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "दोस्तों के साथ खाना खत्म हुआ। आप मज़ाक में पूछते हैं कि आज बिल कौन भरेगा।",
+     "data": {
+      "options": [
+       "बिल कोण भरेल?",
+       "बिल किती आहे?",
+       "बिल कुठे आहे?",
+       "बिल कोणी दिलं?"
+      ],
+      "speaker": "Friend",
+      "speaker_says": "मस्त जेवण झालं!"
+     },
+     "correct_answer": "बिल कोण भरेल?"
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"बिल मेरी तरफ़ से\"",
+     "data": {
+      "options": [
+       "मी बिल भरतो.",
+       "मी बिल भरलं.",
+       "बिल कोण भरेल?",
+       "तू बिल भर."
+      ]
+     },
+     "correct_answer": "मी बिल भरतो."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"चलो, बिल हम दोनों बाँट लेते हैं\"",
+     "data": {
+      "options": [
+       "चला, बिल आपण दोघं वाटून घेऊ.",
+       "चला, बिल तू एकटा भर.",
+       "बिल कोणी दिलं?",
+       "चला, आपण दोघं जेवू."
+      ]
+     },
+     "correct_answer": "चला, बिल आपण दोघं वाटून घेऊ."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे पूछेंगे — \"बिल किसने दिया\"",
+     "data": {
+      "options": [
+       "बिल कोणी दिलं?",
+       "बिल कोण देईल?",
+       "बिल किती झालं?",
+       "बिल कुठे आहे?"
+      ]
+     },
+     "correct_answer": "बिल कोणी दिलं?"
+    }
+   ]
+  }
+ ],
+ "note": "Talk About Food keeps 5 lessons for now (Kiran, 2026-10-31). Grocery Shopping and Vegetable Market move to Shops And Errands; What's For Dinner, At The Restaurant and Dietary Needs are parked in talk-about-food-parked.json. Review round 1 applied (12 flags): polite द्या to sellers, formal तुम्हाला, prices with कितीला, बिल किती झालं?, मी बिल भरतो., flagged sentences replaced. Round 2: Tea Stall's 4th sentence removed (मला चहा आवडतो, then कटिंग चहा द्या, both not useful), so Tea Stall has 4 sentences / 13 steps; phrase keys stay tied to their slot (p1, p2, p3, p5). Scene text says 'चाय स्टॉल', never 'टपरी'. Origin 'draft' = written for Samwad, not from Tatoeba. Step order (Kiran, 2026-11-02): match, fill_blank and arrange are interleaved phrase by phrase; conversation and recall stay at the end."
+}

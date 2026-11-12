@@ -8,7 +8,7 @@ export const AppHeader = () => {
 
   return (
     <div className="flex items-center shrink-0 h-16 px-4">
-      <h1 className="text-xl font-bold">Samvad</h1>
+      <h1 className="text-xl font-bold">Samwad</h1>
     </div>
   )
 }

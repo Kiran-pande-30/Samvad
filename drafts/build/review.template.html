@@ -1,0 +1,554 @@
+
+<title>Out And About Review</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one reading column; each lesson is a card with its 5 phrases, then its 16 steps shown the way the app asks them. Samwad tokens. */
+:root {
+  --bg: #ffffff; --surface: #f7f8fa; --card: #ffffff; --line: #e4e5ea; --fg: #16171c; --muted: #6c6e78; --faint: #a8aab2;
+  --coral: #FF5C3F; --coral-strong: #D93A1F; --coral-tint: rgba(255, 92, 63, 0.08);
+  --success: #2E7D32; --success-bg: #EAF6EB; --error: #A61B1B; --error-bg: #FFE8E8;
+  --amber: #8A5A00; --amber-bg: #FFF4DB; --blue: #1456f0; --blue-bg: rgba(20, 86, 240, 0.06); --blue-line: rgba(20, 86, 240, 0.18);
+  --font: "Noto Sans", "Noto Sans Devanagari", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-deva: "Noto Sans Devanagari", "Noto Sans", "Kohinoor Devanagari", "Mangal", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121317; --surface: #1a1b21; --card: #1c1d23; --line: #2d2f37; --fg: #eceef3; --muted: #a0a3ad; --faint: #6c6f79;
+    --coral: #FF7A60; --coral-strong: #FF7A60; --coral-tint: rgba(255, 122, 96, 0.12);
+    --success: #7BC77F; --success-bg: rgba(123, 199, 127, 0.12); --error: #FF8A8A; --error-bg: rgba(255, 138, 138, 0.12);
+    --amber: #F2C063; --amber-bg: rgba(242, 192, 99, 0.12); --blue: #7FA4FF; --blue-bg: rgba(127, 164, 255, 0.10); --blue-line: rgba(127, 164, 255, 0.25);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121317; --surface: #1a1b21; --card: #1c1d23; --line: #2d2f37; --fg: #eceef3; --muted: #a0a3ad; --faint: #6c6f79;
+  --coral: #FF7A60; --coral-strong: #FF7A60; --coral-tint: rgba(255, 122, 96, 0.12);
+  --success: #7BC77F; --success-bg: rgba(123, 199, 127, 0.12); --error: #FF8A8A; --error-bg: rgba(255, 138, 138, 0.12);
+  --amber: #F2C063; --amber-bg: rgba(242, 192, 99, 0.12); --blue: #7FA4FF; --blue-bg: rgba(127, 164, 255, 0.10); --blue-line: rgba(127, 164, 255, 0.25);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 15px; line-height: 1.55; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap { max-width: 780px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.deva { font-family: var(--font-deva); }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
+
+header.intro { padding-block: 32px 12px; display: grid; gap: 8px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--coral-strong); }
+h1 { font-size: 30px; line-height: 1.2; margin: 0; text-wrap: balance; }
+h1 .deva { font-weight: 500; color: var(--muted); font-size: 22px; display: block; margin-top: 4px; }
+.lede { margin: 0; color: var(--muted); max-width: 64ch; }
+.flow { margin: 4px 0 0; padding-left: 20px; display: grid; gap: 4px; font-size: 14px; color: var(--muted); max-width: 64ch; }
+.flow b { color: var(--fg); font-weight: 600; }
+.facts { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.facts b { color: var(--fg); }
+.status-note { margin: 4px 0 0; padding: 10px 14px; border-radius: 12px; background: var(--blue-bg); border: 1px solid var(--blue-line); font-size: 13px; }
+.status-note[data-kind="warn"] { background: var(--amber-bg); border-color: transparent; color: var(--amber); }
+
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); padding-block: 10px; }
+.bar-inner { display: grid; gap: 8px; }
+.progress-row { display: flex; align-items: center; gap: 12px; }
+.track { flex: 1; height: 8px; border-radius: 999px; background: var(--surface); overflow: hidden; display: flex; }
+.track i { display: block; height: 100%; transition: width 0.25s ease; }
+.count { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.count b { color: var(--fg); }
+.send-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
+.send { border: 0; background: var(--coral-strong); color: #fff; border-radius: 999px; padding: 0 18px; min-height: 44px; font-weight: 600; font-size: 14px; cursor: pointer; white-space: nowrap; }
+.send:disabled { opacity: 0.4; cursor: default; }
+.send:not(:disabled):active { transform: scale(0.985); opacity: 0.85; }
+.send-msg { font-size: 13px; color: var(--muted); min-width: 0; }
+.send-msg[data-kind="ok"] { color: var(--success); }
+.send-msg[data-kind="warn"] { color: var(--amber); }
+.jump { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+.jump::-webkit-scrollbar { display: none; }
+.jump a { text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; font-size: 13px; white-space: nowrap; min-height: 32px; display: inline-flex; align-items: center; gap: 6px; font-variant-numeric: tabular-nums; }
+.jump a[data-state="ok"] { border-color: var(--success); color: var(--success); }
+.jump a[data-state="flag"] { border-color: var(--coral); color: var(--coral-strong); }
+
+main { padding-block: 16px 40px; display: grid; gap: 28px; }
+.module-head { display: grid; gap: 2px; padding-top: 8px; }
+.module-head h2 { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.module-head p { margin: 0; font-size: 13px; color: var(--muted); max-width: 64ch; }
+.lesson { border: 1px solid var(--line); border-radius: 20px; overflow: hidden; scroll-margin-top: 110px; background: var(--card); }
+main > .module-head + .lesson { margin-top: -16px; }
+.lesson[data-state="ok"] { border-color: var(--success); }
+.lesson[data-state="flag"] { border-color: var(--coral); }
+.lesson-top { padding: 18px 18px 14px; display: grid; gap: 12px; }
+.lesson-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.lesson-num { font-size: 13px; color: var(--faint); font-weight: 600; font-variant-numeric: tabular-nums; }
+.lesson-head h2 { font-size: 21px; margin: 0; }
+.scene { font-family: var(--font-deva); font-size: 14px; color: var(--muted); background: var(--surface); border-radius: 12px; padding: 10px 12px; }
+.scene b { font-family: var(--font); color: var(--fg); font-weight: 600; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; display: block; margin-bottom: 2px; }
+
+.phrases { display: grid; gap: 8px; }
+.phrase { display: grid; grid-template-columns: 26px 1fr auto; gap: 4px 10px; align-items: start; padding: 10px 0; border-top: 1px solid var(--line); }
+.phrase:first-child { border-top: 0; }
+.p-key { font-size: 12px; font-weight: 700; color: var(--faint); padding-top: 4px; font-variant-numeric: tabular-nums; }
+.p-body { min-width: 0; display: grid; gap: 1px; }
+.mr { font-family: var(--font-deva); font-size: 19px; font-weight: 600; line-height: 1.35; }
+.tr { font-size: 13px; color: var(--muted); }
+.hi { font-family: var(--font-deva); font-size: 14px; }
+.p-meta { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; font-size: 12px; color: var(--muted); }
+.badge { border-radius: 999px; padding: 2px 8px; font-weight: 600; font-size: 11px; letter-spacing: 0.02em; }
+.badge.new { background: var(--blue-bg); color: var(--blue); }
+.badge.old { background: var(--surface); color: var(--muted); }
+.p-meta a { text-decoration: none; border-bottom: 1px solid var(--line); }
+
+.flag-btn { border: 1px solid var(--line); background: var(--card); border-radius: 999px; min-height: 36px; min-width: 44px; padding: 0 12px; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; white-space: nowrap; }
+.flag-btn[aria-pressed="true"] { background: var(--coral-tint); border-color: var(--coral); color: var(--coral-strong); }
+.flag-btn:disabled { cursor: default; opacity: 0.6; }
+.flag-btn.fixed { background: var(--success-bg); border-color: var(--success); color: var(--success); }
+.resolution { margin: 0; font-size: 13px; color: var(--success); font-family: var(--font-deva); }
+.flag-note { grid-column: 2 / -1; display: grid; gap: 4px; }
+.flag-note textarea { width: 100%; min-height: 56px; resize: vertical; border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; font: 14px/1.5 var(--font-deva); background: var(--bg); color: var(--fg); }
+.saved { font-size: 12px; color: var(--muted); min-height: 1em; }
+.who { font-size: 12px; color: var(--muted); }
+
+details.steps { border-top: 1px solid var(--line); }
+details.steps > summary { list-style: none; cursor: pointer; padding: 14px 18px; display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 14px; }
+details.steps > summary::-webkit-details-marker { display: none; }
+details.steps > summary::after { content: "Show"; margin-left: auto; font-size: 13px; font-weight: 500; color: var(--coral-strong); }
+details.steps[open] > summary::after { content: "Hide"; }
+.step-pattern { font-weight: 400; color: var(--muted); font-size: 12px; }
+.step-list { display: grid; gap: 0; padding: 0 18px 8px; }
+.step { display: grid; grid-template-columns: 26px 1fr auto; gap: 6px 10px; padding: 12px 0; border-top: 1px solid var(--line); }
+.s-num { font-size: 12px; font-weight: 700; color: var(--faint); padding-top: 3px; font-variant-numeric: tabular-nums; }
+.s-body { min-width: 0; display: grid; gap: 6px; }
+.s-type { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; font-size: 12px; color: var(--muted); }
+.type { border-radius: 6px; padding: 1px 7px; font-weight: 700; font-size: 11px; letter-spacing: 0.03em; text-transform: uppercase; background: var(--surface); color: var(--fg); }
+.s-prompt { font-family: var(--font-deva); font-size: 15px; }
+.s-says { font-family: var(--font-deva); font-size: 14px; background: var(--surface); border-radius: 12px 12px 12px 4px; padding: 6px 10px; justify-self: start; }
+.s-says b { font-family: var(--font); font-size: 11px; color: var(--muted); display: block; }
+.opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.opt { font-family: var(--font-deva); font-size: 13px; border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; }
+.opt.right { border-color: var(--success); background: var(--success-bg); color: var(--success); font-weight: 600; }
+.answer { font-size: 13px; color: var(--muted); }
+.answer span { font-family: var(--font-deva); color: var(--success); font-weight: 600; }
+.lesson-foot { border-top: 1px solid var(--line); padding: 14px 18px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; background: var(--surface); }
+.approve { border: 1px solid var(--line); background: var(--card); border-radius: 999px; min-height: 44px; padding: 0 18px; font-weight: 600; cursor: pointer; }
+.approve[aria-pressed="true"] { background: var(--success-bg); border-color: var(--success); color: var(--success); }
+.approve:disabled { cursor: default; opacity: 0.6; }
+.foot-note { font-size: 13px; color: var(--muted); }
+
+footer.notes { border-top: 1px solid var(--line); padding-block: 32px 48px; display: grid; gap: 24px; }
+footer h3 { font-size: 16px; margin: 0 0 8px; }
+footer ul, footer ol { margin: 0; padding-left: 20px; color: var(--muted); display: grid; gap: 6px; max-width: 66ch; }
+footer li b { color: var(--fg); }
+.copy-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.btn { border: 0; background: var(--coral-strong); color: #fff; border-radius: 999px; padding: 0 22px; min-height: 48px; font-weight: 600; font-size: 15px; cursor: pointer; }
+.btn:active { transform: scale(0.985); opacity: 0.85; }
+.copy-out { width: 100%; min-height: 160px; border: 1px solid var(--line); border-radius: 12px; padding: 10px; font: 13px/1.5 var(--font-deva); background: var(--surface); color: var(--fg); }
+.credit { font-size: 12px; color: var(--faint); }
+@media (max-width: 480px) { .phrase, .step { grid-template-columns: 22px 1fr; } .phrase .flag-btn, .step .flag-btn { grid-column: 2; justify-self: start; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="intro">
+    <div class="eyebrow">Samwad · Module draft</div>
+    <h1>Out And About, version 2 <span class="deva">बाहेर फिरूया</span></h1>
+    <p class="lede">Asking the way, giving directions in a rickshaw, the bus, and finding a place. 5 lessons of 5 sentences, each practised 3 ways, with Hindi prompts and options, the same format as Essentials and Talk About Food. It replaces today's Out And About (20 short phrases, mostly English prompts).</p>
+    <ol class="flow"><li><b>Check the main sentences</b> of a lesson and flag anything that reads wrong.</li><li><b>Press Send to Claude</b> when you've finished a round of flags. Claude fixes them, marks them Fixed and replies in the comment thread.</li><li><b>Approve the lesson</b> once it is right.</li><li><b>Move to the next lesson.</b> The steps sit under each lesson if you want to look.</li></ol>
+    <div class="facts" id="facts"></div>
+    <p class="status-note" id="mode" hidden></p>
+  </header>
+</div>
+
+<div class="bar">
+  <div class="wrap bar-inner">
+    <div class="progress-row">
+      <div class="track" aria-hidden="true"><i id="p-ok" style="background: var(--success)"></i><i id="p-flag" style="background: var(--coral)"></i></div>
+      <div class="count" id="count" aria-live="polite">Loading…</div>
+    </div>
+    <div class="send-row">
+      <button class="send" id="send" type="button" disabled>Send to Claude</button>
+      <span class="send-msg" id="send-msg" aria-live="polite">Tells Claude to read your flags and update the lessons.</span>
+    </div>
+    <nav class="jump" id="jump" aria-label="Lessons"></nav>
+  </div>
+</div>
+
+<div class="wrap">
+  <main id="lessons"></main>
+
+  <footer class="notes">
+    <div>
+      <h3>Send the review</h3>
+      <p class="lede" style="margin-bottom: 12px">Copies every approval and flag as plain text, lesson by lesson, for a message or for Claude.</p>
+      <div class="copy-row">
+        <button class="btn" id="copy">Copy review</button>
+        <span class="saved" id="copy-msg" aria-live="polite"></span>
+      </div>
+      <textarea class="copy-out" id="copy-out" readonly hidden aria-label="Review text"></textarea>
+    </div>
+    <div>
+      <h3>What to check</h3>
+      <ul>
+        <li><b>Marathi phrases:</b> natural, everyday Pune Marathi. Phrases marked "New" come from Tatoeba, where one person wrote almost all the Marathi.</li>
+        <li><b>Wrong options:</b> clearly wrong for the situation, but not silly. A wrong option that is also a correct answer is a bug.</li>
+        <li><b>Hindi:</b> the meanings and options use everyday Hindi in the आप form where the Marathi is polite.</li>
+        <li><b>He/she forms:</b> Marathi verbs change with the speaker (मी ठीक आहे is neutral; मी आलो / मी येतो are not). Flag any that assume the learner is a man.</li>
+        <li><b>Scene text</b> is stored like today's lessons but the app does not show it yet.</li>
+        <li><b>Directions:</b> in the rickshaw lessons the learner gives the directions, so सरळ चला and डावीकडे वळा are the learner's own lines.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>How each lesson is built</h3>
+      <ul>
+        <li>Phrase 1: match, fill the blank, conversation</li>
+        <li>Phrases 2 and 4: match, arrange, recall</li>
+        <li>Phrase 3: fill the blank, conversation, recall</li>
+        <li>Phrase 5: fill the blank, arrange, conversation</li>
+        <li><b>Step order:</b> match, fill and arrange are mixed sentence by sentence (each sentence is matched before you fill or arrange it), then conversation, then recall.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>After the review</h3>
+      <ol>
+        <li>Claude applies the fixes and re-checks every step.</li>
+        <li>The old Out And About is backed up, then replaced with these 5 lessons. Nobody has progress in it yet.</li>
+        <li>Audio is generated for the new sentences.</li>
+      </ol>
+    </div>
+    <p class="credit">New phrases from <a href="https://tatoeba.org" target="_blank" rel="noopener">Tatoeba.org</a>, licensed CC BY 2.0 FR. Draft of 12 November 2026.</p>
+  </footer>
+</div>
+
+<script>
+const MODULES = __DATA__;
+const LESSONS = MODULES.flatMap((m) => m.lessons.map((L) => ({ ...L, mkey: m.key, module: m.module, moved: m.moved })));
+const TYPE_LABEL = { context: "Scene", match: "Match", fill_blank: "Fill the blank", arrange: "Arrange", conversation: "Conversation", recall: "Recall" };
+
+const marks = {};          // doc id -> { kind, status, note, by, at }
+let canWrite = true;
+let mode = "loading";
+let db = null, user = null, myId = null;
+const names = {};
+const writing = {};
+const LOCAL_KEY = "samwad-out-and-about-v2-review";
+
+const $ = (s, el = document) => el.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const lid = (L) => `${L.mkey}${L.order_index}`;
+// Sentence labels follow position (P1…P4); keys stay tied to the slot so flags keep pointing at the same sentence.
+const plabel = (L, key) => `P${L.phrases.find((p) => p.key === key)?.order_index ?? "?"}`;
+
+function flagUI(id, label) {
+  return `<button class="flag-btn" data-flag="${id}" aria-pressed="false" aria-label="Flag ${esc(label)}">Flag</button>
+    <div class="flag-note" data-note-for="${id}" hidden>
+      <textarea id="note-${id}" lang="mr" placeholder="What's wrong, and the fix if you know it"></textarea>
+      <p class="resolution" hidden></p>
+      <span class="saved"></span>
+    </div>`;
+}
+
+function stepBody(s, L) {
+  const d = s.data || {};
+  const ph = L.phrases.find((p) => p.key === s.phrase);
+  const opts = (list) => `<div class="opts">${list.map((o) => `<span class="opt${o === s.correct_answer ? " right" : ""}">${esc(o)}</span>`).join("")}</div>`;
+  switch (s.step_type) {
+    case "context": return `<div class="s-prompt">${esc(s.prompt)}</div>`;
+    case "match": return `<div class="s-prompt">${esc(s.prompt)}</div>${opts(d.options)}`;
+    case "recall": return `<div class="s-prompt">${esc(s.prompt)}</div>${opts(d.options)}`;
+    case "fill_blank": return `<div class="s-prompt">${esc(s.prompt)}</div><div class="mr" style="font-size:17px">${esc(d.sentence)}</div>${opts(d.word_bank)}`;
+    case "arrange": return `<div class="s-prompt">${esc(s.prompt)}</div><div class="opts">${d.words.map((w) => `<span class="opt">${esc(w)}</span>`).join("")}</div><div class="answer">Answer: <span>${esc(s.correct_answer)}</span></div>`;
+    case "conversation": return `<div class="s-prompt">${esc(s.prompt)}</div><div class="s-says"><b>${esc(d.speaker)}</b>${esc(d.speaker_says)}</div>${opts(d.options)}`;
+  }
+  return "";
+}
+
+function buildPage() {
+  const phrases = LESSONS.flatMap((L) => L.phrases);
+  const steps = LESSONS.reduce((n, L) => n + L.steps.length, 0);
+  $("#facts").innerHTML = MODULES.map((m) => `<span><b>${m.lessons.length}</b> ${esc(m.module)} lesson${m.lessons.length > 1 ? "s" : ""}</span>`).join("")
+    + `<span><b>${phrases.length}</b> phrases, <b>${phrases.filter((p) => p.origin === "tatoeba").length}</b> new</span><span><b>${steps}</b> steps</span><span>Each phrase practised <b>3</b> ways</span>`;
+  $("#jump").innerHTML = LESSONS.map((L) => `<a href="#lesson-${lid(L)}" data-jump="${lid(L)}">${L.moved ? "Shops · " : `${L.order_index}. `}${esc(L.title)}</a>`).join("");
+  $("#lessons").innerHTML = LESSONS.map((L, i) => {
+    const head = i === 0 || LESSONS[i - 1].mkey !== L.mkey
+      ? `<div class="module-head"><h2>${esc(L.module)}</h2>${L.moved ? `<p>${esc(L.moved)}</p>` : ""}</div>` : "";
+    return `${head}
+    <section class="lesson" id="lesson-${lid(L)}" data-lesson="${lid(L)}">
+      <div class="lesson-top">
+        <div class="lesson-head"><span class="lesson-num">Lesson ${L.order_index}</span><h2>${esc(L.title)}</h2>${L.moved_from ? `<span class="badge new">Moved from ${esc(L.moved_from)}</span>` : ""}</div>
+        <div class="phrases">
+          ${L.phrases.map((p) => {
+            const id = `${lid(L)}-${p.key}`;
+            return `<div class="phrase">
+              <span class="p-key">P${p.order_index}</span>
+              <div class="p-body">
+                <div class="mr" lang="mr">${esc(p.target)}</div>
+                <div class="tr">${esc(p.transliteration)}</div>
+                <div class="hi" lang="hi">${esc(p.source)}</div>
+                <div class="p-meta">${p.origin === "tatoeba"
+                  ? `<span class="badge new">New</span><a href="https://tatoeba.org/en/sentences/show/${p.tatoeba_id}" target="_blank" rel="noopener">Tatoeba #${p.tatoeba_id}</a>`
+                  : p.origin === "draft" ? `<span class="badge new">New</span><span>Written for Samwad</span>`
+                  : `<span class="badge old">In the lesson today</span>`}</div>
+              </div>
+              ${flagUI(id, p.target)}
+            </div>`;
+          }).join("")}
+        </div>
+      </div>
+      <details class="steps">
+        <summary>${L.steps.length} steps <span class="step-pattern">${["context", "match", "fill_blank", "arrange", "conversation", "recall"].map((ty) => { const n = L.steps.filter((s) => s.step_type === ty).length; return ty === "context" ? "scene" : `${n} ${TYPE_LABEL[ty].toLowerCase()}`; }).join(" · ")}</span></summary>
+        <div class="step-list">
+          ${L.steps.map((s) => {
+            const id = `${lid(L)}-s${s.order_index}`;
+            return `<div class="step">
+              <span class="s-num">${s.order_index}</span>
+              <div class="s-body">
+                <div class="s-type"><span class="type">${TYPE_LABEL[s.step_type]}</span>${s.step_type === "context" ? "<span>Stored, not shown in the app yet</span>" : `<span>practises ${plabel(L, s.phrase)}</span>`}</div>
+                ${stepBody(s, L)}
+              </div>
+              ${flagUI(id, `step ${s.order_index} of ${L.title}`)}
+            </div>`;
+          }).join("")}
+        </div>
+      </details>
+      <div class="lesson-foot">
+        <button class="approve" data-approve="${lid(L)}" aria-pressed="false">Approve lesson</button>
+        <span class="foot-note" data-foot="${lid(L)}"></span>
+      </div>
+    </section>`;
+  }).join("");
+
+  const main = $("#lessons");
+  main.addEventListener("click", (e) => {
+    const f = e.target.closest("[data-flag]");
+    if (f && canWrite) {
+      const id = f.dataset.flag;
+      if (marks[id]?.status === "fixed") save(id, { ...marks[id], status: "flag" });   // reopen a fixed flag
+      else if (marks[id]) save(id, null);
+      else save(id, { kind: id.includes("-s") ? "step" : "phrase", status: "flag", note: "" });
+      return;
+    }
+    const a = e.target.closest("[data-approve]");
+    if (a && canWrite) {
+      const id = a.dataset.approve;
+      if (marks[id]?.status === "ok") save(id, null);
+      else save(id, { kind: "lesson", status: "ok", note: "" });
+    }
+  });
+  const timers = {};
+  main.addEventListener("input", (e) => {
+    if (e.target.tagName !== "TEXTAREA") return;
+    const id = e.target.closest("[data-note-for]").dataset.noteFor;
+    const saved = e.target.parentElement.querySelector(".saved");
+    saved.textContent = "Typing…";
+    clearTimeout(timers[id]);
+    timers[id] = setTimeout(() => {
+      const cur = marks[id];
+      if (!cur || cur.note === e.target.value) { saved.textContent = ""; return; }
+      save(id, { ...cur, note: e.target.value }).then(() => { saved.textContent = "Saved"; });
+    }, 900);
+  });
+}
+
+function lessonFlags(L) {
+  return Object.keys(marks).filter((k) => k.startsWith(lid(L) + "-") && marks[k].status === "flag").length;
+}
+
+function renderAll() {
+  document.querySelectorAll("[data-flag]").forEach((btn) => {
+    const id = btn.dataset.flag;
+    const m = marks[id];
+    const fixed = m?.status === "fixed";
+    btn.setAttribute("aria-pressed", String(!!m && !fixed));
+    btn.classList.toggle("fixed", fixed);
+    btn.textContent = fixed ? "Fixed" : m ? "Flagged" : "Flag";
+    btn.title = fixed ? "Tap to reopen this flag" : "";
+    btn.disabled = !canWrite;
+    const box = document.querySelector(`[data-note-for="${id}"]`);
+    box.hidden = !m;
+    const ta = box.querySelector("textarea");
+    ta.readOnly = !canWrite;
+    if (document.activeElement !== ta) ta.value = m?.note || "";
+    const res = box.querySelector(".resolution");
+    res.hidden = !(fixed && m.resolution);
+    res.textContent = fixed && m.resolution ? `Fixed: ${m.resolution}` : "";
+  });
+  let ok = 0, flagged = 0;
+  LESSONS.forEach((L) => {
+    const id = lid(L);
+    const approved = marks[id]?.status === "ok";
+    const flags = lessonFlags(L);
+    const state = approved ? "ok" : flags ? "flag" : "";
+    if (approved) ok++; else if (flags) flagged++;
+    document.querySelector(`[data-lesson="${id}"]`).dataset.state = state;
+    document.querySelector(`[data-jump="${id}"]`).dataset.state = state;
+    const btn = document.querySelector(`[data-approve="${id}"]`);
+    btn.setAttribute("aria-pressed", String(approved));
+    btn.textContent = approved ? "Approved" : "Approve lesson";
+    btn.disabled = !canWrite;
+    const who = approved && marks[id].by && mode === "shared" ? ` by ${names[marks[id].by] || "a reviewer"}` : "";
+    document.querySelector(`[data-foot="${id}"]`).textContent = approved
+      ? `Approved${who}${flags ? `, with ${flags} flag${flags > 1 ? "s" : ""} to fix` : ""}.`
+      : flags ? `${flags} flag${flags > 1 ? "s" : ""}. Approve once you've checked everything.` : "Nothing flagged yet.";
+  });
+  $("#count").innerHTML = `<b>${ok}</b> of ${LESSONS.length} approved${flagged ? ` · ${flagged} with flags` : ""}`;
+  if (comments && !sending) { const n = openFlags().length; $("#send").textContent = n ? `Send ${n} flag${n === 1 ? "" : "s"} to Claude` : "Send to Claude"; }
+  $("#p-ok").style.width = `${(ok / LESSONS.length) * 100}%`;
+  $("#p-flag").style.width = `${(flagged / LESSONS.length) * 100}%`;
+}
+
+function setMode(next, text, kind) {
+  mode = next;
+  const el = $("#mode");
+  el.hidden = !text;
+  el.textContent = text || "";
+  if (kind) el.dataset.kind = kind; else delete el.dataset.kind;
+}
+
+function loadLocal() { try { Object.assign(marks, JSON.parse(localStorage.getItem(LOCAL_KEY) || "{}")); } catch {} }
+function saveLocal() { try { localStorage.setItem(LOCAL_KEY, JSON.stringify(marks)); } catch {} }
+
+function save(id, value) {
+  if (value) marks[id] = { ...value, by: myId, at: Date.now() }; else delete marks[id];
+  renderAll();
+  if (mode !== "shared") { saveLocal(); return Promise.resolve(); }
+  const ref = db.collection("marks").doc(id);
+  const body = marks[id] ? { ...marks[id] } : null;
+  writing[id] = (writing[id] || Promise.resolve()).then(() => (body ? ref.set(body) : ref.delete())).catch((err) => {
+    if (err && err.code === "invalid_argument") {
+      canWrite = false;
+      setMode("readonly", "You can see the review, but approving and flagging needs Contributor access. Ask Kiran to share it with you as a Contributor.", "warn");
+      renderAll();
+    } else {
+      setMode("shared", "A change could not be saved. Check your connection and try again.", "warn");
+    }
+  });
+  return writing[id];
+}
+
+async function resolveNames(ids) {
+  if (!user || !user.profiles) return;
+  const missing = ids.filter((x) => x && !(x in names));
+  if (!missing.length) return;
+  try {
+    const ps = await user.profiles(missing);
+    missing.forEach((x) => { names[x] = (ps && ps[x] && ps[x].name) || ""; });
+    renderAll();
+  } catch {}
+}
+
+// ---- Send to Claude: posts a comment thread on this page that the Claude session watching it picks up ----
+let comments = null;
+let sending = false;
+function openFlags() {
+  const out = [];
+  LESSONS.forEach((L) => {
+    const id = lid(L);
+    L.phrases.forEach((p) => { const m = marks[`${id}-${p.key}`]; if (m && m.status === "flag") out.push(`${L.title} ${plabel(L, p.key)} "${p.target}": ${m.note || "(no note)"}`); });
+    L.steps.forEach((s) => { const m = marks[`${id}-s${s.order_index}`]; if (m && m.status === "flag") out.push(`${L.title} step ${s.order_index} (${TYPE_LABEL[s.step_type]}): ${m.note || "(no note)"}`); });
+  });
+  return out;
+}
+function sendText() {
+  const flags = openFlags();
+  const approved = LESSONS.filter((L) => marks[lid(L)]?.status === "ok").map((L) => L.title);
+  let text = `Review update: ${flags.length} open flag${flags.length === 1 ? "" : "s"}${approved.length ? `; approved: ${approved.join(", ")}` : ""}. Please read the flags in the page's marks store, fix them in the drafts and update this page.`;
+  for (const f of flags) {
+    const next = `${text}\n- ${f}`;
+    if (new TextEncoder().encode(next).length > 3800) { text += "\n- …and more in the marks store"; break; }
+    text = next;
+  }
+  return text;
+}
+function setSendMsg(text, kind) {
+  const el = $("#send-msg");
+  el.textContent = text;
+  if (kind) el.dataset.kind = kind; else delete el.dataset.kind;
+}
+async function refreshSend() {
+  const btn = $("#send");
+  if (!comments || sending) return;
+  let state = "off";
+  try { state = await comments.canSendToClaude(); } catch {}
+  const flags = openFlags().length;
+  btn.textContent = flags ? `Send ${flags} flag${flags === 1 ? "" : "s"} to Claude` : "Send to Claude";
+  btn.disabled = state !== "available";
+  if (state === "writers_only") setSendMsg("Only editors can send to Claude. Use Copy review at the bottom instead.", "warn");
+  else if (state === "no_session") setSendMsg("Claude isn't watching this page right now. Ask Kiran's Claude session to check the review.", "warn");
+  else if (state !== "available") setSendMsg("Sending to Claude isn't available here. Use Copy review at the bottom instead.", "warn");
+}
+$("#send").addEventListener("click", async () => {
+  if (!comments || sending) return;
+  sending = true;
+  const btn = $("#send");
+  btn.disabled = true;
+  setSendMsg("Sending…");
+  try {
+    const anchor = await comments.anchorFor(btn);
+    await comments.sendToClaude({ anchor, text: sendText() });
+    setSendMsg("Sent. Claude will reply in the comment thread and update this page.", "ok");
+  } catch (err) {
+    const code = err && err.code;
+    if (code === "consent_required") setSendMsg("Not sent: allow this page to comment for you, then press Send again.", "warn");
+    else if (code === "claude_unavailable") setSendMsg("Not sent: Claude can't be reached from here right now. Use Copy review instead.", "warn");
+    else if (code === "rate_limited") setSendMsg("Not sent: you just sent one. Wait a minute and try again.", "warn");
+    else if (code === "forbidden") setSendMsg("Commenting from the page is off here. Use Copy review instead.", "warn");
+    else setSendMsg("Not sent. Try again in a moment, or use Copy review.", "warn");
+  } finally {
+    sending = false;
+    refreshSend();
+  }
+});
+$("#send").addEventListener("pointerenter", refreshSend);
+$("#send").addEventListener("focus", refreshSend);
+
+const LOCAL_TEXT = "Your review is saved in this browser only. When you finish, use Copy review at the bottom and send the text to Kiran.";
+async function start() {
+  buildPage();
+  loadLocal();
+  renderAll();
+  if (!window.claude || !window.claude.use) { setMode("local", LOCAL_TEXT); setSendMsg("Sending to Claude needs claude.ai. Use Copy review at the bottom instead.", "warn"); return; }
+  window.claude.use("comments").then((c) => { comments = c; if (c) refreshSend(); else setSendMsg("Sending to Claude isn't available here. Use Copy review at the bottom instead.", "warn"); });
+  [db, user] = await Promise.all([window.claude.use("db"), window.claude.use("user")]);
+  if (!db) { setMode("local", LOCAL_TEXT); return; }
+  try { myId = user ? await user.id() : null; } catch {}
+  try { const can = user && user.can ? await user.can("data.write") : null; if (can === false) canWrite = false; } catch {}
+  for (const k of Object.keys(marks)) delete marks[k];
+  setMode("shared", "Loading the shared review…");
+  renderAll();
+  const timer = setTimeout(() => setMode("shared", "The shared review can't be reached yet. It will appear once it connects.", "warn"), 10000);
+  db.collection("marks").onSnapshot((snap) => {
+    if (!snap.metadata.fromCache) clearTimeout(timer);
+    for (const k of Object.keys(marks)) delete marks[k];
+    snap.docs.forEach((d) => { if (d.exists) marks[d.id] = { ...d.data() }; });
+    if (!snap.metadata.fromCache) {
+      setMode("shared", canWrite ? "Shared review: everyone who opens this page sees the same approvals and flags, and Claude can read them back." : "You can see the review, but approving and flagging needs Contributor access. Ask Kiran to share it with you as a Contributor.", canWrite ? undefined : "warn");
+    }
+    renderAll();
+    resolveNames([...new Set(Object.values(marks).map((m) => m.by))]);
+  }, () => {
+    clearTimeout(timer);
+    setMode("local", "The shared review stopped responding. Changes you make now stay in this browser; use Copy review to send them.", "warn");
+  });
+}
+
+function reviewText() {
+  const lines = ["Essentials to Get Started v2: review", ""];
+  LESSONS.forEach((L) => {
+    const id = lid(L);
+    lines.push(`${L.module}, lesson ${L.order_index}. ${L.title}: ${marks[id]?.status === "ok" ? "APPROVED" : "not approved"}`);
+    L.phrases.forEach((p) => { const m = marks[`${id}-${p.key}`]; if (m) lines.push(`  ${m.status === "fixed" ? "FIXED" : "FLAG"} ${plabel(L, p.key)} ${p.target}${m.note ? ` → ${m.note}` : ""}`); });
+    L.steps.forEach((s) => { const m = marks[`${id}-s${s.order_index}`]; if (m) lines.push(`  FLAG step ${s.order_index} (${TYPE_LABEL[s.step_type]})${m.note ? ` → ${m.note}` : ""}`); });
+    lines.push("");
+  });
+  return lines.join("\n");
+}
+$("#copy").addEventListener("click", () => {
+  const text = reviewText();
+  const out = $("#copy-out"), msg = $("#copy-msg");
+  const fallback = () => { out.hidden = false; out.value = text; out.focus(); out.select(); msg.textContent = "Select all and copy the text below."; };
+  try { navigator.clipboard.writeText(text).then(() => { msg.textContent = "Copied. Paste it into a message."; out.hidden = true; }, fallback); } catch { fallback(); }
+});
+
+start();
+</script>

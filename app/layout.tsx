@@ -15,7 +15,7 @@ const MATERIAL_SYMBOLS_HREF =
   "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block";
 
 export const metadata: Metadata = {
-  title: "Samvad",
+  title: "Samwad",
   description: "Learn Marathi from Hindi — the language of your new home.",
 };
 

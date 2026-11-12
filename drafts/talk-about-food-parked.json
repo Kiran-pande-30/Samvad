@@ -1,0 +1,892 @@
+{
+ "module": "Talk About Food (parked)",
+ "version": 2,
+ "made": "2026-10-31",
+ "lessons": [
+  {
+   "order_index": 1,
+   "title": "What's For Dinner",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "आज रात्री काय बनवणार?",
+     "transliteration": "Aaj raatri kay banavnar?",
+     "source": "आज रात क्या बनाओगे?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "मला घरचं जेवण आवडतं.",
+     "transliteration": "Mala gharcha jevan aavadta.",
+     "source": "मुझे घर का खाना पसंद है।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "जेवलात का?",
+     "transliteration": "Jevlaat ka?",
+     "source": "आपने खाना खाया?",
+     "origin": "tatoeba",
+     "tatoeba_id": 11220612
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "जेवण तयार आहे.",
+     "transliteration": "Jevan tayar aahe.",
+     "source": "खाना तैयार है।",
+     "origin": "tatoeba",
+     "tatoeba_id": 4940146
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "आज भाजी नाही, फक्त डाळ-भात आहे.",
+     "transliteration": "Aaj bhaji nahi, phakt daal-bhaat aahe.",
+     "source": "आज सब्ज़ी नहीं है, सिर्फ़ दाल-चावल है।",
+     "origin": "existing",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "रात के आठ बजे हैं और रूममेट रसोई में झाँक रहा है। आप पूछते हैं: \"आज रात्री काय बनवणार?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "आज रात्री काय बनवणार?",
+     "data": {
+      "options": [
+       "आज रात क्या बनाओगे?",
+       "आज रात कहाँ जाओगे?",
+       "कल रात क्या बनाया था?",
+       "आज रात कौन आएगा?"
+      ]
+     },
+     "correct_answer": "आज रात क्या बनाओगे?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "मला घरचं जेवण आवडतं.",
+     "data": {
+      "options": [
+       "मुझे घर का खाना पसंद है।",
+       "मुझे बाहर का खाना पसंद है।",
+       "घर का खाना कहाँ है?",
+       "मुझे घर का खाना पसंद नहीं।"
+      ]
+     },
+     "correct_answer": "मुझे घर का खाना पसंद है।"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "जेवण तयार आहे.",
+     "data": {
+      "options": [
+       "खाना तैयार है।",
+       "खाना ठंडा है।",
+       "खाना कहाँ है?",
+       "खाना अभी नहीं बना।"
+      ]
+     },
+     "correct_answer": "खाना तैयार है।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"आज रात क्या बनाओगे?\"",
+     "data": {
+      "sentence": "आज रात्री ___ बनवणार?",
+      "word_bank": [
+       "काय",
+       "कोण",
+       "कुठे"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "काय"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"आपने खाना खाया?\"",
+     "data": {
+      "sentence": "___ का?",
+      "word_bank": [
+       "जेवलात",
+       "झोपलात",
+       "आलात"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "जेवलात"
+    },
+    {
+     "order_index": 7,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"आज सब्ज़ी नहीं है, सिर्फ़ दाल-चावल है।\"",
+     "data": {
+      "sentence": "आज भाजी नाही, ___ डाळ-भात आहे.",
+      "word_bank": [
+       "फक्त",
+       "खूप",
+       "आणि"
+      ],
+      "blank_index": 3
+     },
+     "correct_answer": "फक्त"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे घर का खाना पसंद है।\"",
+     "data": {
+      "words": [
+       "मला",
+       "घरचं",
+       "आवडतं",
+       "जेवण"
+      ]
+     },
+     "correct_answer": "मला घरचं जेवण आवडतं"
+    },
+    {
+     "order_index": 9,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"खाना तैयार है।\"",
+     "data": {
+      "words": [
+       "आहे",
+       "जेवण",
+       "तयार"
+      ]
+     },
+     "correct_answer": "जेवण तयार आहे"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"आज सब्ज़ी नहीं है, सिर्फ़ दाल-चावल है।\"",
+     "data": {
+      "words": [
+       "डाळ-भात",
+       "फक्त",
+       "आहे",
+       "आज",
+       "नाही",
+       "भाजी"
+      ]
+     },
+     "correct_answer": "आज भाजी नाही फक्त डाळ-भात आहे"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "रूममेट को बहुत भूख लगी है। आप पूछते हैं कि आज रात क्या बनेगा।",
+     "data": {
+      "options": [
+       "आज रात्री काय बनवणार?",
+       "आज रात्री कुठे जाणार?",
+       "जेवण कोणी बनवलं?",
+       "आज रात्री कोण येणार?"
+      ],
+      "speaker": "Roommate",
+      "speaker_says": "मला खूप भूक लागली आहे!"
+     },
+     "correct_answer": "आज रात्री काय बनवणार?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "दोपहर में आप पड़ोसी के घर जाते हैं। मराठी में अक्सर हाल-चाल ऐसे पूछते हैं।",
+     "data": {
+      "options": [
+       "जेवलात का?",
+       "झोपलात का?",
+       "तुम्ही कुठे आहात?",
+       "जेवण कुठे आहे?"
+      ],
+      "speaker": "Neighbour",
+      "speaker_says": "या, या! बसा."
+     },
+     "correct_answer": "जेवलात का?"
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "रूममेट पूछता है कि आज खाने में क्या है। आज सब्ज़ी नहीं बनी, सिर्फ़ दाल-चावल है।",
+     "data": {
+      "options": [
+       "आज भाजी नाही, फक्त डाळ-भात आहे.",
+       "आज डाळ नाही, फक्त भाजी आहे.",
+       "जेवण तयार नाही.",
+       "मला घरचं जेवण आवडतं."
+      ],
+      "speaker": "Roommate",
+      "speaker_says": "आज जेवायला काय आहे?"
+     },
+     "correct_answer": "आज भाजी नाही, फक्त डाळ-भात आहे."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे घर का खाना पसंद है\"",
+     "data": {
+      "options": [
+       "मला घरचं जेवण आवडतं.",
+       "मला बाहेरचं जेवण आवडतं.",
+       "मला घरचं जेवण नको.",
+       "घरचं जेवण तयार आहे."
+      ]
+     },
+     "correct_answer": "मला घरचं जेवण आवडतं."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे पूछेंगे — \"आपने खाना खाया\"",
+     "data": {
+      "options": [
+       "जेवलात का?",
+       "जेवण आहे का?",
+       "जेवायला या.",
+       "तुम्ही कुठे आहात?"
+      ]
+     },
+     "correct_answer": "जेवलात का?"
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"खाना तैयार है\"",
+     "data": {
+      "options": [
+       "जेवण तयार आहे.",
+       "जेवण थंड आहे.",
+       "जेवण कुठे आहे?",
+       "नाश्ता तयार आहे."
+      ]
+     },
+     "correct_answer": "जेवण तयार आहे."
+    }
+   ]
+  },
+  {
+   "order_index": 2,
+   "title": "At The Restaurant",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "काय मागवू?",
+     "transliteration": "Kay maagvu?",
+     "source": "क्या मंगाऊँ?",
+     "origin": "tatoeba",
+     "tatoeba_id": 5031550
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "मेनू दाखवा ना.",
+     "transliteration": "Menu dakhva na.",
+     "source": "मेन्यू दिखाइए ना।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "मला हे आणि ते, दोन्ही हवं आहे.",
+     "transliteration": "Mala he aani te, donhi hava aahe.",
+     "source": "मुझे ये और वो, दोनों चाहिए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "मी हे मागवलं नाही.",
+     "transliteration": "Mi he maagavla nahi.",
+     "source": "मैंने यह नहीं मंगाया।",
+     "origin": "tatoeba",
+     "tatoeba_id": 2611268
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "पाणी वेगळं मिळेल का?",
+     "transliteration": "Paani vegla milel ka?",
+     "source": "पानी अलग से मिलेगा क्या?",
+     "origin": "existing",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "आप दोस्त के साथ एक छोटे रेस्टोरेंट में बैठे हैं। दोस्त कहता है कि आज आप ऑर्डर करें, तो आप पूछते हैं: \"काय मागवू?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "काय मागवू?",
+     "data": {
+      "options": [
+       "क्या मंगाऊँ?",
+       "कब मंगाऊँ?",
+       "कहाँ से मंगाऊँ?",
+       "क्या मंगाया?"
+      ]
+     },
+     "correct_answer": "क्या मंगाऊँ?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "मेनू दाखवा ना.",
+     "data": {
+      "options": [
+       "मेन्यू दिखाइए ना।",
+       "मेन्यू कहाँ है?",
+       "बिल दिखाइए ना।",
+       "पानी लाइए ना।"
+      ]
+     },
+     "correct_answer": "मेन्यू दिखाइए ना।"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "मी हे मागवलं नाही.",
+     "data": {
+      "options": [
+       "मैंने यह नहीं मंगाया।",
+       "मैंने यह मंगाया था।",
+       "यह किसने मंगाया?",
+       "मुझे यह पसंद नहीं।"
+      ]
+     },
+     "correct_answer": "मैंने यह नहीं मंगाया।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"क्या मंगाऊँ?\"",
+     "data": {
+      "sentence": "___ मागवू?",
+      "word_bank": [
+       "काय",
+       "कोण",
+       "कुठे"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "काय"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"मुझे ये और वो, दोनों चाहिए।\"",
+     "data": {
+      "sentence": "मला हे आणि ते, ___ हवं आहे.",
+      "word_bank": [
+       "दोन्ही",
+       "काही",
+       "फक्त"
+      ],
+      "blank_index": 4
+     },
+     "correct_answer": "दोन्ही"
+    },
+    {
+     "order_index": 7,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"पानी अलग से मिलेगा क्या?\"",
+     "data": {
+      "sentence": "पाणी ___ मिळेल का?",
+      "word_bank": [
+       "वेगळं",
+       "गरम",
+       "जास्त"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "वेगळं"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मेन्यू दिखाइए ना।\"",
+     "data": {
+      "words": [
+       "ना",
+       "मेनू",
+       "दाखवा"
+      ]
+     },
+     "correct_answer": "मेनू दाखवा ना"
+    },
+    {
+     "order_index": 9,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मैंने यह नहीं मंगाया।\"",
+     "data": {
+      "words": [
+       "हे",
+       "मी",
+       "नाही",
+       "मागवलं"
+      ]
+     },
+     "correct_answer": "मी हे मागवलं नाही"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"पानी अलग से मिलेगा क्या?\"",
+     "data": {
+      "words": [
+       "का",
+       "वेगळं",
+       "पाणी",
+       "मिळेल"
+      ]
+     },
+     "correct_answer": "पाणी वेगळं मिळेल का"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "दोस्त कहता है कि आप तय करें। आप पूछते हैं कि क्या मंगाएँ।",
+     "data": {
+      "options": [
+       "काय मागवू?",
+       "कोण मागवणार?",
+       "मेनू कुठे आहे?",
+       "मी हे मागवलं नाही."
+      ],
+      "speaker": "Friend",
+      "speaker_says": "तू ठरव, मी काहीही खाईन."
+     },
+     "correct_answer": "काय मागवू?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "वेटर पूछता है कि यह लाएँ या वह। आपको दोनों चाहिए।",
+     "data": {
+      "options": [
+       "मला हे आणि ते, दोन्ही हवं आहे.",
+       "मला फक्त हे हवं आहे.",
+       "मला काही नको.",
+       "हे किती आहे?"
+      ],
+      "speaker": "Waiter",
+      "speaker_says": "काय आणू? हे की ते?"
+     },
+     "correct_answer": "मला हे आणि ते, दोन्ही हवं आहे."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "वेटर पूछता है कि और कुछ चाहिए। आपको पानी अलग से चाहिए।",
+     "data": {
+      "options": [
+       "पाणी वेगळं मिळेल का?",
+       "पाणी कुठे आहे?",
+       "मेनू दाखवा ना.",
+       "बिल किती आहे?"
+      ],
+      "speaker": "Waiter",
+      "speaker_says": "आणखी काही?"
+     },
+     "correct_answer": "पाणी वेगळं मिळेल का?"
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"मेन्यू दिखाइए ना\"",
+     "data": {
+      "options": [
+       "मेनू दाखवा ना.",
+       "बिल दाखवा ना.",
+       "मेनू कुठे आहे?",
+       "पाणी आणा ना."
+      ]
+     },
+     "correct_answer": "मेनू दाखवा ना."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे ये और वो, दोनों चाहिए\"",
+     "data": {
+      "options": [
+       "मला हे आणि ते, दोन्ही हवं आहे.",
+       "मला फक्त हे हवं आहे.",
+       "मला हे आणि ते, दोन्ही नको.",
+       "हे आणि ते काय आहे?"
+      ]
+     },
+     "correct_answer": "मला हे आणि ते, दोन्ही हवं आहे."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"मैंने यह नहीं मंगाया\"",
+     "data": {
+      "options": [
+       "मी हे मागवलं नाही.",
+       "मी हे मागवलं.",
+       "हे कोणी मागवलं?",
+       "मला हे आवडलं नाही."
+      ]
+     },
+     "correct_answer": "मी हे मागवलं नाही."
+    }
+   ]
+  },
+  {
+   "order_index": 3,
+   "title": "Dietary Needs",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "यात कांदा-लसूण आहे का?",
+     "transliteration": "Yaat kanda-lasun aahe ka?",
+     "source": "इसमें प्याज़-लहसुन है क्या?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "मी शाकाहारी आहे.",
+     "transliteration": "Mi shakahari aahe.",
+     "source": "मैं शाकाहारी हूँ।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "मला ह्याची अ‍ॅलर्जी आहे.",
+     "transliteration": "Mala hyachi allergy aahe.",
+     "source": "मुझे इससे एलर्जी है।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "तू शाकाहारी आहेस का?",
+     "transliteration": "Tu shakahari aahes ka?",
+     "source": "क्या तुम शाकाहारी हो?",
+     "origin": "tatoeba",
+     "tatoeba_id": 5294281
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "मला अंडी आवडत नाहीत.",
+     "transliteration": "Mala andi aavadat nahit.",
+     "source": "मुझे अंडे पसंद नहीं हैं।",
+     "origin": "tatoeba",
+     "tatoeba_id": 2140279
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "नए ऑफिस में लंच के समय सहकर्मी अपना डिब्बा आगे बढ़ाता है। लेने से पहले आप पूछते हैं: \"यात कांदा-लसूण आहे का?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "यात कांदा-लसूण आहे का?",
+     "data": {
+      "options": [
+       "इसमें प्याज़-लहसुन है क्या?",
+       "इसमें चीनी है क्या?",
+       "प्याज़-लहसुन कहाँ है?",
+       "इसमें मिर्ची ज़्यादा है।"
+      ]
+     },
+     "correct_answer": "इसमें प्याज़-लहसुन है क्या?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "मी शाकाहारी आहे.",
+     "data": {
+      "options": [
+       "मैं शाकाहारी हूँ।",
+       "मैं शाकाहारी नहीं हूँ।",
+       "तुम शाकाहारी हो क्या?",
+       "वह शाकाहारी है।"
+      ]
+     },
+     "correct_answer": "मैं शाकाहारी हूँ।"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "तू शाकाहारी आहेस का?",
+     "data": {
+      "options": [
+       "क्या तुम शाकाहारी हो?",
+       "मैं शाकाहारी हूँ।",
+       "तुम क्या खाते हो?",
+       "क्या तुम्हें अंडे पसंद हैं?"
+      ]
+     },
+     "correct_answer": "क्या तुम शाकाहारी हो?"
+    },
+    {
+     "order_index": 5,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"इसमें प्याज़-लहसुन है क्या?\"",
+     "data": {
+      "sentence": "यात ___ आहे का?",
+      "word_bank": [
+       "कांदा-लसूण",
+       "साखर",
+       "मिरची"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "कांदा-लसूण"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"मुझे इससे एलर्जी है।\"",
+     "data": {
+      "sentence": "मला ___ अ‍ॅलर्जी आहे.",
+      "word_bank": [
+       "ह्याची",
+       "कोणाची",
+       "माझी"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "ह्याची"
+    },
+    {
+     "order_index": 7,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"मुझे अंडे पसंद नहीं हैं।\"",
+     "data": {
+      "sentence": "मला ___ आवडत नाहीत.",
+      "word_bank": [
+       "अंडी",
+       "मांस",
+       "भात"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "अंडी"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मैं शाकाहारी हूँ।\"",
+     "data": {
+      "words": [
+       "शाकाहारी",
+       "मी",
+       "आहे"
+      ]
+     },
+     "correct_answer": "मी शाकाहारी आहे"
+    },
+    {
+     "order_index": 9,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"क्या तुम शाकाहारी हो?\"",
+     "data": {
+      "words": [
+       "शाकाहारी",
+       "तू",
+       "आहेस",
+       "का"
+      ]
+     },
+     "correct_answer": "तू शाकाहारी आहेस का"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे अंडे पसंद नहीं हैं।\"",
+     "data": {
+      "words": [
+       "नाहीत",
+       "आवडत",
+       "अंडी",
+       "मला"
+      ]
+     },
+     "correct_answer": "मला अंडी आवडत नाहीत"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "सहकर्मी सब्ज़ी ऑफर करता है। आप प्याज़-लहसुन नहीं खाते।",
+     "data": {
+      "options": [
+       "यात कांदा-लसूण आहे का?",
+       "यात साखर आहे का?",
+       "ही भाजी कितीला आहे?",
+       "मला भाजी आवडते."
+      ],
+      "speaker": "Colleague",
+      "speaker_says": "ही भाजी घे, खूप चविष्ट आहे."
+     },
+     "correct_answer": "यात कांदा-लसूण आहे का?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "मेज़बान मूँगफली के लड्डू दे रही हैं। आपको मूँगफली से एलर्जी है।",
+     "data": {
+      "options": [
+       "मला ह्याची अ‍ॅलर्जी आहे.",
+       "मला हे खूप आवडतं.",
+       "हे कितीला आहे?",
+       "मी शाकाहारी आहे."
+      ],
+      "speaker": "Host",
+      "speaker_says": "हे घ्या, शेंगदाण्याचे लाडू!"
+     },
+     "correct_answer": "मला ह्याची अ‍ॅलर्जी आहे."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "दोस्त अंडा भुर्जी ऑफर करता है। आपको अंडे पसंद नहीं हैं।",
+     "data": {
+      "options": [
+       "मला अंडी आवडत नाहीत.",
+       "मला अंडी खूप आवडतात.",
+       "अंडी कुठे आहेत?",
+       "मी अंडी खाल्ली."
+      ],
+      "speaker": "Friend",
+      "speaker_says": "अंडा भुर्जी खाशील?"
+     },
+     "correct_answer": "मला अंडी आवडत नाहीत."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"मैं शाकाहारी हूँ\"",
+     "data": {
+      "options": [
+       "मी शाकाहारी आहे.",
+       "मी शाकाहारी नाही.",
+       "तू शाकाहारी आहेस का?",
+       "मी मांस खातो."
+      ]
+     },
+     "correct_answer": "मी शाकाहारी आहे."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे इससे एलर्जी है\"",
+     "data": {
+      "options": [
+       "मला ह्याची अ‍ॅलर्जी आहे.",
+       "मला ह्याची सवय आहे.",
+       "मला हे हवं आहे.",
+       "मला ह्याची चव आवडते."
+      ]
+     },
+     "correct_answer": "मला ह्याची अ‍ॅलर्जी आहे."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे पूछेंगे — \"क्या तुम शाकाहारी हो\"",
+     "data": {
+      "options": [
+       "तू शाकाहारी आहेस का?",
+       "मी शाकाहारी आहे का?",
+       "तू काय खातोस?",
+       "तुम्ही कुठे आहात?"
+      ]
+     },
+     "correct_answer": "तू शाकाहारी आहेस का?"
+    }
+   ]
+  }
+ ],
+ "note": "Cut from Talk About Food for now. Not part of any module; kept so the work isn't lost."
+}

@@ -1,0 +1,613 @@
+{
+ "module": "Shops And Errands",
+ "version": 2,
+ "made": "2026-10-31",
+ "lessons": [
+  {
+   "order_index": 1,
+   "title": "Grocery Shopping",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "हे ताजं आहे का?",
+     "transliteration": "He taaza aahe ka?",
+     "source": "यह ताज़ा है क्या?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "मला दूध आणि ब्रेड हवं आहे.",
+     "transliteration": "Mala doodh aani bread hava aahe.",
+     "source": "मुझे दूध और ब्रेड चाहिए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "तुमच्याकडे अंडी आहेत का?",
+     "transliteration": "Tumchyakade andi aahet ka?",
+     "source": "आपके पास अंडे हैं क्या?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "ही अंडी ताजी आहेत.",
+     "transliteration": "Hi andi taaji aahet.",
+     "source": "ये अंडे ताज़े हैं।",
+     "origin": "tatoeba",
+     "tatoeba_id": 6459714
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "तुमच्याकडे तांदूळ आहे का?",
+     "transliteration": "Tumchyakade tandul aahe ka?",
+     "source": "आपके पास चावल है क्या?",
+     "origin": "tatoeba",
+     "tatoeba_id": 4387935
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "आप घर के पास किराने की दुकान पर हैं। पाव का पैकेट उठाकर आप पूछते हैं: \"हे ताजं आहे का?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "हे ताजं आहे का?",
+     "data": {
+      "options": [
+       "यह ताज़ा है क्या?",
+       "यह कितने का है?",
+       "यह गरम है क्या?",
+       "यह किसका है?"
+      ]
+     },
+     "correct_answer": "यह ताज़ा है क्या?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "मला दूध आणि ब्रेड हवं आहे.",
+     "data": {
+      "options": [
+       "मुझे दूध और ब्रेड चाहिए।",
+       "मुझे दूध और ब्रेड नहीं चाहिए।",
+       "दूध और ब्रेड कहाँ है?",
+       "मुझे अंडे और ब्रेड चाहिए।"
+      ]
+     },
+     "correct_answer": "मुझे दूध और ब्रेड चाहिए।"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "ही अंडी ताजी आहेत.",
+     "data": {
+      "options": [
+       "ये अंडे ताज़े हैं।",
+       "ये अंडे ताज़े नहीं हैं।",
+       "ये अंडे कितने के हैं?",
+       "ये अंडे किसके हैं?"
+      ]
+     },
+     "correct_answer": "ये अंडे ताज़े हैं।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"यह ताज़ा है क्या?\"",
+     "data": {
+      "sentence": "हे ___ आहे का?",
+      "word_bank": [
+       "ताजं",
+       "महाग",
+       "गोड"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "ताजं"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"आपके पास अंडे हैं क्या?\"",
+     "data": {
+      "sentence": "तुमच्याकडे अंडी ___ का?",
+      "word_bank": [
+       "आहेत",
+       "आहे",
+       "नाही"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "आहेत"
+    },
+    {
+     "order_index": 7,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"आपके पास चावल है क्या?\"",
+     "data": {
+      "sentence": "तुमच्याकडे ___ आहे का?",
+      "word_bank": [
+       "तांदूळ",
+       "साखर",
+       "पाणी"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "तांदूळ"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे दूध और ब्रेड चाहिए।\"",
+     "data": {
+      "words": [
+       "मला",
+       "आहे",
+       "दूध",
+       "ब्रेड",
+       "हवं",
+       "आणि"
+      ]
+     },
+     "correct_answer": "मला दूध आणि ब्रेड हवं आहे"
+    },
+    {
+     "order_index": 9,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"ये अंडे ताज़े हैं।\"",
+     "data": {
+      "words": [
+       "अंडी",
+       "आहेत",
+       "ही",
+       "ताजी"
+      ]
+     },
+     "correct_answer": "ही अंडी ताजी आहेत"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"आपके पास चावल है क्या?\"",
+     "data": {
+      "words": [
+       "आहे",
+       "तुमच्याकडे",
+       "का",
+       "तांदूळ"
+      ]
+     },
+     "correct_answer": "तुमच्याकडे तांदूळ आहे का"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "दुकानदार पाव देता है। आप पूछते हैं कि ताज़ा है या नहीं।",
+     "data": {
+      "options": [
+       "हे ताजं आहे का?",
+       "हे कोणाचं आहे?",
+       "हे कुठे आहे?",
+       "हे गरम आहे का?"
+      ],
+      "speaker": "Shopkeeper",
+      "speaker_says": "हा पाव घ्या."
+     },
+     "correct_answer": "हे ताजं आहे का?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "आपको अंडे चाहिए। आप पूछते हैं कि दुकान में हैं या नहीं।",
+     "data": {
+      "options": [
+       "तुमच्याकडे अंडी आहेत का?",
+       "तुमच्याकडे पाणी आहे का?",
+       "अंडी कुठे आहेत?",
+       "मला अंडी आवडत नाहीत."
+      ],
+      "speaker": "Shopkeeper",
+      "speaker_says": "बोला, काय हवं?"
+     },
+     "correct_answer": "तुमच्याकडे अंडी आहेत का?"
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "दुकानदार पूछता है कि और कुछ। आपको चावल चाहिए।",
+     "data": {
+      "options": [
+       "तुमच्याकडे तांदूळ आहे का?",
+       "तुमच्याकडे तांदूळ आहेत का?",
+       "तांदूळ कुठे आहे?",
+       "मला तांदूळ नको."
+      ],
+      "speaker": "Shopkeeper",
+      "speaker_says": "आणखी काही?"
+     },
+     "correct_answer": "तुमच्याकडे तांदूळ आहे का?"
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे दूध और ब्रेड चाहिए\"",
+     "data": {
+      "options": [
+       "मला दूध आणि ब्रेड हवं आहे.",
+       "मला दूध आणि अंडी हवी आहेत.",
+       "मला दूध नको.",
+       "दूध आणि ब्रेड कुठे आहे?"
+      ]
+     },
+     "correct_answer": "मला दूध आणि ब्रेड हवं आहे."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे पूछेंगे — \"आपके पास अंडे हैं क्या\"",
+     "data": {
+      "options": [
+       "तुमच्याकडे अंडी आहेत का?",
+       "तुमच्याकडे अंडी आहे का?",
+       "अंडी कुठे आहेत?",
+       "तुमची अंडी आहेत का?"
+      ]
+     },
+     "correct_answer": "तुमच्याकडे अंडी आहेत का?"
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"ये अंडे ताज़े हैं\"",
+     "data": {
+      "options": [
+       "ही अंडी ताजी आहेत.",
+       "ही अंडी ताजी नाहीत.",
+       "ही अंडी कितीला आहेत?",
+       "ही अंडी गरम आहेत."
+      ]
+     },
+     "correct_answer": "ही अंडी ताजी आहेत."
+    }
+   ],
+   "moved_from": "Talk About Food"
+  },
+  {
+   "order_index": 2,
+   "title": "Vegetable Market",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "टोमॅटो किती रुपये आहेत?",
+     "transliteration": "Tomato kiti rupaye aahet?",
+     "source": "टमाटर कितने के हैं?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "मला एक किलो कांदा हवा आहे.",
+     "transliteration": "Mala ek kilo kanda hava aahe.",
+     "source": "मुझे एक किलो प्याज़ चाहिए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "थोडं कमी करा ना.",
+     "transliteration": "Thoda kami kara na.",
+     "source": "थोड़ा कम करो ना।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "हे सफरचंद गोड आहे.",
+     "transliteration": "He safarchand god aahe.",
+     "source": "यह सेब मीठा है।",
+     "origin": "tatoeba",
+     "tatoeba_id": 2085660
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "अर्धा किलो कितीला आहे?",
+     "transliteration": "Ardha kilo kitila aahe?",
+     "source": "आधा किलो कितने का है?",
+     "origin": "tatoeba",
+     "tatoeba_id": 2257371
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "रविवार सुबह आप सब्ज़ी मंडी में हैं। ठेले पर लाल टमाटर देखकर आप पूछते हैं: \"टोमॅटो किती रुपये आहेत?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "टोमॅटो किती रुपये आहेत?",
+     "data": {
+      "options": [
+       "टमाटर कितने के हैं?",
+       "टमाटर कहाँ हैं?",
+       "टमाटर ताज़े हैं क्या?",
+       "टमाटर किसके हैं?"
+      ]
+     },
+     "correct_answer": "टमाटर कितने के हैं?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "मला एक किलो कांदा हवा आहे.",
+     "data": {
+      "options": [
+       "मुझे एक किलो प्याज़ चाहिए।",
+       "मुझे आधा किलो प्याज़ चाहिए।",
+       "प्याज़ कितने का है?",
+       "मुझे प्याज़ नहीं चाहिए।"
+      ]
+     },
+     "correct_answer": "मुझे एक किलो प्याज़ चाहिए।"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "हे सफरचंद गोड आहे.",
+     "data": {
+      "options": [
+       "यह सेब मीठा है।",
+       "यह सेब खट्टा है।",
+       "यह सेब कितने का है?",
+       "यह सेब ताज़ा है क्या?"
+      ]
+     },
+     "correct_answer": "यह सेब मीठा है।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"टमाटर कितने के हैं?\"",
+     "data": {
+      "sentence": "टोमॅटो ___ रुपये आहेत?",
+      "word_bank": [
+       "किती",
+       "कोण",
+       "कधी"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "किती"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"थोड़ा कम करो ना।\"",
+     "data": {
+      "sentence": "थोडं ___ करा ना.",
+      "word_bank": [
+       "कमी",
+       "जास्त",
+       "लवकर"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "कमी"
+    },
+    {
+     "order_index": 7,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"आधा किलो कितने का है?\"",
+     "data": {
+      "sentence": "अर्धा किलो ___ आहे?",
+      "word_bank": [
+       "कितीला",
+       "कुठे",
+       "कोणाला"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "कितीला"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे एक किलो प्याज़ चाहिए।\"",
+     "data": {
+      "words": [
+       "हवा",
+       "आहे",
+       "मला",
+       "कांदा",
+       "एक",
+       "किलो"
+      ]
+     },
+     "correct_answer": "मला एक किलो कांदा हवा आहे"
+    },
+    {
+     "order_index": 9,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"यह सेब मीठा है।\"",
+     "data": {
+      "words": [
+       "सफरचंद",
+       "हे",
+       "आहे",
+       "गोड"
+      ]
+     },
+     "correct_answer": "हे सफरचंद गोड आहे"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"आधा किलो कितने का है?\"",
+     "data": {
+      "words": [
+       "आहे",
+       "किलो",
+       "अर्धा",
+       "कितीला"
+      ]
+     },
+     "correct_answer": "अर्धा किलो कितीला आहे"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "सब्ज़ीवाला ताज़े टमाटर दिखा रहा है। आप दाम पूछते हैं।",
+     "data": {
+      "options": [
+       "टोमॅटो किती रुपये आहेत?",
+       "टोमॅटो कुठे आहेत?",
+       "टोमॅटो कोणाचे आहेत?",
+       "मला टोमॅटो नको."
+      ],
+      "speaker": "Vendor",
+      "speaker_says": "या, ताजे टोमॅटो!"
+     },
+     "correct_answer": "टोमॅटो किती रुपये आहेत?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "सब्ज़ीवाला साठ रुपये किलो बताता है। आपको थोड़ा मोलभाव करना है।",
+     "data": {
+      "options": [
+       "थोडं कमी करा ना.",
+       "थोडं जास्त द्या.",
+       "हे ताजे आहेत का?",
+       "मला नको."
+      ],
+      "speaker": "Vendor",
+      "speaker_says": "साठ रुपये किलो."
+     },
+     "correct_answer": "थोडं कमी करा ना."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "मटर अस्सी रुपये किलो है। आपको आधा किलो ही चाहिए।",
+     "data": {
+      "options": [
+       "अर्धा किलो कितीला आहे?",
+       "एक किलो कितीला आहे?",
+       "मटार कुठे आहे?",
+       "मला मटार आवडत नाही."
+      ],
+      "speaker": "Vendor",
+      "speaker_says": "मटार ऐंशी रुपये किलो."
+     },
+     "correct_answer": "अर्धा किलो कितीला आहे?"
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे एक किलो प्याज़ चाहिए\"",
+     "data": {
+      "options": [
+       "मला एक किलो कांदा हवा आहे.",
+       "मला अर्धा किलो कांदा हवा आहे.",
+       "कांदा कितीला आहे?",
+       "मला एक किलो टोमॅटो हवे आहेत."
+      ]
+     },
+     "correct_answer": "मला एक किलो कांदा हवा आहे."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"थोड़ा कम करो ना\"",
+     "data": {
+      "options": [
+       "थोडं कमी करा ना.",
+       "थोडं जास्त करा ना.",
+       "थोडं थांबा ना.",
+       "थोडं द्या ना."
+      ]
+     },
+     "correct_answer": "थोडं कमी करा ना."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"यह सेब मीठा है\"",
+     "data": {
+      "options": [
+       "हे सफरचंद गोड आहे.",
+       "हे सफरचंद आंबट आहे.",
+       "हे सफरचंद कितीला आहे?",
+       "हे केळं गोड आहे."
+      ]
+     },
+     "correct_answer": "हे सफरचंद गोड आहे."
+    }
+   ],
+   "moved_from": "Talk About Food"
+  }
+ ],
+ "note": "Grocery Shopping and Vegetable Market move from Talk About Food to the start of Shops And Errands. Move the existing lesson rows (keep their ids), don't delete and re-create them. The module's other 5 lessons are unchanged for now (4 phrases / 8 steps).",
+ "lesson_order": [
+  "Grocery Shopping",
+  "Vegetable Market",
+  "Buying Clothes",
+  "Paying And Change",
+  "At The Bank",
+  "Getting Things Fixed",
+  "Everyday Errands"
+ ]
+}

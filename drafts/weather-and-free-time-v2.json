@@ -1,0 +1,1480 @@
+{
+ "module": "Weather And Free Time",
+ "version": 2,
+ "made": "2026-11-12",
+ "lessons": [
+  {
+   "order_index": 1,
+   "title": "Today's Weather",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "आज खूप गरम आहे.",
+     "transliteration": "Aaj khup garam aahe.",
+     "source": "आज बहुत गर्मी है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "बाहेर पाऊस पडतोय.",
+     "transliteration": "Baaher paaus padtoy.",
+     "source": "बाहर बारिश हो रही है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "आज थंडी आहे.",
+     "transliteration": "Aaj thandi aahe.",
+     "source": "आज ठंड है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "आज हवा छान आहे.",
+     "transliteration": "Aaj hava chhaan aahe.",
+     "source": "आज मौसम अच्छा है।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "उद्या पाऊस येईल का?",
+     "transliteration": "Udya paaus yeil ka?",
+     "source": "कल बारिश होगी क्या?",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "दोपहर को धूप बहुत तेज़ है। ऑफिस पहुँचकर आप साथी से कहते हैं: \"आज खूप गरम आहे.\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "आज खूप गरम आहे.",
+     "data": {
+      "options": [
+       "आज बहुत गर्मी है।",
+       "आज बहुत ठंड है।",
+       "कल बहुत गर्मी थी।",
+       "आज थोड़ी गर्मी है।"
+      ]
+     },
+     "correct_answer": "आज बहुत गर्मी है।"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"आज बहुत गर्मी है।\"",
+     "data": {
+      "sentence": "आज खूप ___ आहे.",
+      "word_bank": [
+       "गरम",
+       "थंड",
+       "गोड"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "गरम"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "बाहेर पाऊस पडतोय.",
+     "data": {
+      "options": [
+       "बाहर बारिश हो रही है।",
+       "बाहर धूप है।",
+       "अंदर बारिश हो रही है।",
+       "बाहर बारिश रुक गई।"
+      ]
+     },
+     "correct_answer": "बाहर बारिश हो रही है।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"बाहर बारिश हो रही है।\"",
+     "data": {
+      "words": [
+       "बाहेर",
+       "पडतोय",
+       "पाऊस"
+      ]
+     },
+     "correct_answer": "बाहेर पाऊस पडतोय"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"आज ठंड है।\"",
+     "data": {
+      "sentence": "आज ___ आहे.",
+      "word_bank": [
+       "थंडी",
+       "भूक",
+       "झोप"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "थंडी"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "आज हवा छान आहे.",
+     "data": {
+      "options": [
+       "आज मौसम अच्छा है।",
+       "आज मौसम खराब है।",
+       "कल मौसम अच्छा था।",
+       "आज हवा तेज़ है।"
+      ]
+     },
+     "correct_answer": "आज मौसम अच्छा है।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"आज मौसम अच्छा है।\"",
+     "data": {
+      "words": [
+       "हवा",
+       "आहे",
+       "आज",
+       "छान"
+      ]
+     },
+     "correct_answer": "आज हवा छान आहे"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"कल बारिश होगी क्या?\"",
+     "data": {
+      "sentence": "उद्या ___ येईल का?",
+      "word_bank": [
+       "पाऊस",
+       "ऊन",
+       "थंडी"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "पाऊस"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"कल बारिश होगी क्या?\"",
+     "data": {
+      "words": [
+       "येईल",
+       "उद्या",
+       "का",
+       "पाऊस"
+      ]
+     },
+     "correct_answer": "उद्या पाऊस येईल का"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "आप धूप से आए हैं और पसीने में हैं। सहकर्मी पानी देते हैं। आप कहते हैं कि आज बहुत गर्मी है।",
+     "data": {
+      "options": [
+       "आज खूप गरम आहे.",
+       "आज खूप थंडी आहे.",
+       "काल खूप गरम होतं.",
+       "आज पाऊस आहे."
+      ],
+      "speaker": "Colleague",
+      "speaker_says": "पाणी घ्या, खूप घाम आलाय!"
+     },
+     "correct_answer": "आज खूप गरम आहे."
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "दोस्त पूछता है कि आपने स्वेटर क्यों पहना है। आप बताते हैं कि आज ठंड है।",
+     "data": {
+      "options": [
+       "आज थंडी आहे.",
+       "आज गरम आहे.",
+       "आज पाऊस आहे.",
+       "काल थंडी होती."
+      ],
+      "speaker": "Friend",
+      "speaker_says": "स्वेटर का घातलास?"
+     },
+     "correct_answer": "आज थंडी आहे."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "दोस्त कल ट्रेक पर जाने की बात कर रहा है। आप पूछते हैं कि कल बारिश होगी क्या।",
+     "data": {
+      "options": [
+       "उद्या पाऊस येईल का?",
+       "काल पाऊस आला का?",
+       "उद्या ऊन येईल.",
+       "पाऊस कुठे आहे?"
+      ],
+      "speaker": "Friend",
+      "speaker_says": "उद्या ट्रेकला जायचं आहे."
+     },
+     "correct_answer": "उद्या पाऊस येईल का?"
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"बाहर बारिश हो रही है\"",
+     "data": {
+      "options": [
+       "बाहेर पाऊस पडतोय.",
+       "बाहेर ऊन आहे.",
+       "आत पाऊस पडतोय.",
+       "बाहेर पाऊस थांबला."
+      ]
+     },
+     "correct_answer": "बाहेर पाऊस पडतोय."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"आज ठंड है\"",
+     "data": {
+      "options": [
+       "आज थंडी आहे.",
+       "आज गरम आहे.",
+       "काल थंडी होती.",
+       "आज पाऊस आहे."
+      ]
+     },
+     "correct_answer": "आज थंडी आहे."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"आज मौसम अच्छा है\"",
+     "data": {
+      "options": [
+       "आज हवा छान आहे.",
+       "आज हवा खराब आहे.",
+       "काल हवा छान होती.",
+       "आज वारा जोरात आहे."
+      ]
+     },
+     "correct_answer": "आज हवा छान आहे."
+    }
+   ]
+  },
+  {
+   "order_index": 2,
+   "title": "Monsoon Talk",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "छत्री घ्या.",
+     "transliteration": "Chhatri ghya.",
+     "source": "छाता ले लीजिए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "पाऊस थांबला का?",
+     "transliteration": "Paaus thambla ka?",
+     "source": "बारिश रुकी क्या?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "रस्त्यावर खूप पाणी आहे.",
+     "transliteration": "Rastyavar khup paani aahe.",
+     "source": "सड़क पर बहुत पानी है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "माझे कपडे भिजले.",
+     "transliteration": "Majhe kapde bhijle.",
+     "source": "मेरे कपड़े भीग गए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "आज बाहेर जाऊ नका.",
+     "transliteration": "Aaj baaher jaau naka.",
+     "source": "आज बाहर मत जाइए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "बाहर बादल घिर आए हैं। घर से निकलते हुए दोस्त से आप कहते हैं: \"छत्री घ्या.\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "छत्री घ्या.",
+     "data": {
+      "options": [
+       "छाता ले लीजिए।",
+       "छाता दीजिए।",
+       "छाता कहाँ है?",
+       "छाता मत लीजिए।"
+      ]
+     },
+     "correct_answer": "छाता ले लीजिए।"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"छाता ले लीजिए।\"",
+     "data": {
+      "sentence": "___ घ्या.",
+      "word_bank": [
+       "छत्री",
+       "पाणी",
+       "चावी"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "छत्री"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "पाऊस थांबला का?",
+     "data": {
+      "options": [
+       "बारिश रुकी क्या?",
+       "बारिश शुरू हुई क्या?",
+       "बारिश रुक गई।",
+       "बारिश कब रुकेगी?"
+      ]
+     },
+     "correct_answer": "बारिश रुकी क्या?"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"बारिश रुकी क्या?\"",
+     "data": {
+      "words": [
+       "का",
+       "पाऊस",
+       "थांबला"
+      ]
+     },
+     "correct_answer": "पाऊस थांबला का"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"सड़क पर बहुत पानी है।\"",
+     "data": {
+      "sentence": "___ खूप पाणी आहे.",
+      "word_bank": [
+       "रस्त्यावर",
+       "घरात",
+       "पाण्यात"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "रस्त्यावर"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "माझे कपडे भिजले.",
+     "data": {
+      "options": [
+       "मेरे कपड़े भीग गए।",
+       "मेरे कपड़े सूख गए।",
+       "उसके कपड़े भीग गए।",
+       "मेरे जूते भीग गए।"
+      ]
+     },
+     "correct_answer": "मेरे कपड़े भीग गए।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मेरे कपड़े भीग गए।\"",
+     "data": {
+      "words": [
+       "कपडे",
+       "माझे",
+       "भिजले"
+      ]
+     },
+     "correct_answer": "माझे कपडे भिजले"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"आज बाहर मत जाइए।\"",
+     "data": {
+      "sentence": "आज ___ जाऊ नका.",
+      "word_bank": [
+       "बाहेर",
+       "घरी",
+       "आत"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "बाहेर"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"आज बाहर मत जाइए।\"",
+     "data": {
+      "words": [
+       "नका",
+       "बाहेर",
+       "आज",
+       "जाऊ"
+      ]
+     },
+     "correct_answer": "आज बाहेर जाऊ नका"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "दोस्त निकल रहा है और बाहर बादल हैं। आप उसे छाता ले जाने को कहते हैं।",
+     "data": {
+      "options": [
+       "छत्री घ्या.",
+       "छत्री द्या.",
+       "छत्री कुठे आहे?",
+       "पाऊस थांबला."
+      ],
+      "speaker": "Friend",
+      "speaker_says": "मी निघतो आता."
+     },
+     "correct_answer": "छत्री घ्या."
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "दोस्त गाड़ी लेकर जाना चाहता है, पर सड़क पर बहुत पानी भरा है।",
+     "data": {
+      "options": [
+       "रस्त्यावर खूप पाणी आहे.",
+       "रस्त्यावर पाणी नाही.",
+       "घरात खूप पाणी आहे.",
+       "रस्ता कुठे आहे?"
+      ],
+      "speaker": "Friend",
+      "speaker_says": "आज गाडी घेऊन जाऊ का?"
+     },
+     "correct_answer": "रस्त्यावर खूप पाणी आहे."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "भारी बारिश में पड़ोसी बाज़ार जा रहे हैं। आप उन्हें आज बाहर न जाने को कहते हैं।",
+     "data": {
+      "options": [
+       "आज बाहेर जाऊ नका.",
+       "आज बाहेर जा.",
+       "आज घरी जाऊ नका.",
+       "उद्या बाहेर या."
+      ],
+      "speaker": "Neighbour",
+      "speaker_says": "मी बाजारात जातोय."
+     },
+     "correct_answer": "आज बाहेर जाऊ नका."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे पूछेंगे — \"बारिश रुकी क्या\"",
+     "data": {
+      "options": [
+       "पाऊस थांबला का?",
+       "पाऊस सुरू झाला का?",
+       "पाऊस थांबला.",
+       "पाऊस कधी थांबेल?"
+      ]
+     },
+     "correct_answer": "पाऊस थांबला का?"
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"सड़क पर बहुत पानी है\"",
+     "data": {
+      "options": [
+       "रस्त्यावर खूप पाणी आहे.",
+       "घरात खूप पाणी आहे.",
+       "रस्त्यावर पाणी नाही.",
+       "रस्त्यावर खूप गर्दी आहे."
+      ]
+     },
+     "correct_answer": "रस्त्यावर खूप पाणी आहे."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"मेरे कपड़े भीग गए\"",
+     "data": {
+      "options": [
+       "माझे कपडे भिजले.",
+       "माझे कपडे वाळले.",
+       "त्याचे कपडे भिजले.",
+       "माझे बूट भिजले."
+      ]
+     },
+     "correct_answer": "माझे कपडे भिजले."
+    }
+   ]
+  },
+  {
+   "order_index": 3,
+   "title": "Weekend Plans",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "रविवारी काय करणार?",
+     "transliteration": "Ravivari kay karnar?",
+     "source": "रविवार को क्या करेंगे?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "आपण फिरायला जाऊया.",
+     "transliteration": "Aapan phiraayla jaauya.",
+     "source": "चलिए, घूमने चलते हैं।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "मला सिनेमा बघायचा आहे.",
+     "transliteration": "Mala cinema baghaaycha aahe.",
+     "source": "मुझे फ़िल्म देखनी है।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "आपण घरीच थांबूया.",
+     "transliteration": "Aapan gharich thaambuya.",
+     "source": "चलिए, घर पर ही रुकते हैं।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "मला शनिवारी वेळ आहे.",
+     "transliteration": "Mala shanivari vel aahe.",
+     "source": "मेरे पास शनिवार को समय है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "शुक्रवार की शाम है। आप दोस्त से पूछते हैं: \"रविवारी काय करणार?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "रविवारी काय करणार?",
+     "data": {
+      "options": [
+       "रविवार को क्या करेंगे?",
+       "रविवार को क्या किया?",
+       "शनिवार को क्या करेंगे?",
+       "रविवार को कहाँ जाएँगे?"
+      ]
+     },
+     "correct_answer": "रविवार को क्या करेंगे?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"रविवार को क्या करेंगे?\"",
+     "data": {
+      "sentence": "रविवारी ___ करणार?",
+      "word_bank": [
+       "काय",
+       "कुठे",
+       "कधी"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "काय"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "आपण फिरायला जाऊया.",
+     "data": {
+      "options": [
+       "चलिए, घूमने चलते हैं।",
+       "चलिए, खाना खाते हैं।",
+       "चलिए, घूमकर आए।",
+       "मैं घूमने जा रहा हूँ।"
+      ]
+     },
+     "correct_answer": "चलिए, घूमने चलते हैं।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"चलिए, घूमने चलते हैं।\"",
+     "data": {
+      "words": [
+       "फिरायला",
+       "आपण",
+       "जाऊया"
+      ]
+     },
+     "correct_answer": "आपण फिरायला जाऊया"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"मुझे फ़िल्म देखनी है।\"",
+     "data": {
+      "sentence": "मला ___ बघायचा आहे.",
+      "word_bank": [
+       "सिनेमा",
+       "जेवण",
+       "काम"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "सिनेमा"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "आपण घरीच थांबूया.",
+     "data": {
+      "options": [
+       "चलिए, घर पर ही रुकते हैं।",
+       "चलिए, बाहर चलते हैं।",
+       "वह घर पर ही रुकेगा।",
+       "चलिए, घर चलते हैं।"
+      ]
+     },
+     "correct_answer": "चलिए, घर पर ही रुकते हैं।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"चलिए, घर पर ही रुकते हैं।\"",
+     "data": {
+      "words": [
+       "थांबूया",
+       "आपण",
+       "घरीच"
+      ]
+     },
+     "correct_answer": "आपण घरीच थांबूया"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"मेरे पास शनिवार को समय है।\"",
+     "data": {
+      "sentence": "मला ___ वेळ आहे.",
+      "word_bank": [
+       "शनिवारी",
+       "काल",
+       "कधी"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "शनिवारी"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मेरे पास शनिवार को समय है।\"",
+     "data": {
+      "words": [
+       "आहे",
+       "वेळ",
+       "शनिवारी",
+       "मला"
+      ]
+     },
+     "correct_answer": "मला शनिवारी वेळ आहे"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "दोस्त कहता है कि इस हफ़्ते बहुत काम था। आप पूछते हैं कि रविवार को क्या करेंगे।",
+     "data": {
+      "options": [
+       "रविवारी काय करणार?",
+       "रविवारी काय केलं?",
+       "शनिवारी काय करणार?",
+       "रविवारी कुठे आहे?"
+      ],
+      "speaker": "Friend",
+      "speaker_says": "या आठवड्यात खूप काम होतं."
+     },
+     "correct_answer": "रविवारी काय करणार?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "दोस्त पूछता है क्या करें। आपको फ़िल्म देखनी है।",
+     "data": {
+      "options": [
+       "मला सिनेमा बघायचा आहे.",
+       "मला सिनेमा आवडत नाही.",
+       "तुला सिनेमा बघायचा आहे.",
+       "मला जेवायचं आहे."
+      ],
+      "speaker": "Friend",
+      "speaker_says": "काय करूया?"
+     },
+     "correct_answer": "मला सिनेमा बघायचा आहे."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "दोस्त पूछता है कब मिलें। आपके पास शनिवार को समय है।",
+     "data": {
+      "options": [
+       "मला शनिवारी वेळ आहे.",
+       "मला शनिवारी वेळ नाही.",
+       "तुला शनिवारी वेळ आहे.",
+       "मला काल वेळ होता."
+      ],
+      "speaker": "Friend",
+      "speaker_says": "भेटूया का कधी?"
+     },
+     "correct_answer": "मला शनिवारी वेळ आहे."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"चलिए, घूमने चलते हैं\"",
+     "data": {
+      "options": [
+       "आपण फिरायला जाऊया.",
+       "आपण जेवायला जाऊया.",
+       "आपण फिरून आलो.",
+       "मी फिरायला जातो."
+      ]
+     },
+     "correct_answer": "आपण फिरायला जाऊया."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे फ़िल्म देखनी है\"",
+     "data": {
+      "options": [
+       "मला सिनेमा बघायचा आहे.",
+       "मला सिनेमा आवडत नाही.",
+       "तुला सिनेमा बघायचा आहे.",
+       "मला जेवायचं आहे."
+      ]
+     },
+     "correct_answer": "मला सिनेमा बघायचा आहे."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"चलिए, घर पर ही रुकते हैं\"",
+     "data": {
+      "options": [
+       "आपण घरीच थांबूया.",
+       "आपण बाहेर जाऊया.",
+       "तो घरीच थांबेल.",
+       "आपण घरी जाऊया."
+      ]
+     },
+     "correct_answer": "आपण घरीच थांबूया."
+    }
+   ]
+  },
+  {
+   "order_index": 4,
+   "title": "What You Enjoy",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "मला गाणी ऐकायला आवडतं.",
+     "transliteration": "Mala gaani aikayla aavadta.",
+     "source": "मुझे गाने सुनना पसंद है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "मला वाचायला आवडतं.",
+     "transliteration": "Mala vaachayla aavadta.",
+     "source": "मुझे पढ़ना पसंद है।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "तुम्हाला कोणता खेळ आवडतो?",
+     "transliteration": "Tumhala konta khel aavadto?",
+     "source": "आपको कौन सा खेल पसंद है?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "मला क्रिकेट बघायला आवडतं.",
+     "transliteration": "Mala cricket baghayla aavadta.",
+     "source": "मुझे क्रिकेट देखना पसंद है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "मला स्वयंपाक करायला आवडतं.",
+     "transliteration": "Mala swayampak karayla aavadta.",
+     "source": "मुझे खाना बनाना पसंद है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "नए दोस्त आपके शौक के बारे में पूछते हैं। आप बताते हैं: \"मला गाणी ऐकायला आवडतं.\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "मला गाणी ऐकायला आवडतं.",
+     "data": {
+      "options": [
+       "मुझे गाने सुनना पसंद है।",
+       "मुझे गाने गाना पसंद है।",
+       "मुझे गाने सुनना पसंद नहीं है।",
+       "उसे गाने सुनना पसंद है।"
+      ]
+     },
+     "correct_answer": "मुझे गाने सुनना पसंद है।"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"मुझे गाने सुनना पसंद है।\"",
+     "data": {
+      "sentence": "मला गाणी ___ आवडतं.",
+      "word_bank": [
+       "ऐकायला",
+       "गायला",
+       "खायला"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "ऐकायला"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "मला वाचायला आवडतं.",
+     "data": {
+      "options": [
+       "मुझे पढ़ना पसंद है।",
+       "मुझे लिखना पसंद है।",
+       "मुझे पढ़ना पसंद नहीं है।",
+       "मुझे खेलना पसंद है।"
+      ]
+     },
+     "correct_answer": "मुझे पढ़ना पसंद है।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे पढ़ना पसंद है।\"",
+     "data": {
+      "words": [
+       "आवडतं",
+       "मला",
+       "वाचायला"
+      ]
+     },
+     "correct_answer": "मला वाचायला आवडतं"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"आपको कौन सा खेल पसंद है?\"",
+     "data": {
+      "sentence": "तुम्हाला ___ खेळ आवडतो?",
+      "word_bank": [
+       "कोणता",
+       "काय",
+       "कुठे"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "कोणता"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "मला क्रिकेट बघायला आवडतं.",
+     "data": {
+      "options": [
+       "मुझे क्रिकेट देखना पसंद है।",
+       "मुझे क्रिकेट खेलना पसंद है।",
+       "मुझे फ़ुटबॉल देखना पसंद है।",
+       "उसे क्रिकेट देखना पसंद है।"
+      ]
+     },
+     "correct_answer": "मुझे क्रिकेट देखना पसंद है।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे क्रिकेट देखना पसंद है।\"",
+     "data": {
+      "words": [
+       "मला",
+       "क्रिकेट",
+       "आवडतं",
+       "बघायला"
+      ]
+     },
+     "correct_answer": "मला क्रिकेट बघायला आवडतं"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"मुझे खाना बनाना पसंद है।\"",
+     "data": {
+      "sentence": "मला ___ करायला आवडतं.",
+      "word_bank": [
+       "स्वयंपाक",
+       "अभ्यास",
+       "आराम"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "स्वयंपाक"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे खाना बनाना पसंद है।\"",
+     "data": {
+      "words": [
+       "करायला",
+       "आवडतं",
+       "स्वयंपाक",
+       "मला"
+      ]
+     },
+     "correct_answer": "मला स्वयंपाक करायला आवडतं"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "दोस्त पूछता है कि आपको क्या पसंद है। आपको गाने सुनना पसंद है।",
+     "data": {
+      "options": [
+       "मला गाणी ऐकायला आवडतं.",
+       "मला गाणी गायला आवडतं.",
+       "मला गाणी आवडत नाहीत.",
+       "त्याला गाणी ऐकायला आवडतं."
+      ],
+      "speaker": "Friend",
+      "speaker_says": "तुम्हाला काय आवडतं?"
+     },
+     "correct_answer": "मला गाणी ऐकायला आवडतं."
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "एक नए सहकर्मी कहते हैं कि उन्हें खेल बहुत पसंद हैं। आप पूछते हैं कि उन्हें कौन सा खेल पसंद है।",
+     "data": {
+      "options": [
+       "तुम्हाला कोणता खेळ आवडतो?",
+       "मला कोणता खेळ आवडतो?",
+       "तुम्हाला खेळ आवडत नाही.",
+       "खेळ कुठे आहे?"
+      ],
+      "speaker": "Colleague",
+      "speaker_says": "मला खेळ खूप आवडतात."
+     },
+     "correct_answer": "तुम्हाला कोणता खेळ आवडतो?"
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "दोस्त हैरान है कि आज खाना आपने बनाया। आप कहते हैं कि आपको खाना बनाना पसंद है।",
+     "data": {
+      "options": [
+       "मला स्वयंपाक करायला आवडतं.",
+       "मला अभ्यास करायला आवडतं.",
+       "मला स्वयंपाक आवडत नाही.",
+       "तुला स्वयंपाक करायला आवडतं."
+      ],
+      "speaker": "Friend",
+      "speaker_says": "आज जेवण तू बनवलंस?"
+     },
+     "correct_answer": "मला स्वयंपाक करायला आवडतं."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे पढ़ना पसंद है\"",
+     "data": {
+      "options": [
+       "मला वाचायला आवडतं.",
+       "मला लिहायला आवडतं.",
+       "मला वाचायला आवडत नाही.",
+       "मला खेळायला आवडतं."
+      ]
+     },
+     "correct_answer": "मला वाचायला आवडतं."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे पूछेंगे — \"आपको कौन सा खेल पसंद है\"",
+     "data": {
+      "options": [
+       "तुम्हाला कोणता खेळ आवडतो?",
+       "मला कोणता खेळ आवडतो?",
+       "तुम्ही कोणता खेळ खेळला?",
+       "तुम्हाला खेळ आवडत नाही."
+      ]
+     },
+     "correct_answer": "तुम्हाला कोणता खेळ आवडतो?"
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे क्रिकेट देखना पसंद है\"",
+     "data": {
+      "options": [
+       "मला क्रिकेट बघायला आवडतं.",
+       "मला क्रिकेट खेळायला आवडतं.",
+       "मला फुटबॉल बघायला आवडतं.",
+       "त्याला क्रिकेट बघायला आवडतं."
+      ]
+     },
+     "correct_answer": "मला क्रिकेट बघायला आवडतं."
+    }
+   ]
+  },
+  {
+   "order_index": 5,
+   "title": "Making Plans",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "उद्या भेटूया का?",
+     "transliteration": "Udya bhetuya ka?",
+     "source": "कल मिलें क्या?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "किती वाजता भेटायचं?",
+     "transliteration": "Kiti vajta bhetaycha?",
+     "source": "कितने बजे मिलना है?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "मी नक्की येईन.",
+     "transliteration": "Mi nakki yein.",
+     "source": "मैं ज़रूर आऊँगा।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "मला थोडा उशीर होईल.",
+     "transliteration": "Mala thoda ushir hoil.",
+     "source": "मुझे थोड़ी देर होगी।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "मी पोहोचल्यावर फोन करेन.",
+     "transliteration": "Mi pohochlyavar phone karen.",
+     "source": "मैं पहुँचकर फ़ोन करूँगा।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "बहुत दिनों से एक पुराने दोस्त से नहीं मिले। आप उसे मैसेज करते हैं: \"उद्या भेटूया का?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "उद्या भेटूया का?",
+     "data": {
+      "options": [
+       "कल मिलें क्या?",
+       "कल मिले थे क्या?",
+       "आज मिलें क्या?",
+       "कल कहाँ मिलेंगे?"
+      ]
+     },
+     "correct_answer": "कल मिलें क्या?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"कल मिलें क्या?\"",
+     "data": {
+      "sentence": "उद्या ___ का?",
+      "word_bank": [
+       "भेटूया",
+       "जेवूया",
+       "झोपूया"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "भेटूया"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "किती वाजता भेटायचं?",
+     "data": {
+      "options": [
+       "कितने बजे मिलना है?",
+       "कहाँ मिलना है?",
+       "कितने बजे निकलना है?",
+       "कब मिले थे?"
+      ]
+     },
+     "correct_answer": "कितने बजे मिलना है?"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"कितने बजे मिलना है?\"",
+     "data": {
+      "words": [
+       "किती",
+       "भेटायचं",
+       "वाजता"
+      ]
+     },
+     "correct_answer": "किती वाजता भेटायचं"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"मैं ज़रूर आऊँगा।\"",
+     "data": {
+      "sentence": "मी ___ येईन.",
+      "word_bank": [
+       "नक्की",
+       "उद्या",
+       "कधी"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "नक्की"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "मला थोडा उशीर होईल.",
+     "data": {
+      "options": [
+       "मुझे थोड़ी देर होगी।",
+       "मुझे बहुत देर होगी।",
+       "मुझे देर नहीं होगी।",
+       "उसे थोड़ी देर होगी।"
+      ]
+     },
+     "correct_answer": "मुझे थोड़ी देर होगी।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे थोड़ी देर होगी।\"",
+     "data": {
+      "words": [
+       "होईल",
+       "मला",
+       "थोडा",
+       "उशीर"
+      ]
+     },
+     "correct_answer": "मला थोडा उशीर होईल"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"मैं पहुँचकर फ़ोन करूँगा।\"",
+     "data": {
+      "sentence": "मी ___ फोन करेन.",
+      "word_bank": [
+       "पोहोचल्यावर",
+       "निघाल्यावर",
+       "जेवल्यावर"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "पोहोचल्यावर"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मैं पहुँचकर फ़ोन करूँगा।\"",
+     "data": {
+      "words": [
+       "करेन",
+       "पोहोचल्यावर",
+       "फोन",
+       "मी"
+      ]
+     },
+     "correct_answer": "मी पोहोचल्यावर फोन करेन"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "दोस्त कहता है बहुत दिन हो गए मिले। आप पूछते हैं कि कल मिलें क्या।",
+     "data": {
+      "options": [
+       "उद्या भेटूया का?",
+       "काल भेटलो का?",
+       "आज भेटलो.",
+       "उद्या कुठे आहे?"
+      ],
+      "speaker": "Friend",
+      "speaker_says": "खूप दिवस झाले भेटून!"
+     },
+     "correct_answer": "उद्या भेटूया का?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "दोस्त शाम की पार्टी में बुला रहा है। आप कहते हैं कि ज़रूर आएँगे।",
+     "data": {
+      "options": [
+       "मी नक्की येईन.",
+       "मी येणार नाही.",
+       "तू नक्की ये.",
+       "मी काल आलो."
+      ],
+      "speaker": "Friend",
+      "speaker_says": "संध्याकाळी पार्टी आहे, येशील ना?"
+     },
+     "correct_answer": "मी नक्की येईन."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "सात बजे मिलना तय हुआ। आप कहते हैं कि पहुँचकर फ़ोन करेंगे।",
+     "data": {
+      "options": [
+       "मी पोहोचल्यावर फोन करेन.",
+       "तुम्ही पोहोचल्यावर फोन करा.",
+       "मी निघालो आहे.",
+       "मी फोन करणार नाही."
+      ],
+      "speaker": "Friend",
+      "speaker_says": "ठीक आहे, मग सातला भेटू."
+     },
+     "correct_answer": "मी पोहोचल्यावर फोन करेन."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे पूछेंगे — \"कितने बजे मिलना है\"",
+     "data": {
+      "options": [
+       "किती वाजता भेटायचं?",
+       "कुठे भेटायचं?",
+       "किती वाजता निघायचं?",
+       "कधी भेटलो?"
+      ]
+     },
+     "correct_answer": "किती वाजता भेटायचं?"
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"मैं ज़रूर आऊँगा\"",
+     "data": {
+      "options": [
+       "मी नक्की येईन.",
+       "मी येणार नाही.",
+       "तू नक्की ये.",
+       "मी काल आलो."
+      ]
+     },
+     "correct_answer": "मी नक्की येईन."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे थोड़ी देर होगी\"",
+     "data": {
+      "options": [
+       "मला थोडा उशीर होईल.",
+       "मला खूप उशीर होईल.",
+       "मला उशीर होणार नाही.",
+       "त्याला थोडा उशीर होईल."
+      ]
+     },
+     "correct_answer": "मला थोडा उशीर होईल."
+    }
+   ]
+  }
+ ],
+ "notes": [
+  "Replaces the old Weather And Free Time (5 lessons, 20 short phrases, 40 steps; no learner progress on 2026-11-12).",
+  "Kiran asked for it to go live without a review round (2026-11-12). Same format as the other v2 modules.",
+  "Origin 'draft' = written for Samwad; 'existing' = already in the old module."
+ ]
+}

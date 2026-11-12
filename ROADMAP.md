@@ -1,6 +1,6 @@
-# Samvad Roadmap
+# Samwad Roadmap
 
-Samvad (संवाद, "dialogue") teaches Marathi to Hindi speakers. Stack: Next.js 16 + Supabase (Postgres, Auth, Storage).
+Samwad (संवाद, "dialogue"; called Samvad until 2026-10-31) teaches Marathi to Hindi speakers. Stack: Next.js 16 + Supabase (Postgres, Auth, Storage).
 Plan agreed on 2026-09-26. Tick tasks off (`- [x]`) as they are completed.
 
 ## How we work
@@ -13,7 +13,7 @@ Plan agreed on 2026-09-26. Tick tasks off (`- [x]`) as they are completed.
 
 ## Current state (2026-10-04)
 
-- 10 modules (9 shown — "First Words & Greetings" is hidden in `ModuleList.tsx`), 61 lessons, 264 phrases, 586 lesson steps (`fill_blank`, `match`, `recall`, `arrange`, `conversation`, `context`).
+- 8 modules, 40 lessons, 199 phrases, 637 lesson steps (as of 2026-11-12, all in the v2 format) (`fill_blank`, `match`, `recall`, `arrange`, `conversation`, `context`).
 - Tables: `language_pairs`, `modules`, `lessons`, `phrases`, `lesson_steps`, `step_attempts`, `user_progress` (+ `started_at`), `profiles`, `audio_clips`, `conversation_scenarios`. Storage bucket `audio`.
 - DB functions: `start_lesson`, `record_attempt`, `complete_lesson` (scores from saved answers).
 - Audio for modules 1–2 (111 clips). Every answer is saved as it's given. Lessons can be resumed.
@@ -29,8 +29,11 @@ Plan agreed on 2026-09-26. Tick tasks off (`- [x]`) as they are completed.
 - **Daily practice:** 10 active cards. A card retires after **3 correct in a row** (a wrong answer resets the count and moves the card 3–4 places back); the next word from the pool replaces it. The 3 correct answers get harder: Marathi→Hindi choice, Hindi→Marathi choice, then typed/arranged recall. Pool order: due words → weak words → new words. Wrong options come from the same module with similar length. Session ends at `daily_goal` retired words (default 15).
 - **`step_attempts`:** `step_id` becomes nullable and a `source` column (`'lesson'` / `'practice'`) is added so practice answers can be stored.
 - **Answers are saved the moment they're given** (`record_attempt`), never trusted from the browser at the end. `complete_lesson` scores from saved answers and refuses unfinished lessons. A run = answers since `user_progress.started_at`; the resume point is derived from them (`remainingStepIds`), not stored.
-- **Shown modules:** "First Words & Greetings" is hidden (overlaps modules 1–2) until a content review.
+- **"First Words & Greetings" deleted (2026-11-12):** it overlapped Essentials. Its rows, including one learner's 86 answers, are in the `backup_20261112` schema; the hidden-module filter in `ModuleList.tsx` is gone.
+- **Name: Samwad (2026-10-31).** Renamed from Samvad in the UI, page title and docs; the repo folder and Supabase project keep the old name. Known clash: another app called "Samwad" (samwad.vercel.app, teaches English through AI voice conversations) already exists — chosen anyway. Free address: `learnsamwad.vercel.app` (available on 2026-10-31); `samwad.app` was available to buy for $9.99 first year / $15 after.
 - **AI conversation (test version, free stack, 2026-10-26):** listening = the browser's speech recognition (`mr-IN`, Chrome), the AI partner = Gemini Flash on Google's free tier (called only from the server, key in `GEMINI_API_KEY`), speaking = the phone's own Marathi voice with the reply always shown as text. No paid APIs, no signup credits. Every logged-in user can use it — no tester list; when Gemini's free limit runs out (429) the screen says "Try again after some time". About 12 turns per conversation. Conversations aren't saved yet. Google may use free-tier prompts for training, so tell users not to share anything personal.
+- **Modules 1–2 merged, Food rebuilt (2026-11-02):** "Words to Get Started" was deleted along with its progress (fresh start, Kiran's call). "Essentials to Get Started" (5 lessons, 80 steps) and "Talk About Food" (5 lessons, 77 steps) were rewritten from `drafts/*-v2.json` with Hindi-first prompts, and are now modules 0 and 1. The old rows are backed up in the `backup_20261102` schema. Only 2 Essentials lessons were reviewed when this went live; later review fixes go in as updates. Audio exists for about 10 of the 49 new sentences.
+- **All shown modules rebuilt (2026-11-12):** Out And About, Feeling Unwell, At Home, Work And Study (reviewed and approved), Shops And Errands and Weather And Free Time (written without review, as Kiran asked) now use the same v2 format: 5 lessons × 5 sentences, 80 steps, Hindi-first. Old rows are in the `backup_20261112` schema; drafts and the build script are in `drafts/` and `drafts/build/`. Audio is missing for most new sentences.
 - **Scenarios:** one row per scenario in `conversation_scenarios` (who the AI plays, setting, opening line, goals, key phrases). The rules shared by every scenario — JSON reply shape, transliteration in the app's style, correct only real mistakes, respectful आप Hindi, gender-neutral "अहो" — live in the API route's code, not the table.
 
 ## Now
@@ -192,7 +195,6 @@ Every answer is now saved as it happens, so the backfill (task 25) also counts l
 - **Signed-in users opening `/login` land on `/profile`** — should probably go home (`/`); one line in `lib/supabase/middleware.ts`.
 - **Upgrade Node 20 → 22** — Node 20 is past end-of-life; also lets `scripts/generate-audio.ts` drop the `ws` workaround.
 - **Decide what "daily goal" means** — profile shows "1 lesson / day", the practice plan counts retired words. Settle before Week 3.
-- **"First Words & Greetings"** — hidden for now; decide after a native-speaker content review (also: a match step says Suresh greets with नमस्कार but the answer is नमस्ते).
 - **Native-speaker review of modules 1–2** — 586 hand-made steps are unverified.
 - **Landing page** — use the stronger tagline "Learn the language of your new home"; the illustration says नमस्ते, Marathi is नमस्कार.
 - **Lesson page as a Server Component** — load the lesson directly instead of fetching `/api/lessons` in `useEffect` (removes "Loading lesson…").

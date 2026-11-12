@@ -65,7 +65,7 @@ export default function LoginPage() {
     <div className="min-h-dvh flex justify-center bg-white">
       <div className="w-full max-w-107.5 px-7 py-10 flex flex-col">
         <div className="mb-10">
-          <h1 className="text-[38px] font-bold leading-[1.16] tracking-[-1px]">Samvad</h1>
+          <h1 className="text-[38px] font-bold leading-[1.16] tracking-[-1px]">Samwad</h1>
           <p className="mt-2 text-base text-gray-500">Learn the language of your new home</p>
         </div>
 

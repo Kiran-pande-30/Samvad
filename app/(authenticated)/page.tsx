@@ -7,7 +7,7 @@ import ModuleList from '@/components/modules/ModuleList'
 import { getModulesWithLessons } from '@/lib/data/modules'
 import { getProgress } from '@/lib/data/progress'
 
-const SamvadIllustration = () => {
+const SamwadIllustration = () => {
   const ink = '#111111'
   const globeStroke = '#DDDDE4'
   const bubble1 = 'var(--color-coral)'
@@ -109,7 +109,7 @@ const RootPage = async () => {
       </h1>
 
       <div className="flex-1 flex items-center justify-center min-h-0 -mx-1 my-2">
-        <SamvadIllustration />
+        <SamwadIllustration />
       </div>
 
       <div className="shrink-0">

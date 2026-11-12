@@ -1,0 +1,1484 @@
+{
+ "module": "At Home",
+ "version": 2,
+ "made": "2026-11-12",
+ "lessons": [
+  {
+   "order_index": 1,
+   "title": "Rooms And Things",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "बाथरूम कुठे आहे?",
+     "transliteration": "Bathroom kuthe aahe?",
+     "source": "बाथरूम कहाँ है?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "ही खोली खूप मोठी आहे.",
+     "transliteration": "Hi kholi khup mothi aahe.",
+     "source": "यह कमरा बहुत बड़ा है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "दार बंद करा.",
+     "transliteration": "Daar band kara.",
+     "source": "दरवाज़ा बंद कीजिए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "स्वयंपाकघर तिकडे आहे.",
+     "transliteration": "Swayampakghar tikade aahe.",
+     "source": "रसोई उधर है।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "खिडकी उघडू का?",
+     "transliteration": "Khidki ughdu ka?",
+     "source": "खिड़की खोलूँ क्या?",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "आप पहली बार एक दोस्त के नए फ़्लैट पर आए हैं। हाथ धोने के लिए आप पूछते हैं: \"बाथरूम कुठे आहे?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "बाथरूम कुठे आहे?",
+     "data": {
+      "options": [
+       "बाथरूम कहाँ है?",
+       "रसोई कहाँ है?",
+       "बाथरूम यहाँ है।",
+       "बाथरूम कब खाली होगा?"
+      ]
+     },
+     "correct_answer": "बाथरूम कहाँ है?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"बाथरूम कहाँ है?\"",
+     "data": {
+      "sentence": "बाथरूम ___ आहे?",
+      "word_bank": [
+       "कुठे",
+       "कधी",
+       "किती"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "कुठे"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "ही खोली खूप मोठी आहे.",
+     "data": {
+      "options": [
+       "यह कमरा बहुत बड़ा है।",
+       "यह कमरा बहुत छोटा है।",
+       "वह कमरा बहुत बड़ा है।",
+       "यह घर बहुत बड़ा है।"
+      ]
+     },
+     "correct_answer": "यह कमरा बहुत बड़ा है।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"यह कमरा बहुत बड़ा है।\"",
+     "data": {
+      "words": [
+       "ही",
+       "आहे",
+       "खोली",
+       "मोठी",
+       "खूप"
+      ]
+     },
+     "correct_answer": "ही खोली खूप मोठी आहे"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"दरवाज़ा बंद कीजिए।\"",
+     "data": {
+      "sentence": "दार ___ करा.",
+      "word_bank": [
+       "बंद",
+       "उघडा",
+       "मोठं"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "बंद"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "स्वयंपाकघर तिकडे आहे.",
+     "data": {
+      "options": [
+       "रसोई उधर है।",
+       "रसोई यहाँ है।",
+       "बाथरूम उधर है।",
+       "रसोई कहाँ है?"
+      ]
+     },
+     "correct_answer": "रसोई उधर है।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"रसोई उधर है।\"",
+     "data": {
+      "words": [
+       "आहे",
+       "स्वयंपाकघर",
+       "तिकडे"
+      ]
+     },
+     "correct_answer": "स्वयंपाकघर तिकडे आहे"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"खिड़की खोलूँ क्या?\"",
+     "data": {
+      "sentence": "खिडकी ___ का?",
+      "word_bank": [
+       "उघडू",
+       "लावू",
+       "पुसू"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "उघडू"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"खिड़की खोलूँ क्या?\"",
+     "data": {
+      "words": [
+       "का",
+       "उघडू",
+       "खिडकी"
+      ]
+     },
+     "correct_answer": "खिडकी उघडू का"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "दोस्त के घर पहुँचे हैं। हाथ धोने हैं, तो आप बाथरूम का रास्ता पूछते हैं।",
+     "data": {
+      "options": [
+       "बाथरूम कुठे आहे?",
+       "बाथरूम इथे आहे.",
+       "स्वयंपाकघर कुठे आहे?",
+       "बाथरूम कधी आहे?"
+      ],
+      "speaker": "Friend",
+      "speaker_says": "ये, बस. पाणी हवं का?"
+     },
+     "correct_answer": "बाथरूम कुठे आहे?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "बाहर से बहुत शोर आ रहा है। आप दोस्त से दरवाज़ा बंद करने को कहते हैं।",
+     "data": {
+      "options": [
+       "दार बंद करा.",
+       "दार उघडा.",
+       "खिडकी उघडू का?",
+       "आवाज करा."
+      ],
+      "speaker": "Friend",
+      "speaker_says": "बाहेर खूप आवाज आहे ना?"
+     },
+     "correct_answer": "दार बंद करा."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "कमरे में बहुत गर्मी है। आप पूछते हैं कि खिड़की खोल दें क्या।",
+     "data": {
+      "options": [
+       "खिडकी उघडू का?",
+       "खिडकी बंद आहे.",
+       "दार बंद करा.",
+       "खिडकी कुठे आहे?"
+      ],
+      "speaker": "Friend",
+      "speaker_says": "आज खूप गरम होतंय."
+     },
+     "correct_answer": "खिडकी उघडू का?"
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"यह कमरा बहुत बड़ा है\"",
+     "data": {
+      "options": [
+       "ही खोली खूप मोठी आहे.",
+       "ही खोली खूप लहान आहे.",
+       "ती खोली खूप मोठी आहे.",
+       "हे घर खूप मोठं आहे."
+      ]
+     },
+     "correct_answer": "ही खोली खूप मोठी आहे."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"दरवाज़ा बंद कीजिए\"",
+     "data": {
+      "options": [
+       "दार बंद करा.",
+       "दार उघडा.",
+       "खिडकी बंद करा.",
+       "दार बंद आहे."
+      ]
+     },
+     "correct_answer": "दार बंद करा."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"रसोई उधर है\"",
+     "data": {
+      "options": [
+       "स्वयंपाकघर तिकडे आहे.",
+       "स्वयंपाकघर इथे आहे.",
+       "बाथरूम तिकडे आहे.",
+       "स्वयंपाकघर कुठे आहे?"
+      ]
+     },
+     "correct_answer": "स्वयंपाकघर तिकडे आहे."
+    }
+   ]
+  },
+  {
+   "order_index": 2,
+   "title": "Morning Routine",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "मी रोज लवकर उठतो.",
+     "transliteration": "Mi roj lavkar uthto.",
+     "source": "मैं रोज़ जल्दी उठता हूँ।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "सकाळी मी चहा पितो.",
+     "transliteration": "Sakali mi chaha pito.",
+     "source": "सुबह मैं चाय पीता हूँ।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "आंघोळीला पाणी गरम आहे का?",
+     "transliteration": "Aangholila paani garam aahe ka?",
+     "source": "नहाने के लिए पानी गरम है क्या?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "मी नऊ वाजता कामाला जातो.",
+     "transliteration": "Mi nau vajta kaamala jaato.",
+     "source": "मैं नौ बजे काम पर जाता हूँ।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "मला उशीर होतोय.",
+     "transliteration": "Mala ushir hotoy.",
+     "source": "मुझे देर हो रही है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "सुबह का समय है। नए रूममेट आपकी दिनचर्या के बारे में पूछते हैं और आप बताते हैं: \"मी रोज लवकर उठतो.\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "मी रोज लवकर उठतो.",
+     "data": {
+      "options": [
+       "मैं रोज़ जल्दी उठता हूँ।",
+       "मैं रोज़ देर से उठता हूँ।",
+       "मैं रोज़ जल्दी सोता हूँ।",
+       "वह रोज़ जल्दी उठता है।"
+      ]
+     },
+     "correct_answer": "मैं रोज़ जल्दी उठता हूँ।"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"मैं रोज़ जल्दी उठता हूँ।\"",
+     "data": {
+      "sentence": "मी रोज ___ उठतो.",
+      "word_bank": [
+       "लवकर",
+       "उशिरा",
+       "कधी"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "लवकर"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "सकाळी मी चहा पितो.",
+     "data": {
+      "options": [
+       "सुबह मैं चाय पीता हूँ।",
+       "शाम को मैं चाय पीता हूँ।",
+       "सुबह मैं कॉफ़ी पीता हूँ।",
+       "सुबह मैं चाय नहीं पीता।"
+      ]
+     },
+     "correct_answer": "सुबह मैं चाय पीता हूँ।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"सुबह मैं चाय पीता हूँ।\"",
+     "data": {
+      "words": [
+       "पितो",
+       "मी",
+       "सकाळी",
+       "चहा"
+      ]
+     },
+     "correct_answer": "सकाळी मी चहा पितो"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"नहाने के लिए पानी गरम है क्या?\"",
+     "data": {
+      "sentence": "आंघोळीला पाणी ___ आहे का?",
+      "word_bank": [
+       "गरम",
+       "थंड",
+       "गोड"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "गरम"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "मी नऊ वाजता कामाला जातो.",
+     "data": {
+      "options": [
+       "मैं नौ बजे काम पर जाता हूँ।",
+       "मैं नौ बजे घर आता हूँ।",
+       "मैं दस बजे काम पर जाता हूँ।",
+       "मैं नौ बजे उठता हूँ।"
+      ]
+     },
+     "correct_answer": "मैं नौ बजे काम पर जाता हूँ।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मैं नौ बजे काम पर जाता हूँ।\"",
+     "data": {
+      "words": [
+       "नऊ",
+       "मी",
+       "कामाला",
+       "वाजता",
+       "जातो"
+      ]
+     },
+     "correct_answer": "मी नऊ वाजता कामाला जातो"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"मुझे देर हो रही है।\"",
+     "data": {
+      "sentence": "मला ___ होतोय.",
+      "word_bank": [
+       "उशीर",
+       "भूक",
+       "ताप"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "उशीर"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे देर हो रही है।\"",
+     "data": {
+      "words": [
+       "होतोय",
+       "मला",
+       "उशीर"
+      ]
+     },
+     "correct_answer": "मला उशीर होतोय"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "रूममेट पूछते हैं कि आप कितने बजे उठते हैं। आप रोज़ जल्दी उठते हैं।",
+     "data": {
+      "options": [
+       "मी रोज लवकर उठतो.",
+       "मी रोज उशिरा उठतो.",
+       "तुम्ही रोज लवकर उठता.",
+       "मी रोज लवकर झोपतो."
+      ],
+      "speaker": "Roommate",
+      "speaker_says": "तुम्ही किती वाजता उठता?"
+     },
+     "correct_answer": "मी रोज लवकर उठतो."
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "माँ नहाने को कह रही हैं। आप पूछते हैं कि पानी गरम है क्या।",
+     "data": {
+      "options": [
+       "आंघोळीला पाणी गरम आहे का?",
+       "आंघोळीला पाणी थंड आहे.",
+       "पाणी कुठे आहे?",
+       "मला पाणी हवं आहे."
+      ],
+      "speaker": "Mother",
+      "speaker_says": "आंघोळ करून घे."
+     },
+     "correct_answer": "आंघोळीला पाणी गरम आहे का?"
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "माँ नाश्ता करके जाने को कह रही हैं, पर आपको देर हो रही है।",
+     "data": {
+      "options": [
+       "मला उशीर होतोय.",
+       "मला भूक लागली आहे.",
+       "तुम्हाला उशीर होतोय.",
+       "मला वेळ आहे."
+      ],
+      "speaker": "Mother",
+      "speaker_says": "नाश्ता करून जा."
+     },
+     "correct_answer": "मला उशीर होतोय."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"सुबह मैं चाय पीता हूँ\"",
+     "data": {
+      "options": [
+       "सकाळी मी चहा पितो.",
+       "संध्याकाळी मी चहा पितो.",
+       "सकाळी मी कॉफी पितो.",
+       "सकाळी मी चहा पीत नाही."
+      ]
+     },
+     "correct_answer": "सकाळी मी चहा पितो."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे पूछेंगे — \"नहाने के लिए पानी गरम है क्या\"",
+     "data": {
+      "options": [
+       "आंघोळीला पाणी गरम आहे का?",
+       "आंघोळीला पाणी थंड आहे का?",
+       "पिण्याचं पाणी गरम आहे का?",
+       "पाणी गरम आहे."
+      ]
+     },
+     "correct_answer": "आंघोळीला पाणी गरम आहे का?"
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"मैं नौ बजे काम पर जाता हूँ\"",
+     "data": {
+      "options": [
+       "मी नऊ वाजता कामाला जातो.",
+       "मी नऊ वाजता घरी येतो.",
+       "मी दहा वाजता कामाला जातो.",
+       "मी नऊ वाजता उठतो."
+      ]
+     },
+     "correct_answer": "मी नऊ वाजता कामाला जातो."
+    }
+   ]
+  },
+  {
+   "order_index": 3,
+   "title": "Helping At Home",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "मी मदत करू का?",
+     "transliteration": "Mi madat karu ka?",
+     "source": "मैं मदद करूँ क्या?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "जेवण तयार आहे का?",
+     "transliteration": "Jevan tayaar aahe ka?",
+     "source": "खाना तैयार है क्या?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "भांडी मी धुवेन.",
+     "transliteration": "Bhaandi mi dhuven.",
+     "source": "बर्तन मैं धो दूँगा।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "कपडे वाळत घालायचे आहेत.",
+     "transliteration": "Kapde vaalat ghaalaayche aahet.",
+     "source": "कपड़े सुखाने डालने हैं।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "भाजी मी चिरू का?",
+     "transliteration": "Bhaaji mi chiru ka?",
+     "source": "सब्ज़ी मैं काटूँ क्या?",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "दोस्त की माँ रसोई में खाना बना रही हैं। आप पास जाकर पूछते हैं: \"मी मदत करू का?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "मी मदत करू का?",
+     "data": {
+      "options": [
+       "मैं मदद करूँ क्या?",
+       "मुझे मदद चाहिए।",
+       "आप मदद करेंगे क्या?",
+       "मैं मदद नहीं करूँगा।"
+      ]
+     },
+     "correct_answer": "मैं मदद करूँ क्या?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"मैं मदद करूँ क्या?\"",
+     "data": {
+      "sentence": "मी ___ करू का?",
+      "word_bank": [
+       "मदत",
+       "भूक",
+       "झोप"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "मदत"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "जेवण तयार आहे का?",
+     "data": {
+      "options": [
+       "खाना तैयार है क्या?",
+       "खाना ठंडा है क्या?",
+       "खाना कहाँ है?",
+       "खाना तैयार है।"
+      ]
+     },
+     "correct_answer": "खाना तैयार है क्या?"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"खाना तैयार है क्या?\"",
+     "data": {
+      "words": [
+       "जेवण",
+       "आहे",
+       "का",
+       "तयार"
+      ]
+     },
+     "correct_answer": "जेवण तयार आहे का"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"बर्तन मैं धो दूँगा।\"",
+     "data": {
+      "sentence": "___ मी धुवेन.",
+      "word_bank": [
+       "भांडी",
+       "कपडे",
+       "पाणी"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "भांडी"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "कपडे वाळत घालायचे आहेत.",
+     "data": {
+      "options": [
+       "कपड़े सुखाने डालने हैं।",
+       "कपड़े धोने हैं।",
+       "कपड़े सूख गए हैं।",
+       "बर्तन धोने हैं।"
+      ]
+     },
+     "correct_answer": "कपड़े सुखाने डालने हैं।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"कपड़े सुखाने डालने हैं।\"",
+     "data": {
+      "words": [
+       "वाळत",
+       "कपडे",
+       "घालायचे",
+       "आहेत"
+      ]
+     },
+     "correct_answer": "कपडे वाळत घालायचे आहेत"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"सब्ज़ी मैं काटूँ क्या?\"",
+     "data": {
+      "sentence": "भाजी मी ___ का?",
+      "word_bank": [
+       "चिरू",
+       "खाऊ",
+       "पिऊ"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "चिरू"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"सब्ज़ी मैं काटूँ क्या?\"",
+     "data": {
+      "words": [
+       "का",
+       "चिरू",
+       "मी",
+       "भाजी"
+      ]
+     },
+     "correct_answer": "भाजी मी चिरू का"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "आज घर में बहुत मेहमान हैं और आंटी अकेले काम कर रही हैं। आप मदद के लिए पूछते हैं।",
+     "data": {
+      "options": [
+       "मी मदत करू का?",
+       "मला मदत हवी आहे.",
+       "तुम्ही मदत करा.",
+       "मी जेवू का?"
+      ],
+      "speaker": "Aunty",
+      "speaker_says": "आज खूप पाहुणे आहेत."
+     },
+     "correct_answer": "मी मदत करू का?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "खाने के बाद दोस्त पूछता है कि बर्तन कौन धोएगा। आप कहते हैं कि आप धो देंगे।",
+     "data": {
+      "options": [
+       "भांडी मी धुवेन.",
+       "भांडी तू धू.",
+       "कपडे मी धुवेन.",
+       "भांडी कुठे आहेत?"
+      ],
+      "speaker": "Friend",
+      "speaker_says": "आता भांडी कोण धुणार?"
+     },
+     "correct_answer": "भांडी मी धुवेन."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "आंटी कहती हैं कि सब्ज़ी काटनी है। आप पूछते हैं कि क्या आप काट दें।",
+     "data": {
+      "options": [
+       "भाजी मी चिरू का?",
+       "भाजी तुम्ही चिरा.",
+       "भाजी कितीला आहे?",
+       "मला भाजी आवडते."
+      ],
+      "speaker": "Aunty",
+      "speaker_says": "भाजी चिरायची आहे."
+     },
+     "correct_answer": "भाजी मी चिरू का?"
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे पूछेंगे — \"खाना तैयार है क्या\"",
+     "data": {
+      "options": [
+       "जेवण तयार आहे का?",
+       "जेवण गार आहे का?",
+       "जेवण कुठे आहे?",
+       "जेवण तयार आहे."
+      ]
+     },
+     "correct_answer": "जेवण तयार आहे का?"
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"बर्तन मैं धो दूँगा\"",
+     "data": {
+      "options": [
+       "भांडी मी धुवेन.",
+       "भांडी तू धू.",
+       "कपडे मी धुवेन.",
+       "भांडी धुवायची आहेत."
+      ]
+     },
+     "correct_answer": "भांडी मी धुवेन."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"कपड़े सुखाने डालने हैं\"",
+     "data": {
+      "options": [
+       "कपडे वाळत घालायचे आहेत.",
+       "कपडे धुवायचे आहेत.",
+       "कपडे वाळले आहेत.",
+       "भांडी धुवायची आहेत."
+      ]
+     },
+     "correct_answer": "कपडे वाळत घालायचे आहेत."
+    }
+   ]
+  },
+  {
+   "order_index": 4,
+   "title": "Evening At Home",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "मी घरी आलो.",
+     "transliteration": "Mi ghari aalo.",
+     "source": "मैं घर आ गया।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "आज खूप काम होतं.",
+     "transliteration": "Aaj khup kaam hota.",
+     "source": "आज बहुत काम था।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "आपण आता जेवूया.",
+     "transliteration": "Aapan aata jevuya.",
+     "source": "चलिए, अब खाना खाते हैं।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "टीव्ही बंद करा.",
+     "transliteration": "TV band kara.",
+     "source": "टीवी बंद कीजिए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "मला झोप येतेय.",
+     "transliteration": "Mala jhop yetey.",
+     "source": "मुझे नींद आ रही है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "शाम को आप थककर घर लौटते हैं और दरवाज़े से ही आवाज़ देते हैं: \"मी घरी आलो.\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "मी घरी आलो.",
+     "data": {
+      "options": [
+       "मैं घर आ गया।",
+       "मैं घर जा रहा हूँ।",
+       "वह घर आ गया।",
+       "मैं घर पर नहीं हूँ।"
+      ]
+     },
+     "correct_answer": "मैं घर आ गया।"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"मैं घर आ गया।\"",
+     "data": {
+      "sentence": "मी ___ आलो.",
+      "word_bank": [
+       "घरी",
+       "कामाला",
+       "कुठे"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "घरी"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "आज खूप काम होतं.",
+     "data": {
+      "options": [
+       "आज बहुत काम था।",
+       "आज कोई काम नहीं था।",
+       "कल बहुत काम था।",
+       "आज बहुत भूख है।"
+      ]
+     },
+     "correct_answer": "आज बहुत काम था।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"आज बहुत काम था।\"",
+     "data": {
+      "words": [
+       "होतं",
+       "आज",
+       "खूप",
+       "काम"
+      ]
+     },
+     "correct_answer": "आज खूप काम होतं"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"चलिए, अब खाना खाते हैं।\"",
+     "data": {
+      "sentence": "आपण ___ जेवूया.",
+      "word_bank": [
+       "आता",
+       "काल",
+       "कधी"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "आता"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "टीव्ही बंद करा.",
+     "data": {
+      "options": [
+       "टीवी बंद कीजिए।",
+       "टीवी चालू कीजिए।",
+       "लाइट बंद कीजिए।",
+       "टीवी कहाँ है?"
+      ]
+     },
+     "correct_answer": "टीवी बंद कीजिए।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"टीवी बंद कीजिए।\"",
+     "data": {
+      "words": [
+       "टीव्ही",
+       "करा",
+       "बंद"
+      ]
+     },
+     "correct_answer": "टीव्ही बंद करा"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"मुझे नींद आ रही है।\"",
+     "data": {
+      "sentence": "मला ___ येतेय.",
+      "word_bank": [
+       "झोप",
+       "भूक",
+       "ताप"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "झोप"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे नींद आ रही है।\"",
+     "data": {
+      "words": [
+       "येतेय",
+       "झोप",
+       "मला"
+      ]
+     },
+     "correct_answer": "मला झोप येतेय"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "शाम को आप घर लौटे हैं। माँ अंदर से पूछती हैं कि कौन आया।",
+     "data": {
+      "options": [
+       "मी घरी आलो.",
+       "मी घरी जातो.",
+       "तो घरी आला.",
+       "मी कामाला आलो."
+      ],
+      "speaker": "Mother",
+      "speaker_says": "कोण आलं?"
+     },
+     "correct_answer": "मी घरी आलो."
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "रूममेट को बहुत भूख लगी है और खाना तैयार है। आप कहते हैं कि अब खाना खाते हैं।",
+     "data": {
+      "options": [
+       "आपण आता जेवूया.",
+       "आपण काल जेवलो.",
+       "मी आता झोपतो.",
+       "जेवण कुठे आहे?"
+      ],
+      "speaker": "Roommate",
+      "speaker_says": "मला खूप भूक लागली आहे."
+     },
+     "correct_answer": "आपण आता जेवूया."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "रात हो गई है। रूममेट एक और फ़िल्म देखना चाहता है, पर आपको नींद आ रही है।",
+     "data": {
+      "options": [
+       "मला झोप येतेय.",
+       "मला भूक लागली आहे.",
+       "तुला झोप येतेय.",
+       "मला पिक्चर आवडते."
+      ],
+      "speaker": "Roommate",
+      "speaker_says": "अजून एक पिक्चर बघूया?"
+     },
+     "correct_answer": "मला झोप येतेय."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"आज बहुत काम था\"",
+     "data": {
+      "options": [
+       "आज खूप काम होतं.",
+       "आज काहीच काम नव्हतं.",
+       "काल खूप काम होतं.",
+       "आज खूप भूक आहे."
+      ]
+     },
+     "correct_answer": "आज खूप काम होतं."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"चलिए, अब खाना खाते हैं\"",
+     "data": {
+      "options": [
+       "आपण आता जेवूया.",
+       "आपण काल जेवलो.",
+       "आपण आता झोपूया.",
+       "तुम्ही आता जेवा."
+      ]
+     },
+     "correct_answer": "आपण आता जेवूया."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"टीवी बंद कीजिए\"",
+     "data": {
+      "options": [
+       "टीव्ही बंद करा.",
+       "टीव्ही चालू करा.",
+       "लाईट बंद करा.",
+       "टीव्ही कुठे आहे?"
+      ]
+     },
+     "correct_answer": "टीव्ही बंद करा."
+    }
+   ]
+  },
+  {
+   "order_index": 5,
+   "title": "Around The House",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "लाईट बंद करा.",
+     "transliteration": "Light band kara.",
+     "source": "लाइट बंद कीजिए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "पंखा चालू करा.",
+     "transliteration": "Pankha chaalu kara.",
+     "source": "पंखा चालू कीजिए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "पाणी आलं का?",
+     "transliteration": "Paani aala ka?",
+     "source": "पानी आया क्या?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "घराची चावी कुठे आहे?",
+     "transliteration": "Gharachi chaavi kuthe aahe?",
+     "source": "घर की चाबी कहाँ है?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "वीज गेली आहे.",
+     "transliteration": "Veej geli aahe.",
+     "source": "बिजली चली गई है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "रात को सोने का समय है। आप घरवालों से कहते हैं: \"लाईट बंद करा.\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "लाईट बंद करा.",
+     "data": {
+      "options": [
+       "लाइट बंद कीजिए।",
+       "लाइट चालू कीजिए।",
+       "पंखा बंद कीजिए।",
+       "लाइट कहाँ है?"
+      ]
+     },
+     "correct_answer": "लाइट बंद कीजिए।"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"लाइट बंद कीजिए।\"",
+     "data": {
+      "sentence": "लाईट ___ करा.",
+      "word_bank": [
+       "बंद",
+       "चालू",
+       "उघडा"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "बंद"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "पंखा चालू करा.",
+     "data": {
+      "options": [
+       "पंखा चालू कीजिए।",
+       "पंखा बंद कीजिए।",
+       "लाइट चालू कीजिए।",
+       "पंखा चल रहा है।"
+      ]
+     },
+     "correct_answer": "पंखा चालू कीजिए।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"पंखा चालू कीजिए।\"",
+     "data": {
+      "words": [
+       "पंखा",
+       "करा",
+       "चालू"
+      ]
+     },
+     "correct_answer": "पंखा चालू करा"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"पानी आया क्या?\"",
+     "data": {
+      "sentence": "पाणी ___ का?",
+      "word_bank": [
+       "आलं",
+       "गेलं",
+       "प्यायलं"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "आलं"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "घराची चावी कुठे आहे?",
+     "data": {
+      "options": [
+       "घर की चाबी कहाँ है?",
+       "घर की चाबी यहाँ है।",
+       "गाड़ी की चाबी कहाँ है?",
+       "घर कहाँ है?"
+      ]
+     },
+     "correct_answer": "घर की चाबी कहाँ है?"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"घर की चाबी कहाँ है?\"",
+     "data": {
+      "words": [
+       "आहे",
+       "घराची",
+       "चावी",
+       "कुठे"
+      ]
+     },
+     "correct_answer": "घराची चावी कुठे आहे"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"बिजली चली गई है।\"",
+     "data": {
+      "sentence": "वीज ___ आहे.",
+      "word_bank": [
+       "गेली",
+       "आली",
+       "झाली"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "गेली"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"बिजली चली गई है।\"",
+     "data": {
+      "words": [
+       "आहे",
+       "गेली",
+       "वीज"
+      ]
+     },
+     "correct_answer": "वीज गेली आहे"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "रात हो गई है और रूममेट सोने जा रहा है। आप लाइट बंद करने को कहते हैं।",
+     "data": {
+      "options": [
+       "लाईट बंद करा.",
+       "लाईट चालू करा.",
+       "पंखा बंद करा.",
+       "लाईट कुठे आहे?"
+      ],
+      "speaker": "Roommate",
+      "speaker_says": "मी झोपतोय."
+     },
+     "correct_answer": "लाईट बंद करा."
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "पड़ोसी बताते हैं कि सुबह से नल बंद था। आप पूछते हैं कि पानी आया क्या।",
+     "data": {
+      "options": [
+       "पाणी आलं का?",
+       "पाणी गेलं का?",
+       "पाणी द्या.",
+       "पाणी थंड आहे का?"
+      ],
+      "speaker": "Neighbour",
+      "speaker_says": "सकाळपासून नळ बंद होता."
+     },
+     "correct_answer": "पाणी आलं का?"
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "अचानक अँधेरा हो गया। पड़ोसी पूछते हैं कि क्या आपके यहाँ भी अँधेरा है। आप बताते हैं कि बिजली चली गई है।",
+     "data": {
+      "options": [
+       "वीज गेली आहे.",
+       "वीज आली आहे.",
+       "लाईट चालू करा.",
+       "पाणी गेलं आहे."
+      ],
+      "speaker": "Neighbour",
+      "speaker_says": "तुमच्याकडे पण अंधार आहे का?"
+     },
+     "correct_answer": "वीज गेली आहे."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"पंखा चालू कीजिए\"",
+     "data": {
+      "options": [
+       "पंखा चालू करा.",
+       "पंखा बंद करा.",
+       "लाईट चालू करा.",
+       "पंखा चालू आहे."
+      ]
+     },
+     "correct_answer": "पंखा चालू करा."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे पूछेंगे — \"पानी आया क्या\"",
+     "data": {
+      "options": [
+       "पाणी आलं का?",
+       "पाणी गेलं का?",
+       "पाणी आहे का?",
+       "पाणी आलं."
+      ]
+     },
+     "correct_answer": "पाणी आलं का?"
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे पूछेंगे — \"घर की चाबी कहाँ है\"",
+     "data": {
+      "options": [
+       "घराची चावी कुठे आहे?",
+       "घराची चावी इथे आहे.",
+       "गाडीची चावी कुठे आहे?",
+       "घर कुठे आहे?"
+      ]
+     },
+     "correct_answer": "घराची चावी कुठे आहे?"
+    }
+   ]
+  }
+ ],
+ "notes": [
+  "Replaces the old At Home (5 lessons, 20 short phrases, 40 steps; no learner progress on 2026-11-12).",
+  "Same format as the other v2 modules: 5 sentences per lesson, 16 steps, match / fill_blank / arrange interleaved, then conversation and recall.",
+  "Daily-routine verbs use the man's form (उठतो, पितो, जातो, आलो), as in Essentials; other sentences are gender-neutral.",
+  "Review round 1 (Kiran): Morning Routine P2 घेतो -> पितो (सकाळी मी चहा पितो.).",
+  "Origin 'draft' = written for Samwad; 'existing' = already in the old module. Nothing written to the database yet."
+ ]
+}

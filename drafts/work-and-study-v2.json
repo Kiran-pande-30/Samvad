@@ -1,0 +1,1489 @@
+{
+ "module": "Work And Study",
+ "version": 2,
+ "made": "2026-11-12",
+ "lessons": [
+  {
+   "order_index": 1,
+   "title": "Talking About Work",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "तुम्ही काय काम करता?",
+     "transliteration": "Tumhi kay kaam karta?",
+     "source": "आप क्या काम करते हैं?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "मी आयटी कंपनीत काम करतो.",
+     "transliteration": "Mi IT kampanit kaam karto.",
+     "source": "मैं आईटी कंपनी में काम करता हूँ।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "माझं ऑफिस हिंजवडीला आहे.",
+     "transliteration": "Majha office Hinjawadila aahe.",
+     "source": "मेरा ऑफिस हिंजवडी में है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "आज मला सुट्टी आहे.",
+     "transliteration": "Aaj mala sutti aahe.",
+     "source": "आज मेरी छुट्टी है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "मी इथे नवीन आहे.",
+     "transliteration": "Mi ithe naveen aahe.",
+     "source": "मैं यहाँ नया हूँ।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "नई कंपनी में पहला दिन है। लंच पर एक सहकर्मी से बात शुरू करने के लिए आप पूछते हैं: \"तुम्ही काय काम करता?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "तुम्ही काय काम करता?",
+     "data": {
+      "options": [
+       "आप क्या काम करते हैं?",
+       "आप कहाँ काम करते हैं?",
+       "मैं क्या काम करता हूँ?",
+       "आप कब काम करते हैं?"
+      ]
+     },
+     "correct_answer": "आप क्या काम करते हैं?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"आप क्या काम करते हैं?\"",
+     "data": {
+      "sentence": "तुम्ही ___ काम करता?",
+      "word_bank": [
+       "काय",
+       "कुठे",
+       "कधी"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "काय"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "मी आयटी कंपनीत काम करतो.",
+     "data": {
+      "options": [
+       "मैं आईटी कंपनी में काम करता हूँ।",
+       "मैं आईटी कंपनी में पढ़ता हूँ।",
+       "वह आईटी कंपनी में काम करता है।",
+       "मैं बैंक में काम करता हूँ।"
+      ]
+     },
+     "correct_answer": "मैं आईटी कंपनी में काम करता हूँ।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मैं आईटी कंपनी में काम करता हूँ।\"",
+     "data": {
+      "words": [
+       "मी",
+       "करतो",
+       "आयटी",
+       "काम",
+       "कंपनीत"
+      ]
+     },
+     "correct_answer": "मी आयटी कंपनीत काम करतो"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"मेरा ऑफिस हिंजवडी में है।\"",
+     "data": {
+      "sentence": "माझं ___ हिंजवडीला आहे.",
+      "word_bank": [
+       "ऑफिस",
+       "घर",
+       "नाव"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "ऑफिस"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "आज मला सुट्टी आहे.",
+     "data": {
+      "options": [
+       "आज मेरी छुट्टी है।",
+       "आज मेरा काम है।",
+       "कल मेरी छुट्टी है।",
+       "आज किसकी छुट्टी है?"
+      ]
+     },
+     "correct_answer": "आज मेरी छुट्टी है।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"आज मेरी छुट्टी है।\"",
+     "data": {
+      "words": [
+       "मला",
+       "आहे",
+       "आज",
+       "सुट्टी"
+      ]
+     },
+     "correct_answer": "आज मला सुट्टी आहे"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"मैं यहाँ नया हूँ।\"",
+     "data": {
+      "sentence": "मी इथे ___ आहे.",
+      "word_bank": [
+       "नवीन",
+       "जुना",
+       "मोठा"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "नवीन"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मैं यहाँ नया हूँ।\"",
+     "data": {
+      "words": [
+       "नवीन",
+       "मी",
+       "आहे",
+       "इथे"
+      ]
+     },
+     "correct_answer": "मी इथे नवीन आहे"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "लंच पर एक सहकर्मी अपना परिचय देते हैं। आप पूछते हैं कि वे क्या काम करते हैं।",
+     "data": {
+      "options": [
+       "तुम्ही काय काम करता?",
+       "तुम्ही कुठे राहता?",
+       "मी काय काम करतो?",
+       "तुमचं नाव काय आहे?"
+      ],
+      "speaker": "Colleague",
+      "speaker_says": "मी अनिल. मी इथे दोन वर्षं आहे."
+     },
+     "correct_answer": "तुम्ही काय काम करता?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "पड़ोसी पूछते हैं कि आपका ऑफिस कहाँ है। आपका ऑफिस हिंजवडी में है।",
+     "data": {
+      "options": [
+       "माझं ऑफिस हिंजवडीला आहे.",
+       "माझं घर हिंजवडीला आहे.",
+       "तुमचं ऑफिस हिंजवडीला आहे.",
+       "मी हिंजवडीला जात नाही."
+      ],
+      "speaker": "Neighbour",
+      "speaker_says": "तुमचं ऑफिस कुठे आहे?"
+     },
+     "correct_answer": "माझं ऑफिस हिंजवडीला आहे."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "एक सहकर्मी कहते हैं कि उन्होंने आपको पहले नहीं देखा। आप बताते हैं कि आप यहाँ नए हैं।",
+     "data": {
+      "options": [
+       "मी इथे नवीन आहे.",
+       "तुम्ही इथे नवीन आहात.",
+       "मी इथे खूप जुना आहे.",
+       "मी इथे नाही."
+      ],
+      "speaker": "Colleague",
+      "speaker_says": "तुम्हाला आधी पाहिलं नाही."
+     },
+     "correct_answer": "मी इथे नवीन आहे."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"मैं आईटी कंपनी में काम करता हूँ\"",
+     "data": {
+      "options": [
+       "मी आयटी कंपनीत काम करतो.",
+       "मी आयटी कंपनीत शिकतो.",
+       "तो आयटी कंपनीत काम करतो.",
+       "मी बँकेत काम करतो."
+      ]
+     },
+     "correct_answer": "मी आयटी कंपनीत काम करतो."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"मेरा ऑफिस हिंजवडी में है\"",
+     "data": {
+      "options": [
+       "माझं ऑफिस हिंजवडीला आहे.",
+       "माझं घर हिंजवडीला आहे.",
+       "तुमचं ऑफिस हिंजवडीला आहे.",
+       "माझं ऑफिस कुठे आहे?"
+      ]
+     },
+     "correct_answer": "माझं ऑफिस हिंजवडीला आहे."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"आज मेरी छुट्टी है\"",
+     "data": {
+      "options": [
+       "आज मला सुट्टी आहे.",
+       "आज मला काम आहे.",
+       "उद्या मला सुट्टी आहे.",
+       "आज कोणाला सुट्टी आहे?"
+      ]
+     },
+     "correct_answer": "आज मला सुट्टी आहे."
+    }
+   ]
+  },
+  {
+   "order_index": 2,
+   "title": "At The Office",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "मीटिंग किती वाजता आहे?",
+     "transliteration": "Meeting kiti vajta aahe?",
+     "source": "मीटिंग कितने बजे है?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "मला थोडा वेळ द्या.",
+     "transliteration": "Mala thoda vel dya.",
+     "source": "मुझे थोड़ा समय दीजिए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "मी उद्या घरून काम करेन.",
+     "transliteration": "Mi udya gharun kaam karen.",
+     "source": "मैं कल घर से काम करूँगा।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "हे काम आज संपेल.",
+     "transliteration": "He kaam aaj sampel.",
+     "source": "यह काम आज खत्म हो जाएगा।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "मी दहा मिनिटांत येईन.",
+     "transliteration": "Mi daha minitaant yein.",
+     "source": "मैं दस मिनट में आऊँगा।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "ऑफिस पहुँचते ही आप टीम के एक साथी से पूछते हैं: \"मीटिंग किती वाजता आहे?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "मीटिंग किती वाजता आहे?",
+     "data": {
+      "options": [
+       "मीटिंग कितने बजे है?",
+       "मीटिंग कहाँ है?",
+       "मीटिंग कितने बजे खत्म होगी?",
+       "मीटिंग किसकी है?"
+      ]
+     },
+     "correct_answer": "मीटिंग कितने बजे है?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"मीटिंग कितने बजे है?\"",
+     "data": {
+      "sentence": "मीटिंग ___ वाजता आहे?",
+      "word_bank": [
+       "किती",
+       "कुठे",
+       "कोण"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "किती"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "मला थोडा वेळ द्या.",
+     "data": {
+      "options": [
+       "मुझे थोड़ा समय दीजिए।",
+       "मुझे बहुत समय दीजिए।",
+       "मुझे थोड़ा पानी दीजिए।",
+       "आपको थोड़ा समय चाहिए।"
+      ]
+     },
+     "correct_answer": "मुझे थोड़ा समय दीजिए।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे थोड़ा समय दीजिए।\"",
+     "data": {
+      "words": [
+       "द्या",
+       "थोडा",
+       "मला",
+       "वेळ"
+      ]
+     },
+     "correct_answer": "मला थोडा वेळ द्या"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"मैं कल घर से काम करूँगा।\"",
+     "data": {
+      "sentence": "मी उद्या ___ काम करेन.",
+      "word_bank": [
+       "घरून",
+       "घरी",
+       "घराला"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "घरून"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "हे काम आज संपेल.",
+     "data": {
+      "options": [
+       "यह काम आज खत्म हो जाएगा।",
+       "यह काम कल खत्म होगा।",
+       "यह काम आज शुरू होगा।",
+       "यह काम खत्म नहीं होगा।"
+      ]
+     },
+     "correct_answer": "यह काम आज खत्म हो जाएगा।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"यह काम आज खत्म हो जाएगा।\"",
+     "data": {
+      "words": [
+       "काम",
+       "हे",
+       "संपेल",
+       "आज"
+      ]
+     },
+     "correct_answer": "हे काम आज संपेल"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"मैं दस मिनट में आऊँगा।\"",
+     "data": {
+      "sentence": "मी दहा ___ येईन.",
+      "word_bank": [
+       "मिनिटांत",
+       "तासांत",
+       "दिवसांत"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "मिनिटांत"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मैं दस मिनट में आऊँगा।\"",
+     "data": {
+      "words": [
+       "येईन",
+       "दहा",
+       "मी",
+       "मिनिटांत"
+      ]
+     },
+     "correct_answer": "मी दहा मिनिटांत येईन"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "सहकर्मी बताते हैं कि आज क्लाइंट मीटिंग है। आप पूछते हैं कि कितने बजे है।",
+     "data": {
+      "options": [
+       "मीटिंग किती वाजता आहे?",
+       "मीटिंग कुठे आहे?",
+       "मीटिंग कोणाची आहे?",
+       "मीटिंग झाली."
+      ],
+      "speaker": "Colleague",
+      "speaker_says": "आज क्लायंटची मीटिंग आहे."
+     },
+     "correct_answer": "मीटिंग किती वाजता आहे?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "मैनेजर पूछते हैं कि कल ऑफिस आएँगे क्या। आप बताते हैं कि आप घर से काम करेंगे।",
+     "data": {
+      "options": [
+       "मी उद्या घरून काम करेन.",
+       "मी उद्या ऑफिसला येईन.",
+       "तुम्ही घरून काम करा.",
+       "मी काल घरून काम केलं."
+      ],
+      "speaker": "Manager",
+      "speaker_says": "उद्या ऑफिसला येणार का?"
+     },
+     "correct_answer": "मी उद्या घरून काम करेन."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "मीटिंग शुरू हो रही है और मैनेजर पूछते हैं कि आप कहाँ हैं। आप दस मिनट में पहुँचेंगे।",
+     "data": {
+      "options": [
+       "मी दहा मिनिटांत येईन.",
+       "मी दहा मिनिटांत गेलो.",
+       "तुम्ही दहा मिनिटांत या.",
+       "मी दहा वाजता येईन."
+      ],
+      "speaker": "Manager",
+      "speaker_says": "मीटिंग सुरू होतेय, कुठे आहात?"
+     },
+     "correct_answer": "मी दहा मिनिटांत येईन."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे थोड़ा समय दीजिए\"",
+     "data": {
+      "options": [
+       "मला थोडा वेळ द्या.",
+       "मला खूप वेळ द्या.",
+       "मला थोडं पाणी द्या.",
+       "तुम्हाला थोडा वेळ हवा आहे."
+      ]
+     },
+     "correct_answer": "मला थोडा वेळ द्या."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"मैं कल घर से काम करूँगा\"",
+     "data": {
+      "options": [
+       "मी उद्या घरून काम करेन.",
+       "मी उद्या ऑफिसला येईन.",
+       "मी काल घरून काम केलं.",
+       "तुम्ही उद्या घरून काम करा."
+      ]
+     },
+     "correct_answer": "मी उद्या घरून काम करेन."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"यह काम आज खत्म हो जाएगा\"",
+     "data": {
+      "options": [
+       "हे काम आज संपेल.",
+       "हे काम उद्या संपेल.",
+       "हे काम आज सुरू होईल.",
+       "हे काम संपणार नाही."
+      ]
+     },
+     "correct_answer": "हे काम आज संपेल."
+    }
+   ]
+  },
+  {
+   "order_index": 3,
+   "title": "Asking At Work",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "हे कसं करायचं?",
+     "transliteration": "He kasa karaycha?",
+     "source": "यह कैसे करना है?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "पुन्हा एकदा सांगा.",
+     "transliteration": "Punha ekda sanga.",
+     "source": "फिर से एक बार बताइए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "मला थोडं समजलं.",
+     "transliteration": "Mala thoda samajla.",
+     "source": "मुझे थोड़ा समझ आया।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "याचा अर्थ काय आहे?",
+     "transliteration": "Yacha artha kay aahe?",
+     "source": "इसका मतलब क्या है?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "मी तुम्हाला मेल करेन.",
+     "transliteration": "Mi tumhala mail karen.",
+     "source": "मैं आपको मेल करूँगा।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "नया सॉफ़्टवेयर समझ नहीं आ रहा। आप पास बैठे सहकर्मी से पूछते हैं: \"हे कसं करायचं?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "हे कसं करायचं?",
+     "data": {
+      "options": [
+       "यह कैसे करना है?",
+       "यह क्या करना है?",
+       "यह कब करना है?",
+       "यह कैसे हुआ?"
+      ]
+     },
+     "correct_answer": "यह कैसे करना है?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"यह कैसे करना है?\"",
+     "data": {
+      "sentence": "हे ___ करायचं?",
+      "word_bank": [
+       "कसं",
+       "काय",
+       "कधी"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "कसं"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "पुन्हा एकदा सांगा.",
+     "data": {
+      "options": [
+       "फिर से एक बार बताइए।",
+       "फिर से एक बार पूछिए।",
+       "धीरे से एक बार बताइए।",
+       "मत बताइए।"
+      ]
+     },
+     "correct_answer": "फिर से एक बार बताइए।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"फिर से एक बार बताइए।\"",
+     "data": {
+      "words": [
+       "एकदा",
+       "पुन्हा",
+       "सांगा"
+      ]
+     },
+     "correct_answer": "पुन्हा एकदा सांगा"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"मुझे थोड़ा समझ आया।\"",
+     "data": {
+      "sentence": "मला ___ समजलं.",
+      "word_bank": [
+       "थोडं",
+       "सगळं",
+       "काहीच"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "थोडं"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "याचा अर्थ काय आहे?",
+     "data": {
+      "options": [
+       "इसका मतलब क्या है?",
+       "इसका नाम क्या है?",
+       "इसका मतलब नहीं पता।",
+       "उसका मतलब क्या है?"
+      ]
+     },
+     "correct_answer": "इसका मतलब क्या है?"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"इसका मतलब क्या है?\"",
+     "data": {
+      "words": [
+       "अर्थ",
+       "याचा",
+       "काय",
+       "आहे"
+      ]
+     },
+     "correct_answer": "याचा अर्थ काय आहे"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"मैं आपको मेल करूँगा।\"",
+     "data": {
+      "sentence": "मी तुम्हाला ___ करेन.",
+      "word_bank": [
+       "मेल",
+       "फोन",
+       "भेट"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "मेल"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मैं आपको मेल करूँगा।\"",
+     "data": {
+      "words": [
+       "करेन",
+       "मेल",
+       "तुम्हाला",
+       "मी"
+      ]
+     },
+     "correct_answer": "मी तुम्हाला मेल करेन"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "आप नए टूल पर अटके हैं। सहकर्मी पूछते हैं क्या हुआ। आप पूछते हैं कि यह कैसे करना है।",
+     "data": {
+      "options": [
+       "हे कसं करायचं?",
+       "हे कधी करायचं?",
+       "हे मी केलं.",
+       "हे काय आहे?"
+      ],
+      "speaker": "Colleague",
+      "speaker_says": "काय झालं? अडकलात का?"
+     },
+     "correct_answer": "हे कसं करायचं?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "सहकर्मी ने समझाया और पूछते हैं कि समझ आया क्या। आपको थोड़ा समझ आया।",
+     "data": {
+      "options": [
+       "मला थोडं समजलं.",
+       "मला सगळं माहीत आहे.",
+       "तुम्हाला थोडं समजलं.",
+       "मला भूक लागली आहे."
+      ],
+      "speaker": "Colleague",
+      "speaker_says": "समजलं का?"
+     },
+     "correct_answer": "मला थोडं समजलं."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "मैनेजर को एक फ़ाइल चाहिए। आप कहते हैं कि आप उन्हें मेल कर देंगे।",
+     "data": {
+      "options": [
+       "मी तुम्हाला मेल करेन.",
+       "तुम्ही मला मेल करा.",
+       "मी तुम्हाला फोन केला.",
+       "फाईल कुठे आहे?"
+      ],
+      "speaker": "Manager",
+      "speaker_says": "मला ती फाईल हवी आहे."
+     },
+     "correct_answer": "मी तुम्हाला मेल करेन."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"फिर से एक बार बताइए\"",
+     "data": {
+      "options": [
+       "पुन्हा एकदा सांगा.",
+       "पुन्हा एकदा विचारा.",
+       "हळू एकदा सांगा.",
+       "सांगू नका."
+      ]
+     },
+     "correct_answer": "पुन्हा एकदा सांगा."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे थोड़ा समझ आया\"",
+     "data": {
+      "options": [
+       "मला थोडं समजलं.",
+       "मला सगळं समजलं.",
+       "मला समजलं नाही.",
+       "तुला थोडं समजलं."
+      ]
+     },
+     "correct_answer": "मला थोडं समजलं."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे पूछेंगे — \"इसका मतलब क्या है\"",
+     "data": {
+      "options": [
+       "याचा अर्थ काय आहे?",
+       "याचं नाव काय आहे?",
+       "याचा अर्थ माहीत नाही.",
+       "त्याचा अर्थ काय आहे?"
+      ]
+     },
+     "correct_answer": "याचा अर्थ काय आहे?"
+    }
+   ]
+  },
+  {
+   "order_index": 4,
+   "title": "Learning Marathi",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "मी मराठी शिकत आहे.",
+     "transliteration": "Mi Marathi shikat aahe.",
+     "source": "मैं मराठी सीख रहा हूँ।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "क्लास किती वाजता सुरू होतो?",
+     "transliteration": "Class kiti vajta suru hoto?",
+     "source": "क्लास कितने बजे शुरू होती है?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "मला एक प्रश्न आहे.",
+     "transliteration": "Mala ek prashna aahe.",
+     "source": "मेरा एक सवाल है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "याला मराठीत काय म्हणतात?",
+     "transliteration": "Yala Marathit kay mhantat?",
+     "source": "इसे मराठी में क्या कहते हैं?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "मी उद्या अभ्यास करेन.",
+     "transliteration": "Mi udya abhyas karen.",
+     "source": "मैं कल पढ़ाई करूँगा।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "नए पड़ोसी हैरान हैं कि आप मराठी बोलने की कोशिश कर रहे हैं। आप मुस्कुराकर कहते हैं: \"मी मराठी शिकत आहे.\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "मी मराठी शिकत आहे.",
+     "data": {
+      "options": [
+       "मैं मराठी सीख रहा हूँ।",
+       "मैं मराठी सिखा रहा हूँ।",
+       "मैं मराठी बोलता हूँ।",
+       "वह मराठी सीख रहा है।"
+      ]
+     },
+     "correct_answer": "मैं मराठी सीख रहा हूँ।"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"मैं मराठी सीख रहा हूँ।\"",
+     "data": {
+      "sentence": "मी मराठी ___ आहे.",
+      "word_bank": [
+       "शिकत",
+       "शिकवत",
+       "बोलत"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "शिकत"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "क्लास किती वाजता सुरू होतो?",
+     "data": {
+      "options": [
+       "क्लास कितने बजे शुरू होती है?",
+       "क्लास कितने बजे खत्म होती है?",
+       "क्लास कहाँ शुरू होती है?",
+       "क्लास कब थी?"
+      ]
+     },
+     "correct_answer": "क्लास कितने बजे शुरू होती है?"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"क्लास कितने बजे शुरू होती है?\"",
+     "data": {
+      "words": [
+       "सुरू",
+       "क्लास",
+       "किती",
+       "वाजता",
+       "होतो"
+      ]
+     },
+     "correct_answer": "क्लास किती वाजता सुरू होतो"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"मेरा एक सवाल है।\"",
+     "data": {
+      "sentence": "मला एक ___ आहे.",
+      "word_bank": [
+       "प्रश्न",
+       "भूक",
+       "काम"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "प्रश्न"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "याला मराठीत काय म्हणतात?",
+     "data": {
+      "options": [
+       "इसे मराठी में क्या कहते हैं?",
+       "इसे हिंदी में क्या कहते हैं?",
+       "इसका मराठी में नाम है।",
+       "इसे मराठी में कैसे लिखते हैं?"
+      ]
+     },
+     "correct_answer": "इसे मराठी में क्या कहते हैं?"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"इसे मराठी में क्या कहते हैं?\"",
+     "data": {
+      "words": [
+       "याला",
+       "मराठीत",
+       "म्हणतात",
+       "काय"
+      ]
+     },
+     "correct_answer": "याला मराठीत काय म्हणतात"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"मैं कल पढ़ाई करूँगा।\"",
+     "data": {
+      "sentence": "मी उद्या ___ करेन.",
+      "word_bank": [
+       "अभ्यास",
+       "आराम",
+       "जेवण"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "अभ्यास"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मैं कल पढ़ाई करूँगा।\"",
+     "data": {
+      "words": [
+       "अभ्यास",
+       "करेन",
+       "उद्या",
+       "मी"
+      ]
+     },
+     "correct_answer": "मी उद्या अभ्यास करेन"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "पड़ोसी हैरान हैं कि आप मराठी बोल रहे हैं। आप बताते हैं कि आप मराठी सीख रहे हैं।",
+     "data": {
+      "options": [
+       "मी मराठी शिकत आहे.",
+       "मी मराठी शिकवत आहे.",
+       "तुम्ही मराठी शिकत आहात.",
+       "मी हिंदी शिकत आहे."
+      ],
+      "speaker": "Neighbour",
+      "speaker_says": "अरे, तुम्ही मराठी बोलता?"
+     },
+     "correct_answer": "मी मराठी शिकत आहे."
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "टीचर पूछती हैं कि कोई शंका है क्या। आपका एक सवाल है।",
+     "data": {
+      "options": [
+       "मला एक प्रश्न आहे.",
+       "मला प्रश्न नाही.",
+       "तुम्हाला एक प्रश्न आहे.",
+       "मला एक काम आहे."
+      ],
+      "speaker": "Teacher",
+      "speaker_says": "काही शंका?"
+     },
+     "correct_answer": "मला एक प्रश्न आहे."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "दोस्त पूछता है कि आज पढ़ाई की क्या। आज नहीं हुई, आप कहते हैं कि कल करेंगे।",
+     "data": {
+      "options": [
+       "मी उद्या अभ्यास करेन.",
+       "मी काल अभ्यास केला.",
+       "तू उद्या अभ्यास कर.",
+       "मी आज आराम करेन."
+      ],
+      "speaker": "Friend",
+      "speaker_says": "आज अभ्यास केला का?"
+     },
+     "correct_answer": "मी उद्या अभ्यास करेन."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे पूछेंगे — \"क्लास कितने बजे शुरू होती है\"",
+     "data": {
+      "options": [
+       "क्लास किती वाजता सुरू होतो?",
+       "क्लास किती वाजता संपतो?",
+       "क्लास कुठे सुरू होतो?",
+       "क्लास कधी होता?"
+      ]
+     },
+     "correct_answer": "क्लास किती वाजता सुरू होतो?"
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"मेरा एक सवाल है\"",
+     "data": {
+      "options": [
+       "मला एक प्रश्न आहे.",
+       "मला प्रश्न नाही.",
+       "तुम्हाला एक प्रश्न आहे का?",
+       "मला एक काम आहे."
+      ]
+     },
+     "correct_answer": "मला एक प्रश्न आहे."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे पूछेंगे — \"इसे मराठी में क्या कहते हैं\"",
+     "data": {
+      "options": [
+       "याला मराठीत काय म्हणतात?",
+       "याला हिंदीत काय म्हणतात?",
+       "याचं मराठीत नाव आहे.",
+       "हे मराठीत कसं लिहितात?"
+      ]
+     },
+     "correct_answer": "याला मराठीत काय म्हणतात?"
+    }
+   ]
+  },
+  {
+   "order_index": 5,
+   "title": "Getting It Done",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "काम झालं.",
+     "transliteration": "Kaam zala.",
+     "source": "काम हो गया।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "अजून थोडं काम बाकी आहे.",
+     "transliteration": "Ajun thoda kaam baaki aahe.",
+     "source": "अभी थोड़ा काम बाकी है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "उद्या करूया.",
+     "transliteration": "Udya karuya.",
+     "source": "कल करते हैं।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "तुमची खूप मदत झाली.",
+     "transliteration": "Tumchi khup madat zaali.",
+     "source": "आपकी बहुत मदद हुई।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "चला, भेटू उद्या.",
+     "transliteration": "Chala, bhetu udya.",
+     "source": "चलिए, कल मिलते हैं।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "शाम के छह बजे हैं। मैनेजर पूछते हैं कि रिपोर्ट का क्या हुआ। आप कहते हैं: \"काम झालं.\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "काम झालं.",
+     "data": {
+      "options": [
+       "काम हो गया।",
+       "काम नहीं हुआ।",
+       "काम कब होगा?",
+       "खाना हो गया।"
+      ]
+     },
+     "correct_answer": "काम हो गया।"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"काम हो गया।\"",
+     "data": {
+      "sentence": "___ झालं.",
+      "word_bank": [
+       "काम",
+       "भूक",
+       "ताप"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "काम"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "अजून थोडं काम बाकी आहे.",
+     "data": {
+      "options": [
+       "अभी थोड़ा काम बाकी है।",
+       "अभी बहुत काम बाकी है।",
+       "कोई काम बाकी नहीं है।",
+       "कल थोड़ा काम था।"
+      ]
+     },
+     "correct_answer": "अभी थोड़ा काम बाकी है।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"अभी थोड़ा काम बाकी है।\"",
+     "data": {
+      "words": [
+       "थोडं",
+       "अजून",
+       "काम",
+       "आहे",
+       "बाकी"
+      ]
+     },
+     "correct_answer": "अजून थोडं काम बाकी आहे"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"कल करते हैं।\"",
+     "data": {
+      "sentence": "___ करूया.",
+      "word_bank": [
+       "उद्या",
+       "काल",
+       "कधी"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "उद्या"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "तुमची खूप मदत झाली.",
+     "data": {
+      "options": [
+       "आपकी बहुत मदद हुई।",
+       "मेरी बहुत मदद हुई।",
+       "आपको बहुत मदद चाहिए।",
+       "आपकी थोड़ी मदद हुई।"
+      ]
+     },
+     "correct_answer": "आपकी बहुत मदद हुई।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"आपकी बहुत मदद हुई।\"",
+     "data": {
+      "words": [
+       "झाली",
+       "तुमची",
+       "खूप",
+       "मदत"
+      ]
+     },
+     "correct_answer": "तुमची खूप मदत झाली"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"चलिए, कल मिलते हैं।\"",
+     "data": {
+      "sentence": "चला, ___ उद्या.",
+      "word_bank": [
+       "भेटू",
+       "जाऊ",
+       "खाऊ"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "भेटू"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"चलिए, कल मिलते हैं।\"",
+     "data": {
+      "words": [
+       "उद्या",
+       "भेटू",
+       "चला"
+      ]
+     },
+     "correct_answer": "चला भेटू उद्या"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "मैनेजर रिपोर्ट के बारे में पूछते हैं। काम हो गया है।",
+     "data": {
+      "options": [
+       "काम झालं.",
+       "काम नाही झालं.",
+       "काम कधी होईल?",
+       "जेवण झालं."
+      ],
+      "speaker": "Manager",
+      "speaker_says": "रिपोर्टचं काय झालं?"
+     },
+     "correct_answer": "काम झालं."
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "रात के आठ बज गए हैं। सहकर्मी पूछते हैं कि आज ही खत्म करें क्या। आप कहते हैं कि कल करते हैं।",
+     "data": {
+      "options": [
+       "उद्या करूया.",
+       "काल केलं.",
+       "आज करूया.",
+       "उद्या कधी?"
+      ],
+      "speaker": "Colleague",
+      "speaker_says": "आज संपवूया का?"
+     },
+     "correct_answer": "उद्या करूया."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "दिन खत्म हुआ और सहकर्मी घर जा रहे हैं। आप कहते हैं कि कल मिलते हैं।",
+     "data": {
+      "options": [
+       "चला, भेटू उद्या.",
+       "चला, काल भेटलो.",
+       "चला, उद्या जाऊ.",
+       "मी इथे आहे."
+      ],
+      "speaker": "Colleague",
+      "speaker_says": "चला, मी निघतो."
+     },
+     "correct_answer": "चला, भेटू उद्या."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"अभी थोड़ा काम बाकी है\"",
+     "data": {
+      "options": [
+       "अजून थोडं काम बाकी आहे.",
+       "अजून खूप काम बाकी आहे.",
+       "काहीच काम बाकी नाही.",
+       "काल थोडं काम होतं."
+      ]
+     },
+     "correct_answer": "अजून थोडं काम बाकी आहे."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"कल करते हैं\"",
+     "data": {
+      "options": [
+       "उद्या करूया.",
+       "काल केलं.",
+       "आज करूया.",
+       "उद्या कधी?"
+      ]
+     },
+     "correct_answer": "उद्या करूया."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"आपकी बहुत मदद हुई\"",
+     "data": {
+      "options": [
+       "तुमची खूप मदत झाली.",
+       "माझी खूप मदत झाली.",
+       "तुम्हाला खूप मदत हवी आहे.",
+       "तुमची थोडी मदत झाली."
+      ]
+     },
+     "correct_answer": "तुमची खूप मदत झाली."
+    }
+   ]
+  }
+ ],
+ "notes": [
+  "Replaces the old Work And Study (5 lessons, 20 short phrases, 40 steps; no learner progress on 2026-11-12).",
+  "Same format as the other v2 modules: 5 sentences per lesson, 16 steps, match / fill_blank / arrange interleaved, then conversation and recall.",
+  "Lesson 4 is now 'Learning Marathi' (the old 'School And Class' was about school children; adult learners take a Marathi class).",
+  "Origin 'draft' = written for Samwad; 'existing' = already in the old module. Nothing written to the database yet."
+ ]
+}

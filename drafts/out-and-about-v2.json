@@ -1,0 +1,1486 @@
+{
+ "module": "Out And About",
+ "version": 2,
+ "made": "2026-11-12",
+ "lessons": [
+  {
+   "order_index": 1,
+   "title": "Asking The Way",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "बस स्टॉप कुठे आहे?",
+     "transliteration": "Bus stop kuthe aahe?",
+     "source": "बस स्टॉप कहाँ है?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "मला स्टेशनला जायचं आहे.",
+     "transliteration": "Mala stationla jaycha aahe.",
+     "source": "मुझे स्टेशन जाना है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "हा रस्ता बरोबर आहे का?",
+     "transliteration": "Ha rasta barobar aahe ka?",
+     "source": "यह रास्ता सही है क्या?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "इथून किती लांब आहे?",
+     "transliteration": "Ithun kiti laamb aahe?",
+     "source": "यहाँ से कितनी दूर है?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "चालत जाता येईल का?",
+     "transliteration": "Chalat jaata yeil ka?",
+     "source": "पैदल जा सकते हैं क्या?",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "नए शहर में आपका पहला दिन है और आपको बस पकड़नी है। आप एक दुकानदार से पूछते हैं: \"बस स्टॉप कुठे आहे?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "बस स्टॉप कुठे आहे?",
+     "data": {
+      "options": [
+       "बस स्टॉप कहाँ है?",
+       "बस कब आएगी?",
+       "बस स्टॉप यहाँ है।",
+       "स्टेशन कहाँ है?"
+      ]
+     },
+     "correct_answer": "बस स्टॉप कहाँ है?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"बस स्टॉप कहाँ है?\"",
+     "data": {
+      "sentence": "बस स्टॉप ___ आहे?",
+      "word_bank": [
+       "कुठे",
+       "कधी",
+       "कोण"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "कुठे"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "मला स्टेशनला जायचं आहे.",
+     "data": {
+      "options": [
+       "मुझे स्टेशन जाना है।",
+       "मुझे स्टेशन से आना है।",
+       "मुझे घर जाना है।",
+       "स्टेशन कहाँ है?"
+      ]
+     },
+     "correct_answer": "मुझे स्टेशन जाना है।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे स्टेशन जाना है।\"",
+     "data": {
+      "words": [
+       "मला",
+       "स्टेशनला",
+       "आहे",
+       "जायचं"
+      ]
+     },
+     "correct_answer": "मला स्टेशनला जायचं आहे"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"यह रास्ता सही है क्या?\"",
+     "data": {
+      "sentence": "हा रस्ता ___ आहे का?",
+      "word_bank": [
+       "बरोबर",
+       "लांब",
+       "नवीन"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "बरोबर"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "इथून किती लांब आहे?",
+     "data": {
+      "options": [
+       "यहाँ से कितनी दूर है?",
+       "यहाँ से कितना समय लगेगा?",
+       "यहाँ से पास है क्या?",
+       "वहाँ से कितनी दूर है?"
+      ]
+     },
+     "correct_answer": "यहाँ से कितनी दूर है?"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"यहाँ से कितनी दूर है?\"",
+     "data": {
+      "words": [
+       "किती",
+       "आहे",
+       "इथून",
+       "लांब"
+      ]
+     },
+     "correct_answer": "इथून किती लांब आहे"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"पैदल जा सकते हैं क्या?\"",
+     "data": {
+      "sentence": "चालत जाता ___ का?",
+      "word_bank": [
+       "येईल",
+       "जाईल",
+       "होईल"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "येईल"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"पैदल जा सकते हैं क्या?\"",
+     "data": {
+      "words": [
+       "येईल",
+       "चालत",
+       "का",
+       "जाता"
+      ]
+     },
+     "correct_answer": "चालत जाता येईल का"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "आपको बस पकड़नी है, पर बस स्टॉप नहीं मिल रहा। आप दुकानदार से पूछते हैं।",
+     "data": {
+      "options": [
+       "बस स्टॉप कुठे आहे?",
+       "बस कधी येईल?",
+       "बस स्टॉप इथे आहे.",
+       "स्टेशन कुठे आहे?"
+      ],
+      "speaker": "Shopkeeper",
+      "speaker_says": "बोला, काय हवं?"
+     },
+     "correct_answer": "बस स्टॉप कुठे आहे?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "आप एक गली में मुड़े हैं, पर यकीन नहीं कि यही सही रास्ता है। आप राहगीर से पूछते हैं।",
+     "data": {
+      "options": [
+       "हा रस्ता बरोबर आहे का?",
+       "हा रस्ता लांब आहे का?",
+       "हा रस्ता कुठे आहे?",
+       "हा रस्ता माझा आहे."
+      ],
+      "speaker": "Passer-by",
+      "speaker_says": "हो, बोला?"
+     },
+     "correct_answer": "हा रस्ता बरोबर आहे का?"
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "राहगीर बताते हैं कि स्टेशन पास ही है। आप पूछते हैं कि क्या पैदल जा सकते हैं।",
+     "data": {
+      "options": [
+       "चालत जाता येईल का?",
+       "रिक्षाने जाता येईल का?",
+       "चालत किती वेळ लागेल?",
+       "मी चालत आलो."
+      ],
+      "speaker": "Passer-by",
+      "speaker_says": "स्टेशन इथून जवळच आहे."
+     },
+     "correct_answer": "चालत जाता येईल का?"
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे स्टेशन जाना है\"",
+     "data": {
+      "options": [
+       "मला स्टेशनला जायचं आहे.",
+       "मला स्टेशनहून यायचं आहे.",
+       "मला घरी जायचं आहे.",
+       "स्टेशन कुठे आहे?"
+      ]
+     },
+     "correct_answer": "मला स्टेशनला जायचं आहे."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे पूछेंगे — \"यह रास्ता सही है क्या\"",
+     "data": {
+      "options": [
+       "हा रस्ता बरोबर आहे का?",
+       "हा रस्ता लांब आहे का?",
+       "हा रस्ता कुठे जातो?",
+       "तो रस्ता बरोबर आहे."
+      ]
+     },
+     "correct_answer": "हा रस्ता बरोबर आहे का?"
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे पूछेंगे — \"यहाँ से कितनी दूर है\"",
+     "data": {
+      "options": [
+       "इथून किती लांब आहे?",
+       "इथून किती वेळ लागेल?",
+       "इथून जवळ आहे का?",
+       "तिथून किती लांब आहे?"
+      ]
+     },
+     "correct_answer": "इथून किती लांब आहे?"
+    }
+   ]
+  },
+  {
+   "order_index": 2,
+   "title": "Left Or Right",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "सरळ चला.",
+     "transliteration": "Saral chala.",
+     "source": "सीधे चलिए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "पुढे डावीकडे वळा.",
+     "transliteration": "Pudhe davikade vala.",
+     "source": "आगे बाएँ मुड़िए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "इथे थांबा.",
+     "transliteration": "Ithe thamba.",
+     "source": "यहाँ रुकिए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "सिग्नलवरून उजवीकडे वळा.",
+     "transliteration": "Signalvarun ujvikade vala.",
+     "source": "सिग्नल से दाएँ मुड़िए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "थोडं पुढे घ्या.",
+     "transliteration": "Thoda pudhe ghya.",
+     "source": "थोड़ा आगे लीजिए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "आप रिक्शा में बैठे हैं और ड्राइवर को आपकी गली नहीं पता। आप उसे रास्ता बताते हैं: \"सरळ चला.\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "सरळ चला.",
+     "data": {
+      "options": [
+       "सीधे चलिए।",
+       "पीछे चलिए।",
+       "यहाँ रुकिए।",
+       "धीरे चलिए।"
+      ]
+     },
+     "correct_answer": "सीधे चलिए।"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"सीधे चलिए।\"",
+     "data": {
+      "sentence": "___ चला.",
+      "word_bank": [
+       "सरळ",
+       "मागे",
+       "हळू"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "सरळ"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "पुढे डावीकडे वळा.",
+     "data": {
+      "options": [
+       "आगे बाएँ मुड़िए।",
+       "आगे दाएँ मुड़िए।",
+       "पीछे बाएँ मुड़िए।",
+       "आगे सीधे चलिए।"
+      ]
+     },
+     "correct_answer": "आगे बाएँ मुड़िए।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"आगे बाएँ मुड़िए।\"",
+     "data": {
+      "words": [
+       "वळा",
+       "पुढे",
+       "डावीकडे"
+      ]
+     },
+     "correct_answer": "पुढे डावीकडे वळा"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"यहाँ रुकिए।\"",
+     "data": {
+      "sentence": "___ थांबा.",
+      "word_bank": [
+       "इथे",
+       "तिथे",
+       "कुठे"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "इथे"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "सिग्नलवरून उजवीकडे वळा.",
+     "data": {
+      "options": [
+       "सिग्नल से दाएँ मुड़िए।",
+       "सिग्नल से बाएँ मुड़िए।",
+       "सिग्नल पर रुकिए।",
+       "सिग्नल से सीधे चलिए।"
+      ]
+     },
+     "correct_answer": "सिग्नल से दाएँ मुड़िए।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"सिग्नल से दाएँ मुड़िए।\"",
+     "data": {
+      "words": [
+       "उजवीकडे",
+       "सिग्नलवरून",
+       "वळा"
+      ]
+     },
+     "correct_answer": "सिग्नलवरून उजवीकडे वळा"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"थोड़ा आगे लीजिए।\"",
+     "data": {
+      "sentence": "थोडं ___ घ्या.",
+      "word_bank": [
+       "पुढे",
+       "मागे",
+       "खाली"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "पुढे"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"थोड़ा आगे लीजिए।\"",
+     "data": {
+      "words": [
+       "घ्या",
+       "थोडं",
+       "पुढे"
+      ]
+     },
+     "correct_answer": "थोडं पुढे घ्या"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "ड्राइवर पूछता है किधर से चलें। रास्ता सीधा है।",
+     "data": {
+      "options": [
+       "सरळ चला.",
+       "मागे चला.",
+       "इथे थांबा.",
+       "हळू चला."
+      ],
+      "speaker": "Rickshaw driver",
+      "speaker_says": "कुठून जायचं?"
+     },
+     "correct_answer": "सरळ चला."
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "आपकी बिल्डिंग आ गई। ड्राइवर पूछता है कि यही है क्या। आप रुकने को कहते हैं।",
+     "data": {
+      "options": [
+       "इथे थांबा.",
+       "तिथे थांबा.",
+       "सरळ चला.",
+       "पुढे डावीकडे वळा."
+      ],
+      "speaker": "Rickshaw driver",
+      "speaker_says": "हीच बिल्डिंग का?"
+     },
+     "correct_answer": "इथे थांबा."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "ड्राइवर गेट से थोड़ा पहले रुक गया। आप उसे थोड़ा आगे चलने को कहते हैं।",
+     "data": {
+      "options": [
+       "थोडं पुढे घ्या.",
+       "थोडं मागे घ्या.",
+       "इथे थांबा.",
+       "खूप पुढे जा."
+      ],
+      "speaker": "Rickshaw driver",
+      "speaker_says": "इथे सोडू?"
+     },
+     "correct_answer": "थोडं पुढे घ्या."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"आगे बाएँ मुड़िए\"",
+     "data": {
+      "options": [
+       "पुढे डावीकडे वळा.",
+       "पुढे उजवीकडे वळा.",
+       "मागे डावीकडे वळा.",
+       "पुढे सरळ चला."
+      ]
+     },
+     "correct_answer": "पुढे डावीकडे वळा."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"यहाँ रुकिए\"",
+     "data": {
+      "options": [
+       "इथे थांबा.",
+       "तिथे थांबा.",
+       "इथे बसा.",
+       "इथे या."
+      ]
+     },
+     "correct_answer": "इथे थांबा."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"सिग्नल से दाएँ मुड़िए\"",
+     "data": {
+      "options": [
+       "सिग्नलवरून उजवीकडे वळा.",
+       "सिग्नलवरून डावीकडे वळा.",
+       "सिग्नलवर थांबा.",
+       "सिग्नलवरून सरळ चला."
+      ]
+     },
+     "correct_answer": "सिग्नलवरून उजवीकडे वळा."
+    }
+   ]
+  },
+  {
+   "order_index": 3,
+   "title": "Taking A Rickshaw",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "स्टेशनला येणार का?",
+     "transliteration": "Stationla yenar ka?",
+     "source": "स्टेशन चलेंगे क्या?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "किती भाडं होईल?",
+     "transliteration": "Kiti bhaada hoil?",
+     "source": "कितना किराया होगा?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "मीटरने चला.",
+     "transliteration": "Meterne chala.",
+     "source": "मीटर से चलिए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "हे खूप जास्त आहे.",
+     "transliteration": "He khup jaast aahe.",
+     "source": "यह बहुत ज़्यादा है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "माझ्याकडे सुट्टे पैसे नाहीत.",
+     "transliteration": "Majhyakade sutte paise naahit.",
+     "source": "मेरे पास छुट्टे पैसे नहीं हैं।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "स्टेशन जाने के लिए आप एक रिक्शा रोकते हैं और ड्राइवर से पूछते हैं: \"स्टेशनला येणार का?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "स्टेशनला येणार का?",
+     "data": {
+      "options": [
+       "स्टेशन चलेंगे क्या?",
+       "स्टेशन कहाँ है?",
+       "स्टेशन से आएँगे क्या?",
+       "स्टेशन कितनी दूर है?"
+      ]
+     },
+     "correct_answer": "स्टेशन चलेंगे क्या?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"स्टेशन चलेंगे क्या?\"",
+     "data": {
+      "sentence": "___ येणार का?",
+      "word_bank": [
+       "स्टेशनला",
+       "स्टेशनहून",
+       "स्टेशनमध्ये"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "स्टेशनला"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "किती भाडं होईल?",
+     "data": {
+      "options": [
+       "कितना किराया होगा?",
+       "कितना समय लगेगा?",
+       "किराया कौन देगा?",
+       "कितने बजे हैं?"
+      ]
+     },
+     "correct_answer": "कितना किराया होगा?"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"कितना किराया होगा?\"",
+     "data": {
+      "words": [
+       "भाडं",
+       "किती",
+       "होईल"
+      ]
+     },
+     "correct_answer": "किती भाडं होईल"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"मीटर से चलिए।\"",
+     "data": {
+      "sentence": "___ चला.",
+      "word_bank": [
+       "मीटरने",
+       "मीटरला",
+       "मीटरवर"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "मीटरने"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "हे खूप जास्त आहे.",
+     "data": {
+      "options": [
+       "यह बहुत ज़्यादा है।",
+       "यह बहुत कम है।",
+       "यह ठीक है।",
+       "यह बहुत दूर है।"
+      ]
+     },
+     "correct_answer": "यह बहुत ज़्यादा है।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"यह बहुत ज़्यादा है।\"",
+     "data": {
+      "words": [
+       "खूप",
+       "हे",
+       "जास्त",
+       "आहे"
+      ]
+     },
+     "correct_answer": "हे खूप जास्त आहे"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"मेरे पास छुट्टे पैसे नहीं हैं।\"",
+     "data": {
+      "sentence": "माझ्याकडे ___ पैसे नाहीत.",
+      "word_bank": [
+       "सुट्टे",
+       "मोठे",
+       "जास्त"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "सुट्टे"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मेरे पास छुट्टे पैसे नहीं हैं।\"",
+     "data": {
+      "words": [
+       "नाहीत",
+       "पैसे",
+       "सुट्टे",
+       "माझ्याकडे"
+      ]
+     },
+     "correct_answer": "माझ्याकडे सुट्टे पैसे नाहीत"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "आपने रिक्शा रोकी है। आप पूछते हैं कि क्या वह स्टेशन चलेगा।",
+     "data": {
+      "options": [
+       "स्टेशनला येणार का?",
+       "स्टेशन कुठे आहे?",
+       "स्टेशनहून येणार का?",
+       "मी स्टेशनला आहे."
+      ],
+      "speaker": "Rickshaw driver",
+      "speaker_says": "कुठे जायचं?"
+     },
+     "correct_answer": "स्टेशनला येणार का?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "ड्राइवर अंदाज़े से सौ रुपये माँग रहा है। आप मीटर से चलने को कहते हैं।",
+     "data": {
+      "options": [
+       "मीटरने चला.",
+       "मीटर कुठे आहे?",
+       "शंभर रुपये द्या.",
+       "हळू चला."
+      ],
+      "speaker": "Rickshaw driver",
+      "speaker_says": "शंभर रुपये होतील."
+     },
+     "correct_answer": "मीटरने चला."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "किराया 60 रुपये हुआ और आपके पास सिर्फ़ 500 का नोट है। आप बताते हैं कि छुट्टे नहीं हैं।",
+     "data": {
+      "options": [
+       "माझ्याकडे सुट्टे पैसे नाहीत.",
+       "तुमच्याकडे सुट्टे पैसे नाहीत.",
+       "माझ्याकडे खूप पैसे आहेत.",
+       "सुट्टे पैसे द्या."
+      ],
+      "speaker": "Rickshaw driver",
+      "speaker_says": "साठ रुपये झाले. सुट्टे द्या ना."
+     },
+     "correct_answer": "माझ्याकडे सुट्टे पैसे नाहीत."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे पूछेंगे — \"कितना किराया होगा\"",
+     "data": {
+      "options": [
+       "किती भाडं होईल?",
+       "किती वेळ लागेल?",
+       "भाडं कोण देईल?",
+       "किती वाजले?"
+      ]
+     },
+     "correct_answer": "किती भाडं होईल?"
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"मीटर से चलिए\"",
+     "data": {
+      "options": [
+       "मीटरने चला.",
+       "मीटर कुठे आहे?",
+       "मीटरवर थांबा.",
+       "हळू चला."
+      ]
+     },
+     "correct_answer": "मीटरने चला."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"यह बहुत ज़्यादा है\"",
+     "data": {
+      "options": [
+       "हे खूप जास्त आहे.",
+       "हे खूप कमी आहे.",
+       "हे ठीक आहे.",
+       "हे खूप लांब आहे."
+      ]
+     },
+     "correct_answer": "हे खूप जास्त आहे."
+    }
+   ]
+  },
+  {
+   "order_index": 4,
+   "title": "On The Bus",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "ही बस स्टेशनला जाते का?",
+     "transliteration": "Hi bus stationla jaate ka?",
+     "source": "यह बस स्टेशन जाती है क्या?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "एक तिकीट द्या.",
+     "transliteration": "Ek tikit dya.",
+     "source": "एक टिकट दीजिए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "पुढचा स्टॉप कोणता आहे?",
+     "transliteration": "Pudhcha stop konta aahe?",
+     "source": "अगला स्टॉप कौन सा है?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "मला इथे उतरायचं आहे.",
+     "transliteration": "Mala ithe utaraycha aahe.",
+     "source": "मुझे यहाँ उतरना है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "ही जागा रिकामी आहे का?",
+     "transliteration": "Hi jaaga rikaami aahe ka?",
+     "source": "यह सीट खाली है क्या?",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "बस स्टॉप पर एक बस आकर रुकती है। चढ़ने से पहले आप कंडक्टर से पूछते हैं: \"ही बस स्टेशनला जाते का?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "ही बस स्टेशनला जाते का?",
+     "data": {
+      "options": [
+       "यह बस स्टेशन जाती है क्या?",
+       "यह बस स्टेशन से आती है क्या?",
+       "बस स्टेशन कहाँ है?",
+       "यह बस कब जाएगी?"
+      ]
+     },
+     "correct_answer": "यह बस स्टेशन जाती है क्या?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"यह बस स्टेशन जाती है क्या?\"",
+     "data": {
+      "sentence": "ही बस स्टेशनला ___ का?",
+      "word_bank": [
+       "जाते",
+       "येते",
+       "राहते"
+      ],
+      "blank_index": 3
+     },
+     "correct_answer": "जाते"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "एक तिकीट द्या.",
+     "data": {
+      "options": [
+       "एक टिकट दीजिए।",
+       "दो टिकट दीजिए।",
+       "एक टिकट कितने का है?",
+       "टिकट कहाँ है?"
+      ]
+     },
+     "correct_answer": "एक टिकट दीजिए।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"एक टिकट दीजिए।\"",
+     "data": {
+      "words": [
+       "द्या",
+       "एक",
+       "तिकीट"
+      ]
+     },
+     "correct_answer": "एक तिकीट द्या"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"अगला स्टॉप कौन सा है?\"",
+     "data": {
+      "sentence": "___ स्टॉप कोणता आहे?",
+      "word_bank": [
+       "पुढचा",
+       "मागचा",
+       "पहिला"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "पुढचा"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "मला इथे उतरायचं आहे.",
+     "data": {
+      "options": [
+       "मुझे यहाँ उतरना है।",
+       "मुझे यहाँ चढ़ना है।",
+       "मुझे वहाँ उतरना है।",
+       "मैं यहाँ रहता हूँ।"
+      ]
+     },
+     "correct_answer": "मुझे यहाँ उतरना है।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे यहाँ उतरना है।\"",
+     "data": {
+      "words": [
+       "मला",
+       "इथे",
+       "आहे",
+       "उतरायचं"
+      ]
+     },
+     "correct_answer": "मला इथे उतरायचं आहे"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"यह सीट खाली है क्या?\"",
+     "data": {
+      "sentence": "ही जागा ___ आहे का?",
+      "word_bank": [
+       "रिकामी",
+       "मोठी",
+       "माझी"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "रिकामी"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"यह सीट खाली है क्या?\"",
+     "data": {
+      "words": [
+       "जागा",
+       "का",
+       "आहे",
+       "रिकामी",
+       "ही"
+      ]
+     },
+     "correct_answer": "ही जागा रिकामी आहे का"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "बस आ गई है। चढ़ने से पहले आप पक्का करना चाहते हैं कि यह स्टेशन जाती है।",
+     "data": {
+      "options": [
+       "ही बस स्टेशनला जाते का?",
+       "ही बस कधी जाते?",
+       "बस स्टेशन कुठे आहे?",
+       "ही बस स्टेशनहून येते का?"
+      ],
+      "speaker": "Conductor",
+      "speaker_says": "चला, लवकर बसा!"
+     },
+     "correct_answer": "ही बस स्टेशनला जाते का?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "आपका स्टॉप पास है, पर पक्का नहीं पता। आप पास बैठे यात्री से अगला स्टॉप पूछते हैं।",
+     "data": {
+      "options": [
+       "पुढचा स्टॉप कोणता आहे?",
+       "मागचा स्टॉप कोणता होता?",
+       "स्टॉप कुठे आहे?",
+       "मी पुढे उतरतो."
+      ],
+      "speaker": "Passenger",
+      "speaker_says": "तुम्हाला कुठे उतरायचं आहे?"
+     },
+     "correct_answer": "पुढचा स्टॉप कोणता आहे?"
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "बस में भीड़ है और एक सीट पर बैग रखा है। आप पास बैठे व्यक्ति से पूछते हैं कि सीट खाली है क्या।",
+     "data": {
+      "options": [
+       "ही जागा रिकामी आहे का?",
+       "ही जागा माझी आहे.",
+       "ही बॅग तुमची आहे का?",
+       "जागा कुठे आहे?"
+      ],
+      "speaker": "Passenger",
+      "speaker_says": "हो?"
+     },
+     "correct_answer": "ही जागा रिकामी आहे का?"
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"एक टिकट दीजिए\"",
+     "data": {
+      "options": [
+       "एक तिकीट द्या.",
+       "दोन तिकीट द्या.",
+       "एक तिकीट घ्या.",
+       "तिकीट कुठे आहे?"
+      ]
+     },
+     "correct_answer": "एक तिकीट द्या."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे पूछेंगे — \"अगला स्टॉप कौन सा है\"",
+     "data": {
+      "options": [
+       "पुढचा स्टॉप कोणता आहे?",
+       "मागचा स्टॉप कोणता होता?",
+       "पुढचा स्टॉप कुठे आहे?",
+       "हा स्टॉप कोणता आहे?"
+      ]
+     },
+     "correct_answer": "पुढचा स्टॉप कोणता आहे?"
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे यहाँ उतरना है\"",
+     "data": {
+      "options": [
+       "मला इथे उतरायचं आहे.",
+       "मला इथे चढायचं आहे.",
+       "मला तिथे उतरायचं आहे.",
+       "मी इथे राहतो."
+      ]
+     },
+     "correct_answer": "मला इथे उतरायचं आहे."
+    }
+   ]
+  },
+  {
+   "order_index": 5,
+   "title": "Finding A Place",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "जवळ मेडिकल आहे का?",
+     "transliteration": "Javal medical aahe ka?",
+     "source": "पास में दवा की दुकान है क्या?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "हा पत्ता कुठे आहे?",
+     "transliteration": "Ha patta kuthe aahe?",
+     "source": "यह पता कहाँ है?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "मला रस्ता सापडत नाही.",
+     "transliteration": "Mala rasta saapdat naahi.",
+     "source": "मुझे रास्ता नहीं मिल रहा।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "माझं ऑफिस बँकेच्या शेजारी आहे.",
+     "transliteration": "Majha office bankechya shejari aahe.",
+     "source": "मेरा ऑफिस बैंक के बगल में है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "मला रस्ता दाखवाल का?",
+     "transliteration": "Mala rasta daakhvaal ka?",
+     "source": "क्या आप मुझे रास्ता दिखाएँगे?",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "शाम को सिर में दर्द है और आपको दवा चाहिए। आप सोसाइटी के गार्ड से पूछते हैं: \"जवळ मेडिकल आहे का?\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "जवळ मेडिकल आहे का?",
+     "data": {
+      "options": [
+       "पास में दवा की दुकान है क्या?",
+       "पास में अस्पताल है क्या?",
+       "दवा की दुकान कब खुलेगी?",
+       "दवा की दुकान दूर है।"
+      ]
+     },
+     "correct_answer": "पास में दवा की दुकान है क्या?"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"पास में दवा की दुकान है क्या?\"",
+     "data": {
+      "sentence": "___ मेडिकल आहे का?",
+      "word_bank": [
+       "जवळ",
+       "लांब",
+       "कधी"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "जवळ"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "हा पत्ता कुठे आहे?",
+     "data": {
+      "options": [
+       "यह पता कहाँ है?",
+       "यह पता किसका है?",
+       "आपका पता क्या है?",
+       "यह रास्ता कहाँ जाता है?"
+      ]
+     },
+     "correct_answer": "यह पता कहाँ है?"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"यह पता कहाँ है?\"",
+     "data": {
+      "words": [
+       "कुठे",
+       "हा",
+       "पत्ता",
+       "आहे"
+      ]
+     },
+     "correct_answer": "हा पत्ता कुठे आहे"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"मुझे रास्ता नहीं मिल रहा।\"",
+     "data": {
+      "sentence": "मला रस्ता ___ नाही.",
+      "word_bank": [
+       "सापडत",
+       "आवडत",
+       "समजत"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "सापडत"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "माझं ऑफिस बँकेच्या शेजारी आहे.",
+     "data": {
+      "options": [
+       "मेरा ऑफिस बैंक के बगल में है।",
+       "मेरा घर बैंक के बगल में है।",
+       "मेरा ऑफिस बैंक के सामने है।",
+       "बैंक कहाँ है?"
+      ]
+     },
+     "correct_answer": "मेरा ऑफिस बैंक के बगल में है।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मेरा ऑफिस बैंक के बगल में है।\"",
+     "data": {
+      "words": [
+       "आहे",
+       "ऑफिस",
+       "माझं",
+       "शेजारी",
+       "बँकेच्या"
+      ]
+     },
+     "correct_answer": "माझं ऑफिस बँकेच्या शेजारी आहे"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"क्या आप मुझे रास्ता दिखाएँगे?\"",
+     "data": {
+      "sentence": "मला रस्ता ___ का?",
+      "word_bank": [
+       "दाखवाल",
+       "बोलाल",
+       "द्याल"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "दाखवाल"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"क्या आप मुझे रास्ता दिखाएँगे?\"",
+     "data": {
+      "words": [
+       "का",
+       "रस्ता",
+       "दाखवाल",
+       "मला"
+      ]
+     },
+     "correct_answer": "मला रस्ता दाखवाल का"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "आपको दवा चाहिए। आप गार्ड से पूछते हैं कि पास में दवा की दुकान है क्या।",
+     "data": {
+      "options": [
+       "जवळ मेडिकल आहे का?",
+       "मेडिकल कधी उघडेल?",
+       "जवळ हॉस्पिटल आहे.",
+       "मेडिकल लांब आहे."
+      ],
+      "speaker": "Guard",
+      "speaker_says": "काय झालं?"
+     },
+     "correct_answer": "जवळ मेडिकल आहे का?"
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "आप दस मिनट से एक गली ढूँढ रहे हैं। एक व्यक्ति पूछता है कि क्या ढूँढ रहे हैं। आप बताते हैं कि रास्ता नहीं मिल रहा।",
+     "data": {
+      "options": [
+       "मला रस्ता सापडत नाही.",
+       "मला रस्ता माहीत आहे.",
+       "तुम्हाला रस्ता सापडत नाही.",
+       "हा रस्ता छान आहे."
+      ],
+      "speaker": "Passer-by",
+      "speaker_says": "काय शोधताय?"
+     },
+     "correct_answer": "मला रस्ता सापडत नाही."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "राहगीर कहते हैं कि पता पास ही है। आप पूछते हैं कि क्या वे रास्ता दिखा देंगे।",
+     "data": {
+      "options": [
+       "मला रस्ता दाखवाल का?",
+       "मी तुम्हाला रस्ता दाखवतो.",
+       "मला रस्ता माहीत आहे.",
+       "रस्ता कुठे आहे?"
+      ],
+      "speaker": "Passer-by",
+      "speaker_says": "तो पत्ता इथून जवळच आहे."
+     },
+     "correct_answer": "मला रस्ता दाखवाल का?"
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे पूछेंगे — \"यह पता कहाँ है\"",
+     "data": {
+      "options": [
+       "हा पत्ता कुठे आहे?",
+       "हा पत्ता कोणाचा आहे?",
+       "तुमचा पत्ता काय आहे?",
+       "हा रस्ता कुठे जातो?"
+      ]
+     },
+     "correct_answer": "हा पत्ता कुठे आहे?"
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे रास्ता नहीं मिल रहा\"",
+     "data": {
+      "options": [
+       "मला रस्ता सापडत नाही.",
+       "मला रस्ता सापडला.",
+       "मला रस्ता माहीत आहे.",
+       "मला घर सापडत नाही."
+      ]
+     },
+     "correct_answer": "मला रस्ता सापडत नाही."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"मेरा ऑफिस बैंक के बगल में है\"",
+     "data": {
+      "options": [
+       "माझं ऑफिस बँकेच्या शेजारी आहे.",
+       "माझं घर बँकेच्या शेजारी आहे.",
+       "माझं ऑफिस बँकेच्या समोर आहे.",
+       "बँक कुठे आहे?"
+      ]
+     },
+     "correct_answer": "माझं ऑफिस बँकेच्या शेजारी आहे."
+    }
+   ]
+  }
+ ],
+ "notes": [
+  "Replaces the old Out And About (5 lessons, 20 short phrases, 40 steps; no learner progress on 2026-11-12).",
+  "Same format as Essentials and Food v2: 5 sentences per lesson, 16 steps, match / fill_blank / arrange interleaved, then conversation and recall.",
+  "Learner-side sentences only. In the rickshaw lessons the learner gives directions (सरळ चला, डावीकडे वळा), so those are the learner's own lines.",
+  "Avoids repeating Essentials (दुकान कुठे आहे?, स्टेशन इथून जवळ आहे का?, ट्रेन कधी येईल?, किती वेळ लागेल?).",
+  "Origin 'draft' = written for Samwad; 'existing' = already in the old module. Nothing written to the database yet."
+ ]
+}

@@ -1,0 +1,1484 @@
+{
+ "module": "Feeling Unwell",
+ "version": 2,
+ "made": "2026-11-12",
+ "lessons": [
+  {
+   "order_index": 1,
+   "title": "What Hurts",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "मला बरं वाटत नाही.",
+     "transliteration": "Mala bara vaatat naahi.",
+     "source": "मुझे ठीक नहीं लग रहा।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "माझं डोकं दुखतंय.",
+     "transliteration": "Majha doka dukhtay.",
+     "source": "मेरा सिर दर्द कर रहा है।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "मला ताप आहे.",
+     "transliteration": "Mala taap aahe.",
+     "source": "मुझे बुखार है।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "माझं पोट दुखतंय.",
+     "transliteration": "Majha pot dukhtay.",
+     "source": "मेरा पेट दर्द कर रहा है।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "मला सर्दी झाली आहे.",
+     "transliteration": "Mala sardi zaali aahe.",
+     "source": "मुझे ज़ुकाम हो गया है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "सुबह उठे तो सिर भारी है और बदन टूट रहा है। ऑफिस में आप अपने साथी से कहते हैं: \"मला बरं वाटत नाही.\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "मला बरं वाटत नाही.",
+     "data": {
+      "options": [
+       "मुझे ठीक नहीं लग रहा।",
+       "मुझे अच्छा लग रहा है।",
+       "मुझे नींद आ रही है।",
+       "मुझे भूख नहीं है।"
+      ]
+     },
+     "correct_answer": "मुझे ठीक नहीं लग रहा।"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"मुझे ठीक नहीं लग रहा।\"",
+     "data": {
+      "sentence": "मला ___ वाटत नाही.",
+      "word_bank": [
+       "बरं",
+       "भूक",
+       "ताप"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "बरं"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "माझं डोकं दुखतंय.",
+     "data": {
+      "options": [
+       "मेरा सिर दर्द कर रहा है।",
+       "मेरा पेट दर्द कर रहा है।",
+       "मेरा सिर ठीक है।",
+       "उसका सिर दर्द कर रहा है।"
+      ]
+     },
+     "correct_answer": "मेरा सिर दर्द कर रहा है।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मेरा सिर दर्द कर रहा है।\"",
+     "data": {
+      "words": [
+       "माझं",
+       "दुखतंय",
+       "डोकं"
+      ]
+     },
+     "correct_answer": "माझं डोकं दुखतंय"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"मुझे बुखार है।\"",
+     "data": {
+      "sentence": "मला ___ आहे.",
+      "word_bank": [
+       "ताप",
+       "सर्दी",
+       "भूक"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "ताप"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "माझं पोट दुखतंय.",
+     "data": {
+      "options": [
+       "मेरा पेट दर्द कर रहा है।",
+       "मेरा सिर दर्द कर रहा है।",
+       "मेरा पेट ठीक है।",
+       "मुझे भूख लगी है।"
+      ]
+     },
+     "correct_answer": "मेरा पेट दर्द कर रहा है।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मेरा पेट दर्द कर रहा है।\"",
+     "data": {
+      "words": [
+       "दुखतंय",
+       "माझं",
+       "पोट"
+      ]
+     },
+     "correct_answer": "माझं पोट दुखतंय"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"मुझे ज़ुकाम हो गया है।\"",
+     "data": {
+      "sentence": "मला ___ झाली आहे.",
+      "word_bank": [
+       "सर्दी",
+       "ताप",
+       "भूक"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "सर्दी"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे ज़ुकाम हो गया है।\"",
+     "data": {
+      "words": [
+       "झाली",
+       "मला",
+       "आहे",
+       "सर्दी"
+      ]
+     },
+     "correct_answer": "मला सर्दी झाली आहे"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "दोस्त पूछता है कि क्या हुआ। आपकी तबीयत ठीक नहीं है।",
+     "data": {
+      "options": [
+       "मला बरं वाटत नाही.",
+       "मला खूप बरं वाटतं.",
+       "तुला बरं वाटत नाही.",
+       "मला भूक लागली आहे."
+      ],
+      "speaker": "Friend",
+      "speaker_says": "काय झालं? चेहरा उतरलाय."
+     },
+     "correct_answer": "मला बरं वाटत नाही."
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "डॉक्टर पूछते हैं कि क्या तकलीफ़ है। आपको बुखार है।",
+     "data": {
+      "options": [
+       "मला ताप आहे.",
+       "मला ताप नाही.",
+       "तुम्हाला ताप आहे.",
+       "मला भूक आहे."
+      ],
+      "speaker": "Doctor",
+      "speaker_says": "काय होतंय?"
+     },
+     "correct_answer": "मला ताप आहे."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "सहकर्मी कहते हैं कि आपकी आवाज़ बदली हुई है। आपको ज़ुकाम हो गया है।",
+     "data": {
+      "options": [
+       "मला सर्दी झाली आहे.",
+       "मला भूक लागली आहे.",
+       "तुम्हाला सर्दी झाली आहे.",
+       "मला सर्दी नाही."
+      ],
+      "speaker": "Colleague",
+      "speaker_says": "तुमचा आवाज बदललाय!"
+     },
+     "correct_answer": "मला सर्दी झाली आहे."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"मेरा सिर दर्द कर रहा है\"",
+     "data": {
+      "options": [
+       "माझं डोकं दुखतंय.",
+       "माझं पोट दुखतंय.",
+       "माझं डोकं ठीक आहे.",
+       "त्याचं डोकं दुखतंय."
+      ]
+     },
+     "correct_answer": "माझं डोकं दुखतंय."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे बुखार है\"",
+     "data": {
+      "options": [
+       "मला ताप आहे.",
+       "मला ताप नाही.",
+       "मला सर्दी आहे.",
+       "तुला ताप आहे."
+      ]
+     },
+     "correct_answer": "मला ताप आहे."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"मेरा पेट दर्द कर रहा है\"",
+     "data": {
+      "options": [
+       "माझं पोट दुखतंय.",
+       "माझं डोकं दुखतंय.",
+       "माझं पोट ठीक आहे.",
+       "मला भूक लागली आहे."
+      ]
+     },
+     "correct_answer": "माझं पोट दुखतंय."
+    }
+   ]
+  },
+  {
+   "order_index": 2,
+   "title": "At The Chemist",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "डोकेदुखीसाठी गोळी द्या.",
+     "transliteration": "Dokedukhisathi goli dya.",
+     "source": "सिरदर्द के लिए गोली दीजिए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "तुमच्याकडे खोकल्याचं औषध आहे का?",
+     "transliteration": "Tumchyakade khoklyacha aushadh aahe ka?",
+     "source": "आपके पास खांसी की दवा है क्या?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "दिवसातून किती वेळा घ्यायचं?",
+     "transliteration": "Divsatun kiti vela ghyaycha?",
+     "source": "दिन में कितनी बार लेनी है?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "जेवणाआधी की जेवणानंतर?",
+     "transliteration": "Jevnaadhi ki jevnaantar?",
+     "source": "खाने से पहले या खाने के बाद?",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "माझ्याकडे डॉक्टरची चिठ्ठी नाही.",
+     "transliteration": "Majhyakade doctorchi chitthi naahi.",
+     "source": "मेरे पास डॉक्टर की पर्ची नहीं है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "सिर में तेज़ दर्द है। आप पास के मेडिकल स्टोर पर जाकर कहते हैं: \"डोकेदुखीसाठी गोळी द्या.\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "डोकेदुखीसाठी गोळी द्या.",
+     "data": {
+      "options": [
+       "सिरदर्द के लिए गोली दीजिए।",
+       "सिरदर्द की गोली कहाँ है?",
+       "पेटदर्द के लिए गोली दीजिए।",
+       "सिरदर्द के लिए पानी दीजिए।"
+      ]
+     },
+     "correct_answer": "सिरदर्द के लिए गोली दीजिए।"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"सिरदर्द के लिए गोली दीजिए।\"",
+     "data": {
+      "sentence": "डोकेदुखीसाठी ___ द्या.",
+      "word_bank": [
+       "गोळी",
+       "पाणी",
+       "चिठ्ठी"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "गोळी"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "तुमच्याकडे खोकल्याचं औषध आहे का?",
+     "data": {
+      "options": [
+       "आपके पास खांसी की दवा है क्या?",
+       "आपके पास बुखार की दवा है क्या?",
+       "खांसी की दवा कितने की है?",
+       "मेरे पास खांसी की दवा है।"
+      ]
+     },
+     "correct_answer": "आपके पास खांसी की दवा है क्या?"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"आपके पास खांसी की दवा है क्या?\"",
+     "data": {
+      "words": [
+       "का",
+       "तुमच्याकडे",
+       "आहे",
+       "खोकल्याचं",
+       "औषध"
+      ]
+     },
+     "correct_answer": "तुमच्याकडे खोकल्याचं औषध आहे का"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"दिन में कितनी बार लेनी है?\"",
+     "data": {
+      "sentence": "दिवसातून ___ वेळा घ्यायचं?",
+      "word_bank": [
+       "किती",
+       "कधी",
+       "कोण"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "किती"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "जेवणाआधी की जेवणानंतर?",
+     "data": {
+      "options": [
+       "खाने से पहले या खाने के बाद?",
+       "खाने से पहले या सोने से पहले?",
+       "खाने के बाद लीजिए।",
+       "खाना कब है?"
+      ]
+     },
+     "correct_answer": "खाने से पहले या खाने के बाद?"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"खाने से पहले या खाने के बाद?\"",
+     "data": {
+      "words": [
+       "की",
+       "जेवणाआधी",
+       "जेवणानंतर"
+      ]
+     },
+     "correct_answer": "जेवणाआधी की जेवणानंतर"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"मेरे पास डॉक्टर की पर्ची नहीं है।\"",
+     "data": {
+      "sentence": "माझ्याकडे डॉक्टरची ___ नाही.",
+      "word_bank": [
+       "चिठ्ठी",
+       "गोळी",
+       "औषध"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "चिठ्ठी"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मेरे पास डॉक्टर की पर्ची नहीं है।\"",
+     "data": {
+      "words": [
+       "नाही",
+       "डॉक्टरची",
+       "माझ्याकडे",
+       "चिठ्ठी"
+      ]
+     },
+     "correct_answer": "माझ्याकडे डॉक्टरची चिठ्ठी नाही"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "सिर में बहुत दर्द है। आप केमिस्ट से सिरदर्द की गोली माँगते हैं।",
+     "data": {
+      "options": [
+       "डोकेदुखीसाठी गोळी द्या.",
+       "पोटदुखीसाठी गोळी द्या.",
+       "डोकेदुखीसाठी पाणी द्या.",
+       "गोळी कुठे आहे?"
+      ],
+      "speaker": "Chemist",
+      "speaker_says": "बोला, काय देऊ?"
+     },
+     "correct_answer": "डोकेदुखीसाठी गोळी द्या."
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "केमिस्ट दवा दे रहा है। आप पूछते हैं कि दिन में कितनी बार लेनी है।",
+     "data": {
+      "options": [
+       "दिवसातून किती वेळा घ्यायचं?",
+       "दिवसातून किती वेळा खायचं?",
+       "किती दिवस लागतील?",
+       "हे कितीला आहे?"
+      ],
+      "speaker": "Chemist",
+      "speaker_says": "हे घ्या, तीन दिवस घ्या."
+     },
+     "correct_answer": "दिवसातून किती वेळा घ्यायचं?"
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "केमिस्ट डॉक्टर की पर्ची माँगता है। आपके पास पर्ची नहीं है।",
+     "data": {
+      "options": [
+       "माझ्याकडे डॉक्टरची चिठ्ठी नाही.",
+       "माझ्याकडे डॉक्टरची चिठ्ठी आहे.",
+       "तुमच्याकडे चिठ्ठी नाही.",
+       "मला चिठ्ठी द्या."
+      ],
+      "speaker": "Chemist",
+      "speaker_says": "डॉक्टरची चिठ्ठी आहे का?"
+     },
+     "correct_answer": "माझ्याकडे डॉक्टरची चिठ्ठी नाही."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे पूछेंगे — \"आपके पास खांसी की दवा है क्या\"",
+     "data": {
+      "options": [
+       "तुमच्याकडे खोकल्याचं औषध आहे का?",
+       "तुमच्याकडे तापाचं औषध आहे का?",
+       "खोकल्याचं औषध कितीला आहे?",
+       "माझ्याकडे खोकल्याचं औषध आहे."
+      ]
+     },
+     "correct_answer": "तुमच्याकडे खोकल्याचं औषध आहे का?"
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे पूछेंगे — \"दिन में कितनी बार लेनी है\"",
+     "data": {
+      "options": [
+       "दिवसातून किती वेळा घ्यायचं?",
+       "किती दिवस घ्यायचं?",
+       "दिवसातून किती वेळा खायचं?",
+       "हे कधी घ्यायचं?"
+      ]
+     },
+     "correct_answer": "दिवसातून किती वेळा घ्यायचं?"
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे पूछेंगे — \"खाने से पहले या खाने के बाद\"",
+     "data": {
+      "options": [
+       "जेवणाआधी की जेवणानंतर?",
+       "जेवणाआधी की झोपण्याआधी?",
+       "जेवणानंतर घ्या.",
+       "जेवण कधी आहे?"
+      ]
+     },
+     "correct_answer": "जेवणाआधी की जेवणानंतर?"
+    }
+   ]
+  },
+  {
+   "order_index": 3,
+   "title": "At The Clinic",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "मला डॉक्टरांना भेटायचं आहे.",
+     "transliteration": "Mala doctorana bhetaycha aahe.",
+     "source": "मुझे डॉक्टर से मिलना है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "डॉक्टर कधी येतील?",
+     "transliteration": "Doctor kadhi yetil?",
+     "source": "डॉक्टर कब आएँगे?",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "मी पहिल्यांदा आलो आहे.",
+     "transliteration": "Mi pahilyanda aalo aahe.",
+     "source": "मैं पहली बार आया हूँ।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "मला दोन दिवसांपासून ताप आहे.",
+     "transliteration": "Mala don divsanpasun taap aahe.",
+     "source": "मुझे दो दिन से बुखार है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "मला काही ॲलर्जी नाही.",
+     "transliteration": "Mala kahi allergy naahi.",
+     "source": "मुझे कोई एलर्जी नहीं है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "आप क्लिनिक पहुँचे हैं। रिसेप्शन पर आप कहते हैं: \"मला डॉक्टरांना भेटायचं आहे.\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "मला डॉक्टरांना भेटायचं आहे.",
+     "data": {
+      "options": [
+       "मुझे डॉक्टर से मिलना है।",
+       "मुझे डॉक्टर बनना है।",
+       "डॉक्टर मुझसे मिलेंगे।",
+       "मुझे दवा चाहिए।"
+      ]
+     },
+     "correct_answer": "मुझे डॉक्टर से मिलना है।"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"मुझे डॉक्टर से मिलना है।\"",
+     "data": {
+      "sentence": "मला डॉक्टरांना ___ आहे.",
+      "word_bank": [
+       "भेटायचं",
+       "खायचं",
+       "द्यायचं"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "भेटायचं"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "डॉक्टर कधी येतील?",
+     "data": {
+      "options": [
+       "डॉक्टर कब आएँगे?",
+       "डॉक्टर कहाँ हैं?",
+       "डॉक्टर कब गए?",
+       "डॉक्टर आ गए हैं।"
+      ]
+     },
+     "correct_answer": "डॉक्टर कब आएँगे?"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"डॉक्टर कब आएँगे?\"",
+     "data": {
+      "words": [
+       "कधी",
+       "डॉक्टर",
+       "येतील"
+      ]
+     },
+     "correct_answer": "डॉक्टर कधी येतील"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"मैं पहली बार आया हूँ।\"",
+     "data": {
+      "sentence": "मी ___ आलो आहे.",
+      "word_bank": [
+       "पहिल्यांदा",
+       "उद्या",
+       "काल"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "पहिल्यांदा"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "मला दोन दिवसांपासून ताप आहे.",
+     "data": {
+      "options": [
+       "मुझे दो दिन से बुखार है।",
+       "मुझे दो दिन बाद बुखार आएगा।",
+       "उसे दो दिन से बुखार है।",
+       "मुझे दो दिन से ज़ुकाम है।"
+      ]
+     },
+     "correct_answer": "मुझे दो दिन से बुखार है।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे दो दिन से बुखार है।\"",
+     "data": {
+      "words": [
+       "दिवसांपासून",
+       "आहे",
+       "मला",
+       "दोन",
+       "ताप"
+      ]
+     },
+     "correct_answer": "मला दोन दिवसांपासून ताप आहे"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"मुझे कोई एलर्जी नहीं है।\"",
+     "data": {
+      "sentence": "मला काही ___ नाही.",
+      "word_bank": [
+       "ॲलर्जी",
+       "भूक",
+       "सर्दी"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "ॲलर्जी"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे कोई एलर्जी नहीं है।\"",
+     "data": {
+      "words": [
+       "नाही",
+       "ॲलर्जी",
+       "काही",
+       "मला"
+      ]
+     },
+     "correct_answer": "मला काही ॲलर्जी नाही"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "क्लिनिक के रिसेप्शन पर आप बताते हैं कि आपको डॉक्टर से मिलना है।",
+     "data": {
+      "options": [
+       "मला डॉक्टरांना भेटायचं आहे.",
+       "मला डॉक्टर व्हायचं आहे.",
+       "डॉक्टरांना मला भेटायचं आहे.",
+       "मला औषध हवं आहे."
+      ],
+      "speaker": "Receptionist",
+      "speaker_says": "नमस्कार, बोला?"
+     },
+     "correct_answer": "मला डॉक्टरांना भेटायचं आहे."
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "रिसेप्शनिस्ट पूछती है कि क्या आप पहले आए हैं। आप पहली बार आए हैं।",
+     "data": {
+      "options": [
+       "मी पहिल्यांदा आलो आहे.",
+       "मी उद्या येईन.",
+       "मी खूप वेळा आलो आहे.",
+       "तुम्ही पहिल्यांदा आला आहात."
+      ],
+      "speaker": "Receptionist",
+      "speaker_says": "तुम्ही आधी आला होतात का?"
+     },
+     "correct_answer": "मी पहिल्यांदा आलो आहे."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "डॉक्टर पूछते हैं कि आपको किसी चीज़ से एलर्जी है क्या। आपको कोई एलर्जी नहीं है।",
+     "data": {
+      "options": [
+       "मला काही ॲलर्जी नाही.",
+       "मला खूप ॲलर्जी आहे.",
+       "तुम्हाला ॲलर्जी नाही.",
+       "मला ताप नाही."
+      ],
+      "speaker": "Doctor",
+      "speaker_says": "तुम्हाला कसली ॲलर्जी आहे का?"
+     },
+     "correct_answer": "मला काही ॲलर्जी नाही."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे पूछेंगे — \"डॉक्टर कब आएँगे\"",
+     "data": {
+      "options": [
+       "डॉक्टर कधी येतील?",
+       "डॉक्टर कुठे आहेत?",
+       "डॉक्टर कधी गेले?",
+       "डॉक्टर आले आहेत."
+      ]
+     },
+     "correct_answer": "डॉक्टर कधी येतील?"
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"मैं पहली बार आया हूँ\"",
+     "data": {
+      "options": [
+       "मी पहिल्यांदा आलो आहे.",
+       "मी उद्या येईन.",
+       "मी खूप वेळा आलो आहे.",
+       "तुम्ही पहिल्यांदा आला आहात."
+      ]
+     },
+     "correct_answer": "मी पहिल्यांदा आलो आहे."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे दो दिन से बुखार है\"",
+     "data": {
+      "options": [
+       "मला दोन दिवसांपासून ताप आहे.",
+       "मला दोन दिवसांनी ताप येईल.",
+       "त्याला दोन दिवसांपासून ताप आहे.",
+       "मला दोन दिवसांपासून सर्दी आहे."
+      ]
+     },
+     "correct_answer": "मला दोन दिवसांपासून ताप आहे."
+    }
+   ]
+  },
+  {
+   "order_index": 4,
+   "title": "Feeling Better",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "आता बरं वाटतंय.",
+     "transliteration": "Aata bara vaatatay.",
+     "source": "अब ठीक लग रहा है।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "मला आराम हवा आहे.",
+     "transliteration": "Mala aaram hava aahe.",
+     "source": "मुझे आराम चाहिए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "मी आज ऑफिसला येणार नाही.",
+     "transliteration": "Mi aaj officela yenar naahi.",
+     "source": "मैं आज ऑफिस नहीं आऊँगा।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "मला थोडा थकवा आहे.",
+     "transliteration": "Mala thoda thakva aahe.",
+     "source": "मुझे थोड़ी थकान है।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "उद्या मला बरं वाटेल.",
+     "transliteration": "Udya mala bara vaatel.",
+     "source": "कल मुझे ठीक लगेगा।",
+     "origin": "draft",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "तीन दिन के बुखार के बाद आज सुबह आप बेहतर हैं। दोस्त के मैसेज का जवाब आप देते हैं: \"आता बरं वाटतंय.\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "आता बरं वाटतंय.",
+     "data": {
+      "options": [
+       "अब ठीक लग रहा है।",
+       "अब ठीक नहीं लग रहा।",
+       "कल ठीक लगेगा।",
+       "अब भूख लगी है।"
+      ]
+     },
+     "correct_answer": "अब ठीक लग रहा है।"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"अब ठीक लग रहा है।\"",
+     "data": {
+      "sentence": "___ बरं वाटतंय.",
+      "word_bank": [
+       "आता",
+       "काल",
+       "उद्या"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "आता"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "मला आराम हवा आहे.",
+     "data": {
+      "options": [
+       "मुझे आराम चाहिए।",
+       "मुझे काम चाहिए।",
+       "मुझे आराम नहीं चाहिए।",
+       "उसे आराम चाहिए।"
+      ]
+     },
+     "correct_answer": "मुझे आराम चाहिए।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे आराम चाहिए।\"",
+     "data": {
+      "words": [
+       "आहे",
+       "मला",
+       "आराम",
+       "हवा"
+      ]
+     },
+     "correct_answer": "मला आराम हवा आहे"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"मैं आज ऑफिस नहीं आऊँगा।\"",
+     "data": {
+      "sentence": "मी ___ ऑफिसला येणार नाही.",
+      "word_bank": [
+       "आज",
+       "काल",
+       "कधी"
+      ],
+      "blank_index": 1
+     },
+     "correct_answer": "आज"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "मला थोडा थकवा आहे.",
+     "data": {
+      "options": [
+       "मुझे थोड़ी थकान है।",
+       "मुझे बहुत भूख है।",
+       "मुझे थोड़ा बुखार है।",
+       "मैं बिल्कुल ठीक हूँ।"
+      ]
+     },
+     "correct_answer": "मुझे थोड़ी थकान है।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"मुझे थोड़ी थकान है।\"",
+     "data": {
+      "words": [
+       "मला",
+       "थोडा",
+       "आहे",
+       "थकवा"
+      ]
+     },
+     "correct_answer": "मला थोडा थकवा आहे"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"कल मुझे ठीक लगेगा।\"",
+     "data": {
+      "sentence": "उद्या मला ___ वाटेल.",
+      "word_bank": [
+       "बरं",
+       "भूक",
+       "ताप"
+      ],
+      "blank_index": 2
+     },
+     "correct_answer": "बरं"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"कल मुझे ठीक लगेगा।\"",
+     "data": {
+      "words": [
+       "बरं",
+       "वाटेल",
+       "मला",
+       "उद्या"
+      ]
+     },
+     "correct_answer": "उद्या मला बरं वाटेल"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "दो दिन से बीमार थे। दोस्त हालचाल पूछता है। अब आप बेहतर महसूस कर रहे हैं।",
+     "data": {
+      "options": [
+       "आता बरं वाटतंय.",
+       "मला बरं वाटत नाही.",
+       "आता भूक लागली आहे.",
+       "काल बरं वाटलं."
+      ],
+      "speaker": "Friend",
+      "speaker_says": "आता कसं वाटतंय?"
+     },
+     "correct_answer": "आता बरं वाटतंय."
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "आप मैनेजर को फ़ोन करके बताते हैं कि आज ऑफिस नहीं आएँगे।",
+     "data": {
+      "options": [
+       "मी आज ऑफिसला येणार नाही.",
+       "मी आज ऑफिसला येणार आहे.",
+       "तुम्ही आज ऑफिसला येणार नाही.",
+       "मी काल ऑफिसला आलो नाही."
+      ],
+      "speaker": "Manager",
+      "speaker_says": "हॅलो, बोला?"
+     },
+     "correct_answer": "मी आज ऑफिसला येणार नाही."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "माँ फ़ोन पर चिंता कर रही हैं। आप भरोसा दिलाते हैं कि कल तक ठीक लगेगा।",
+     "data": {
+      "options": [
+       "उद्या मला बरं वाटेल.",
+       "उद्या मला बरं वाटणार नाही.",
+       "काल मला बरं वाटलं.",
+       "आज मला ताप आहे."
+      ],
+      "speaker": "Mother",
+      "speaker_says": "काळजी वाटते रे."
+     },
+     "correct_answer": "उद्या मला बरं वाटेल."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे आराम चाहिए\"",
+     "data": {
+      "options": [
+       "मला आराम हवा आहे.",
+       "मला काम हवं आहे.",
+       "मला आराम नको.",
+       "त्याला आराम हवा आहे."
+      ]
+     },
+     "correct_answer": "मला आराम हवा आहे."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"मैं आज ऑफिस नहीं आऊँगा\"",
+     "data": {
+      "options": [
+       "मी आज ऑफिसला येणार नाही.",
+       "मी आज ऑफिसला येणार आहे.",
+       "मी काल ऑफिसला आलो नाही.",
+       "तुम्ही आज ऑफिसला येणार नाही."
+      ]
+     },
+     "correct_answer": "मी आज ऑफिसला येणार नाही."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"मुझे थोड़ी थकान है\"",
+     "data": {
+      "options": [
+       "मला थोडा थकवा आहे.",
+       "मला खूप भूक आहे.",
+       "मला थोडा ताप आहे.",
+       "मी एकदम ठीक आहे."
+      ]
+     },
+     "correct_answer": "मला थोडा थकवा आहे."
+    }
+   ]
+  },
+  {
+   "order_index": 5,
+   "title": "Taking Care",
+   "phrases": [
+    {
+     "key": "p1",
+     "order_index": 1,
+     "target": "काळजी घ्या.",
+     "transliteration": "Kaalji ghya.",
+     "source": "ख्याल रखिए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p2",
+     "order_index": 2,
+     "target": "भरपूर पाणी प्या.",
+     "transliteration": "Bharpur paani pya.",
+     "source": "खूब पानी पीजिए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p3",
+     "order_index": 3,
+     "target": "लवकर बरे व्हा.",
+     "transliteration": "Lavkar bare vha.",
+     "source": "जल्दी ठीक हो जाइए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p4",
+     "order_index": 4,
+     "target": "आज आराम करा.",
+     "transliteration": "Aaj aaram kara.",
+     "source": "आज आराम कीजिए।",
+     "origin": "draft",
+     "tatoeba_id": null
+    },
+    {
+     "key": "p5",
+     "order_index": 5,
+     "target": "जास्त काम करू नका.",
+     "transliteration": "Jaast kaam karu naka.",
+     "source": "ज़्यादा काम मत कीजिए।",
+     "origin": "existing",
+     "tatoeba_id": null
+    }
+   ],
+   "steps": [
+    {
+     "order_index": 1,
+     "step_type": "context",
+     "phrase": "p1",
+     "prompt": "आपकी सहकर्मी को बुखार है और वह घर जा रही है। जाते समय आप कहते हैं: \"काळजी घ्या.\"",
+     "data": {},
+     "correct_answer": null
+    },
+    {
+     "order_index": 2,
+     "step_type": "match",
+     "phrase": "p1",
+     "prompt": "काळजी घ्या.",
+     "data": {
+      "options": [
+       "ख्याल रखिए।",
+       "ध्यान से सुनिए।",
+       "जल्दी आइए।",
+       "आराम कीजिए।"
+      ]
+     },
+     "correct_answer": "ख्याल रखिए।"
+    },
+    {
+     "order_index": 3,
+     "step_type": "fill_blank",
+     "phrase": "p1",
+     "prompt": "\"ख्याल रखिए।\"",
+     "data": {
+      "sentence": "___ घ्या.",
+      "word_bank": [
+       "काळजी",
+       "भीती",
+       "झोप"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "काळजी"
+    },
+    {
+     "order_index": 4,
+     "step_type": "match",
+     "phrase": "p2",
+     "prompt": "भरपूर पाणी प्या.",
+     "data": {
+      "options": [
+       "खूब पानी पीजिए।",
+       "थोड़ा पानी पीजिए।",
+       "खूब खाना खाइए।",
+       "पानी मत पीजिए।"
+      ]
+     },
+     "correct_answer": "खूब पानी पीजिए।"
+    },
+    {
+     "order_index": 5,
+     "step_type": "arrange",
+     "phrase": "p2",
+     "prompt": "शब्द सही क्रम में लगाइए: \"खूब पानी पीजिए।\"",
+     "data": {
+      "words": [
+       "भरपूर",
+       "प्या",
+       "पाणी"
+      ]
+     },
+     "correct_answer": "भरपूर पाणी प्या"
+    },
+    {
+     "order_index": 6,
+     "step_type": "fill_blank",
+     "phrase": "p3",
+     "prompt": "\"जल्दी ठीक हो जाइए।\"",
+     "data": {
+      "sentence": "___ बरे व्हा.",
+      "word_bank": [
+       "लवकर",
+       "उशिरा",
+       "उद्या"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "लवकर"
+    },
+    {
+     "order_index": 7,
+     "step_type": "match",
+     "phrase": "p4",
+     "prompt": "आज आराम करा.",
+     "data": {
+      "options": [
+       "आज आराम कीजिए।",
+       "कल आराम कीजिए।",
+       "आज काम कीजिए।",
+       "आज आराम नहीं है।"
+      ]
+     },
+     "correct_answer": "आज आराम कीजिए।"
+    },
+    {
+     "order_index": 8,
+     "step_type": "arrange",
+     "phrase": "p4",
+     "prompt": "शब्द सही क्रम में लगाइए: \"आज आराम कीजिए।\"",
+     "data": {
+      "words": [
+       "आज",
+       "करा",
+       "आराम"
+      ]
+     },
+     "correct_answer": "आज आराम करा"
+    },
+    {
+     "order_index": 9,
+     "step_type": "fill_blank",
+     "phrase": "p5",
+     "prompt": "\"ज़्यादा काम मत कीजिए।\"",
+     "data": {
+      "sentence": "___ काम करू नका.",
+      "word_bank": [
+       "जास्त",
+       "कमी",
+       "थोडं"
+      ],
+      "blank_index": 0
+     },
+     "correct_answer": "जास्त"
+    },
+    {
+     "order_index": 10,
+     "step_type": "arrange",
+     "phrase": "p5",
+     "prompt": "शब्द सही क्रम में लगाइए: \"ज़्यादा काम मत कीजिए।\"",
+     "data": {
+      "words": [
+       "नका",
+       "काम",
+       "करू",
+       "जास्त"
+      ]
+     },
+     "correct_answer": "जास्त काम करू नका"
+    },
+    {
+     "order_index": 11,
+     "step_type": "conversation",
+     "phrase": "p1",
+     "prompt": "सहकर्मी की तबीयत ठीक नहीं है और वह घर जा रही है। आप कहते हैं कि अपना ख्याल रखिए।",
+     "data": {
+      "options": [
+       "काळजी घ्या.",
+       "पाणी द्या.",
+       "काम करा.",
+       "लवकर या."
+      ],
+      "speaker": "Colleague",
+      "speaker_says": "मी आज लवकर घरी जाते. बरं वाटत नाही."
+     },
+     "correct_answer": "काळजी घ्या."
+    },
+    {
+     "order_index": 12,
+     "step_type": "conversation",
+     "phrase": "p3",
+     "prompt": "पड़ोसी को बुखार है। आप उन्हें जल्दी ठीक होने की शुभकामना देते हैं।",
+     "data": {
+      "options": [
+       "लवकर बरे व्हा.",
+       "लवकर या.",
+       "उशिरा बरे व्हा.",
+       "मला ताप आहे."
+      ],
+      "speaker": "Neighbour",
+      "speaker_says": "मला ताप आलाय."
+     },
+     "correct_answer": "लवकर बरे व्हा."
+    },
+    {
+     "order_index": 13,
+     "step_type": "conversation",
+     "phrase": "p5",
+     "prompt": "बीमार दोस्त कहता है कि आज रात तक काम करेगा। आप कहते हैं कि ज़्यादा काम मत कीजिए।",
+     "data": {
+      "options": [
+       "जास्त काम करू नका.",
+       "जास्त काम करा.",
+       "जास्त खाऊ नका.",
+       "काम कुठे आहे?"
+      ],
+      "speaker": "Friend",
+      "speaker_says": "आज रात्रीपर्यंत काम आहे."
+     },
+     "correct_answer": "जास्त काम करू नका."
+    },
+    {
+     "order_index": 14,
+     "step_type": "recall",
+     "phrase": "p2",
+     "prompt": "मराठी में कैसे कहेंगे — \"खूब पानी पीजिए\"",
+     "data": {
+      "options": [
+       "भरपूर पाणी प्या.",
+       "थोडं पाणी प्या.",
+       "भरपूर जेवण करा.",
+       "पाणी पिऊ नका."
+      ]
+     },
+     "correct_answer": "भरपूर पाणी प्या."
+    },
+    {
+     "order_index": 15,
+     "step_type": "recall",
+     "phrase": "p3",
+     "prompt": "मराठी में कैसे कहेंगे — \"जल्दी ठीक हो जाइए\"",
+     "data": {
+      "options": [
+       "लवकर बरे व्हा.",
+       "लवकर या.",
+       "उशिरा बरे व्हा.",
+       "लवकर झोपा."
+      ]
+     },
+     "correct_answer": "लवकर बरे व्हा."
+    },
+    {
+     "order_index": 16,
+     "step_type": "recall",
+     "phrase": "p4",
+     "prompt": "मराठी में कैसे कहेंगे — \"आज आराम कीजिए\"",
+     "data": {
+      "options": [
+       "आज आराम करा.",
+       "उद्या आराम करा.",
+       "आज काम करा.",
+       "आज आराम नाही."
+      ]
+     },
+     "correct_answer": "आज आराम करा."
+    }
+   ]
+  }
+ ],
+ "notes": [
+  "Replaces the old Feeling Unwell (5 lessons, 20 short phrases, 40 steps; no learner progress on 2026-11-12).",
+  "Same format as the other v2 modules: 5 sentences per lesson, 16 steps, match / fill_blank / arrange interleaved, then conversation and recall.",
+  "Learner-side sentences only: to a friend, the chemist, the clinic and the manager. In Taking Care the learner wishes someone else well.",
+  "Origin 'draft' = written for Samwad; 'existing' = already in the old module. Nothing written to the database yet."
+ ]
+}
