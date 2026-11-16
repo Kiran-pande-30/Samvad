@@ -1,7 +1,9 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
-export const PROTECTED_PATHS = ['/profile', '/lesson', '/conversations', '/api/me']
+// `/lesson` isn't here: guests may open the free first module. The lesson API
+// returns 401 for any other lesson and the lesson page then sends them to /login.
+export const PROTECTED_PATHS = ['/profile', '/conversations', '/api/me']
 export const AUTH_PAGES = ['/login', '/signup']
 
 export async function updateSession(request: NextRequest) {

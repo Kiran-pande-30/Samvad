@@ -144,6 +144,17 @@ Learner opens a scenario → sees the scene, goals and helpful phrases → the d
 - [ ] AC16. Test on 2–3 friends' phones (Android and iPhone); note what breaks
 - [ ] AC17. Add the next scenario as one more row (vegetable seller or kirana)
 
+### Try one lesson without signing up (added 2026-11-16)
+
+A follower couldn't see the app without registering. Guests get one lesson (Essentials lesson 1): answers are checked in the browser and never saved, and the lesson-complete screen asks them to sign up. Content tables are already public-read (RLS checked 2026-11-16), so no migration is needed.
+
+- [ ] G1. Pick how the guest lesson is identified (one constant id, or "first lesson of the first module") and let logged-out visitors reach only that lesson: `PROTECTED_PATHS` in `lib/supabase/middleware.ts`
+- [ ] G2. `/api/lessons/[lessonId]`: return the guest lesson without a user, still 401 for every other lesson; test both logged out with `curl`
+- [ ] G3. 🤖 Guest mode in the lesson player: skip `start_lesson` / `record_attempt` / `complete_lesson`, check answers in the browser, audio still plays
+- [ ] G4. 🤖 Guest lesson-complete screen: what they learned + "Sign up to keep your progress" → `/signup`
+- [ ] G5. 🤖 "Try a lesson — no signup" on the logged-out landing page, below "Start Learning"
+- [ ] G6. Phone test logged out, start to finish; then record the promo video ending on "Try a lesson — no signup needed"
+
 ### Week 2 — Word progress and dictionary
 
 Every answer is now saved as it happens, so the backfill (task 25) also counts lessons left half-way.
@@ -204,7 +215,7 @@ Every answer is now saved as it happens, so the backfill (task 25) also counts l
 - **Upgrade Node 20 → 22** — Node 20 is past end-of-life; also lets `scripts/generate-audio.ts` drop the `ws` workaround.
 - **Decide what "daily goal" means** — profile shows "1 lesson / day", the practice plan counts retired words. Settle before Week 3.
 - **Native-speaker review of the v2 content** — all 637 steps were drafted by Claude and checked by Kiran; Shops And Errands and Weather And Free Time were not reviewed before going live (review pages still work for flags).
-- **Landing page** — use the stronger tagline "Learn the language of your new home"; the illustration says नमस्ते, Marathi is नमस्कार.
+- **Landing page** — use the stronger tagline "Learn the language of your new home"; the illustration says नमस्ते, Marathi is नमस्कार. Today's logged-out `/` only has "Start Learning" → `/login`, so visitors see nothing of the app before signing up (a follower asked for a video for this reason, 2026-11-16).
 - **Lesson page as a Server Component** — load the lesson directly instead of fetching `/api/lessons` in `useEffect` (removes "Loading lesson…").
 - **Lesson-complete celebration + home "today" section** — words learned, accuracy, streak; streak/goal/continue at the top of home. Build alongside daily practice.
 - **Clean up old data** — drop the `backup_20261102` / `backup_20261112` schemas once the new content has run for a few weeks; delete `audio_clips` rows (and files) whose text no longer appears in any lesson.

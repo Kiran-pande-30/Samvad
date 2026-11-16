@@ -2,12 +2,12 @@
 
 import Link from 'next/link'
 import { useRouter, useParams } from 'next/navigation'
-import { X } from 'lucide-react'
+import { PartyPopper, X } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import LessonEngine from '@/components/lesson/LessonEngine'
 import PlayAudioButton from '@/components/lesson/PlayAudioButton'
 import type { LessonStep, Phrase } from '@/components/lesson/types'
-import type { LessonResume, UserProgressStatus } from '@/lib/types'
+import type { GuestLessonInfo, LessonResume, UserProgressStatus } from '@/lib/types'
 
 interface LessonDetail {
   id: string
@@ -17,6 +17,7 @@ interface LessonDetail {
   steps: LessonStep[]
   status: UserProgressStatus
   resume: LessonResume | null
+  guest: GuestLessonInfo | null
 }
 
 type Screen = 'preview' | 'active' | 'finished'
@@ -33,13 +34,23 @@ const LessonPage = () => {
 
   useEffect(() => {
     const fetchAndStartLesson = async () => {
+      // Keep showing "Loading" while a guest is sent to /login
+      let redirecting = false
       try {
         const response = await fetch(`/api/lessons/${lessonId}`)
+        // A guest opened a lesson outside the free first module
+        if (response.status === 401) {
+          redirecting = true
+          router.replace('/login')
+          return
+        }
         if (!response.ok) {
           throw new Error('Failed to fetch lesson')
         }
         const data: LessonDetail = await response.json()
         setLesson(data)
+        // Guests' runs aren't saved, so there's nothing to start.
+        if (data.guest) return
         // Always call start: for a completed lesson it begins a fresh run
         // (resets started_at) without un-completing it.
         await fetch('/api/me/progress/start', {
@@ -50,14 +61,14 @@ const LessonPage = () => {
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred')
       } finally {
-        setLoading(false)
+        if (!redirecting) setLoading(false)
       }
     }
 
     if (lessonId) {
       fetchAndStartLesson()
     }
-  }, [lessonId])
+  }, [lessonId, router])
 
   const phrasesById = useMemo(() => {
     const map = new Map<string, Phrase>()
@@ -67,6 +78,10 @@ const LessonPage = () => {
 
   const handleComplete = async () => {
     if (!lesson) return
+    if (lesson.guest) {
+      setScreen('finished')
+      return
+    }
     try {
       const response = await fetch('/api/me/progress/complete', {
         method: 'POST',
@@ -159,6 +174,52 @@ const LessonPage = () => {
     )
   }
 
+  if (screen === 'finished' && lesson.guest) {
+    const nextLessonId = lesson.guest.next_lesson_id
+    return (
+      <div className="flex-1 flex flex-col px-7 pt-8 pb-10 min-h-0">
+        <div className="flex-1 min-h-0 overflow-y-auto no-scrollbar flex flex-col items-center justify-center text-center">
+          <div className="w-16 h-16 shrink-0 rounded-full bg-coral/10 flex items-center justify-center">
+            <PartyPopper className="w-8 h-8 text-coral-strong" />
+          </div>
+          <h1 className="mt-6 text-[32px] font-bold leading-[1.2]">Lesson complete!</h1>
+          {lesson.phrases.length > 0 && (
+            <>
+              <p className="mt-3 text-[17px] text-gray-500">
+                You learned {lesson.phrases.length} Marathi phrase{lesson.phrases.length === 1 ? '' : 's'}
+              </p>
+              <ul className="mt-6 flex flex-wrap justify-center gap-2">
+                {lesson.phrases.map((phrase) => (
+                  <li key={phrase.id} className="px-4 py-2 rounded-full bg-gray-50 border border-gray-200 text-[15px] font-medium">
+                    {phrase.target}
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+        </div>
+
+        <div className="shrink-0 mt-8">
+          <p className="text-center text-[15px] text-gray-500 mb-4">
+            Sign up free to save your progress and unlock every module.
+          </p>
+          <Link
+            href="/signup"
+            className="w-full h-14.5 bg-coral-strong text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-center active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150"
+          >
+            Sign up to keep your progress
+          </Link>
+          <Link
+            href={nextLessonId ? `/lesson/${nextLessonId}` : '/'}
+            className="w-full h-14 mt-3 rounded-full border border-gray-200 text-[16px] font-semibold flex items-center justify-center active:scale-[0.985] transition-transform duration-150"
+          >
+            {nextLessonId ? 'Next free lesson' : 'Back to home'}
+          </Link>
+        </div>
+      </div>
+    )
+  }
+
   if (screen === 'finished') {
     return (
       <div className="flex-1 flex flex-col items-center justify-center px-7 text-center">
@@ -182,7 +243,13 @@ const LessonPage = () => {
   return (
     <div className="flex-1 flex flex-col px-4 py-6 min-h-0">
       {lesson.steps.length > 0 ? (
-        <LessonEngine steps={lesson.steps} phrasesById={phrasesById} resume={lesson.resume} onComplete={handleComplete} />
+        <LessonEngine
+          steps={lesson.steps}
+          phrasesById={phrasesById}
+          resume={lesson.resume}
+          saveAnswers={!lesson.guest}
+          onComplete={handleComplete}
+        />
       ) : (
         <div className="flex-1 flex flex-col items-center justify-center text-center">
           <p className="text-gray-500">This lesson has no steps yet.</p>

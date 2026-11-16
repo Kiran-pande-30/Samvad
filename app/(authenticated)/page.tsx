@@ -3,7 +3,7 @@ import { createClient } from '@/lib/supabase/server'
 import { getAuthenticatedUser } from '@/lib/data/auth'
 import { getProfile } from '@/lib/data/profile'
 import ModuleList from '@/components/modules/ModuleList'
-import { getModulesWithLessons } from '@/lib/data/modules'
+import { getFreeLessonIds, getModulesWithLessons } from '@/lib/data/modules'
 import { getProgress } from '@/lib/data/progress'
 
 const SamwadIllustration = () => {
@@ -88,8 +88,16 @@ const RootPage = async () => {
     )
   }
 
+  // "Start Learning" opens the first free lesson, no signup needed; if that
+  // lookup fails, fall back to the login page.
+  const [firstFreeLessonId] = await getFreeLessonIds(supabase).catch((error) => {
+    console.error(error)
+    return []
+  })
+  const startHref = firstFreeLessonId ? `/lesson/${firstFreeLessonId}` : '/login'
+
   return (
-    <div className="flex-1 flex flex-col px-7 pt-16 pb-10 min-h-0">
+    <div className="flex-1 flex flex-col px-7 pt-16 pb-8 min-h-0">
       <h1 className="text-[38px] font-bold leading-[1.16] tracking-[-1px] shrink-0">
         Talk Across Languages
       </h1>
@@ -104,13 +112,22 @@ const RootPage = async () => {
         </p>
 
         <Link
-          href="/login"
+          href={startHref}
           className="w-full h-14.5 bg-coral-strong text-white rounded-full text-[17px] font-semibold tracking-[-0.2px] flex items-center justify-between pl-7.5 pr-4.5 cursor-pointer border-none active:opacity-85 active:scale-[0.985] transition-[opacity,transform] duration-150">
           <span>Start Learning</span>
           <div className="w-9.5 h-9.5 bg-white/18 rounded-full flex items-center justify-center text-[19px] leading-none">
             →
           </div>
         </Link>
+        {firstFreeLessonId && (
+          <p className="mt-3 text-center text-sm text-gray-500">First module free · no signup needed</p>
+        )}
+        <p className="mt-4 text-center text-[15px] text-gray-500">
+          Already learning?{' '}
+          <Link href="/login" className="inline-block py-3 -my-3 text-coral-strong font-semibold">
+            Log in
+          </Link>
+        </p>
       </div>
     </div>
   )

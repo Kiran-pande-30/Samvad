@@ -174,17 +174,20 @@ export async function getLessonSummaries(supabase: SupabaseClient) {
   }))
 }
 
-export async function getLessonDetail(supabase: SupabaseClient, lessonId: string, userId: string) {
+// userId is null for a guest: no saved progress, so no resume.
+export async function getLessonDetail(supabase: SupabaseClient, lessonId: string, userId: string | null) {
   const [lessonResult, phrasesResult, stepsResult, progressResult, allPhrasesResult] = await Promise.all([
     supabase.from('lessons').select('*').eq('id', lessonId).single(),
     supabase.from('phrases').select('*').eq('lesson_id', lessonId).order('order_index', { ascending: true }),
     supabase.from('lesson_steps').select('*').eq('lesson_id', lessonId).order('order_index', { ascending: true }),
-    supabase
-      .from('user_progress')
-      .select('status, started_at')
-      .eq('user_id', userId)
-      .eq('lesson_id', lessonId)
-      .maybeSingle(),
+    userId
+      ? supabase
+          .from('user_progress')
+          .select('status, started_at')
+          .eq('user_id', userId)
+          .eq('lesson_id', lessonId)
+          .maybeSingle()
+      : Promise.resolve({ data: null, error: null }),
     // Every phrase (a few hundred rows), so answers and wrong options from other lessons get a meaning too.
     supabase.from('phrases').select('target, source'),
   ])
@@ -243,7 +246,7 @@ export async function getLessonDetail(supabase: SupabaseClient, lessonId: string
   // Resume only an unfinished lesson that already has answers in this run.
   // (Opening a completed lesson starts a fresh run instead.)
   let resume: LessonResume | null = null
-  if (progressResult.data?.status === 'in_progress') {
+  if (userId && progressResult.data?.status === 'in_progress') {
     const stepIds = steps.map((step) => step.id)
     const attempts = await getRunAttempts(supabase, userId, stepIds, progressResult.data.started_at)
     const remaining = remainingStepIds(stepIds, attempts)

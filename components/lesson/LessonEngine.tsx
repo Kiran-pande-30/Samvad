@@ -11,10 +11,12 @@ interface LessonEngineProps {
   steps: LessonStep[]
   phrasesById: Map<string, Phrase>
   resume: LessonResume | null
+  // False for guests: answers are only checked in the browser, never saved.
+  saveAnswers: boolean
   onComplete: () => void
 }
 
-export default function LessonEngine({ steps, phrasesById, resume, onComplete }: LessonEngineProps) {
+export default function LessonEngine({ steps, phrasesById, resume, saveAnswers, onComplete }: LessonEngineProps) {
   // Resuming: start from the steps still to do (worked out on the server from
   // this run's saved answers). Steps already done count towards the progress bar.
   const [initial] = useState(() => {
@@ -39,6 +41,7 @@ export default function LessonEngine({ steps, phrasesById, resume, onComplete }:
 
   const handleAnswer = (result: StepAnswer) => {
     setPendingAnswer(result)
+    if (!saveAnswers) return
     const save = () =>
       fetch('/api/me/progress/attempt', {
         method: 'POST',

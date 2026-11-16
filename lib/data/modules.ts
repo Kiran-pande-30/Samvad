@@ -53,6 +53,25 @@ export const getModuleLessons = async (supabase: SupabaseClient, moduleId: strin
   })
 }
 
+// Guests (not signed in) can take every lesson of the first module of this pair.
+export const FREE_LANGUAGE_PAIR_SLUG = 'hindi-marathi'
+
+// The free lessons' ids, in path order. Lesson content is public-read, so this
+// works with a logged-out Supabase client.
+export const getFreeLessonIds = async (supabase: SupabaseClient): Promise<string[]> => {
+  const [firstModule] = await getModulesByLanguagePair(supabase, FREE_LANGUAGE_PAIR_SLUG)
+  if (!firstModule) return []
+
+  const { data, error } = await supabase
+    .from('lessons')
+    .select('id')
+    .eq('module_id', firstModule.id)
+    .order('order_index', { ascending: true })
+
+  if (error) throw new Error('Failed to fetch free lessons')
+  return data.map((lesson) => lesson.id)
+}
+
 export const getModulesWithLessons = async ( supabase: SupabaseClient, languagePairSlug: string): Promise<ModuleWithLessons[]> => {
   const modules = await getModulesByLanguagePair(supabase, languagePairSlug)
 

@@ -161,6 +161,11 @@ export interface LessonResume {
     done: number;
 }
 
+// Sent with a lesson when the visitor isn't signed in (free first module only).
+export interface GuestLessonInfo {
+    next_lesson_id: string | null;   // next free lesson, null after the last one
+}
+
 // Auth pages that read `?error=` from the URL (e.g. an expired reset link).
 export interface AuthPageProps {
     searchParams: Promise<{ error?: string }>;
